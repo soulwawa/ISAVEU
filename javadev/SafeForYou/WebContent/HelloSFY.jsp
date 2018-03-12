@@ -8,5 +8,6 @@
 </head>
 <body>
 <h1>Hello SFY</h1>
+<h2>GIT 동기화 TEST</h2>
 </body>
 </html>
