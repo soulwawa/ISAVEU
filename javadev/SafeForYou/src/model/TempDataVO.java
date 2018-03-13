@@ -10,6 +10,7 @@ public class TempDataVO implements Serializable{
 	private int id;
 	private double temp;
 	private String time;
+
 	public int getId() {
 		return id;
 	}
@@ -28,6 +29,6 @@ public class TempDataVO implements Serializable{
 	public void setTime(String time) {
 		this.time = time;
 	}
-	
-	
+
+
 }
