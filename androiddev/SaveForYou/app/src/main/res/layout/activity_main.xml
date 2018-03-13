@@ -11,7 +11,7 @@
         android:layout_width="56dp"
         android:layout_height="18dp"
         android:layout_marginStart="52dp"
-        android:text="TextView"
+        android:text="Test Test"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 
