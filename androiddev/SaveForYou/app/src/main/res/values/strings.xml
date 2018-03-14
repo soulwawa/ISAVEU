@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">SaveForYou</string>
-    <string name="login_num">사번</string>
-    <string name="login_pw">비밀번호</string>
-    <string name="login_btn">로그인</string>
-</resources>
