@@ -12,7 +12,7 @@ public class TempVO implements Serializable{
 	private String type;
 	private String temperature;
 	private String idate;
-	
+
 	public String getLoc() {
 		return loc;
 	}
@@ -50,6 +50,6 @@ public class TempVO implements Serializable{
 	}
 
 	public String getNum() {
-	return num;
-}
+		return num;
+	}
 }
