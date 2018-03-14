@@ -3,13 +3,13 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import dao.TempDAO;
 import model.TempVO;
 
-public class TempInServlet {
+public class TempInServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws SecurityException, IOException{
 		response.setContentType("text/plain;charset=utf-8");
 		PrintWriter out = response.getWriter();
@@ -26,7 +26,7 @@ public class TempInServlet {
 		vo.setLoc(loc);
 		vo.setType(type);
 		vo.setTemperature(temp + "");
-//		dao.insertTemp(vo);
+		dao.insertTemp(vo);
 		out.println("success");
 	}
 	

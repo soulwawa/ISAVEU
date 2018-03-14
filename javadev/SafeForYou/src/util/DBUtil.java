@@ -10,7 +10,7 @@ public class DBUtil {
 		try {
 			//문자열로 전달되는 클래스가 존재하는 클래스를 메모리로 로드하는 역활.
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://10.1.41.26:3306/mydb", "root", "1234");
+			return DriverManager.getConnection("jdbc:mysql://192.168.0.13:3306/mydb", "root", "1234");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
