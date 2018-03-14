@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="kr.co.isaveyou.isaveyou.LoginActivity">
+
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/email_login_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <EditText
+                android:id="@+id/login_id"
+                android:layout_width="338dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/login_num"
+                android:inputType="number"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/login_pw"
+                android:layout_width="338dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/login_pw"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:text="@string/login_btn"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
