@@ -3,4 +3,5 @@
     <string name="login_num">사번</string>
     <string name="login_pw">비밀번호</string>
     <string name="login_btn">로그인</string>
+    <string name="default_notification_channel_id">FCMID</string>
 </resources>
