@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>TEST</title>
 </head>
 <body>
-<h1>Hello SFY</h1>
-<h2>GIT 동기화 TEST23</h2>
+<h1>TEST 페이지 입니다.</h1>
+
 </body>
 </html>
