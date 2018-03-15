@@ -1,3 +1,6 @@
+package kr.or.kpc.test;
+
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
@@ -24,7 +27,7 @@ public class FCMServer {
 		data.setTitle("[I Save You]긴급상황 발생");
 		fcmData.setData(data);
 		fcmData.setTo("dpLbZuQqfWI:APA91bGk_AXJK3q6Kx4_k9sil7hJQ1CzfqFvTPzonsQpl3OwOpCYVeHrcJdcBpvgY6XaazHcQLkSfHtho2cVdv6G9hkMZUELAPruewDjlffQ5sNCPyIQL71PNtQPVfPlPHOusLBnN6pJ");
-		
+		// DB에 전체 SELECT
 	
 		Gson gson = new Gson();
 		String params = gson.toJson(fcmData);

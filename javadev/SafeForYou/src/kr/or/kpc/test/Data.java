@@ -1,3 +1,4 @@
+package kr.or.kpc.test;
 
 public class Data {
 	String title;
