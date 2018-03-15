@@ -1,10 +1,13 @@
 package kr.co.isaveyou.isaveyou;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.IBinder;
@@ -63,17 +66,25 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
                 PendingIntent.FLAG_ONE_SHOT);
-        int color = 0xff123456;
+        int color = 123456;
+        Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(), R.drawable.notification_icon);
         String channelId = getString(R.string.default_notification_channel_id);
         Uri notificationSoundURI = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder mNotificationBuilder = new NotificationCompat.Builder( this, channelId)
-                .setSmallIcon(R.drawable.ic_stat_name)
+                .setSmallIcon(R.drawable.ic_stat_name) //작은 아이콘 세팅
+                .setLargeIcon(mLargeIconForNoti) //큰 아이콘 세팅 - 큰 아이콘 세팅을 위해서 위에 bitmap 이용
                 .setColor(color)
                 .setContentTitle( title )
                 .setContentText(messageBody)
-                .setAutoCancel( true )
+                .setAutoCancel( true ) // 클릭하면 사라지게 true 값을 줌
+                .setVibrate(new long[]{1500,1000,1500,1000}) //노티가 등록될 때 진동 패턴
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(messageBody))
+//                .addAction(R.drawble., 119에 신고, )
+//                .addAction(R.drawable., 화재지점 모니터링)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setSound(notificationSoundURI)
                 .setContentIntent(pendingIntent);
+
 
 
 
