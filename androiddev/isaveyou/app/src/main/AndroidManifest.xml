@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.co.isaveyou.isaveyou">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    출처: http://cofs.tistory.com/173 [CofS]
+
+    <!-- push서비스를 위한 internet 권한 추가 -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +19,7 @@
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"> <!-- activity 테마 적용 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,27 +37,31 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <!-- <service -->
-        <!-- android:name=".MyFirebaseInstanceIDService" -->
-        <!-- android:enabled="true" -->
-        <!-- android:exported="true"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="com.google.firebase.INSTANCE_ID_EVENT" /> -->
-        <!-- </intent-filter> -->
-        <!-- </service> -->
-        <!-- 아이콘 설정
+        <service
+            android:name=".MyFirebaseInstanceIDService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!--
+     아이콘 설정
      Set custom default icon. This is used when no icon is set for incoming notification messages.
         -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ic_stat_name" />
-        <!-- 아이콘 색상 및 메세지 색
+        <!--
+             아이콘 색상 및 메세지 색
              Set color used with incoming notification messages. This is used when no color is set for the incoming
              notification message.
         -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
+
     </application>
 
 </manifest>

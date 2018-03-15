@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.firebase.iid.FirebaseInstanceId;
+
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     EditText etId, etPw;
@@ -29,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         etId = findViewById(R.id.login_id);
         etPw = findViewById(R.id.login_pw);
         findViewById(R.id.login_button).setOnClickListener(handler);
-
+        getInstanceId();
     }
 
     private void Login() { //로그인 method - id, pw 값을 받아옴
@@ -78,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+    // id, pw 길이 확인을 위한 method
     private boolean isPasswordVaild(String password){ //패스워드를 너무 짧게 입력한 경우를 확인하기 위한 method
         return password.length() > 4;
     }
@@ -85,5 +88,8 @@ public class LoginActivity extends AppCompatActivity {
         return id.length() > 4;
     }
 
+    void getInstanceId(){ //앱을 설치한 기계의 instance Id를 얻기 위한 method
+        Log.v(TAG, "id : " + FirebaseInstanceId.getInstance().getToken());
+    }
 
 }
