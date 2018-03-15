@@ -1,13 +1,10 @@
-package dao;
+package kr.or.kpc.test;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import model.TempVO;
-import util.DBUtil;
 
 public class TempDAO {
 	private static final String INSERT_SQL = "insert into tbl_temp values(null, ?, ?, ?, now() );";

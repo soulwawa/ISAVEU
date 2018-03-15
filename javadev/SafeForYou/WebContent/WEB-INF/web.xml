@@ -2,11 +2,11 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <servlet>
     <servlet-name>tempIn</servlet-name>
-    <servlet-class>controller.TempInServlet</servlet-class>
+    <servlet-class>kr.or.kpc.test.TempInServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>tempList</servlet-name>
-    <servlet-class>controller.TempListServlet</servlet-class>
+    <servlet-class>kr.or.kpc.test.TempInServlet</servlet-class>
   </servlet>  
   <servlet-mapping>
     <servlet-name>tempIn</servlet-name>

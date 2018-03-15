@@ -1,4 +1,4 @@
-package model;
+package kr.or.kpc.test;
 
 import java.io.Serializable;
 

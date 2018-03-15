@@ -1,4 +1,4 @@
-package util;
+package kr.or.kpc.test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
