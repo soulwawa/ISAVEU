@@ -8,6 +8,7 @@ import android.util.Log;
 
 /**
  * notification에서 다른 기능 구현을 위한 bcr
+ * 추후 필요한 곳이 있을 수도 있어서 만들어 둠
  */
 
 public class NotiBroadCastRecevier extends BroadcastReceiver {
@@ -18,11 +19,11 @@ public class NotiBroadCastRecevier extends BroadcastReceiver {
         Log.v(TAG,"receive");
         String action = intent.getAction();
         switch (action){
-            case "dial":
-                Intent callIntent = new Intent(Intent.ACTION_DIAL);
-                callIntent.setData(Uri.parse("119"));
-                Intent intent1 = new Intent(callIntent);
+            case "E":
+
                 Log.v(TAG,"intent : " + intent);
+                context.startActivity(intent);
+
                 break;
         }
     }

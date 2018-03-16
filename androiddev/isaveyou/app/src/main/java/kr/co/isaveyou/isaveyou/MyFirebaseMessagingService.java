@@ -22,6 +22,10 @@ import android.widget.RemoteViews;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import static android.content.Intent.ACTION_CALL;
+import static android.content.Intent.ACTION_DIAL;
+import static android.content.Intent.ACTION_VIEW;
+
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "MyFirebaseMessaginService";
 
@@ -78,7 +82,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             sCpuWakeLock = null;
         }
 
-//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON|WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED|WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+
 
     }
 
@@ -97,20 +101,25 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Uri notificationSoundURI = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         //notificaiton 눌렀을 때의 액션 정의
-        Intent actionCall = new Intent("dial");
-        Intent actionMonitoring = new Intent();
+
+        Intent actionCall = new Intent(ACTION_CALL,Uri.parse("tel:119"));
+        Intent actionCheckPlace = new Intent(ACTION_VIEW,Uri.parse("http://www.naver.com"));
+        Intent actionMonitoring = new Intent(ACTION_VIEW,Uri.parse("http://www.google.com"));
+
 
         //pending intetn에 액션 추가
-//        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
-//                PendingIntent.FLAG_ONE_SHOT);
-        PendingIntent callPendingIntent = PendingIntent.getBroadcast(getApplicationContext(),0,actionCall,PendingIntent.FLAG_ONE_SHOT);
-        PendingIntent monitoringPendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionMonitoring,PendingIntent.FLAG_ONE_SHOT);
-        PendingIntent checkPlacePendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionMonitoring,PendingIntent.FLAG_ONE_SHOT);
+        //FLAG_CANCEL_CURRENT : 이전에 생성한 PendingIntent 는 취소하고 새롭게 만든다.
+//        FLAG_NO_CREATE : 생성된 PendingIntent 를 반환한다. 재사용 가능하다.
+//        FLAG_ONE_SHOT : 이 flag 로 생성한 PendingIntent 는 일회용이다.
+//        FLAG_UPDATE_CURRENT : 이미 생성된 PendingIntent 가 존재하면 해당 Intent 의 내용을 변경한다.
 
-        sendBroadcast(actionCall);
-//
 
-        NotificationCompat.Builder mNotificationBuilder = new NotificationCompat.Builder( this, channelId) //4.1 아래 버전과의 호환성을 위해 notificationCompat을 사용용
+        PendingIntent callPendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionCall,PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent monitoringPendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionMonitoring,PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent checkPlacePendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionCheckPlace,PendingIntent.FLAG_CANCEL_CURRENT);
+
+
+        NotificationCompat.Builder mNotificationBuilder = new NotificationCompat.Builder( this, channelId) //4.1 아래 버전과의 호환성을 위해 notificationCompat을 사용
                 .setSmallIcon(R.drawable.ic_stat_name) //작은 아이콘 세팅
                 .setLargeIcon(mLargeIconForNoti) //큰 아이콘 세팅 - 큰 아이콘 세팅을 위해서 위에 bitmap 이용
                 .setColor(color)
@@ -125,10 +134,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .addAction(R.drawable.ic_stat_warnig, getResources().getString(R.string.checkPlace),checkPlacePendingIntent)
                 .addAction(R.drawable.ic_stat_monitoring, getResources().getString(R.string.checkPicture),monitoringPendingIntent) //화재 확인 액션 추가
                 .setPriority(NotificationCompat.PRIORITY_MAX)
-                .setSound(notificationSoundURI);
-//                .setContentIntent(checkPlacePendingIntent)
-//                .setContentIntent(callPendingIntent)
-//                .setContentIntent(monitoringPendingIntent);
+                .setSound(notificationSoundURI)
+
+                .setContentIntent(checkPlacePendingIntent)
+                .setContentIntent(callPendingIntent)
+                .setContentIntent(monitoringPendingIntent);
 
 
 
