@@ -4,4 +4,7 @@
     <string name="login_pw">비밀번호</string>
     <string name="login_btn">로그인</string>
     <string name="default_notification_channel_id">FCMID</string>
+    <string name="call">119</string>
+    <string name="checkPlace">화재위치보기</string>
+    <string name="checkPicture">현장영상확인</string>
 </resources>
