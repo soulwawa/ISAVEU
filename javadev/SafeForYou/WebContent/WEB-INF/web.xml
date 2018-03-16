@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <servlet>
-    <servlet-name>tempIn</servlet-name>
-    <servlet-class>kr.or.kpc.test.TempInServlet</servlet-class>
+    <servlet-name>action</servlet-name>
+    <servlet-class>kpc.iot.smb.controller.DispatcherServlet</servlet-class>
   </servlet>
-  <servlet>
-    <servlet-name>tempList</servlet-name>
-    <servlet-class>kr.or.kpc.test.TempInServlet</servlet-class>
-  </servlet>  
   <servlet-mapping>
-    <servlet-name>tempIn</servlet-name>
-    <url-pattern>/tempIn</url-pattern>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>tempList</servlet-name>
-    <url-pattern>/tempList</url-pattern>
-  </servlet-mapping> 
 </web-app>
