@@ -9,8 +9,8 @@
 <body>
 	<h1>PUSH TEST</h1>
 		<form action="SendMessage" method="post">
-		<textarea rows="message" rows ="40" cols="50" placeholder="입력하세요!" ></textarea><br>
-		<input type = "submit" name = "submit" value="보내기" id = "SubmitButton">
-	</form>
+    <textarea name="message" rows="4" cols="50" placeholder="메세지를 입력하세요"></textarea><br>
+    <input type="submit" name="submit" value="Send" id="submitButton">
+</form>
 </body>
 </html>

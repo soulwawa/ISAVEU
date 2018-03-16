@@ -2,6 +2,7 @@ package kpc.iot.smb.controller;
 
 import java.util.HashMap;
 
+
 public class HandlerMappings {
 	private HashMap<String, Controller> lists =  new HashMap<String, Controller>(); 
 	public HandlerMappings() {
@@ -10,6 +11,10 @@ public class HandlerMappings {
 	
 	void initConfig() {
 		lists.put("/sendaction.do", new SendController());
+		lists.put("/tempIn", new TempInServlet());
+		lists.put("/sendaction.do", new SendController());
+		
+				
 	}
 	
 	public Controller getController(String path) {

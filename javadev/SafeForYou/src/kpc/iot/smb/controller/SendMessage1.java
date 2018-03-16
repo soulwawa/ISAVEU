@@ -15,7 +15,7 @@ import com.google.android.gcm.server.MulticastResult;
 import com.google.android.gcm.server.Result;
 import com.google.android.gcm.server.Sender;
 
-@WebServlet("/SendMessage")
+@WebServlet("/SendMessage1")
 public class SendMessage1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
      

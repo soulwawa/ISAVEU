@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SendController implements Controller {
 
 	@Override
-	public String handlerReuquest(HttpServletRequest request, HttpServletResponse reponse)
+	public String handlerReuquest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		return "fcmtest.jsp";
 	}

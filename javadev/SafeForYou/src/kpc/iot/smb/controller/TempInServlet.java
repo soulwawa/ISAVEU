@@ -1,17 +1,20 @@
-package kr.or.kpc.test;
+package kpc.iot.smb.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kpc.iot.smb.controller.Controller;
+import kr.or.kpc.test.TempDAO;
+import kr.or.kpc.test.TempVO;
 
-public class TempInServlet extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws SecurityException, IOException{
+public class TempInServlet implements Controller {
+
+	@Override
+	public String handlerReuquest(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/plain;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		String type = request.getParameter("type");
@@ -29,16 +32,16 @@ public class TempInServlet extends HttpServlet {
 		vo.setTemperature(temp + "");
 		dao.insertTemp(vo);
 		out.println("success");
-	}
-	
-	public double toConvertTemp(String reading){
-		 int readData = Integer.parseInt(reading);
-		 double voltage = readData * 5.0;
-		 voltage /= 1024.0;
-		 //���� �µ� ���
-		 double temperatureC = (voltage - 0.5) * 100 ; 
-		 return Math.round(temperatureC * 100d) / 100d;
+		return null;
 	}
 
+	public double toConvertTemp(String reading){
+		int readData = Integer.parseInt(reading);
+		double voltage = readData * 5.0;
+		voltage /= 1024.0;
+		double temperatureC = (voltage - 0.5) * 100 ; 
+		return Math.round(temperatureC * 100d) / 100d;
+	}
 }
 
+}
