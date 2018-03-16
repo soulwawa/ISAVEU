@@ -6,13 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import kpc.iot.smb.util.DBManager;
+
 public class TempDAO {
 	private static final String INSERT_SQL = "insert into tbl_temp values(null, ?, ?, ?, now() );";
 	private static final String LIST_SQL = "select * from tbl_temp where loc = ? order by num desc limit 0, 10;";
 
 	public void insertTemp(TempVO vo){
 
-		try(Connection conn = DBUtil.getConnection()){
+		try(Connection conn = DBManager.getConnection()){
 			PreparedStatement stmt = conn.prepareStatement(INSERT_SQL);
 			stmt.setString(1, vo.getLoc());
 			stmt.setString(2, vo.getType());
@@ -25,7 +27,7 @@ public class TempDAO {
 	}
 	public ArrayList<TempVO> getTempList(TempVO vo ){
 		ArrayList<TempVO> list = new ArrayList<TempVO>();
-		try(Connection conn = DBUtil.getConnection()){
+		try(Connection conn = DBManager.getConnection()){
 			PreparedStatement stmt = conn.prepareStatement(LIST_SQL);
 			stmt.setString(1, vo.getLoc());
 			ResultSet rst = stmt.executeQuery();

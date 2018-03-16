@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 public class SendController implements Controller {
 
 	@Override
-	public String handlerReuquest(HttpServletRequest request, HttpServletResponse response)
+	public String handlerReuquest(HttpServletRequest request, HttpServletResponse reponse)
 			throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		return "fcmtest.jsp";
 	}
 
+	
 }
