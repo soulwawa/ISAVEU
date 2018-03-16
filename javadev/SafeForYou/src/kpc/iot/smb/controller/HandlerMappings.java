@@ -9,7 +9,7 @@ public class HandlerMappings {
 	}
 	
 	void initConfig() {
-		
+		lists.put("/sendaction.do", new SendController());
 	}
 	
 	public Controller getController(String path) {
