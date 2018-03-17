@@ -24,14 +24,10 @@ import static android.content.Intent.ACTION_VIEW;
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "MyFirebaseMessaginService";
     Bitmap bigPicture;
-    private static final String CALL_ACTION = "kr.co.isaveyou.CALL_ACTION";
-    private static final String CHECKPLACE_ACTION = "kr.co.isaveyou.CHECKPLACE_ACTION";
-    private static final String CHECK_EXT = "kr.co.isaveyou.CHECK_EXT_ACTION";
+
 
     //notification 활용을 위한 service - 푸시 메시지를 전달 받는 역할 담당
     //구글 클라우드 서버에서 보내오는 메시지를 받음
-
-
 
 
     @Override
@@ -111,7 +107,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         Intent actionCall = new Intent(ACTION_CALL,Uri.parse("tel:119"));
         Intent actionCheckPlace = new Intent(ACTION_VIEW,Uri.parse("http://www.naver.com"));
-//        Intent actionMonitoring = new Intent(ACTION_VIEW,Uri.parse("http://www.google.com"));
         Intent actionCheckFire_ext = new Intent(ACTION_VIEW,Uri.parse("http://www.daum.net"));
 
 
@@ -124,18 +119,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 
         PendingIntent callPendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionCall,PendingIntent.FLAG_CANCEL_CURRENT);
-//        PendingIntent monitoringPendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionMonitoring,PendingIntent.FLAG_CANCEL_CURRENT);
         PendingIntent checkPlacePendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionCheckPlace,PendingIntent.FLAG_CANCEL_CURRENT);
         PendingIntent checkFire_ext = PendingIntent.getActivity(getApplicationContext(),0,actionCheckFire_ext,PendingIntent.FLAG_CANCEL_CURRENT);
-
-//        RemoteViews contentView = new RemoteViews(getPackageName(),R.layout.notification_layout);
-//        contentView.setImageViewResource(R.id.monitoringImage, R.id.appImage);
-//        contentView.setTextViewText(R.id.tvTitle, title);
-//        contentView.setTextViewText(R.id.tvTitle, messageBody + "호 비상상황 발생, 빠르게 대피해주세요!");
-//        contentView.setOnClickPendingIntent(R.id.btn119,callPendingIntent);
-//        contentView.setOnClickPendingIntent(R.id.btnCheckPlace,checkPlacePendingIntent);
-//        contentView.setOnClickPendingIntent(R.id.btnMonitoring,monitoringPendingIntent);
-//        contentView.setOnClickPendingIntent(R.id.btnCheckFire_ext,checkFire_ext);
 
 
 
