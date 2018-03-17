@@ -3,9 +3,6 @@ package kr.or.kpc.test;
 import java.io.Serializable;
 
 public class TempVO implements Serializable{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private String num;
 	private String loc;
