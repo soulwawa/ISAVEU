@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 <script type="text/javascript">
     window.onload=function(){
         var auto = setTimeout(function(){ autoRefresh(); }, 100);
@@ -20,6 +21,7 @@
         }
     }
 </script>
+
 </head>
 
 <body>
@@ -29,6 +31,6 @@
     <input type="submit" name="test" value="test" id="submitButton">
     <br>
 </form>
-<script>document.message.submit();</script>
+
 </body>
 </html>
