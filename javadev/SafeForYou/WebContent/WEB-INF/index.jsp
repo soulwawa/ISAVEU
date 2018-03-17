@@ -3,13 +3,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Smart Building Project</title>
+<% String root = request.getContextPath(); %>
+<meta charset="UTF-8">
+<title>ê´ë¦¬ì íì´ì§ ë¡ê·¸ì¸</title>
+<link href="<%=root%>/css/style1.css" rel="stylesheet" type="text/css">
+<style>
+	body{
+		background:red;
+	}
+	
+	#loginFormArea{
+		background:blue;
+		width:400px;
+		heigh:500px;
+		margin-right: auto;
+  		margin-left: auto;
+	}
+	.loginBtn{
+		float:left;
+	}
+</style>
 </head>
 <body>
-<br><br><br><br><br><br><br><br><br>
-Smart Building Project 공사중입니다
-
-<!--  <a href ="http://192.168.0.13:5000">링크보기</a>-->
+	<section id = "loginFormArea">
+	<form action="" method="POST">
+		<div class="imgBox">
+			<img src="http://localhost/SafeForYou/WebContent/main.png" alt="logo">
+		</div>
+		<div id="loginBox">
+			<div>
+				<input type="text" name="id" class="txtbox" name="idBox">
+			</div>
+			<div>
+				<input type="password" name="password" class="txtbox" name="pwdBox">
+			</div>
+		</div>
+		<div class="loginBtn">
+			<input type="submit" name="loginBtn" value="Login">
+		</div>
+	</form>
+	</section>
 </body>
 </html>
