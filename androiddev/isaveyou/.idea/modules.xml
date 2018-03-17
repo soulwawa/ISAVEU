@@ -3,11 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\user\Documents\SaveForYou_IoT\androiddev\isaveyou\app\app.iml" filepath="C:\Users\user\Documents\SaveForYou_IoT\androiddev\isaveyou\app\app.iml" />
       <module fileurl="file://C:\Users\K\Documents\ISaveYou\androiddev\isaveyou\app\app.iml" filepath="C:\Users\K\Documents\ISaveYou\androiddev\isaveyou\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/isaveyou.iml" filepath="$PROJECT_DIR$/isaveyou.iml" />
       <module fileurl="file://C:\Users\K\Documents\ISaveYou\androiddev\isaveyou\isaveyou.iml" filepath="C:\Users\K\Documents\ISaveYou\androiddev\isaveyou\isaveyou.iml" />
-      <module fileurl="file://C:\Users\user\Documents\SaveForYou_IoT\androiddev\isaveyou\isaveyou.iml" filepath="C:\Users\user\Documents\SaveForYou_IoT\androiddev\isaveyou\isaveyou.iml" />
     </modules>
   </component>
 </project>
