@@ -2,7 +2,7 @@ body {
   height:100%;
 }
 #loginFormArea{
-	margin-top:250px;
+	margin-top:150px;
 }
 
 
@@ -54,12 +54,16 @@ input[type=submit]{
 }
 .imgBox{
 	margin:auto;
-	width:400px;	
+	width:600px;	
 	text-align:center;
 }
 footer{
 	color:#999;
 	height:50px;
-	margin:auto auto 0 auto;
+	margin:50px auto 0 auto;
 	text-align:center;
+}
+.mainImg{
+	width:200px;
+	height:200px;
 }
