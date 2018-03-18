@@ -10,7 +10,7 @@ public class HandlerMappings {
 	}
 	
 	void initConfig() {
-		lists.put("/sendController.do", new SendController());
+		lists.put("/sendaction.do", new SendController());
 		lists.put("/tempIn.do", new TempInServlet());
 		
 		

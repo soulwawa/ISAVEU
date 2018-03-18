@@ -4,78 +4,36 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.URL;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import com.google.gson.Gson;
+import kpc.iot.smb.fcm.Data;
+import kpc.iot.smb.fcm.FCMData;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import com.google.gson.Gson;
-
-import kpc.iot.smb.fcm.Data;
-import kpc.iot.smb.fcm.FCMData;
-import kr.or.kpc.test.TempDAO;
-import kr.or.kpc.test.TempListVO;
-import kr.or.kpc.test.TempVO;
 
 
+@WebServlet("/SendMessage")
+public class SendMessage extends HttpServlet {
 
-public class TempInServlet implements Controller {
+	private static final long serialVersionUID = 1L;
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
 
-	@Override
-	public String handlerReuquest(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		response.setContentType("text/plain;charset=utf-8");
-		PrintWriter out = response.getWriter();
-		String type = request.getParameter("type");
-		String temp1 = request.getParameter("temp");
-		double temp = toConvertTemp(temp1);
-		String loc = request.getParameter("loc");
-		System.out.println("type : "  + type);
-		System.out.println("temp1 : "  + temp1);
-		System.out.println("temp : "  + temp);
-		System.out.println("loc : "  + loc);
-		TempDAO dao = new TempDAO();
-		TempVO vo = new TempVO();
-		
-		vo.setLoc(loc);
-		vo.setType(type);
-		vo.setTemperature(temp + "");
-		dao.insertTemp(vo);
-		out.println("success");
-		
-//		String loc2 = request.getParameter("loc");
-//		TempVO vo2 = new TempVO();
-//		TempDAO dao2 = new TempDAO();
-
-		vo.setLoc(loc);
-		ArrayList<TempVO> list = dao.getTempList(vo);
-		TempListVO tList = new TempListVO();
-		tList.setCnt(list.size());
-		tList.setStatus("success");
-		tList.setList(list);
-		Gson gson = new Gson();
-		String result = gson.toJson(tList);
-		tList = gson.fromJson(result, TempListVO.class);
-		response.setContentType("application/json;charset=utf-8");
-//		PrintWriter out = response.getWriter();
-		out.println(result);
-		
-//		request.setAttribute("message",temp);
-		String msg = String.valueOf(temp);
-//		String msg = request.getParameter("message");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		String msg = request.getParameter("message");
 		System.out.println("msg::::::" + msg);
-		
-//		if(temp==null || temp.equals(""))
-//			temp="";
+		if(msg==null || msg.equals("")) msg="";
 		String url = "https://fcm.googleapis.com/fcm/send"; 
 		FCMData fcmData = new FCMData();
 		Data data = new Data();
@@ -87,7 +45,7 @@ public class TempInServlet implements Controller {
 		fcmData.setTo("dpLbZuQqfWI:APA91bGk_AXJK3q6Kx4_k9sil7hJQ1CzfqFvTPzonsQpl3OwOpCYVeHrcJdcBpvgY6XaazHcQLkSfHtho2cVdv6G9hkMZUELAPruewDjlffQ5sNCPyIQL71PNtQPVfPlPHOusLBnN6pJ");
 		// DB에 전체 SELECT
 	
-		Gson gson2 = new Gson();
+		Gson gson = new Gson();
 		String params = gson.toJson(fcmData);
 		System.out.println(params);
 		try {
@@ -96,17 +54,8 @@ public class TempInServlet implements Controller {
 		}catch(Exception e) {
 			System.out.println("e : " + e);
 		}
-		return "*.do";
+
 	}
-	
-	public double toConvertTemp(String reading){
-		 int readData = Integer.parseInt(reading);
-		 double voltage = readData * 5.0;
-		 voltage /= 1024.0;
-		 double temperatureC = (voltage - 0.5) * 100 ; 
-		 return Math.round(temperatureC * 100d) / 100d;
-	}
-	
 	public String sendPost(String url, String parameters) throws Exception { 
         TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager(){
                 public X509Certificate[] getAcceptedIssuers(){return new X509Certificate[0];}
@@ -152,4 +101,3 @@ public class TempInServlet implements Controller {
        return response.toString();
 	}
 }
-

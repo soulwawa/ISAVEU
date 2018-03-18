@@ -6,15 +6,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class SendController implements Action {
+public class SendController implements Controller {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse reponse)
+	public String handlerReuquest(HttpServletRequest request, HttpServletResponse reponse)
 			throws ServletException, IOException {
-
-		ActionForward forward = new ActionForward();
-		forward.setPath("admin.jsp");
-		return forward;
+		// TODO Auto-generated method stub
+		return "fcmtest.jsp";
 	}
 
+	
 }
