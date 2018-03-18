@@ -28,10 +28,10 @@ import kr.or.kpc.test.TempVO;
 
 
 
-public class TempInServlet implements Controller {
-
+public class TempInServlet implements Action {
+	
 	@Override
-	public String handlerReuquest(HttpServletRequest request, HttpServletResponse response)
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/plain;charset=utf-8");
 		PrintWriter out = response.getWriter();
@@ -96,7 +96,9 @@ public class TempInServlet implements Controller {
 		}catch(Exception e) {
 			System.out.println("e : " + e);
 		}
-		return "*.do";
+		ActionForward forward = new ActionForward();
+		forward.setPath("*.do");
+		return forward;
 	}
 	
 	public double toConvertTemp(String reading){
@@ -151,5 +153,9 @@ public class TempInServlet implements Controller {
        System.out.println(response.toString());
        return response.toString();
 	}
+
+	
+
+	
 }
 

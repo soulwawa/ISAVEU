@@ -6,11 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class DBManager {
-	final static String DBIP = "192.168.0.35";
+//	final static String DBIP = "192.168.0.35";
+	final static String DBIP = "192.168.0.3"; //관리자 HOME 작업
 	public static Connection getConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://"+ DBIP + ":3306/mydb", "root", "1234");
+//			return DriverManager.getConnection("jdbc:mysql://"+ DBIP + ":3306/mydb", "root", "1234");
+			return DriverManager.getConnection("jdbc:mysql://"+ DBIP + ":3306/workbench", "root", "rhtjraks"); //관리자 HOME 작업
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
