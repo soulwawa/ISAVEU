@@ -10,12 +10,17 @@
 </head>
 <body>
 	<div class="nav">
-		<button id="btn6"><img src="<%=root%>/img/main.png" alt="logo" class="mainImg"></button><br>
+		<a href="admin.do">
+			<button id="btn6">
+				<img src="<%=root%>/img/main.png" alt="logo" class="mainImg">
+			</button>
+		</a>
+		<br>
 		<a href="sensorlog.do">
 			<input type="button" value="센서로그" class="menuBtn" id="btn1">
 		</a><br>
 		<a href="eventlog.do">
-			<input type="button" value="사건목록" class="menuBtn" id="btn2">
+			<input type="button" value="사건목록" class="clickedBtn" id="btn2">
 		</a><br>
 		<a href="streaming.do">
 			<input type="button" value="실시간 스트리밍" class="menuBtn" id="btn3">
