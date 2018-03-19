@@ -28,9 +28,20 @@ body{
 	border-right:1px solid #444;	
 	float:right;
 }
-input[type=button]{
+.menuBtn{
 	color:#444;
 	background-color: transparent !important;
+	height:30px;
+	margin:10px;
+	border: 1px solid #444;
+	border-radius: 7px;
+	width:130px;
+	font-size: 1rem;
+	align:center;
+}
+.clickedBtn{
+	color:#000;
+	background-color:#999;
 	height:30px;
 	margin:10px;
 	border: 1px solid #444;
