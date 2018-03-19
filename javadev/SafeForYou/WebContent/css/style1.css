@@ -15,7 +15,6 @@ input[type=text]{
   padding:3px 5px;
   border-radius: 7px;
   font-size: 1rem;
-  color: white;
 }
 input[type=password]{
   background-color: transparent !important;
@@ -26,7 +25,6 @@ input[type=password]{
   padding:3px 5px;
   border-radius: 7px;
   font-size: 1rem;
-  color: white;
 }
 #loginBox{
   width:293px;
