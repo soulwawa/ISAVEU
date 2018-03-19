@@ -5,7 +5,7 @@
 <head>
 <% String root = request.getContextPath(); %>
 <meta charset="UTF-8">
-<title>ê´ë¦¬ì íì´ì§ ë¡ê·¸ì¸</title>
+<title>관리자 로그인</title>
 <link href="<%=root%>/css/style1.css" rel="stylesheet" type="text/css">
 <style>
 	body{
@@ -26,9 +26,9 @@
 </head>
 <body>
 	<section id = "loginFormArea">
-	<form action="" method="POST">
+	<form action="login.do" method="POST">
 		<div class="imgBox">
-			<img src="http://localhost/SafeForYou/WebContent/main.png" alt="logo">
+			<img src="<%=root%>/img/main.png" alt="logo">
 		</div>
 		<div id="loginBox">
 			<div>

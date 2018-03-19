@@ -3,20 +3,58 @@ html{
 	height:100%;
 }
 body{
-	margin:10px;
-	height:100%;
+	margin:40px auto 0 auto;
+	height:900px;
+	width: fit-content;
+	border-bottom:1px solid #444;
+	border-top:1px solid #444;
+	
 }
 
 .nav{
+	padding-top:30px;
+	width:200px;
+	height:870px;
+	background:white;
+	text-align:center;
+	border-right:1px solid #444;
+	border-left:1px solid #444;
 	float:left;
-	width:150px;
-	height:100%;
-	background:red;
 }
 .container{
-	float:left;
-	width:auto;
-	height:100%;
-	background:blue;
+	width:1000px;
+	height:900px;
 	margin-right:0px;
+	border-right:1px solid #444;	
+	float:right;
+}
+input[type=button]{
+	color:#444;
+	background-color: transparent !important;
+	height:30px;
+	margin:10px;
+	border: 1px solid #444;
+	border-radius: 7px;
+	width:130px;
+	font-size: 1rem;
+	align:center;
+}
+.mainImg{
+	width:100px;
+	height:100px;
+	margin:10px;
+}
+#btn6{
+	width:130px;
+	height:130px;
+	margin:10px;
+	border: 1px solid #444;
+	border-radius: 7px;
+}
+.top{
+	height:150px;
+}
+.content{
+	border-top:1px solid #444;
+	height:749px;
 }
