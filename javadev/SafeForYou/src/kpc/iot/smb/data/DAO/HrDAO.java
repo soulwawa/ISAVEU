@@ -17,6 +17,7 @@ public class HrDAO {
 			try(Connection conn = DBManager.getConnection()){
 				PreparedStatement stmt = conn.prepareStatement(Select_SQL_ID);
 				stmt.setString(1, vo.getId());
+				System.out.println(stmt);
 				ResultSet rst = stmt.executeQuery();
 				TbHrVO hrVo = null;
 				while(rst.next()) {

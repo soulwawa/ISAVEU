@@ -14,12 +14,18 @@
 		<a href="sensorlog.do">
 			<input type="button" value="센서로그" class="menuBtn" id="btn1">
 		</a><br>
-		<a href="sensorlog.do">
-		<input type="button" value="사건목록" class="menuBtn" id="btn2">
+		<a href="eventlog.do">
+			<input type="button" value="사건목록" class="menuBtn" id="btn2">
 		</a><br>
-		<input type="button" value="실시간 스트리밍" class="menuBtn" id="btn3"><br>
-		<input type="button" value="사원정보" class="menuBtn" id="btn4"><br>
-		<input type="button" value="위치정보" class="menuBtn" id="btn5"><br>
+		<a href="streaming.do">
+			<input type="button" value="실시간 스트리밍" class="menuBtn" id="btn3">
+		</a><br>
+		<a href="employee.do">
+			<input type="button" value="사원정보" class="menuBtn" id="btn4">
+		</a><br>
+		<a href="location.do">
+			<input type="button" value="위치정보" class="menuBtn" id="btn5">
+		</a><br>
 	</div>
 	<div class="container">
 		<div class="top">
