@@ -35,7 +35,7 @@ public class TempInServlet extends Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/plain;charset=utf-8");
-		PrintWriter out = response.getWriter();
+//		PrintWriter out = response.getWriter();
 		String type = request.getParameter("type");
 		String temp1 = request.getParameter("temp");
 		double temp = toConvertTemp(temp1);
@@ -51,7 +51,7 @@ public class TempInServlet extends Action {
 		vo.setType(type);
 		vo.setTemperature(temp + "");
 		dao.insertTemp(vo);
-		out.println("success");
+//		out.println("success");
 
 		vo.setLoc(loc);
 		ArrayList<TempVO> list = dao.getTempList(vo);

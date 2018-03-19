@@ -9,6 +9,7 @@ import kpc.iot.smb.util.DBManager;
 
 public class EventDAO {
 	private static final String INSERT_SQL = "insert into tb_event values (null,?,now(),?,?,?,?,?);";
+	private static final String Select_SQL_ID = "select * from tb_hr where id = ?;";
 	
 	public void insertEvent(TbEventVO vo) {
 		
@@ -25,5 +26,8 @@ public class EventDAO {
 		}catch(SQLException e) {
 			System.out.println("EventDAO Insert:" +  e);
 		}
+		
+		
 	}
+	
 }
