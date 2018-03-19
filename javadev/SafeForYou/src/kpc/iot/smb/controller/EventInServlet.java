@@ -1,7 +1,6 @@
 package kpc.iot.smb.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +18,7 @@ public class EventInServlet extends Action{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		response.setContentType("text/plain;charset=utf-8");
-		PrintWriter out = response.getWriter();
+//		PrintWriter out = response.getWriter();
 		String module_id = request.getParameter("module_id");
 		String temp1 = request.getParameter("temp");
 		float temp = toConvertTemp(temp1);

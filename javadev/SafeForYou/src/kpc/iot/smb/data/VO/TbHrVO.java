@@ -11,9 +11,9 @@ public class TbHrVO implements Serializable {
 	int location_id;
 	String tel;
 	String email;
-	char sex;
+	String sex;
 	String birthday;
-	char level;
+	String level;
 	String fcm;
 
 	public int getHr_id() {
@@ -72,11 +72,11 @@ public class TbHrVO implements Serializable {
 		this.email = email;
 	}
 
-	public char getSex() {
+	public String getSex() {
 		return sex;
 	}
 
-	public void setSex(char sex) {
+	public void setSex(String sex) {
 		this.sex = sex;
 	}
 
@@ -88,11 +88,11 @@ public class TbHrVO implements Serializable {
 		this.birthday = birthday;
 	}
 
-	public char getLevel() {
+	public String getLevel() {
 		return level;
 	}
 
-	public void setLevel(char level) {
+	public void setLevel(String level) {
 		this.level = level;
 	}
 
