@@ -9,7 +9,6 @@
 <link href="<%=root%>/css/style1.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<a href = "fcmtest.do">TEST</a>
 	<section id = "loginFormArea">
 	<form action="" method="POST">
 		<div class="imgBox">
