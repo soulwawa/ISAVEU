@@ -13,4 +13,5 @@
     <style name="SplashTheme" parent="android:style/Theme.Light.NoTitleBar">
         <item name="android:background">@drawable/pic_1st</item>
     </style>
+
 </resources>

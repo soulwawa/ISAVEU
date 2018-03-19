@@ -22,16 +22,17 @@ import com.google.gson.Gson;
 
 import kpc.iot.smb.fcm.Data;
 import kpc.iot.smb.fcm.FCMData;
+import kpc.iot.smb.util.Action;
 import kr.or.kpc.test.TempDAO;
 import kr.or.kpc.test.TempListVO;
 import kr.or.kpc.test.TempVO;
 
 
 
-public class TempInServlet implements Controller {
+public class TempInServlet extends Action {
 
 	@Override
-	public String handlerReuquest(HttpServletRequest request, HttpServletResponse response)
+	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/plain;charset=utf-8");
 		PrintWriter out = response.getWriter();
@@ -51,10 +52,6 @@ public class TempInServlet implements Controller {
 		vo.setTemperature(temp + "");
 		dao.insertTemp(vo);
 		out.println("success");
-		
-//		String loc2 = request.getParameter("loc");
-//		TempVO vo2 = new TempVO();
-//		TempDAO dao2 = new TempDAO();
 
 		vo.setLoc(loc);
 		ArrayList<TempVO> list = dao.getTempList(vo);
@@ -66,25 +63,19 @@ public class TempInServlet implements Controller {
 		String result = gson.toJson(tList);
 		tList = gson.fromJson(result, TempListVO.class);
 		response.setContentType("application/json;charset=utf-8");
-//		PrintWriter out = response.getWriter();
-		out.println(result);
-		
-//		request.setAttribute("message",temp);
+
 		String msg = String.valueOf(temp);
-//		String msg = request.getParameter("message");
 		System.out.println("msg::::::" + msg);
-		
-//		if(temp==null || temp.equals(""))
-//			temp="";
 		String url = "https://fcm.googleapis.com/fcm/send"; 
 		FCMData fcmData = new FCMData();
 		Data data = new Data();
+		String imageEx = "http://192.168.0.35:8088/SafeForYou/main.png";
 //		data.setContent("빠르게 대피해주세요!");
-		data.setContent(msg);
+		data.setContent(imageEx);
 //		data.setTitle("[I Save You]긴급상황 발생");
 		data.setTitle(msg);
 		fcmData.setData(data);
-		fcmData.setTo("dpLbZuQqfWI:APA91bGk_AXJK3q6Kx4_k9sil7hJQ1CzfqFvTPzonsQpl3OwOpCYVeHrcJdcBpvgY6XaazHcQLkSfHtho2cVdv6G9hkMZUELAPruewDjlffQ5sNCPyIQL71PNtQPVfPlPHOusLBnN6pJ");
+		fcmData.setTo("foSJVNORz8Y:APA91bEMxsYGGEEGlqnxPa3Gh3OB25evSPs5nR5yfbmxvEBbZvMn4aoo3L0Cn78bImFNVFSCEchn60Ii_-HQVjUapqkAeHeNo_roY4yUVeUgHIH2V20SaSdo3nFcQerbyrfjXPrxpImX");
 		// DB에 전체 SELECT
 	
 		Gson gson2 = new Gson();
@@ -96,11 +87,11 @@ public class TempInServlet implements Controller {
 		}catch(Exception e) {
 			System.out.println("e : " + e);
 		}
-		return "*.do";
+		
 	}
 	
 	public double toConvertTemp(String reading){
-		 int readData = Integer.parseInt(reading);
+		 float readData = Float.parseFloat(reading);
 		 double voltage = readData * 5.0;
 		 voltage /= 1024.0;
 		 double temperatureC = (voltage - 0.5) * 100 ; 
@@ -151,5 +142,8 @@ public class TempInServlet implements Controller {
        System.out.println(response.toString());
        return response.toString();
 	}
+	
+	
+	
 }
 

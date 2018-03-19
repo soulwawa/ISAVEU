@@ -10,7 +10,7 @@ public class DBManager {
 	public static Connection getConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://"+ DBIP + ":3306/mydb", "root", "1234");
+			return DriverManager.getConnection("jdbc:mysql://"+ DBIP + ":3306/iot_smartbuilding", "root", "1234");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

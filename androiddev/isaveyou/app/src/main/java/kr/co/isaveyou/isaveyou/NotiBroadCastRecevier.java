@@ -3,6 +3,7 @@ package kr.co.isaveyou.isaveyou;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.util.Log;
 
@@ -19,12 +20,15 @@ public class NotiBroadCastRecevier extends BroadcastReceiver {
         Log.v(TAG,"receive");
         String action = intent.getAction();
         switch (action){
-            case "E":
+            case "btn119":
 
                 Log.v(TAG,"intent : " + intent);
                 context.startActivity(intent);
 
                 break;
         }
+        IntentFilter intentFilter = new IntentFilter();
+
     }
+
 }
