@@ -16,14 +16,19 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
-import java.net.URL;
+import org.json.JSONObject;
 
-import static android.content.Intent.ACTION_CALL;
+import java.io.BufferedInputStream;
+import java.net.URL;
+import java.net.URLConnection;
+
+
 import static android.content.Intent.ACTION_VIEW;
+import static android.content.Intent.ACTION_DIAL;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "MyFirebaseMessaginService";
-    Bitmap bigPicture;
+    Bitmap img;
 
 
     //notification 활용을 위한 service - 푸시 메시지를 전달 받는 역할 담당
@@ -49,10 +54,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());}
 
         sendNotification(
-                //title, content, imgUrlLink를 인수로 지정
+                //서버에서 보내오는 title, content를 인수로 지정
                 remoteMessage.getData().get("title"),
-                remoteMessage.getData().get("content"),
-                remoteMessage.getData().get("imgurllink")
+                remoteMessage.getData().get("content")
         );
 
 
@@ -76,8 +80,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
 
-    private void sendNotification(String title, String messageBody, String myimgurl
-    ) {
+    private void sendNotification(String title, String messageBody) {
+
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -85,13 +89,18 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         Log.v(TAG, "notification 생성");
 
+
         int color = getResources().getColor(R.color.colorAccent);
         //largeIcon에 이미지를 사용하기 위해서는 비트맵으로 바꿔줘야 함
         Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(), R.drawable.pic_2nd);
         //이미지 온라인 링크를 가져와 비트맵으로 바꿈
         try {
-            URL url = new URL(myimgurl);
-            bigPicture = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+            URL url = new URL(messageBody);
+            URLConnection connection = url.openConnection();
+            connection.connect();
+            BufferedInputStream bis = new BufferedInputStream(connection.getInputStream());
+            img = BitmapFactory.decodeStream(bis);
+            Log.v(TAG, "url : " + url + ", messagebody : " + messageBody);
         }catch (Exception e) {
             e.printStackTrace();
         }
@@ -105,7 +114,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         //notificaiton 눌렀을 때의 액션 정의
 
-        Intent actionCall = new Intent(ACTION_CALL,Uri.parse("tel:119"));
+        Intent actionCall = new Intent(ACTION_DIAL,Uri.parse("tel:119"));
         Intent actionCheckPlace = new Intent(ACTION_VIEW,Uri.parse("http://www.naver.com"));
         Intent actionCheckFire_ext = new Intent(ACTION_VIEW,Uri.parse("http://www.daum.net"));
 
@@ -133,13 +142,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setVibrate(pattern) //진동 설정
                 .setPriority(NotificationCompat.PRIORITY_MAX)
                 .setSound(notificationSoundURI)
-                .setContentTitle(title)
+                .setContentTitle("긴급상황 발생")
                 .setWhen(System.currentTimeMillis())
                 .setStyle(new NotificationCompat.BigPictureStyle() /*스타일 지정*/
                         .bigPicture(mLargeIconForNoti)
-                        .bigPicture(bigPicture)
+                        .bigPicture(img)
                         )
-                .setContentText(messageBody + "호 비상상황 발생, 빠르게 대피해주세요!")
+                .setContentText(title + "호 비상상황 발생, 빠르게 대피해주세요!")
                 .addAction(R.drawable.fire_call,getResources().getString(R.string.call),callPendingIntent) //119신고 액션 추가
                 .addAction(R.drawable.checkplace, getResources().getString(R.string.checkPlace),checkPlacePendingIntent)
                 .addAction(R.drawable.fire_ext,getResources().getString(R.string.checkFire_ext),checkFire_ext);

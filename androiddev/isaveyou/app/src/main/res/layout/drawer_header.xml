@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="?attr/colorPrimary"
+    android:gravity="bottom"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:id="@+id/drawer_header"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="67dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_emoticon" />
+
+    <TextView
+        android:id="@+id/drawer_textId"
+        android:layout_width="91dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="id"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/drawer_text"
+        android:layout_width="253dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+
+        android:layout_weight="1"
+        android:text="@string/drawer_header_welcome"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintStart_toEndOf="@+id/drawer_textId"
+        app:layout_constraintTop_toTopOf="@+id/drawer_textId" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="353dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="4dp"
+        android:layout_weight="1"
+        android:hint="E-mail"
+        app:layout_constraintStart_toStartOf="@+id/drawer_textId"
+        app:layout_constraintTop_toBottomOf="@+id/drawer_textId" />
+
+</android.support.constraint.ConstraintLayout>

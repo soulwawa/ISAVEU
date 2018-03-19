@@ -7,54 +7,81 @@
 
     tools:context="kr.co.isaveyou.isaveyou.LoginActivity">
 
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/email_login_form"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.46">
 
-        <LinearLayout
-            android:id="@+id/email_login_form"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="177dp"
+            android:layout_height="99dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/companylogo" />
+
+        <EditText
+            android:id="@+id/login_id"
+            android:layout_width="338dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="vertical">
+            android:ems="10"
+            android:hint="@string/login_num"
+            android:inputType="number"
+            android:maxLines="1"
+            android:singleLine="true" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="177dp"
-                android:layout_height="99dp"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/companylogo" />
+        <EditText
+            android:id="@+id/login_pw"
+            android:layout_width="338dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:hint="@string/login_pw"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true" />
 
-            <EditText
-                android:id="@+id/login_id"
-                android:layout_width="338dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:ems="10"
-                android:hint="@string/login_num"
-                android:inputType="number"
-                android:maxLines="1"
-                android:singleLine="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/login_pw"
-                android:layout_width="338dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:ems="10"
-                android:hint="@string/login_pw"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:singleLine="true" />
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="208dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="26dp"
+                android:layout_weight="1"
+                android:checked="false"
+                android:text="@string/check_save" />
 
             <Button
                 android:id="@+id/login_button"
-                android:layout_width="108dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
                 android:layout_gravity="center"
+                android:layout_marginEnd="51dp"
+                android:layout_weight="1"
                 android:text="@string/login_btn" />
+
         </LinearLayout>
 
-    </ScrollView>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
