@@ -91,8 +91,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 
         int color = getResources().getColor(R.color.colorAccent);
+
         //largeIcon에 이미지를 사용하기 위해서는 비트맵으로 바꿔줘야 함
         Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(), R.drawable.pic_2nd);
+
+
         //이미지 온라인 링크를 가져와 비트맵으로 바꿈
         try {
             URL url = new URL(messageBody);

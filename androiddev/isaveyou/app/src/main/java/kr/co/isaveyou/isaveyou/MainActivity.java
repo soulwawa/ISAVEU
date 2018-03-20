@@ -1,6 +1,8 @@
 package kr.co.isaveyou.isaveyou;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -15,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import android.support.v7.widget.Toolbar;
@@ -22,10 +25,16 @@ import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 
+import java.io.BufferedInputStream;
+import java.net.URL;
+import java.net.URLConnection;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    String strId;
-    TextView tvId;
+    String strName, strPicUrl, strEmail;
+    TextView tvName, tvEmail;
+    ImageView profile;
+    Bitmap profileImg;
     private DrawerLayout mDrawerLayout;
 
 
@@ -37,16 +46,15 @@ public class MainActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        strId = intent.getStringExtra("사번");
-        Log.v(TAG, "사번 : " + strId);
+        strName = intent.getStringExtra("이름");
+        strPicUrl = intent.getStringExtra("프로필사진");
+        strEmail = intent.getStringExtra("이메일");
+
+        Log.v(TAG, "이름 : " + strName);
+        Log.v(TAG, "프로필사진 : " + strPicUrl);
+        Log.v(TAG, "이메일 : " + strEmail);
 
 
-
-
-
-
-        Log.v(TAG, intent.getStringExtra("title") + "");
-        Log.v(TAG, intent.getStringExtra("content") + "");
 
         //toolbar 액션 설정
 
@@ -62,8 +70,26 @@ public class MainActivity extends AppCompatActivity {
 
         View headerView = navigationView.getHeaderView(0);
 
-        tvId = headerView.findViewById(R.id.drawer_textId);
-        tvId.setText(strId);
+        tvName = headerView.findViewById(R.id.drawer_textId);
+        tvName.setText(strName);
+
+        tvEmail = headerView.findViewById(R.id.tvEmail);
+        tvEmail.setText(strEmail);
+
+        profile = headerView.findViewById(R.id.profileimage);
+
+        //이미지 온라인 링크를 가져와 비트맵으로 바꿈
+        try {
+            URL url = new URL(strPicUrl);
+            URLConnection connection = url.openConnection();
+            connection.connect();
+            BufferedInputStream bis = new BufferedInputStream(connection.getInputStream());
+            profileImg = BitmapFactory.decodeStream(bis);
+            Log.v(TAG, "url : " + url );
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        profile.setImageBitmap(profileImg);
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

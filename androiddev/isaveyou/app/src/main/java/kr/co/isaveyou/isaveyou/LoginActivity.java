@@ -3,6 +3,7 @@ package kr.co.isaveyou.isaveyou;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.http.HttpResponseCache;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,8 +12,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,15 +27,18 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
+import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     public SharedPreferences settings;
-    String loginId,loginPw,deviceKey;
+    String loginId,loginPw,deviceKey,result;
     boolean loginChecked;
     CheckBox autoLogin;
     EditText etId, etPw;
+
 
     View.OnClickListener handler = new View.OnClickListener() {
         @Override
@@ -38,6 +47,8 @@ public class LoginActivity extends AppCompatActivity {
                 case R.id.login_button:
                     Login();
                     Log.v(TAG, "로그인 버튼 눌림");
+
+
                     LoginCheckTask loginCheckTask = new LoginCheckTask();
                     loginCheckTask.execute();
                     break;
@@ -51,6 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         etId = findViewById(R.id.login_id);
         etPw = findViewById(R.id.login_pw);
         findViewById(R.id.login_button).setOnClickListener(handler);
+
         autoLogin = (CheckBox)findViewById(R.id.checkBox2);
 
         loginId = etId.getText().toString().trim();
@@ -67,7 +79,6 @@ public class LoginActivity extends AppCompatActivity {
             etPw.setText(settings.getString("loginPW",""));
             autoLogin.setChecked(true);
         }
-        HttpURLConnection conn = null;
         //기기 마다의 인스턴스 값 얻기
         getInstanceId();
 
@@ -92,25 +103,18 @@ public class LoginActivity extends AppCompatActivity {
             cancel = true;
             Log.v(TAG, "암호 오류");
         }
-//        else if(TextUtils.isEmpty(id)){    //사번이 비어있는 경우 확인
-//            etId.setError("사번을 입력해주세요.");
-//            focusView = etId;
-//            cancel = true;
-//            Log.v(TAG, "사번 미입력");
-//        }
+
         else if (!isIdVaild(id)){ //너무 짧은 사번 값이 입력된 경우 확인
             etId.setError("입력하신 사번이 너무 길거나 짧습니다."); //에러 발생시 text를 보여줌
             focusView = etId;
             cancel = true;
             Log.v(TAG, "너무 짧은 사번 입력");
         }else if (!TextUtils.isEmpty(id)&&!TextUtils.isEmpty(pw)){
-            Intent intent_main = new Intent(this, MainActivity.class);
-//            Intent intent_drawer = new Intent(this, Drawer_header_Activity.class);
-            String strId = id.valueOf(id);
-            intent_main.putExtra("사번",strId);
-//            intent_drawer.putExtra("사번",strId);
-            startActivity(intent_main);
-//            startActivity(intent_drawer);
+//            Intent intent_main = new Intent(this, MainActivity.class);
+//            String strId = id.valueOf(id);
+//            intent_main.putExtra("사번",strId);
+//            startActivity(intent_main);
+            Toast.makeText(this,"로그인 성공",Toast.LENGTH_SHORT).show();
             finish();
         }
 
@@ -123,11 +127,11 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     // id, pw 길이 확인을 위한 method
-    private boolean isPasswordVaild(String password){ //패스워드를 너무 짧게 입력한 경우를 확인하기 위한 method
-        return password.length()!= 10;
+    private boolean isPasswordVaild(String password){ //패스워드를 너무 짧게 입력하거나 길게 입력한 경우를 확인하기 위한 method
+        return password.length()<=12 && password.length() >= 6;
     }
-    private boolean isIdVaild(String id){ //패스워드를 너무 짧게 입력한 경우를 확인하기 위한 method
-        return id.length()<12 && id.length() > 6;
+    private boolean isIdVaild(String id){ //아이디를 너무 짧게 입력하거나 길게 입력한 경우를 확인하기 위한 method, 사번은 10자로 구성됨
+        return id.length() == 10;
     }
 
     void getInstanceId(){ //앱을 설치한 기계의 instance Id를 얻기 위한 method
@@ -158,21 +162,21 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     //로그인 시 서버에 연결된 DB에 있는 ID 값과 PW 값으로 ID,PW 체크
-    class LoginCheckTask extends AsyncTask<String, String, String>{
+    class LoginCheckTask extends AsyncTask<String, Void, String>{
         @Override
         protected String doInBackground(String... strings) {
             loginId = etId.getText().toString();
             loginPw = etPw.getText().toString();
             String param = "u_id=" + loginId + "&u_pw=" + loginPw +"&u_instancekey="+deviceKey +"";
             Log.v(TAG, "param : " + param);
-
+            HttpURLConnection conn = null;
             try{
                 /*서버연결*/
                 URL url = new URL("http://192.168.0.35:8088/SafeForYou/AndroidLogin.do?");
-                HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+                conn = (HttpURLConnection)url.openConnection();
                 conn.setRequestProperty("Content-type","application/x-www-form-urlencoded");
                 conn.setRequestMethod("POST");
-                conn.setDoInput(true);
+                conn.setDoInput(true); // inputStream으로 서버로부터 응답을 받겠다는 옵션
                 conn.connect();
                 Log.v(TAG, "서버 연결");
                 /*안드로이드 -> 서버 파라메터값 전달*/
@@ -182,26 +186,73 @@ public class LoginActivity extends AppCompatActivity {
                 outs.close();
 
                 /*서버 -> 안드로이드 파라메터값 전달*/
-                InputStream is = null;
-                BufferedReader in = null;
-                String data = "";
-
-                is = conn.getInputStream();
-                in = new BufferedReader(new InputStreamReader(is), 8*1024);
-                String line = null;
-                StringBuffer buff = new StringBuffer();
-                while ((line = in.readLine())!=null){
-                    buff.append(line + "\n");
+                /* 실패 시 실패 메시지띄움*/
+                if(conn.getResponseCode()!=HttpURLConnection.HTTP_OK){
+                    Toast.makeText(getApplicationContext(),"로그인 실패",Toast.LENGTH_SHORT).show();
+                } else {
+                    StringBuilder response = new StringBuilder();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    String line;
+                    StringBuffer buffer = new StringBuffer();
+                    while ((line = reader.readLine())!=null){
+                        buffer.append(line + "\n");
+                    }
+                    result = buffer.toString();
+                    Log.v(TAG, "buffer result : " + line );
+                    reader.close();
                 }
-                data = buff.toString().trim();
-                Log.v(TAG, "data : " + data );
-            }catch(MalformedURLException e){
+
+            }catch(MalformedURLException|ProtocolException e){
                 e.printStackTrace();
             }catch(IOException e){
                 e.printStackTrace();
+            }finally {
+                conn.disconnect();
             }
             return null;
         }
 
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            Log.v(TAG, "result in onPostExecute : " + result);
+            Log.v(TAG, "onPostExecute loginId :" +loginId + ",loginPw :" + loginPw + ",deviceKey :" +deviceKey );
+//            profileJsonParser(result);
+            try{
+                String code_access = null;
+                String code_name = null;
+                String code_profile = null;
+                String code_email = null;
+
+
+                JSONObject jsonObject = new JSONObject(result);
+
+                code_access = jsonObject.getString("access");
+                code_name = jsonObject.getString("name");
+                code_profile = jsonObject.getString("profile");
+                code_email = jsonObject.getString("email");
+
+                Log.v(TAG, "code_access : " + code_access);
+                Log.v(TAG, "code_name : " + code_name);
+                Log.v(TAG, "code_email : " + code_profile);
+                Log.v(TAG, "code_profile : " + code_email);
+
+                if(!code_access.equals("0")){
+                    Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
+
+                    String strName = code_name;
+                    String strEmail = code_email;
+                    String strProfile = code_profile;
+                    intent_main.putExtra("이름",strName);
+                    intent_main.putExtra("이메일",strEmail);
+                    intent_main.putExtra("프로필사진",strProfile);
+                    startActivity(intent_main);
+                }
+
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+        }
     }
+
 }

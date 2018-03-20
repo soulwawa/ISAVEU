@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">I Save You</string>
-    <string name="login_num">사번</string>
-    <string name="login_pw">비밀번호</string>
+    <string name="login_num">사번을 입력해주세요.(10자)</string>
+    <string name="login_pw">비밀번호를 입력해주세요.</string>
     <string name="login_btn">로그인</string>
     <string name="check_save">자동 로그인</string>
     <string name="default_notification_channel_id">FCMID</string>
@@ -16,6 +16,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="drawer_header_welcome">님, 환영합니다.</string>
     <string name="nav_sub_menu">Communicate</string>
+
 
 
     <string name="action_settings">Settings</string>
