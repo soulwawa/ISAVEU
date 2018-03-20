@@ -1,10 +1,10 @@
-package kpc.iot.smb.data.DAO;
+package kpc.iot.smb.data.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import kpc.iot.smb.data.VO.TbEventVO;
+import kpc.iot.smb.data.vo.TbEventVO;
 import kpc.iot.smb.util.DBManager;
 
 public class EventDAO {

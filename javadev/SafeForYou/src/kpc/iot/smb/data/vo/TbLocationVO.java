@@ -1,4 +1,4 @@
-package kpc.iot.smb.data.VO;
+package kpc.iot.smb.data.vo;
 
 import java.io.Serializable;
 

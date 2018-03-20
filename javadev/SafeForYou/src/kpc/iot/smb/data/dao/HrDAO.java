@@ -1,4 +1,4 @@
-package kpc.iot.smb.data.DAO;
+package kpc.iot.smb.data.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import kpc.iot.smb.data.VO.TbHrVO;
+import kpc.iot.smb.data.vo.TbHrVO;
 import kpc.iot.smb.util.DBManager;
 
 public class HrDAO {
@@ -17,7 +17,7 @@ public class HrDAO {
 			try(Connection conn = DBManager.getConnection()){
 				PreparedStatement stmt = conn.prepareStatement(Select_SQL_ID);
 				stmt.setString(1, vo.getId());
-				System.out.println(stmt);
+//				System.out.println(stmt);
 				ResultSet rst = stmt.executeQuery();
 				TbHrVO hrVo = null;
 				while(rst.next()) {
