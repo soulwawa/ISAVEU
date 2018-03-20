@@ -49,7 +49,7 @@
 		</div>
 	</div>
 	<div class="container">
-		<div class="top">온도 api</div>
+		<div class="top">온도 api <%=request.getAttribute("result")%></div>
 		<div class="content"></div>
 	</div>
 </body>

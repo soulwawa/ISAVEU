@@ -6,10 +6,6 @@ import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-<<<<<<< HEAD
-
-=======
->>>>>>> 5a6d868d1eeacabce7a03e744e8db1c0f634a699
 import kpc.iot.smb.data.dao.HrDAO;
 import kpc.iot.smb.data.vo.TbHrVO;
 import kpc.iot.smb.util.Action;
@@ -34,18 +30,18 @@ public class WebLogin extends Action{
 		
 		if(list.size() == 0) { 
 			System.out.println("Query FAIL");
-			msg = "Äõ¸® ¿À·ù";
+			msg = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
 			request.setAttribute("result", msg);
 			request.getRequestDispatcher("WEB-INF/WebLoginTest.jsp").forward(request, response);
 		}else {
 			TbHrVO result = list.get(0);
 			System.out.println("0");
 			if(andId.equals(result.getId()) && andPw.equals(result.getPw())) {
-				msg = "°ü¸®ÀÚ´Ô È¯¿µÇÕ´Ï´Ù.";
+				msg = "ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ È¯ï¿½ï¿½ï¿½Õ´Ï´ï¿½.";
 				request.setAttribute("result", msg);
 				request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
 			}else {
-				msg = "·Î±×ÀÎ ½ÇÆÐ ¾ÆÀÌµð¿Í ºñ¹Ð¹øÈ£¸¦ È®ÀÎÇØ ÁÖ¼¼¿ä";
+				msg = "ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½";
 				request.setAttribute("result", msg);
 				request.getRequestDispatcher("WEB-INF/WebLoginTest.jsp").forward(request, response);
 			}
