@@ -112,3 +112,4 @@
 192.168.0.36 - - [20/Mar/2018:15:50:00 +0900] "POST /SafeForYou/AndroidLogin.do HTTP/1.1" 200 113
 192.168.0.36 - - [20/Mar/2018:16:08:00 +0900] "POST /SafeForYou/AndroidLogin.do HTTP/1.1" 200 113
 192.168.0.36 - - [20/Mar/2018:16:31:11 +0900] "POST /SafeForYou/AndroidLogin.do HTTP/1.1" 200 41
+192.168.0.36 - - [20/Mar/2018:16:44:10 +0900] "POST /SafeForYou/AndroidLogin.do HTTP/1.1" 200 145
