@@ -124,10 +124,10 @@ public class LoginActivity extends AppCompatActivity {
     }
     // id, pw 길이 확인을 위한 method
     private boolean isPasswordVaild(String password){ //패스워드를 너무 짧게 입력한 경우를 확인하기 위한 method
-        return password.length()<16 && password.length() > 4;
+        return password.length()!= 10;
     }
     private boolean isIdVaild(String id){ //패스워드를 너무 짧게 입력한 경우를 확인하기 위한 method
-        return id.length()<10 && id.length() > 4;
+        return id.length()<12 && id.length() > 6;
     }
 
     void getInstanceId(){ //앱을 설치한 기계의 instance Id를 얻기 위한 method
