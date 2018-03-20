@@ -48,25 +48,30 @@ public class AndroidLogin extends Action{
 		vo.setId(andId);
 		ArrayList<TbHrVO> list = dao.getHrList(vo);
 //		System.out.println(list.size());
-		if(list.size() == 0) {
-			System.out.println("Query FAIL");
-			
-		}else {
-			System.out.println("Query SUCCESS");
-			TbHrVO result = list.get(0);
-			if(andId.equals(result.getId()) && andPw.equals(result.getPw())) {
-				System.out.println("GOOD");
-				JsonObject loginOk = new JsonObject(); 
-				loginOk.addProperty("access", "1");
-				System.out.println(loginOk);
-			}
-			
-		}
+		JsonObject loginOk = new JsonObject();
 		
-	
+		if(list.size() == 0) { 
+			System.out.println("Query FAIL");
+			loginOk.addProperty("access", "0");
+//			loginOk.addProperty("fcm", result.getFcm().toString());
+//			System.out.println(loginOk);
+			String resultJson = loginOk.toString();
+			request.setAttribute("resultJson", resultJson);
+			request.getRequestDispatcher("WEB-INF/resultJson.jsp").forward(request, response);
+		}else {
+			TbHrVO result = list.get(0);
+			System.out.println("Query SUCCESS");
+			if(andId.equals(result.getId()) && andPw.equals(result.getPw())) {
+//				System.out.println("GOOD");
+				loginOk.addProperty("access", "1");
+				loginOk.addProperty("fcm", result.getFcm().toString());
+//				System.out.println(loginOk);
+				String resultJson = loginOk.toString();
+				request.setAttribute("resultJson", resultJson);
+				request.getRequestDispatcher("WEB-INF/resultJson.jsp").forward(request, response);
+			}
+		}
 	}
-	
-
 
 
 }
