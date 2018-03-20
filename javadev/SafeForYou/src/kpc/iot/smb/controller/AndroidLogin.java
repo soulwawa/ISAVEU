@@ -53,6 +53,9 @@ public class AndroidLogin extends Action{
 		if(list.size() == 0) { 
 			System.out.println("Query FAIL");
 			loginOk.addProperty("access", "0");
+			loginOk.addProperty("name", "0");
+			loginOk.addProperty("profile", "0");
+			
 //			loginOk.addProperty("fcm", result.getFcm().toString());
 //			System.out.println(loginOk);
 			String resultJson = loginOk.toString();
@@ -64,7 +67,8 @@ public class AndroidLogin extends Action{
 			if(andId.equals(result.getId()) && andPw.equals(result.getPw())) {
 //				System.out.println("GOOD");
 				loginOk.addProperty("access", "1");
-				loginOk.addProperty("fcm", result.getFcm().toString());
+				loginOk.addProperty("name", result.getName().toString());				
+				loginOk.addProperty("profile", result.getFcm().toString());
 //				System.out.println(loginOk);
 				String resultJson = loginOk.toString();
 				request.setAttribute("resultJson", resultJson);
