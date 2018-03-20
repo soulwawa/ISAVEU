@@ -62,4 +62,34 @@ public class DBManager {
 			conn = null;
 		}
 	}
+	public static void close(ResultSet rst) {
+		try {
+			if(rst != null)
+				rst.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			rst = null;
+		}
+	}
+	public static void close(PreparedStatement stmt) {
+		try {
+			if(stmt != null)
+				stmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			stmt = null;
+		}
+	}
+	public static void close(Connection conn) {
+		try {
+			if(conn != null)
+				conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			conn = null;
+		}
+	}
 }
