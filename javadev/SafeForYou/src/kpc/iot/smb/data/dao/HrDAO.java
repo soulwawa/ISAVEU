@@ -33,7 +33,7 @@ public class HrDAO {
 					hrVo.setBirthday(rst.getString(9));
 					hrVo.setLevel(rst.getString(10));
 					hrVo.setFcm(rst.getString(11));
-					hrVo.setFcm(rst.getString(12));
+					hrVo.setProfile(rst.getString(12));
 					list.add(hrVo);
 				}
 			}catch (SQLException e) {

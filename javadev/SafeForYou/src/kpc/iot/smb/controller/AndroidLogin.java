@@ -61,7 +61,6 @@ public class AndroidLogin extends Action{
 			request.getRequestDispatcher("WEB-INF/resultJson.jsp").forward(request, response);
 		}else {
 			TbHrVO result = list.get(0);
-			
 			System.out.println("Query SUCCESS");
 			if(andId.equals(result.getId()) && andPw.equals(result.getPw())) {
 //				System.out.println("GOOD");
