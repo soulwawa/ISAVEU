@@ -7,6 +7,6 @@
 <title>로그인 테스트 결과 확인</title>
 </head>
 <body>
-	결과 :<%=request.getAttribute("resultJson")%>
+	결과 :<%=request.getAttribute("result")%>
 </body>
 </html>
