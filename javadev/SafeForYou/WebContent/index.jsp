@@ -12,7 +12,7 @@
 	<section id = "loginFormArea">
 	<form action="" method="POST">
 		<div class="imgBox">
-			<img src="<%=root%>/main.png" alt="logo" class="mainImg">
+			<img src="<%=root%>/img/main.png" alt="logo" class="mainImg">
 		</div>
 		<div id="loginBox">
 			<div class="box">

@@ -1,7 +1,6 @@
 package kpc.iot.smb.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -10,7 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import kpc.iot.smb.data.DAO.HrDAO;
 import kpc.iot.smb.data.VO.TbHrVO;
+import kpc.iot.smb.fcm.Data;
+import kpc.iot.smb.fcm.FCMData;
 import kpc.iot.smb.util.Action;
+
 
 public class AndroidLogin extends Action{
 
@@ -27,22 +29,24 @@ public class AndroidLogin extends Action{
 		
 		TbHrVO vo = new TbHrVO();
 		HrDAO dao = new HrDAO();
+		FCMData fcmData = new FCMData();
+		Data data = new Data();
 		
+//		String dir =  
 		vo.setId(andId);
 		ArrayList<TbHrVO> list = dao.getHrList(vo);
-		System.out.println(list.size());
+//		System.out.println(list.size());
 		if(list.size() == 0) {
 			System.out.println("F");
+			
 		}else {
 			System.out.println("T");
 		}
 		
-		
-		
-		
-		
-		
-		
+	
 	}
+	
+
+
 
 }
