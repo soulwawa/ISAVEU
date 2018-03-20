@@ -68,6 +68,7 @@ public class AndroidLogin extends Action{
 				loginOk.addProperty("name", result.getName().toString());				
 				loginOk.addProperty("profile", result.getFcm().toString());
 				loginOk.addProperty("email", result.getEmail().toString());
+				loginOk.addProperty("fcm", result.getFcm().toString());
 //				System.out.println(loginOk);
 				String resultJson = loginOk.toString();
 				request.setAttribute("resultJson", resultJson);
