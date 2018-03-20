@@ -55,9 +55,7 @@ public class AndroidLogin extends Action{
 			loginOk.addProperty("access", "0");
 			loginOk.addProperty("name", "0");
 			loginOk.addProperty("profile", "0");
-			
-//			loginOk.addProperty("fcm", result.getFcm().toString());
-//			System.out.println(loginOk);
+			loginOk.addProperty("email", "0");
 			String resultJson = loginOk.toString();
 			request.setAttribute("resultJson", resultJson);
 			request.getRequestDispatcher("WEB-INF/resultJson.jsp").forward(request, response);
@@ -69,6 +67,7 @@ public class AndroidLogin extends Action{
 				loginOk.addProperty("access", "1");
 				loginOk.addProperty("name", result.getName().toString());				
 				loginOk.addProperty("profile", result.getFcm().toString());
+				loginOk.addProperty("email", result.getEmail().toString());
 //				System.out.println(loginOk);
 				String resultJson = loginOk.toString();
 				request.setAttribute("resultJson", resultJson);
