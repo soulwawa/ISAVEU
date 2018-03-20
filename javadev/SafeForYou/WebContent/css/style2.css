@@ -1,82 +1,92 @@
 @charset "utf-8";
-html{
-	height:100%;
-}
-body{
-	margin:40px auto 0 auto;
-	height:900px;
-	width: fit-content;
-	border-bottom:1px solid #444;
-	border-top:1px solid #444;
-	
+
+html {
+	height: 100%;
 }
 
-.nav{
-	padding-top:30px;
-	width:200px;
-	height:870px;
-	background:white;
-	text-align:center;
-	border-right:1px solid #444;
-	border-left:1px solid #444;
-	float:left;
+body {
+	margin: 40px auto 0 auto;
+	height: 900px;
+	width: fit-content;
+	border-bottom: 1px solid #444;
+	border-top: 1px solid #444;
 }
-.container{
-	width:1000px;
-	height:900px;
-	margin-right:0px;
-	border-right:1px solid #444;	
-	float:right;
+
+.nav {
+	padding-top: 30px;
+	width: 200px;
+	height: 870px;
+	background: white;
+	text-align: center;
+	border-right: 1px solid #444;
+	border-left: 1px solid #444;
+	float: left;
 }
-.menuBtn{
-	color:#444;
+
+.container {
+	width: 1000px;
+	height: 900px;
+	margin-right: 0px;
+	border-right: 1px solid #444;
+	float: right;
+}
+
+.menuBtn {
+	color: #444;
 	background-color: transparent !important;
-	height:30px;
-	margin:10px;
+	height: 30px;
+	margin: 10px;
 	border: 1px solid #444;
 	border-radius: 7px;
-	width:130px;
+	width: 130px;
 	font-size: 1rem;
-	align:center;
+	align: center;
 }
-.menuBtn:hover{
-	color:#000;
-	background-color:#999;
-	width:140px;
-	transition:0.2s;
+
+.menuBtn:hover {
+	color: #000;
+	background-color: #999;
+	width: 140px;
+	transition: 0.2s;
 }
-.clickedBtn{
-	color:#000;
-	background-color:#999;
-	height:30px;
-	margin:10px;
+
+.clickedBtn {
+	color: #000;
+	background-color: #999;
+	height: 30px;
+	margin: 10px;
 	border: 1px solid #444;
 	border-radius: 7px;
-	width:130px;
+	width: 130px;
 	font-size: 1rem;
-	align:center;
+	align: center;
 }
-.mainImg{
-	width:100px;
-	height:100px;
-	margin:10px;
+
+.mainImg {
+	width: 100px;
+	height: 100px;
+	margin: 10px;
 }
-#btn6{
-	width:130px;
-	height:130px;
-	margin:10px;
+
+#btn6 {
+	width: 130px;
+	height: 130px;
+	margin: 10px;
 	border: 1px solid #444;
 	border-radius: 7px;
 }
-#btn6:hover{
-	width:140px;
-	height:140px;
-	transition:0.2s;
+
+#btn6:hover {
+	width: 140px;
+	height: 140px;
+	transition: 0.2s;
 }
-.top{
-	height:150px;
+
+.top {
+	height: 150px;
 }
-.content{
-	border-top:1px solid #444;
-	height:749px;
+
+.content {
+	border-top: 1px solid #444;
+	height: 749px;
 }
