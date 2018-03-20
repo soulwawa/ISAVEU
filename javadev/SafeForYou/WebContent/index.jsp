@@ -17,10 +17,10 @@
 			<div id="loginBox">
 				<div class="box">
 					<div>
-						<input type="text" id="id" class="txtbox" name="idBox">
+						<input type="text" name="id" class="txtbox">
 					</div>
 					<div>
-						<input type="password" id="password" class="txtbox" name="pwdBox">
+						<input type="password" name="password" class="txtbox">
 					</div>
 				</div>
 				<div class="loginBtn">
