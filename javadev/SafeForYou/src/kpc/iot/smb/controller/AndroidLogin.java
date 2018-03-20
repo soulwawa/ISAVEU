@@ -74,6 +74,15 @@ public class AndroidLogin extends Action{
 				String resultJson = loginOk.toString();
 				request.setAttribute("resultJson", resultJson);
 				request.getRequestDispatcher("WEB-INF/resultJson.jsp").forward(request, response);
+			}else {
+				System.out.println("Login FAIL");
+				loginOk.addProperty("access", "0");
+				loginOk.addProperty("name", "0");
+				loginOk.addProperty("profile", "0");
+				loginOk.addProperty("email", "0");
+				String resultJson = loginOk.toString();
+				request.setAttribute("resultJson", resultJson);
+				request.getRequestDispatcher("WEB-INF/resultJson.jsp").forward(request, response);
 			}
 		}
 	}
