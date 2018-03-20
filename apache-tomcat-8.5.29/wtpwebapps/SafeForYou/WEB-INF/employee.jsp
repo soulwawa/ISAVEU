@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
 <% String root = request.getContextPath(); %>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css">
-<title>°ü¸®ÀÚ ÆäÀÌÁö</title>
+<title>ê´€ë¦¬ìž íŽ˜ì´ì§€</title>
 </head>
 <body>
 	<div class="nav">
@@ -19,42 +19,38 @@
 		</div>
 		<br>
 		<div>
-			<a href="sensorlog.do">
-				<input type="button" value="¼¾¼­·Î±×" class="menuBtn" id="btn1">
+			<a href="sensorlog.do"> <input type="button" value="ì„¼ì„œë¡œê·¸"
+				class="menuBtn" id="btn1">
 			</a>
 		</div>
 		<br>
 		<div>
-			<a href="eventlog.do">
-				<input type="button" value="»ç°Ç¸ñ·Ï" class="menuBtn" id="btn2">
+			<a href="eventlog.do"> <input type="button" value="ì‚¬ê±´ëª©ë¡"
+				class="menuBtn" id="btn2">
 			</a>
 		</div>
 		<br>
 		<div>
-			<a href="streaming.do">
-				<input type="button" value="½Ç½Ã°£ ½ºÆ®¸®¹Ö" class="menuBtn" id="btn3">
+			<a href="streaming.do"> <input type="button" value="ì‹¤ì‹œê°„ ìŠ¤íŠ¸ë¦¬ë°"
+				class="menuBtn" id="btn3">
 			</a>
 		</div>
 		<br>
 		<div>
-			<a href="employee.do">
-				<input type="button" value="»ç¿øÁ¤º¸" class="clickedBtn" id="btn4">
+			<a href="employee.do"> <input type="button" value="ì‚¬ì›ì •ë³´"
+				class="clickedBtn" id="btn4">
 			</a>
 		</div>
 		<br>
 		<div>
-			<a href="location.do">
-				<input type="button" value="À§Ä¡Á¤º¸" class="menuBtn" id="btn5">
+			<a href="location.do"> <input type="button" value="ìœ„ì¹˜ì •ë³´"
+				class="menuBtn" id="btn5">
 			</a>
 		</div>
 	</div>
 	<div class="container">
-		<div class="top">
-			¿Âµµ api
-		</div>
-		<div class="content">
-			»ç°Ç·Î±×
-		</div>
+		<div class="top">ì˜¨ë„ api</div>
+		<div class="content">ì‚¬ê±´ë¡œê·¸</div>
 	</div>
 </body>
 </html>
