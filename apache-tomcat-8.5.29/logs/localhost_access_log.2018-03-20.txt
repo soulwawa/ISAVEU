@@ -163,3 +163,4 @@
 192.168.0.46 - - [20/Mar/2018:17:59:27 +0900] "POST /SafeForYou/eventIn.do?module_id=1&temp=26.27&smoke=502&gyro=999&fire=979&issue=2 HTTP/1.0" 200 -
 192.168.0.46 - - [20/Mar/2018:17:59:51 +0900] "POST /SafeForYou/eventIn.do?module_id=1&temp=26.29&smoke=486&gyro=1000&fire=974&issue=0 HTTP/1.0" 200 -
 192.168.0.46 - - [20/Mar/2018:18:00:01 +0900] "POST /SafeForYou/eventIn.do?module_id=1&temp=26.29&smoke=481&gyro=160&fire=987&issue=2 HTTP/1.0" 200 -
+127.0.0.1 - - [20/Mar/2018:18:03:32 +0900] "GET / HTTP/1.1" 200 11452
