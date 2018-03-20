@@ -61,12 +61,13 @@ public class AndroidLogin extends Action{
 			request.getRequestDispatcher("WEB-INF/resultJson.jsp").forward(request, response);
 		}else {
 			TbHrVO result = list.get(0);
+			
 			System.out.println("Query SUCCESS");
 			if(andId.equals(result.getId()) && andPw.equals(result.getPw())) {
 //				System.out.println("GOOD");
 				loginOk.addProperty("access", "1");
 				loginOk.addProperty("name", result.getName().toString());				
-				loginOk.addProperty("profile", result.getFcm().toString());
+				loginOk.addProperty("profile", result.getProfile().toString());
 				loginOk.addProperty("email", result.getEmail().toString());
 				loginOk.addProperty("fcm", result.getFcm().toString());
 //				System.out.println(loginOk);

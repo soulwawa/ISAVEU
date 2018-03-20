@@ -15,6 +15,15 @@ public class TbHrVO implements Serializable {
 	String birthday;
 	String level;
 	String fcm;
+	String profile;
+
+	public String getProfile() {
+		return profile;
+	}
+
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
 
 	public int getHr_id() {
 		return hr_id;
