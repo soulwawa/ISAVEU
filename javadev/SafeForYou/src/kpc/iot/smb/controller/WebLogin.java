@@ -26,24 +26,24 @@ public class WebLogin extends Action{
 		
 		vo.setId(andId);
 		ArrayList<TbHrVO> list = dao.getHrList(vo);
-		String msg = null;
+		int msg = 0;
 		
 		if(list.size() == 0) { 
 			System.out.println("Query FAIL");
-			msg = "Query FAIL";
+			msg = 0;
 			request.setAttribute("result", msg);
 			request.getRequestDispatcher("WEB-INF/WebLoginTest.jsp").forward(request, response);
 		}else {
 			TbHrVO result = list.get(0);
 			System.out.println("0");
 			if(andId.equals(result.getId()) && andPw.equals(result.getPw())) {
-				msg = "1";
+				msg = 1;
 				request.setAttribute("result", msg);
-				request.getRequestDispatcher("WEB-INF/resultJson.jsp").forward(request, response);
+				request.getRequestDispatcher("WEB-INF/WebLoginTest.jsp").forward(request, response);
 			}else {
-				msg = "2";
+				msg = 2;
 				request.setAttribute("result", msg);
-				request.getRequestDispatcher("WEB-INF/resultJson.jsp").forward(request, response);
+				request.getRequestDispatcher("WEB-INF/WebLoginTest.jsp").forward(request, response);
 			}
 		}
 	}
