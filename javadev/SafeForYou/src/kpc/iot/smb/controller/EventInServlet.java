@@ -6,8 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kpc.iot.smb.data.DAO.EventDAO;
-import kpc.iot.smb.data.VO.TbEventVO;
+import kpc.iot.smb.data.dao.EventDAO;
+import kpc.iot.smb.data.vo.TbEventVO;
 import kpc.iot.smb.util.Action;
 
 public class EventInServlet extends Action{
