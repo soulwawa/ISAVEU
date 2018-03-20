@@ -10,17 +10,17 @@
 </head>
 <body>
 	<section id = "loginFormArea">
-	<form action="" method="POST">
+	<form action="login.do" method="POST">
 		<div class="imgBox">
 			<img src="<%=root%>/img/main.png" alt="logo" class="mainImg">
 		</div>
 		<div id="loginBox">
 			<div class="box">
 				<div>
-					<input type="text" name="id" class="txtbox" name="idBox">
+					<input type="text" id="id" class="txtbox" name="idBox">
 				</div>
 				<div>
-					<input type="password" name="password" class="txtbox" name="pwdBox">
+					<input type="password" id="password" class="txtbox" name="pwdBox">
 				</div>
 			</div>
 			<div class="loginBtn">

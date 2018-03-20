@@ -32,6 +32,7 @@ public class AndroidLogin extends Action{
 		String andId = request.getParameter("u_id");
 		String andPw = request.getParameter("u_pw");
 		String fcmValue = request.getParameter("u_instancekey");
+		String compareId;
 		
 		System.out.println(andId);
 		System.out.println(andPw);
@@ -48,20 +49,17 @@ public class AndroidLogin extends Action{
 		ArrayList<TbHrVO> list = dao.getHrList(vo);
 //		System.out.println(list.size());
 		if(list.size() == 0) {
-			System.out.println("LOGIN FAIL");
+			System.out.println("Query FAIL");
 			
 		}else {
-			System.out.println("LOGIN SUCCESS");
+			System.out.println("Query SUCCESS");
 			TbHrVO result = list.get(0);
-			System.out.println(result);
-//			for(int i =0; i < list.size() ; i++) {
-//				System.out.println(list.get(i));
-//			}
-//			String result = gson.toJson(list);
-////			System.out.println(result);
-//			JsonParser parser = new JsonParser();
-//			JsonArray parseResult = parser.parse(result).getAsJsonArray();
-//			JsonArray _id = parseResult.get(
+			if(andId.equals(result.getId()) && andPw.equals(result.getPw())) {
+				System.out.println("GOOD");
+				JsonObject loginOk = new JsonObject(); 
+				loginOk.addProperty("access", "1");
+				System.out.println(loginOk);
+			}
 			
 		}
 		
