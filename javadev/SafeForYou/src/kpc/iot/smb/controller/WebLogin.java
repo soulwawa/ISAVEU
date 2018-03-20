@@ -40,10 +40,12 @@ public class WebLogin extends Action{
 			TbHrVO result = list.get(0);
 			System.out.println("Query SUCCESS");
 			if(andId.equals(result.getId()) && andPw.equals(result.getPw())) {
-//				System.out.println("GOOD");
-//				System.out.println(loginOk);
-				String resultJson = loginOk.toString();
-				request.setAttribute("resultJson", resultJson);
+				msg = "로그인 성공";
+				request.setAttribute("result", msg);
+				request.getRequestDispatcher("WEB-INF/resultJson.jsp").forward(request, response);
+			}else {
+				msg = "아이디 혹은 비밀번호가 일치하지 않습니다.";
+				request.setAttribute("result", msg);
 				request.getRequestDispatcher("WEB-INF/resultJson.jsp").forward(request, response);
 			}
 		}
