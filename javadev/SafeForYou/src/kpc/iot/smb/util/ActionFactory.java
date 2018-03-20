@@ -20,7 +20,6 @@ public class ActionFactory {
 		}catch(Exception ex){
 			ex.printStackTrace();
 //			System.out.println(ex);
-//			throw new RuntimeException("�ʱ�ȭ ������ �о���� �� ������ �߻��Ͽ����ϴ�. :"  + ex);
 		}finally{
 			if(in != null){
 				try{ in.close(); } catch(Exception ex){}

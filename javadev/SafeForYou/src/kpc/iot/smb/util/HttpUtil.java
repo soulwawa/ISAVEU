@@ -13,8 +13,6 @@ public class HttpUtil {
 			dispatcher.forward(request, response);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-//			System.out.println("forward ���� : " + ex);
-//			throw new RuntimeException("forward ���� : " + ex);
 		}
 	} // redirect
 
@@ -23,8 +21,6 @@ public class HttpUtil {
 			response.sendRedirect(path);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-//			System.out.println("redirect ���� : " + ex);
-//			throw new RuntimeException("redirect ����  : " + ex);
 		}
 	} // forward
 
@@ -33,8 +29,6 @@ public class HttpUtil {
 			url = URLEncoder.encode(url, "UTF-8");
 		} catch (Exception ex) {
 			ex.printStackTrace();
-//			System.out.println("URL ���ڵ� ��  ���� : " + ex);
-//			throw new RuntimeException("URL ���ڵ� ��  ���� : " + ex);
 		}
 		return url;
 	}
