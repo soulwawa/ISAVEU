@@ -7,8 +7,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.JsonObject;
-
 import kpc.iot.smb.data.dao.HrDAO;
 import kpc.iot.smb.data.vo.TbHrVO;
 import kpc.iot.smb.util.Action;
@@ -29,22 +27,22 @@ public class WebLogin extends Action{
 		
 		vo.setId(andId);
 		ArrayList<TbHrVO> list = dao.getHrList(vo);
-		int msg = 0;
+		String msg = null;
 		
 		if(list.size() == 0) { 
 			System.out.println("Query FAIL");
-			msg = 0;
+			msg = "쿼리 오류";
 			request.setAttribute("result", msg);
 			request.getRequestDispatcher("WEB-INF/WebLoginTest.jsp").forward(request, response);
 		}else {
 			TbHrVO result = list.get(0);
 			System.out.println("0");
 			if(andId.equals(result.getId()) && andPw.equals(result.getPw())) {
-				msg = 1;
+				msg = "관리자님 환영합니다.";
 				request.setAttribute("result", msg);
-				request.getRequestDispatcher("WEB-INF/WebLoginTest.jsp").forward(request, response);
+				request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
 			}else {
-				msg = 2;
+				msg = "로그인 실패 아이디와 비밀번호를 확인해 주세요";
 				request.setAttribute("result", msg);
 				request.getRequestDispatcher("WEB-INF/WebLoginTest.jsp").forward(request, response);
 			}
