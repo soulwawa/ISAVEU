@@ -38,13 +38,13 @@ public class WebLogin extends Action{
 			request.getRequestDispatcher("WEB-INF/WebLoginTest.jsp").forward(request, response);
 		}else {
 			TbHrVO result = list.get(0);
-			System.out.println("Query SUCCESS");
+			System.out.println("0");
 			if(andId.equals(result.getId()) && andPw.equals(result.getPw())) {
-				msg = "Login SUCCESS";
+				msg = "1";
 				request.setAttribute("result", msg);
 				request.getRequestDispatcher("WEB-INF/resultJson.jsp").forward(request, response);
 			}else {
-				msg = "ID error OR PASSWORD error";
+				msg = "2";
 				request.setAttribute("result", msg);
 				request.getRequestDispatcher("WEB-INF/resultJson.jsp").forward(request, response);
 			}
