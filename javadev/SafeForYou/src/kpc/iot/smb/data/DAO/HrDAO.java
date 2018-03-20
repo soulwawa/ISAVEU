@@ -33,6 +33,7 @@ public class HrDAO {
 					hrVo.setBirthday(rst.getString(9));
 					hrVo.setLevel(rst.getString(10));
 					hrVo.setFcm(rst.getString(11));
+					list.add(hrVo);
 				}
 			}catch (SQLException e) {
 				System.out.println("Select ID Error: " + e);
