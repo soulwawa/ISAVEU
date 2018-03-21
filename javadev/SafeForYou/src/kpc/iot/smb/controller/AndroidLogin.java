@@ -40,9 +40,6 @@ public class AndroidLogin extends Action{
 		
 		TbHrVO vo = new TbHrVO();
 		HrDAO dao = new HrDAO();
-		FCMData fcmData = new FCMData();
-		Data data = new Data();
-		Gson gson = new Gson();
 		
 //		String dir =  http://192.168.0.35:8088/SafeForYou/img/HR_profile/0000000000.png
 		vo.setId(andId);
