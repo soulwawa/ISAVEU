@@ -18,37 +18,61 @@ public class EventInServlet extends Action{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		response.setContentType("text/plain;charset=utf-8");
-//		PrintWriter out = response.getWriter();
 		String issue = request.getParameter("issue");
-		
 		String module_id = request.getParameter("module_id");
 		String temp = request.getParameter("temp");
-//		float temp = toConvertTemp(temp1);
 		String smoke = request.getParameter("smoke");
 		String gyro = request.getParameter("gyro");
 		String fire = request.getParameter("fire");
 		
+		//ISSUE Process
+		// 0 -> DB, 1 -> Rasp,DB, 2->Rasp,DB, 3->Rasp,DB,
 		
-		EventDAO dao = new EventDAO();
-		TbEventVO vo = new TbEventVO();
+		switch (issue) {
+		case "1":
+			System.out.println("화재경보");
+			break;
+		case "2":
+			System.out.println("지진경보");
+			break;
+		case "3":
+			System.out.println("지진 + 화재경보");
+			break;
+		default:
+			EventDAO dao = new EventDAO();
+			TbEventVO vo = new TbEventVO();
+			
+			vo.setModule_id(module_id);
+			vo.setTemp(Float.parseFloat(temp));
+			vo.setSmoke(Float.parseFloat(smoke));
+			vo.setGyro(Float.parseFloat(gyro));
+			vo.setFire(Float.parseFloat(fire));
+			vo.setIssue(issue);
+			dao.insertEvent(vo);
+			System.out.println("InsertEvent Succes");
+			break;
+		}
 		
-		vo.setModule_id(module_id);
-		vo.setTemp(Float.parseFloat(temp));
-		vo.setSmoke(Float.parseFloat(smoke));
-		vo.setGyro(Float.parseFloat(gyro));
-		vo.setFire(Float.parseFloat(fire));
-		vo.setIssue(issue);
-		dao.insertEvent(vo);
-		System.out.println("InsertEvent Succes");
 		
+//		if(issue.equals("0")) {
+//			EventDAO dao = new EventDAO();
+//			TbEventVO vo = new TbEventVO();
+//			vo.setModule_id(module_id);
+//			vo.setTemp(Float.parseFloat(temp));
+//			vo.setSmoke(Float.parseFloat(smoke));
+//			vo.setGyro(Float.parseFloat(gyro));
+//			vo.setFire(Float.parseFloat(fire));
+//			vo.setIssue(issue);
+//			dao.insertEvent(vo);
+//			System.out.println("InsertEvent Succes");
+//		}else if (issue.equals("1")) {
+//			System.out.println("화재경보");
+//		}else if (issue.equals("2")) {
+//			System.out.println("지진경보");
+//		}else if (issue.equals("3")) {
+//			System.out.println("지진 + 화재 경보");
+//		}		
 	}
-	//온도 변화
-//	public float toConvertTemp(String reading){
-//		 float readData = Float.parseFloat(reading);
-//		 float voltage = (float) (readData * 5.0);
-//		 voltage /= 1024.0;
-//		 float temperatureC = (float) ((voltage - 0.5) * 100) ; 
-//		 return (float) (Math.round(temperatureC * 100d) / 100d);
-//	}
+	
 
 }
