@@ -401,3 +401,7 @@
 192.168.0.35 - - [20/Mar/2018:18:47:51 +0900] "GET /SafeForYou/sensorlog.do HTTP/1.1" 200 2819
 192.168.0.35 - - [20/Mar/2018:18:47:54 +0900] "GET /SafeForYou/eventlog.do HTTP/1.1" 200 2816
 192.168.0.35 - - [20/Mar/2018:18:47:56 +0900] "GET /SafeForYou/streaming.do HTTP/1.1" 200 2819
+127.0.0.1 - - [20/Mar/2018:18:52:24 +0900] "GET / HTTP/1.1" 200 11452
+192.168.0.36 - - [20/Mar/2018:18:55:05 +0900] "POST /SafeForYou/AndroidLogin.do HTTP/1.1" 200 306
+192.168.0.36 - - [20/Mar/2018:19:03:37 +0900] "POST /SafeForYou/AndroidLogin.do HTTP/1.1" 200 306
+192.168.0.36 - - [20/Mar/2018:19:05:03 +0900] "POST /SafeForYou/AndroidLogin.do HTTP/1.1" 200 306
