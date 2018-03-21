@@ -4,7 +4,7 @@
 <html>
 <head>
 <% String root = request.getContextPath(); %>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="<%=root%>/javascript/gaugechart.js"></script>
 <link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css">
 <title>관리자 페이지</title>

@@ -1,13 +1,26 @@
 package kpc.iot.smb.controller;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
 import kpc.iot.smb.data.dao.EventDAO;
 import kpc.iot.smb.data.vo.TbEventVO;
 import kpc.iot.smb.util.Action;
@@ -32,6 +45,65 @@ public class EventInServlet extends Action{
 		case "1":
 			System.out.println("화재경보");
 			send();
+			String reqContentType = request.getContentType();
+			System.out.println( "reqContentType : " + reqContentType );
+			InputStream input = request.getInputStream();
+			ByteArrayOutputStream result = null;
+			PrintWriter writer = null;
+			try {
+				input = request.getInputStream();
+				System.out.println(input.equals(null));
+				result = new ByteArrayOutputStream();
+				
+				byte[] buffer = new byte[1024];
+				int size = 0;
+				 while((size=input.read(buffer, 0, 1024))!=-1){
+					    //-1 이 EOF
+
+					    System.out.println("size : " + size);
+					    result.write( buffer, 0, size );
+					   }
+				File dir = new File("C:\\workspace\\SaveForYou\\javadev\\SafeForYou\\WebContent\\img");
+				if(!dir.exists()) {
+					dir.mkdir();
+				}
+				File file = new File("C:\\workspace\\SaveForYou\\javadev\\SafeForYou\\WebContent\\img\\image.png");
+				if(!file.exists()) {
+					file.createNewFile();
+				}
+				writer = new PrintWriter(file);
+				writer.println(result.toString("UTF-8"));
+				writer.close();
+			}catch (Exception e) {
+				e.printStackTrace();
+				// TODO: handle exception
+			}finally {
+				try {
+					if(input!=null) {
+						
+						 input.close();
+				    }
+				   } catch ( Exception e ) {
+				    input = null;
+				   }
+				   
+				   try {
+				    if ( result != null ) {
+				     result.close();
+				    }
+				   } catch ( Exception e ) {
+				    result = null;
+				   }
+				   
+				   try {
+				    if ( writer != null ) {
+				     writer.close();
+				    }
+				   } catch ( Exception e ) {
+				    writer = null;
+				   }
+				  }
+			
 			break;
 		case "2":
 			System.out.println("지진경보");
@@ -55,7 +127,7 @@ public class EventInServlet extends Action{
 		}
 	}
 	public void send() throws IOException {
-		String url = "http://192.168.0.13:5000/ledcon/1/1";
+		String url = "http://192.168.0.13:5000/event/1";
 	
 	    URL obj = new URL(url);
 	    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -84,5 +156,6 @@ public class EventInServlet extends Action{
 	    //print result
 	    System.out.println(response.toString());
 	}
+	
 }
 	

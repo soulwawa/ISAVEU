@@ -1,18 +1,18 @@
 @charset "utf-8";
 
 html {
-	height: 100%;
+	height: 100% !important;
 }
 
 body {
-	margin: 40px auto 0 auto;
-	height: 900px;
-	width: fit-content;
-	border-bottom: 1px solid #444;
-	border-top: 1px solid #444;
+	margin: 40px auto 0 auto !important;
+	height: 900px !important;
+	width: fit-content !important;
+	border-bottom: 1px solid #444 !important;
+	border-top: 1px solid #444 !important;
 }
 
-.nav {
+.div1 {
 	padding-top: 30px;
 	width: 200px;
 	height: 870px;
@@ -23,12 +23,12 @@ body {
 	float: left;
 }
 
-.container {
+.div2 {
 	width: 1000px;
 	height: 900px;
 	margin-right: 0px;
 	border-right: 1px solid #444;
-	float: right;
+	float: left;
 }
 
 .menuBtn {
@@ -82,11 +82,30 @@ body {
 	transition: 0.2s;
 }
 
-.top {
+.div21 {
 	height: 150px;
 }
 
-.content {
+.div22 {
 	border-top: 1px solid #444;
 	height: 749px;
+}
+#chartHolder{
+	width:400px !important;
+}
+#content{
+	width:400px !important;
+}
+.rMateH5__CircularGauge{
+	margin:0 auto !important;
+	height:282px !important;
+}
+#chart1{
+	margin:0 auto !important;
+}
+#rMateChartH5__RightTrialMark_15984 .rMateChartH5__RightTrialMark_15984{
+	width:0
+}
+#rMateChartH5__LeftTrialMark_5775 .rMateChartH5__LeftTrialMark_5775{
+	
 }
