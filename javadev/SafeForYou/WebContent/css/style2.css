@@ -1,34 +1,34 @@
 @charset "utf-8";
 
 html {
+	margin:0 !important;
+	padding:0 !important;
 	height: 100% !important;
 }
 
 body {
-	margin: 40px auto 0 auto !important;
-	height: 900px !important;
-	width: fit-content !important;
-	border-bottom: 1px solid #444 !important;
-	border-top: 1px solid #444 !important;
+	margin:0 !important;
+	padding:0 !important;
+	height: 100% !important;
 }
 
 .div1 {
 	padding-top: 30px;
-	width: 200px;
-	height: 870px;
+	width: 20%;
+	height: 100%;
 	background: white;
 	text-align: center;
 	border-right: 1px solid #444;
 	border-left: 1px solid #444;
-	float: left;
+	float:left;
 }
 
 .div2 {
-	width: 1000px;
-	height: 900px;
+	width:80%px;
+	height:100%;
 	margin-right: 0px;
 	border-right: 1px solid #444;
-	float: left;
+	float:right;
 }
 
 .menuBtn {
@@ -102,10 +102,4 @@ body {
 }
 #chart1{
 	margin:0 auto !important;
-}
-#rMateChartH5__RightTrialMark_15984 .rMateChartH5__RightTrialMark_15984{
-	width:0
-}
-#rMateChartH5__LeftTrialMark_5775 .rMateChartH5__LeftTrialMark_5775{
-	
 }
