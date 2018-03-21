@@ -3,8 +3,10 @@ package kr.co.isaveyou.isaveyou;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,6 +19,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,6 +30,7 @@ import android.widget.Toast;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.io.BufferedInputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -35,16 +40,56 @@ public class MainActivity extends AppCompatActivity {
     TextView tvName, tvEmail;
     ImageView profile;
     Bitmap profileImg;
-    private DrawerLayout mDrawerLayout;
+    Animation FabOpen, FabClose, FabRClockwise, FabRanticlockWise;
 
+
+    boolean isOpen=false;
+    private FloatingActionButton fabMain, fabMsg, fabThumb;
+
+    private DrawerLayout mDrawerLayout;
+    View.OnClickListener handler = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.fabMain:
+                   if(!isOpen){
+                       fabThumb.startAnimation(FabOpen);
+                       fabMsg.startAnimation(FabOpen);
+                       fabMain.startAnimation(FabRanticlockWise);
+                       fabThumb.setClickable(true);
+                       isOpen = true;
+                   }else{
+                       fabThumb.startAnimation(FabClose);
+                       fabMsg.startAnimation(FabClose);
+                       fabMain.startAnimation(FabRanticlockWise);
+                       fabThumb.setClickable(false);
+                       isOpen = false;
+                   }
+
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //floating action button 설정
+        FabOpen = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_open);
+        FabClose = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
+        FabRClockwise = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
+        FabRanticlockWise = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
+        fabMain = findViewById(R.id.fabMain);
+        fabMsg = findViewById(R.id.fabMsg);
+        fabThumb = findViewById(R.id.fabThumb);
+        fabMain.setOnClickListener(handler);
+        fabMsg.setOnClickListener(handler);
+        fabThumb.setOnClickListener(handler);
 
 
+        //Login intent에서 전달한 내용을 받음
         Intent intent = getIntent();
         strName = intent.getStringExtra("이름");
         strPicUrl = intent.getStringExtra("프로필사진");
@@ -77,19 +122,8 @@ public class MainActivity extends AppCompatActivity {
         tvEmail.setText(strEmail);
 
         profile = headerView.findViewById(R.id.profileimage);
-
-        //이미지 온라인 링크를 가져와 비트맵으로 바꿈
-        try {
-            URL url = new URL(strPicUrl);
-            URLConnection connection = url.openConnection();
-            connection.connect();
-            BufferedInputStream bis = new BufferedInputStream(connection.getInputStream());
-            profileImg = BitmapFactory.decodeStream(bis);
-            Log.v(TAG, "url : " + url );
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-        profile.setImageBitmap(profileImg);
+        ProfilePicTask profilePicTask = new ProfilePicTask();
+        profilePicTask.execute(strPicUrl);
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -144,5 +178,30 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    class ProfilePicTask extends AsyncTask<String, Integer, Bitmap>{
+        @Override
+        protected Bitmap doInBackground(String... urls) {
+            //이미지 온라인 링크를 가져와 비트맵으로 바꿈
+            try {
+                URL url = new URL(urls[0]);
+                URLConnection conn = (HttpURLConnection)url.openConnection();
+                conn.setDoInput(true);
+                conn.connect();
+                BufferedInputStream bis = new BufferedInputStream(conn.getInputStream());
+                profileImg = BitmapFactory.decodeStream(bis);
+                Log.v(TAG, "url : " + url );
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return profileImg;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap img) {
+            profile.setImageBitmap(profileImg);
+            super.onPostExecute(img);
+        }
     }
 }

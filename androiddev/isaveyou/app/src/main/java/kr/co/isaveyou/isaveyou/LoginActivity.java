@@ -169,11 +169,14 @@ public class LoginActivity extends AppCompatActivity {
             loginPw = etPw.getText().toString();
             String param = "u_id=" + loginId + "&u_pw=" + loginPw +"&u_instancekey="+deviceKey +"";
             Log.v(TAG, "param : " + param);
+
             HttpURLConnection conn = null;
             try{
                 /*서버연결*/
                 URL url = new URL("http://192.168.0.35:8088/SafeForYou/AndroidLogin.do?");
                 conn = (HttpURLConnection)url.openConnection();
+
+                conn.setFixedLengthStreamingMode(param.length());
                 conn.setRequestProperty("Content-type","application/x-www-form-urlencoded");
                 conn.setRequestMethod("POST");
                 conn.setDoInput(true); // inputStream으로 서버로부터 응답을 받겠다는 옵션
@@ -190,7 +193,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(conn.getResponseCode()!=HttpURLConnection.HTTP_OK){
                     Toast.makeText(getApplicationContext(),"로그인 실패",Toast.LENGTH_SHORT).show();
                 } else {
-                    StringBuilder response = new StringBuilder();
+//                    StringBuilder response = new StringBuilder();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                     String line;
                     StringBuffer buffer = new StringBuffer();

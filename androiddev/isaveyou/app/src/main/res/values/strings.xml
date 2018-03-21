@@ -18,6 +18,11 @@
     <string name="nav_sub_menu">Communicate</string>
 
 
-
     <string name="action_settings">Settings</string>
+
+    <string name="title_activity_fullscreen_floor_map">FullscreenFloorMapActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_activity_fullscreen_floor_map_1">FullscreenFloorMapActivity_1</string>
 </resources>

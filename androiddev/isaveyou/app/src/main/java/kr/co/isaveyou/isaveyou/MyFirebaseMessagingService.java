@@ -119,7 +119,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         Intent actionCall = new Intent(ACTION_DIAL,Uri.parse("tel:119"));
         Intent actionCheckPlace = new Intent(ACTION_VIEW,Uri.parse("http://www.naver.com"));
-        Intent actionCheckFire_ext = new Intent(ACTION_VIEW,Uri.parse("http://www.daum.net"));
+        Intent actionCheckFire_ext = new Intent(getApplicationContext(),FloorMapActivity.class);
 
 
 
