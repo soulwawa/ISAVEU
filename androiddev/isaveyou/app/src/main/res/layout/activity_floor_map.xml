@@ -32,7 +32,7 @@
             android:layout_marginTop="56dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/fire_ext" />
+            app:srcCompat="@drawable/pic_fire_ext" />
 
         <ImageView
             android:id="@+id/room604_Fire_ext"
@@ -42,7 +42,7 @@
             android:layout_marginTop="44dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/waitingRoom_Fire_ext"
-            app:srcCompat="@drawable/fire_ext" />
+            app:srcCompat="@drawable/pic_fire_ext" />
 
         <ImageView
             android:id="@+id/room603_Fire_ext"
@@ -52,7 +52,7 @@
             android:layout_marginTop="92dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/room604_Fire_ext"
-            app:srcCompat="@drawable/fire_ext" />
+            app:srcCompat="@drawable/pic_fire_ext" />
 
         <ImageView
             android:id="@+id/room602_Fire_ext"
@@ -62,7 +62,7 @@
             android:layout_marginTop="64dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/room603_Fire_ext"
-            app:srcCompat="@drawable/fire_ext" />
+            app:srcCompat="@drawable/pic_fire_ext" />
 
         <ImageView
             android:id="@+id/room601_Fire_ext"
@@ -72,7 +72,7 @@
             android:layout_marginTop="84dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/room602_Fire_ext"
-            app:srcCompat="@drawable/fire_ext" />
+            app:srcCompat="@drawable/pic_fire_ext" />
 
         <ImageView
             android:id="@+id/hallWay01_Fire_ext"
@@ -82,7 +82,7 @@
             android:layout_marginTop="32dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/fire_ext" />
+            app:srcCompat="@drawable/pic_fire_ext" />
 
         <ImageView
             android:id="@+id/room605_Fire_ext"
@@ -92,7 +92,7 @@
             android:layout_marginTop="32dp"
             app:layout_constraintStart_toEndOf="@+id/hallWay01_Fire_ext"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/fire_ext" />
+            app:srcCompat="@drawable/pic_fire_ext" />
 
         <ImageView
             android:id="@+id/hallWay02_Fire_ext"
@@ -102,7 +102,7 @@
             android:layout_marginTop="80dp"
             app:layout_constraintStart_toEndOf="@+id/room604_Fire_ext"
             app:layout_constraintTop_toBottomOf="@+id/hallWay01_Fire_ext"
-            app:srcCompat="@drawable/fire_ext" />
+            app:srcCompat="@drawable/pic_fire_ext" />
 
         <ImageView
             android:id="@+id/room606_Fire_ext"
@@ -112,7 +112,7 @@
             android:layout_marginTop="112dp"
             app:layout_constraintStart_toEndOf="@+id/hallWay02_Fire_ext"
             app:layout_constraintTop_toBottomOf="@+id/room605_Fire_ext"
-            app:srcCompat="@drawable/fire_ext" />
+            app:srcCompat="@drawable/pic_fire_ext" />
 
         <ImageView
             android:id="@+id/room607_Fire_ext"
@@ -122,7 +122,7 @@
             android:layout_marginTop="96dp"
             app:layout_constraintStart_toEndOf="@+id/room603_Fire_ext"
             app:layout_constraintTop_toBottomOf="@+id/room606_Fire_ext"
-            app:srcCompat="@drawable/fire_ext" />
+            app:srcCompat="@drawable/pic_fire_ext" />
 
         <ImageView
             android:id="@+id/room607_1_Fire_ext"
@@ -132,7 +132,7 @@
             android:layout_marginTop="100dp"
             app:layout_constraintStart_toEndOf="@+id/room601_Fire_ext"
             app:layout_constraintTop_toBottomOf="@+id/room607_Fire_ext"
-            app:srcCompat="@drawable/fire_ext" />
+            app:srcCompat="@drawable/pic_fire_ext" />
 
         <ImageView
             android:id="@+id/restRoom_Fire_ext"
@@ -142,7 +142,7 @@
             android:layout_marginStart="164dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/room601_Fire_ext"
-            app:srcCompat="@drawable/fire_ext" />
+            app:srcCompat="@drawable/pic_fire_ext" />
 
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

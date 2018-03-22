@@ -15,45 +15,64 @@
         xmlns:fab="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <android.support.design.widget.FloatingActionButton
+            android:id ="@+id/fab_montoring"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="180dp"
+            android:layout_marginEnd="16dp"
+            android:elevation="6dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/pic_checkplace"
+            android:visibility="invisible"
+            fab:backgroundTint="@color/colorWhite"
+            fab:pressedTranslationZ="12dp"
+            />
+
 
         <android.support.design.widget.FloatingActionButton
-            android:layout_width="wrap_content"
+            android:id="@+id/fab_static"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/checkplace"
-            android:scaleType="fitXY"
             android:layout_gravity="bottom|end"
+            android:layout_marginBottom="130dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="180dp"
-            fab:backgroundTint="@color/colorAccent"
-            android:visibility="invisible"
-            fab:pressedTranslationZ="12dp"
             android:elevation="6dp"
-            android:id="@+id/fabMsg"/>
-        <android.support.design.widget.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/fire_call"
             android:scaleType="fitXY"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="100dp"
-            fab:backgroundTint="@color/colorPrimary"
+            android:src="@drawable/pic_static"
             android:visibility="invisible"
-            fab:pressedTranslationZ="12dp"
-            android:elevation="6dp"
-            android:id="@+id/fabThumb"/>
+            fab:backgroundTint="@color/colorWhite"
+            fab:pressedTranslationZ="12dp" />
+
         <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_map"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_emoticon"
-            android:scaleType="fitXY"
             android:layout_gravity="bottom|end"
+            android:layout_marginBottom="80dp"
             android:layout_marginEnd="16dp"
+            android:elevation="6dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/pic_map"
+            android:visibility="invisible"
+            fab:backgroundTint="@color/colorWhite"
+            fab:pressedTranslationZ="12dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
             android:layout_marginBottom="16dp"
-            fab:pressedTranslationZ="12dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/colorYellow"
             android:elevation="6dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_action_name"
             android:visibility="visible"
-            android:id="@+id/fabMain"/>
+            fab:backgroundTint="@color/colorYellow"
+            fab:pressedTranslationZ="12dp" />
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -63,16 +82,7 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
     </android.support.design.widget.CoordinatorLayout>
-    <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
-        <!--<android.support.v7.widget.Toolbar-->
-            <!--android:id="@+id/toolbar"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="?attr/actionBarSize"-->
-            <!--android:background="@color/colorPrimary"-->
-            <!--android:theme="@style/ThemeOverlay.AppCompat.Dark"/>-->
-    <!--</RelativeLayout>-->
+
     <android.support.design.widget.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"

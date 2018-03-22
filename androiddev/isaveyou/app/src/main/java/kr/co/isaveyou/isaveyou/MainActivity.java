@@ -1,13 +1,19 @@
 package kr.co.isaveyou.isaveyou;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -44,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     boolean isOpen=false;
-    private FloatingActionButton fabMain, fabMsg, fabThumb;
+    private FloatingActionButton fabMain, fab_map, fab_static, fab_montoring;
 
     private DrawerLayout mDrawerLayout;
     View.OnClickListener handler = new View.OnClickListener() {
@@ -53,19 +59,26 @@ public class MainActivity extends AppCompatActivity {
             switch (v.getId()){
                 case R.id.fabMain:
                    if(!isOpen){
-                       fabThumb.startAnimation(FabOpen);
-                       fabMsg.startAnimation(FabOpen);
+                       fab_map.startAnimation(FabOpen);
+                       fab_static.startAnimation(FabOpen);
+                       fab_montoring.startAnimation(FabOpen);
                        fabMain.startAnimation(FabRanticlockWise);
-                       fabThumb.setClickable(true);
+                       fab_map.setClickable(true);
+                       fab_static.setClickable(true);
+                       fab_montoring.setClickable(true);
                        isOpen = true;
                    }else{
-                       fabThumb.startAnimation(FabClose);
-                       fabMsg.startAnimation(FabClose);
+                       fab_map.startAnimation(FabClose);
+                       fab_static.startAnimation(FabClose);
+                       fab_montoring.startAnimation(FabClose);
                        fabMain.startAnimation(FabRanticlockWise);
-                       fabThumb.setClickable(false);
+                       fab_map.setClickable(false);
+                       fab_static.setClickable(false);
+                       fab_montoring.setClickable(false);
                        isOpen = false;
                    }
-
+//                case R.id.fab_map:
+//                    Toast.makeText(getApplicationContext(),"fab_map 눌림",Toast.LENGTH_SHORT).show();
                     break;
             }
         }
@@ -82,11 +95,14 @@ public class MainActivity extends AppCompatActivity {
         FabRClockwise = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
         FabRanticlockWise = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
         fabMain = findViewById(R.id.fabMain);
-        fabMsg = findViewById(R.id.fabMsg);
-        fabThumb = findViewById(R.id.fabThumb);
+        fab_map = findViewById(R.id.fab_map);
+        fab_static = findViewById(R.id.fab_static);
+        fab_montoring = findViewById(R.id.fab_montoring);
+
         fabMain.setOnClickListener(handler);
-        fabMsg.setOnClickListener(handler);
-        fabThumb.setOnClickListener(handler);
+        fab_map.setOnClickListener(handler);
+        fab_static.setOnClickListener(handler);
+        fab_montoring.setOnClickListener(handler);
 
 
         //Login intent에서 전달한 내용을 받음
@@ -121,9 +137,12 @@ public class MainActivity extends AppCompatActivity {
         tvEmail = headerView.findViewById(R.id.tvEmail);
         tvEmail.setText(strEmail);
 
+        //프로필 사진을 설정하게 하는 쓰레드 실행
         profile = headerView.findViewById(R.id.profileimage);
         ProfilePicTask profilePicTask = new ProfilePicTask();
         profilePicTask.execute(strPicUrl);
+
+
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -190,6 +209,8 @@ public class MainActivity extends AppCompatActivity {
                 conn.connect();
                 BufferedInputStream bis = new BufferedInputStream(conn.getInputStream());
                 profileImg = BitmapFactory.decodeStream(bis);
+
+
                 Log.v(TAG, "url : " + url );
             }catch (Exception e) {
                 e.printStackTrace();
@@ -200,8 +221,15 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Bitmap img) {
+            //가져온 사진을 처리
+            //프로필 사진 설정 - 사진 동그랗게 만드는 코드
             profile.setImageBitmap(profileImg);
+            RoundedBitmapDrawable roundDrawable = RoundedBitmapDrawableFactory.create(getResources(), profileImg);
+            roundDrawable.setCircular(true);
+            profile.setImageDrawable(roundDrawable);
             super.onPostExecute(img);
         }
     }
+
+
 }

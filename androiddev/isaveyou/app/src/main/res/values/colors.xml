@@ -3,6 +3,12 @@
     <color name="colorPrimary">#00bcd4</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-
+    <color name="colorMediumSpringGreen">#00FA9A</color>
+    <color name="colorYellow">#f2d34b</color>
     <color name="black_overlay">#66000000</color>
+    <color name="colorWhite">#FFFF</color>
+    <color name="corBotaoFoto">#f52411</color>
+    <color name="corPar">#8e8f93</color>
+    <color name="corImpar">#494848</color>
+    <color name="colorYello2">#fff6be</color>
 </resources>

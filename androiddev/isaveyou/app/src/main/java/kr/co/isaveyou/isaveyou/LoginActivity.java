@@ -45,12 +45,13 @@ public class LoginActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.login_button:
-                    Login();
+                    LoginErrorCheck();
                     Log.v(TAG, "로그인 버튼 눌림");
 
 
                     LoginCheckTask loginCheckTask = new LoginCheckTask();
                     loginCheckTask.execute();
+
                     break;
             }
         }
@@ -84,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void Login() { //로그인 method - id, pw 값을 받아옴
+    private void LoginErrorCheck() { //로그인 에러 check method - id, pw 값을 받아옴
         etId.setError(null);
         etPw.setError(null);
 
@@ -110,12 +111,6 @@ public class LoginActivity extends AppCompatActivity {
             cancel = true;
             Log.v(TAG, "너무 짧은 사번 입력");
         }else if (!TextUtils.isEmpty(id)&&!TextUtils.isEmpty(pw)){
-//            Intent intent_main = new Intent(this, MainActivity.class);
-//            String strId = id.valueOf(id);
-//            intent_main.putExtra("사번",strId);
-//            startActivity(intent_main);
-            Toast.makeText(this,"로그인 성공",Toast.LENGTH_SHORT).show();
-            finish();
         }
 
         if(cancel){
@@ -191,9 +186,9 @@ public class LoginActivity extends AppCompatActivity {
                 /*서버 -> 안드로이드 파라메터값 전달*/
                 /* 실패 시 실패 메시지띄움*/
                 if(conn.getResponseCode()!=HttpURLConnection.HTTP_OK){
-                    Toast.makeText(getApplicationContext(),"로그인 실패",Toast.LENGTH_SHORT).show();
+                    finish();
                 } else {
-//                    StringBuilder response = new StringBuilder();
+
                     BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                     String line;
                     StringBuffer buffer = new StringBuffer();
@@ -241,6 +236,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.v(TAG, "code_profile : " + code_email);
 
                 if(!code_access.equals("0")){
+                    Toast.makeText(getApplicationContext(),"로그인 성공",Toast.LENGTH_SHORT).show();
                     Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
 
                     String strName = code_name;
@@ -250,6 +246,18 @@ public class LoginActivity extends AppCompatActivity {
                     intent_main.putExtra("이메일",strEmail);
                     intent_main.putExtra("프로필사진",strProfile);
                     startActivity(intent_main);
+                    Log.v(TAG, "로그인성공");
+                    finish();
+                }else if(code_access.equals(null)){
+                    Toast.makeText(getApplicationContext(),"로그인에 실패하였습니다. 다시 접속하여 주세요.", Toast.LENGTH_SHORT).show();
+                    Intent intent_re_go = new Intent(getApplicationContext(),LoginActivity.class);
+                    Log.v(TAG, "로그인실패");
+                    startActivity(intent_re_go);
+                }else{
+                    Toast.makeText(getApplicationContext(),"잘못된 ID와 PW를 입력하셨습니다.",Toast.LENGTH_SHORT).show();
+                    Intent intent_re_go = new Intent(getApplicationContext(),LoginActivity.class);
+                    Log.v(TAG, "로그인실패");
+                    startActivity(intent_re_go);
                 }
 
             }catch (JSONException e){

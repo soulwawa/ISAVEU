@@ -16,8 +16,6 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
-import org.json.JSONObject;
-
 import java.io.BufferedInputStream;
 import java.net.URL;
 import java.net.URLConnection;
@@ -152,9 +150,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         .bigPicture(img)
                         )
                 .setContentText(title + "호 비상상황 발생, 빠르게 대피해주세요!")
-                .addAction(R.drawable.fire_call,getResources().getString(R.string.call),callPendingIntent) //119신고 액션 추가
-                .addAction(R.drawable.checkplace, getResources().getString(R.string.checkPlace),checkPlacePendingIntent)
-                .addAction(R.drawable.fire_ext,getResources().getString(R.string.checkFire_ext),checkFire_ext);
+                .addAction(R.drawable.pic_fire_call,getResources().getString(R.string.call),callPendingIntent) //119신고 액션 추가
+                .addAction(R.drawable.pic_checkplace, getResources().getString(R.string.checkPlace),checkPlacePendingIntent)
+                .addAction(R.drawable.pic_fire_ext,getResources().getString(R.string.checkFire_ext),checkFire_ext);
 
 
 //                .setContentIntent(checkPlacePendingIntent)
