@@ -9,13 +9,22 @@
     <string name="checkPlace">발생위치보기</string>
     <string name="checkPicture">현장영상보기</string>
     <string name="checkFire_ext">소화기위치보기</string>
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="monitoring">현장 스트리밍</string>
+    <string name="stat">통계</string>
+    <string name="map">비상대피도</string>
 
     <!--NavigationDraw-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="drawer_header_welcome">님, 환영합니다.</string>
+    <string name="drawer_header_welcome">님, 현재 환영합니다.</string>
     <string name="nav_sub_menu">Communicate</string>
+
+
+
+    <!--Monitoring-->
+    <string name="monitoring_text">호, 영상입니다.</string>
+    <string name="monitoring_back">돌아가기</string>
+    <string name="monitoring_stop">정지</string>
 
 
     <string name="action_settings">Settings</string>

@@ -1,16 +1,14 @@
 package kr.co.isaveyou.isaveyou;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
+
 import android.support.design.widget.NavigationView;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
@@ -19,21 +17,20 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Gravity;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
-import com.google.firebase.iid.FirebaseInstanceId;
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
+
 
 import java.io.BufferedInputStream;
 import java.net.HttpURLConnection;
@@ -46,43 +43,14 @@ public class MainActivity extends AppCompatActivity {
     TextView tvName, tvEmail;
     ImageView profile;
     Bitmap profileImg;
-    Animation FabOpen, FabClose, FabRClockwise, FabRanticlockWise;
+
 
 
     boolean isOpen=false;
-    private FloatingActionButton fabMain, fab_map, fab_static, fab_montoring;
+
 
     private DrawerLayout mDrawerLayout;
-    View.OnClickListener handler = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()){
-                case R.id.fabMain:
-                   if(!isOpen){
-                       fab_map.startAnimation(FabOpen);
-                       fab_static.startAnimation(FabOpen);
-                       fab_montoring.startAnimation(FabOpen);
-                       fabMain.startAnimation(FabRanticlockWise);
-                       fab_map.setClickable(true);
-                       fab_static.setClickable(true);
-                       fab_montoring.setClickable(true);
-                       isOpen = true;
-                   }else{
-                       fab_map.startAnimation(FabClose);
-                       fab_static.startAnimation(FabClose);
-                       fab_montoring.startAnimation(FabClose);
-                       fabMain.startAnimation(FabRanticlockWise);
-                       fab_map.setClickable(false);
-                       fab_static.setClickable(false);
-                       fab_montoring.setClickable(false);
-                       isOpen = false;
-                   }
-//                case R.id.fab_map:
-//                    Toast.makeText(getApplicationContext(),"fab_map 눌림",Toast.LENGTH_SHORT).show();
-                    break;
-            }
-        }
-    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,19 +58,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //floating action button 설정
-        FabOpen = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_open);
-        FabClose = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
-        FabRClockwise = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
-        FabRanticlockWise = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
-        fabMain = findViewById(R.id.fabMain);
-        fab_map = findViewById(R.id.fab_map);
-        fab_static = findViewById(R.id.fab_static);
-        fab_montoring = findViewById(R.id.fab_montoring);
+        final FloatingActionsMenu menuMultipleActions = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
+        findViewById(R.id.fab_streaming).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"클릭",Toast.LENGTH_SHORT).show();
+            }
+        });
+        findViewById(R.id.fab_map).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        fabMain.setOnClickListener(handler);
-        fab_map.setOnClickListener(handler);
-        fab_static.setOnClickListener(handler);
-        fab_montoring.setOnClickListener(handler);
+            }
+        });
+        findViewById(R.id.fab_static).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+
 
 
         //Login intent에서 전달한 내용을 받음

@@ -54,7 +54,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         sendNotification(
                 //서버에서 보내오는 title, content를 인수로 지정
                 remoteMessage.getData().get("title"),
-                remoteMessage.getData().get("content")
+                remoteMessage.getData().get("content_1"),
+                remoteMessage.getData().get("content_2")
         );
 
 
@@ -78,7 +79,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
 
-    private void sendNotification(String title, String messageBody) {
+    private void sendNotification(String title, String messageBody, String messageBody1) {
 
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -99,7 +100,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             URL url = new URL(messageBody);
             URLConnection connection = url.openConnection();
             connection.connect();
+            Log.v(TAG,"url");
             BufferedInputStream bis = new BufferedInputStream(connection.getInputStream());
+
             img = BitmapFactory.decodeStream(bis);
             Log.v(TAG, "url : " + url + ", messagebody : " + messageBody);
         }catch (Exception e) {
