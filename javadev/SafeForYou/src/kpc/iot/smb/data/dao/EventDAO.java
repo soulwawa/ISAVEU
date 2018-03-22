@@ -21,10 +21,11 @@ public class EventDAO {
 			stmt.setFloat(4, vo.getGyro());
 			stmt.setFloat(5, vo.getFire());
 			stmt.setString(6, vo.getIssue());
-			int cnt = stmt.executeUpdate();
-			System.out.println(cnt == 1 ? "EventDAO Insert Success" : "EventDAO Insert Fail");
+			stmt.executeUpdate();
+//			System.out.println(cnt == 1 ? "EventDAO Insert Success" : "EventDAO Insert Fail");
+			stmt.close();
 		}catch(SQLException e) {
-			System.out.println("EventDAO Insert:" +  e);
+			e.printStackTrace();
 		}
 		
 		

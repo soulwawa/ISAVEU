@@ -71,7 +71,7 @@ public class TempInServlet extends Action {
 		Data data = new Data();
 		String imageEx = "http://192.168.0.35:8088/SafeForYou/img/HR_profile/0000000000.png";
 //		data.setContent("빠르게 대피해주세요!");
-		data.setContent(imageEx);
+		data.setContent_1(imageEx);
 //		data.setTitle("[I Save You]긴급상황 발생");
 		data.setTitle(msg);
 		fcmData.setData(data);
