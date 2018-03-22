@@ -107,6 +107,9 @@ function rMateChartH5ChangeTheme(theme){
 <title>관리자 페이지</title>
 </head>
 <body>
+	<div class="container">
+		
+	</div>
 	<div class="div1">
 		<div>
 			<a href="admin.do">
