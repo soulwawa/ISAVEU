@@ -12,6 +12,7 @@ import java.net.URL;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -22,13 +23,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 
 import kpc.iot.smb.data.dao.ActionDAO;
 import kpc.iot.smb.data.dao.EventDAO;
+import kpc.iot.smb.data.dao.HrDAO;
 import kpc.iot.smb.data.vo.TbActionIdVO;
 import kpc.iot.smb.data.vo.TbEventVO;
+import kpc.iot.smb.data.vo.TbHrVO;
 import kpc.iot.smb.fcm.Data;
 import kpc.iot.smb.fcm.FCMData;
+import kpc.iot.smb.fcm.FCMDataTo;
 import kpc.iot.smb.util.Action;
 
 public class EventInServlet extends Action{
@@ -169,6 +174,7 @@ public class EventInServlet extends Action{
 				System.out.println(androidPass + fileName + fileExtension);
 				androidSend(androidPass + fileName + fileExtension);
 				
+				
 			} 
 			}catch (IOException e) {
 				e.printStackTrace();
@@ -183,17 +189,35 @@ public class EventInServlet extends Action{
 	
 	public void androidSend(String fileName) {
 		// TODO Auto-generated constructor stub
+//				String url = "https://fcm.googleapis.com/fcm/send"; 
+//				FCMDataTo fcmData = new FCMDataTo();
+//				Data data = new Data();
+//				data.setTitle("[I Save You]긴급상황 발생");
+//				data.setContent_1(fileName);
+//				data.setContent_2("http://192.168.0.13:5001/stream/1");
+//				data.setContent_3("http://192.168.0.13:5000/video_stream");
+//				fcmData.setData(data);
+//				fcmData.setTo("foSJVNORz8Y:APA91bEMxsYGGEEGlqnxPa3Gh3OB25evSPs5nR5yfbmxvEBbZvMn4aoo3L0Cn78bImFNVFSCEchn60Ii_-HQVjUapqkAeHeNo_roY4yUVeUgHIH2V20SaSdo3nFcQerbyrfjXPrxpImX");
+				
+				// DB에 전체 SELECT
+				ArrayList<TbHrVO> arrayList = new ArrayList<TbHrVO>();
+				TbHrVO vo = new TbHrVO();
+				HrDAO dao = new HrDAO();
+				arrayList = dao.getHrListAll();
+				ArrayList<String> fcmList = new ArrayList<String>();
+				for (TbHrVO tbHrVO : arrayList) {
+					fcmList.add(tbHrVO.getFcm());
+				}
+				Gson gson = new Gson();
+				JsonElement reglist = gson.toJsonTree(fcmList);
 				String url = "https://fcm.googleapis.com/fcm/send"; 
 				FCMData fcmData = new FCMData();
 				Data data = new Data();
 				data.setTitle("[I Save You]긴급상황 발생");
 				data.setContent_1(fileName);
-				data.setContent_2(fileName);
 				fcmData.setData(data);
-				fcmData.setTo("foSJVNORz8Y:APA91bEMxsYGGEEGlqnxPa3Gh3OB25evSPs5nR5yfbmxvEBbZvMn4aoo3L0Cn78bImFNVFSCEchn60Ii_-HQVjUapqkAeHeNo_roY4yUVeUgHIH2V20SaSdo3nFcQerbyrfjXPrxpImX");
-				// DB에 전체 SELECT
-			
-				Gson gson = new Gson();
+				fcmData.setRegistration_ids(reglist);
+				
 				String params = gson.toJson(fcmData);
 				System.out.println(params);
 				try {

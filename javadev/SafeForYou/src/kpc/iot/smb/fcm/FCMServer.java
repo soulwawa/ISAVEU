@@ -24,16 +24,16 @@ public class FCMServer {
 	public FCMServer() {
 		// TODO Auto-generated constructor stub
 		String url = "https://fcm.googleapis.com/fcm/send"; 
-		FCMData fcmData = new FCMData();
+		FCMDataTo fcmDataTo = new FCMDataTo();
 		Data data = new Data();
 		data.setContent_1("빠르게 대피해주세요!");
 		data.setTitle("[I Save You]긴급상황 발생");
-		fcmData.setData(data);
-		fcmData.setTo("dpLbZuQqfWI:APA91bGk_AXJK3q6Kx4_k9sil7hJQ1CzfqFvTPzonsQpl3OwOpCYVeHrcJdcBpvgY6XaazHcQLkSfHtho2cVdv6G9hkMZUELAPruewDjlffQ5sNCPyIQL71PNtQPVfPlPHOusLBnN6pJ");
+		fcmDataTo.setData(data);
+		fcmDataTo.setTo("dpLbZuQqfWI:APA91bGk_AXJK3q6Kx4_k9sil7hJQ1CzfqFvTPzonsQpl3OwOpCYVeHrcJdcBpvgY6XaazHcQLkSfHtho2cVdv6G9hkMZUELAPruewDjlffQ5sNCPyIQL71PNtQPVfPlPHOusLBnN6pJ");
 		// DB에 전체 SELECT
 	
 		Gson gson = new Gson();
-		String params = gson.toJson(fcmData);
+		String params = gson.toJson(fcmDataTo);
 		System.out.println(params);
 		try {
 			String returnData = sendPost(url, params);
