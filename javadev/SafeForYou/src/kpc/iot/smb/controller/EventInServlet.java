@@ -21,16 +21,7 @@ import javax.net.ssl.X509TrustManager;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-<<<<<<< HEAD
-import javax.swing.text.Document;
-import javax.xml.bind.Element;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.w3c.dom.NodeList;
-
-=======
->>>>>>> dabf39030415281704d591459628578a7526213e
 import com.google.gson.Gson;
 
 import kpc.iot.smb.data.dao.ActionDAO;
