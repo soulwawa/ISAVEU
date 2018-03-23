@@ -1,6 +1,8 @@
 package kr.co.isaveyou.isaveyou;
 
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,7 +11,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v4.view.GravityCompat;
@@ -22,6 +26,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,25 +37,28 @@ import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    String strName, strPicUrl, strEmail;
+    String strName, strPicUrl, strEmail, result, act_st, strimingServer_url, strimingServer_access ;
     TextView tvName, tvEmail;
     ImageView profile;
     Bitmap profileImg;
 
-
-
-    boolean isOpen=false;
-
-
     private DrawerLayout mDrawerLayout;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,27 +67,34 @@ public class MainActivity extends AppCompatActivity {
 
         //floating action button 설정
         final FloatingActionsMenu menuMultipleActions = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
+//        FloatingActionsMenu.collapse(); // close the menu
+//        FloatingActionsMenu.toggle(); // toggle the menu
+//        FloatingActionsMenu.expand(); // open the mneu
         findViewById(R.id.fab_streaming).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"클릭",Toast.LENGTH_SHORT).show();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                android.support.v4.app.Fragment fragment_monitoring = new MonitoringFragment();
+                fragmentTransaction.replace( R.id.streming_framelayout,fragment_monitoring);
+                fragmentTransaction.commit();
+                menuMultipleActions.collapse();
+
+
             }
         });
         findViewById(R.id.fab_map).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Toast.makeText(getApplicationContext(),"map클릭",Toast.LENGTH_SHORT).show();
             }
         });
         findViewById(R.id.fab_static).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Toast.makeText(getApplicationContext(),"static클릭",Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
 
 
         //Login intent에서 전달한 내용을 받음
@@ -91,7 +106,6 @@ public class MainActivity extends AppCompatActivity {
         Log.v(TAG, "이름 : " + strName);
         Log.v(TAG, "프로필사진 : " + strPicUrl);
         Log.v(TAG, "이메일 : " + strEmail);
-
 
 
         //toolbar 액션 설정
@@ -153,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu,menu);
@@ -175,6 +190,8 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    //프로필 사진 요청
     class ProfilePicTask extends AsyncTask<String, Integer, Bitmap>{
         @Override
         protected Bitmap doInBackground(String... urls) {
@@ -208,5 +225,109 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //스트리밍 요청
+    class StreamingTast extends AsyncTask<String, Void, String>{
+        @Override
+        protected String doInBackground(String... strings) {
+            String param = "act_st" + "action";
+            Log.v(TAG, "param : " + param);
+
+            HttpURLConnection conn = null;
+            try{
+                /*서버연결*/
+                URL url = new URL("http://192.168.0.35:8088/SafeForYou/AndroidStreming.do?");
+                conn = (HttpURLConnection)url.openConnection();
+
+                conn.setFixedLengthStreamingMode(param.length());
+                conn.setRequestProperty("Content-type","application/x-www-form-urlencoded");
+                conn.setRequestMethod("POST");
+                conn.setDoInput(true); // inputStream으로 서버로부터 응답을 받겠다는 옵션
+                conn.connect();
+                Log.v(TAG, "서버 연결");
+                /*안드로이드 -> 서버 파라메터값 전달*/
+                OutputStream outs = conn.getOutputStream();
+                outs.write(param.getBytes("UTF-8"));
+                outs.flush();
+                outs.close();
+
+                /*서버 -> 안드로이드 파라메터값 전달*/
+                /* 실패 시 실패 메시지띄움*/
+                if(conn.getResponseCode()!=HttpURLConnection.HTTP_OK){
+                    finish();
+                } else {
+
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    String line;
+                    StringBuffer buffer = new StringBuffer();
+                    while ((line = reader.readLine())!=null){
+                        buffer.append(line + "\n");
+                    }
+                    result = buffer.toString();
+                    Log.v(TAG, "buffer result : " + line );
+                    reader.close();
+                }
+
+            }catch(MalformedURLException |ProtocolException e){
+                e.printStackTrace();
+            }catch(IOException e){
+                e.printStackTrace();
+            }finally {
+                conn.disconnect();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            Log.v(TAG, "result in onPostExecute : " + result);
+            Log.v(TAG, "onPostExecute streamingServer_url :" + strimingServer_url + ",streamingServer_access :" + strimingServer_access);
+            try{
+                String streamingServer_url = null;
+                String streamingServer_access = null;
+
+
+
+                JSONObject jsonObject = new JSONObject(result);
+
+                streamingServer_access = jsonObject.getString("streaming_access");
+                streamingServer_url = jsonObject.getString("streaming_url");
+
+
+                Log.v(TAG, "streamingServer_url : " + streamingServer_url);
+                Log.v(TAG, "streamingServer_access : " + streamingServer_access);
+
+
+                if(!strimingServer_access.equals(null)){
+
+                    String streaming_url = strimingServer_url;
+                    String streaming_access = strimingServer_access;
+
+                    android.support.v4.app.Fragment fragment = new MonitoringFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("streamingServer_access",streaming_url);
+                    bundle.putString("streamingServer_url",streaming_access);
+                    fragment.setArguments(bundle);
+                    Log.v(TAG,"스트리밍서버 내용 받음");
+                    Log.v(TAG,"번들 : "+ bundle);
+
+                }else if(strimingServer_access.equals(null)){
+                    Toast.makeText(getApplicationContext(),"로그인에 실패하였습니다. 다시 접속하여 주세요.", Toast.LENGTH_SHORT).show();
+                    Log.v(TAG, "로그인실패");
+
+                }else{
+                    Toast.makeText(getApplicationContext(),"잘못된 ID와 PW를 입력하셨습니다.",Toast.LENGTH_SHORT).show();
+                    Log.v(TAG, "로그인실패");
+
+                }
+
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+
+        }
+    }
 
 }

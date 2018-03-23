@@ -16,15 +16,15 @@
     <!--NavigationDraw-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="drawer_header_welcome">님, 현재 환영합니다.</string>
-    <string name="nav_sub_menu">Communicate</string>
+    <string name="drawer_header_welcome">님, 환영합니다.</string>
+    <string name="nav_sub_menu">Sub Menu</string>
 
 
 
     <!--Monitoring-->
-    <string name="monitoring_text">호, 영상입니다.</string>
+    <string name="monitoring_text">호, 영상</string>
     <string name="monitoring_back">돌아가기</string>
-    <string name="monitoring_stop">정지</string>
+    <string name="monitoring_stop">종료</string>
 
 
     <string name="action_settings">Settings</string>

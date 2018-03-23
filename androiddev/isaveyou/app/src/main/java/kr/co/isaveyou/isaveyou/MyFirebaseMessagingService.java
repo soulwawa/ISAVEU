@@ -9,9 +9,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.PowerManager;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -42,8 +45,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 
         // Check if message contains a data payload.
+        // 포어그라운드에서도 알림받는 소스
         if (remoteMessage.getData().size() > 0) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
+            sendNotification(
+                    remoteMessage.getData().get("title"),
+                    remoteMessage.getData().get("content_1"));
+//                    remoteMessage.getData().get("content_2"),
+//                    remoteMessage.getData().get("content_3"));
         }
 
 
@@ -54,8 +63,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         sendNotification(
                 //서버에서 보내오는 title, content를 인수로 지정
                 remoteMessage.getData().get("title"),
-                remoteMessage.getData().get("content_1"),
-                remoteMessage.getData().get("content_2")
+                remoteMessage.getData().get("content_1")
+//                remoteMessage.getData().get("content_2"),
+//                remoteMessage.getData().get("content_3")
         );
 
 
@@ -76,10 +86,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 
 
+
     }
 
 
-    private void sendNotification(String title, String messageBody, String messageBody1) {
+    private void sendNotification(String title, String messageBody) {
 
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -156,13 +167,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .addAction(R.drawable.pic_fire_call,getResources().getString(R.string.call),callPendingIntent) //119신고 액션 추가
                 .addAction(R.drawable.pic_checkplace, getResources().getString(R.string.checkPlace),checkPlacePendingIntent)
                 .addAction(R.drawable.pic_fire_ext,getResources().getString(R.string.checkFire_ext),checkFire_ext);
-
-
-//                .setContentIntent(checkPlacePendingIntent)
-//                .setContentIntent(callPendingIntent)
-//                .setContentIntent(monitoringPendingIntent);
-
-
 
 
 

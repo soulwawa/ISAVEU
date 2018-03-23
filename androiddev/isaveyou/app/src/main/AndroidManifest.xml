@@ -77,7 +77,6 @@
         <activity
             android:name=".FloorMapActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity android:name=".MonitoringActivity"></activity>
     </application>
 
 </manifest>
