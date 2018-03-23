@@ -1,165 +1,84 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <% String root = request.getContextPath(); %>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta http-equiv="Content-Script-Type" content="text/javascript"/>
-<meta http-equiv="Content-Style-Type" content="text/css"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<link rel="stylesheet" type="text/css" href="./rMateChartH5/Assets/Css/rMateChartH5.css"/>
-<script language="javascript" type="text/javascript" src="./LicenseKey/rMateChartH5License.js"></script>
-<script language="javascript" type="text/javascript" src="./rMateChartH5/JS/rMateGaugeChartH5.js"></script>
-<script type="text/javascript" src="./rMateChartH5/Assets/Theme/theme.js"></script>
-<script type="text/javascript">
-var chartVars = "rMateOnLoadCallFunction=chartReadyHandler";
-rMateChartH5.create("chart1", "chartHolder", chartVars, "80%", "80%"); 
-function chartReadyHandler(id) {
-	document.getElementById(id).setLayout(layoutStr);
-	document.getElementById(id).setData(chartData);
-}
-var layoutStr = 
-	'<rMateChart frameColor="#EEEEEE"  borderStyle="none">'
-		+'<Options>'
-			+'<Caption text="게이지 - Gradient" fontFamily="맑은 고딕"/>'
-		+'</Options>'
-		+'<NumberFormatter id="numFmt" precision="0"/>' 
-		+'<CircularGauge valueChangeFunction="valueChangeFunc" padding="8" startAngle="90" minimumAngle="40" maximumAngle="320" minimum="0" maximum="500" value="200" interval="50" minorInterval="10" formatter="{numFmt}" tickLabelStyleName="tickText" valueLabelStyleName="valueText" editMode="true" majorTickType="circle" liveDragging="false" tickGap="-3" labelGap="-5" showDataTip="false" tickLabelPlacement="outside" tickColor="#1B699A" needleCoverRadius="100" needleThickness="100" pointThickness="0" tickRadius="2" needleLengthRatio="0.9" minorTickType="line" minorTickRadius="5" needlePointStyle="rounding" isValueTop="true" animationDuration="1000" bounceAnimating="true" rotateTickLabel="true" showOutFrame="true" outFrameLabelXOffset="0" outFrameLabelYOffset="0.2">'
-			+'<frameFill>'
-				+'<LinearGradient angle="0">'
-					+'<entries>'
-						+'<GradientEntry color="#f6af43" ratio="0"/>'
-						+'<GradientEntry color="#f55a58" ratio="1"/>'
-					+'</entries>'
-				+'</LinearGradient>'
-			+'</frameFill>'
-			+'<frameStroke>'
-				+'<Stroke color="#ffffff" weight="0"/>'
-			+'</frameStroke>'
-			+'<needleFill>'
-				+'<SolidColor color="#ffffff"/>'
-			+'</needleFill>'
-			+'<needleStroke>'
-				+'<Stroke color="#ffffff"/>'
-			+'</needleStroke>'
-			+'<needleCoverFill>'
-				+'<SolidColor color="#ffffff"/>'
-			+'</needleCoverFill>'
-			+'<needleCoverStroke>'
-				+'<Stroke color="#ffffff"/>'
-			+'</needleCoverStroke>'
-			+'<minorTickStroke>'
-				+'<Stroke color="#ffffff" alpha="0.5"/>'
-			+'</minorTickStroke>'
-			+'<tickFill>'
-				+'<SolidColor color="#ffffff"/>'
-			+'</tickFill>'
-			+'<tickStroke>'
-				+'<Stroke color="#ffffff" weight="3"/>'
-			+'</tickStroke>'
-		+'</CircularGauge>'
-		+'<Style>'
-			+'.valueText{'
-				+'fontSize:35;'
-				+'textAlign:center;'
-				+'backgroundColor:#FFFFFF;'
-				+'backgroundAlpha:0;'
-				+'paddingTop:0;'
-				+'borderStyle:none;'
-				+'fontWeight:bold;'
-				+'color:#555555;'
-			+'}'
-			+'.tickText{'
-				+'fontFamily:"맑은 고딕";'
-				+'fontSize:11;'
-				+'color:#555555;'
-			+'}'
-		+'</Style>'
-	+'</rMateChart>';
-var chartData = [201];
-function changeValue()
-{
-	document.getElementById("chart1").setData([parseInt(Math.random()*100) * 5]);
-}
-var gaugeValue;
-function valueChangeFunc(value)
-{
-	gaugeValue = value;
-}
-function commitValue()
-{
-	alert(gaugeValue);
-}
-rMateChartH5.registerTheme(rMateChartH5.themes);
-function rMateChartH5ChangeTheme(theme){
-	document.getElementById("chart1").setTheme(theme);
-}
-</script>
-<script type="text/javascript" src="./Web/JS/common.js"></script>
-<script type="text/javascript" src="./Web/JS/sample_util.js"></script>
-<link rel="stylesheet" type="text/css" href="./Web/sample.css"/>
-<script type="text/javascript" src="./Web/syntax/shCore.js"></script>
-<script type="text/javascript" src="./Web/syntax/shBrushJScript.js"></script>
-<link type="text/css" rel="stylesheet" href="./Web/syntax/shCoreDefault.css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="<%=root%>/javascript/temperature.js"></script>
+<link rel="stylesheet" type="text/css" href="./rMateChartH5.css"/>
+<script language="javascript" type="text/javascript" src="./rMateChartH5License.js"></script>
+<script language="javascript" type="text/javascript" src="./rMateGaugeChartH5.js"></script>
+<script type="text/javascript" src="./theme.js"></script>
+<script language="javascript" type="text/javascript" src="./gauge.js"></script>
+<script type="text/javascript" src="./common.js"></script>
+<script type="text/javascript" src="./sample_util.js"></script>
+<link rel="stylesheet" type="text/css" href="./sample.css"/>
+<script type="text/javascript" src="./shCore.js"></script>
+<script type="text/javascript" src="./shBrushJScript.js"></script>
+<link type="text/css" rel="stylesheet" href="./shCoreDefault.css"/>
 <title>관리자 페이지</title>
 </head>
 <body>
-	<div class="container">
-		
-	</div>
-	<div class="div1">
-		<div>
-			<a href="admin.do">
-				<button id="btn6">
-					<img src="<%=root%>/img/main.png" alt="logo" class="mainImg">
-				</button>
-			</a>
-		</div>
-		<br>
-		<div>
-			<a href="sensorlog.do"> <input type="button" value="센서로그"
-				class="menuBtn" id="btn1">
-			</a>
-		</div>
-		<br>
-		<div>
-			<a href="eventlog.do"> <input type="button" value="사건목록"
-				class="menuBtn" id="btn2">
-			</a>
-		</div>
-		<br>
-		<div>
-			<a href="streaming.do"> <input type="button" value="실시간 스트리밍"
-				class="menuBtn" id="btn3">
-			</a>
-		</div>
-		<br>
-		<div>
-			<a href="employee.do"> <input type="button" value="사원정보"
-				class="menuBtn" id="btn4">
-			</a>
-		</div>
-		<br>
-		<div>
-			<a href="location.do"> <input type="button" value="위치정보"
-				class="menuBtn" id="btn5">
-			</a>
-		</div>
-	</div>
-	<div class="div2">
-		<div class="div21">
-			온도 api <%=request.getAttribute("result")%>
-		</div>
-		<div class="div22">
-			<div id="content" style="height:380px;">
-				<!-- 차트가 삽입될 DIV -->
-				<div id="chartHolder">
+	<div class="wwrap">
+		<div class="hheader">	
+			<div class="ttop">
+				<div class="ccase">
+					<div>
+						<%=request.getAttribute("result")%>
+					</div>
+					<div>
+						hello admin
+					</div>
+					<div class="llogout">
+						logout
+					</div>
+				</div>
+			</div>
+			<div class="nnav">
+				<div class="fflex">
+					<div class="mmenuBtn" id="mBtn1" onclick="admin.do">
+						<img src="<%=root%>/img/main.png" alt="logo" class="mmainImg"/>
+					</div>
+					<div class="mmenuBtn" id="mBtn2">
+						sensor log
+					</div>
+					<div class="mmenuBtn" id="mBtn3">
+						event log
+					</div>
+					<div class="mmenuBtn" id="mBtn4">
+						streaming
+					</div>
+					<div class="mmenuBtn" id="mBtn5">
+						HR table
+					</div>
+					<div class="mmenuBtn" id="mBtn6">
+						location info
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+		<div class="ccontainer">
+			<div class="ccontent">
+				<div class="ttempChart">
+					<div id="content">
+							<!-- 차트가 삽입될 DIV -->
+						<div id="chartHolder"></div>
+					</div>
+				</div>
+				<div>
+				</div>
+				<div>
+				</div>
+				<div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="ffooter">
+			<%=request.getAttribute("result")%>
+		</div>
+	</div>		
 </body>
 </html>

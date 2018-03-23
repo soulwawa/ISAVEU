@@ -250,14 +250,14 @@ public class LoginActivity extends AppCompatActivity {
                     finish();
                 }else if(code_access.equals(null)){
                     Toast.makeText(getApplicationContext(),"로그인에 실패하였습니다. 다시 접속하여 주세요.", Toast.LENGTH_SHORT).show();
-                    Intent intent_re_go = new Intent(getApplicationContext(),LoginActivity.class);
+//                    Intent intent_re_go = new Intent(getApplicationContext(),LoginActivity.class);
                     Log.v(TAG, "로그인실패");
-                    startActivity(intent_re_go);
+//                    startActivity(intent_re_go);
                 }else{
                     Toast.makeText(getApplicationContext(),"잘못된 ID와 PW를 입력하셨습니다.",Toast.LENGTH_SHORT).show();
-                    Intent intent_re_go = new Intent(getApplicationContext(),LoginActivity.class);
+//                    Intent intent_re_go = new Intent(getApplicationContext(),LoginActivity.class);
                     Log.v(TAG, "로그인실패");
-                    startActivity(intent_re_go);
+//                    startActivity(intent_re_go);
                 }
 
             }catch (JSONException e){

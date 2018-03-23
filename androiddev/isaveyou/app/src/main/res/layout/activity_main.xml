@@ -2,6 +2,7 @@
 <android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
 
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
@@ -10,78 +11,83 @@
     android:fitsSystemWindows="true"
     tools:context="kr.co.isaveyou.isaveyou.MainActivity">
 
-    <android.support.design.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:fab="http://schemas.android.com/apk/res-auto"
+    <FrameLayout
+        android:id="@+id/streming_framelayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <android.support.design.widget.FloatingActionButton
-            android:id ="@+id/fab_montoring"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginBottom="180dp"
-            android:layout_marginEnd="16dp"
-            android:elevation="6dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/pic_checkplace"
-            android:visibility="invisible"
-            fab:backgroundTint="@color/colorWhite"
-            fab:pressedTranslationZ="12dp"
-            />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="250dp"
+        android:layout_marginTop="60dp"
+        android:visibility="visible">
 
+    </FrameLayout>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_static"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginBottom="130dp"
-            android:layout_marginEnd="16dp"
-            android:elevation="6dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/pic_static"
-            android:visibility="invisible"
-            fab:backgroundTint="@color/colorWhite"
-            fab:pressedTranslationZ="12dp" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_map"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginBottom="80dp"
-            android:layout_marginEnd="16dp"
-            android:elevation="6dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/pic_map"
-            android:visibility="invisible"
-            fab:backgroundTint="@color/colorWhite"
-            fab:pressedTranslationZ="12dp" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabMain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            android:backgroundTint="@color/colorYellow"
-            android:elevation="6dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_action_name"
-            android:visibility="visible"
-            fab:backgroundTint="@color/colorYellow"
-            fab:pressedTranslationZ="12dp" />
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/colorPrimary"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:id="@+id/multiple_actions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_gravity="end|bottom"
+            fab:fab_addButtonColorNormal="@color/holo_green_light"
+            fab:fab_addButtonColorPressed="@color/white_pressed"
+            fab:fab_addButtonPlusIconColor="@color/half_black"
+            fab:fab_labelStyle="@style/menu_labels_style"
+            >
 
-    </android.support.design.widget.CoordinatorLayout>
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_streaming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_icon="@drawable/pic_checkplace"
+                app:fab_size="mini"
+                fab:fab_colorNormal="@color/white"
+                fab:fab_colorPressed="@color/white_pressed"
+                fab:fab_title="@string/monitoring"
+                />
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_static"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_size="mini"
+                app:fab_icon="@drawable/pic_static"
+                fab:fab_colorNormal="@color/white"
+                fab:fab_colorPressed="@color/white_pressed"
+                fab:fab_title="@string/stat" />
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_size="mini"
+                app:fab_icon="@drawable/pic_map"
+                fab:fab_colorNormal="@color/white"
+                fab:fab_colorPressed="@color/white_pressed"
+                fab:fab_title="@string/map" />
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+    </FrameLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/navigation_view"
@@ -89,6 +95,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/drawer_header"
-        app:menu="@menu/drawer"/>
+        app:menu="@menu/drawer">
+
+    </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>

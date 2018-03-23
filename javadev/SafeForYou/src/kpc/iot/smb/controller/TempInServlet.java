@@ -22,6 +22,7 @@ import com.google.gson.Gson;
 
 import kpc.iot.smb.fcm.Data;
 import kpc.iot.smb.fcm.FCMData;
+import kpc.iot.smb.fcm.FCMDataTo;
 import kpc.iot.smb.util.Action;
 import kr.or.kpc.test.TempDAO;
 import kr.or.kpc.test.TempListVO;
@@ -67,11 +68,11 @@ public class TempInServlet extends Action {
 		String msg = String.valueOf(temp);
 		System.out.println("msg::::::" + msg);
 		String url = "https://fcm.googleapis.com/fcm/send"; 
-		FCMData fcmData = new FCMData();
+		FCMDataTo fcmData = new FCMDataTo();
 		Data data = new Data();
 		String imageEx = "http://192.168.0.35:8088/SafeForYou/img/HR_profile/0000000000.png";
 //		data.setContent("빠르게 대피해주세요!");
-		data.setContent(imageEx);
+		data.setContent_1(imageEx);
 //		data.setTitle("[I Save You]긴급상황 발생");
 		data.setTitle(msg);
 		fcmData.setData(data);

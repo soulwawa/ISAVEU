@@ -1,23 +1,45 @@
 package kpc.iot.smb.controller;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.security.SecureRandom;
+import java.security.cert.X509Certificate;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+
+import kpc.iot.smb.data.dao.ActionDAO;
 import kpc.iot.smb.data.dao.EventDAO;
+import kpc.iot.smb.data.dao.HrDAO;
+import kpc.iot.smb.data.vo.TbActionIdVO;
 import kpc.iot.smb.data.vo.TbEventVO;
+import kpc.iot.smb.data.vo.TbHrVO;
+import kpc.iot.smb.fcm.Data;
+import kpc.iot.smb.fcm.FCMData;
+import kpc.iot.smb.fcm.FCMDataTo;
 import kpc.iot.smb.util.Action;
 
 public class EventInServlet extends Action{
 
-	
+
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		response.setContentType("text/plain;charset=utf-8");
@@ -27,60 +49,25 @@ public class EventInServlet extends Action{
 		String smoke = request.getParameter("smoke");
 		String gyro = request.getParameter("gyro");
 		String fire = request.getParameter("fire");
-		String reqContentType = request.getContentType();
-		
+//		String reqContentType = request.getContentType();
 		//ISSUE Process
 		// 0 -> DB, 1 -> Rasp,DB, 2->Rasp,DB, 3->Rasp,DB,
-		
+
 		switch (issue) {
 		case "1":
 			System.out.println("화재경보");
-//			String reqContentType = request.getContentType();
-			System.out.println( "reqContentType : " + reqContentType );
-			String url = "http://192.168.0.13:5001/event/1";
-		    URL obj = new URL(url);
-		    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-		    // optional default is GET
-		    con.setRequestMethod("GET");
-		    int responseCode = con.getResponseCode();
-		    System.out.println("\nSending 'POST' request to URL : " + url);
-		    System.out.println("Response Code : " + responseCode);
-//		    System.out.println(request.getInputStream().toString());
-		    byte[] buffer = new byte[8 * 1024];
-
-//		    InputStream input = request.getInputStream();
-		    InputStream input = con.getInputStream();
-//		    System.out.println(con.getContentLength());
-//		    System.out.println(con.getInputStream());
-		    try {
-		      OutputStream output = new FileOutputStream("C:\\workspace\\SaveForYou\\javadev\\SafeForYou\\WebContent\\img\\2.png");
-		      try {
-		        int bytesRead;
-		        while ((bytesRead = input.read(buffer)) != -1) {
-		          output.write(buffer, 0, bytesRead);
-		        }
-		        System.out.println("Transform 완료!");
-		      }catch (Exception e) {
-				System.out.println("e1:" + e);
-			
-		      }finally {
-		        output.close();
-		      } 
-		    }catch (Exception e) {
-		    	System.out.println("e2:" + e);
-				
-		      
-		    } finally {
-		      input.close();
-		    }
-		    
-		    
+//			System.out.println( "reqContentType : " + reqContentType );
+			imageGet(issue);
 			break;
 		case "2":
 			System.out.println("지진경보");
+//			System.out.println( "reqContentType : " + reqContentType );
+			imageGet(issue);
 			break;
 		case "3":
 			System.out.println("지진 + 화재경보");
+//			System.out.println( "reqContentType : " + reqContentType );
+			imageGet(issue);
 			break;
 		default:
 			EventDAO dao = new EventDAO();
@@ -93,32 +80,202 @@ public class EventInServlet extends Action{
 			vo.setIssue(issue);
 			dao.insertEvent(vo);
 			System.out.println("InsertEvent Succes");
+			Date date1 = new Date();
+			SimpleDateFormat transFomat1 = new SimpleDateFormat("yyyyMMdd_HHmmss");
+			String fileName1 = transFomat1.format(date1);
+			request.setAttribute("issue", issue);
+			request.setAttribute("sensorId", module_id);
+			request.setAttribute("temp", temp);
+			request.setAttribute("smoke", smoke);
+			request.setAttribute("gyro", gyro);
+			request.setAttribute("fire", fire);
+			request.setAttribute("now", fileName1);
+			request.getRequestDispatcher("data3.jsp").forward(request, response);
 			break;
 		}
 	}
-	public void send() throws IOException {
-		String url = "http://192.168.0.13:5000/event/1";
-	
-	    URL obj = new URL(url);
-	    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-	
-	    // optional default is GET
-	    con.setRequestMethod("GET");
-	
-	    //add request header 헤더를 만들어주는것.
-//	    con.setRequestProperty("User-Agent", "Chrome/version");
-//	    con.setRequestProperty("Accept-Charset", "UTF-8");
-//	    con.setRequestProperty("Content-Type", "text/plain; charset=utf-8");
-	    int responseCode = con.getResponseCode();
-	    System.out.println("\nSending 'GET' request to URL : " + url);
-	    System.out.println("Response Code : " + responseCode);
-	
+	public void imageGet(String issue){
+		String url;
+		switch (issue) {
+		case "1":
+			try {
+				url = "http://192.168.0.13:5001/cam/1";
+				URL obj = new URL(url);
+				HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+				con.setRequestMethod("GET");
+				int responseCode = con.getResponseCode();
+				InputStream input = con.getInputStream();
+				System.out.println("\nSending 'POST' request to URL : " + url);
+				System.out.println("Response Code : " + responseCode);
+				transData(input);
+				break;
+			}catch (IOException e) {
+				e.printStackTrace();
+			}
 
-//	    in.close();
-	
-	    //print result
-//	    System.out.println(response.toString());
+		case "2":
+			try {
+				url = "http://192.168.0.13:5001/cam/2";
+				URL obj = new URL(url);
+				HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+				con.setRequestMethod("GET");
+				int responseCode = con.getResponseCode();
+				InputStream input = con.getInputStream();
+				System.out.println("\nSending 'POST' request to URL : " + url);
+				System.out.println("Response Code : " + responseCode);
+				transData(input);
+				break;
+			}catch (IOException e) {
+				e.printStackTrace();
+			}
+		case "3":
+			try {
+				url = "http://192.168.0.13:5001/cam/3";
+				URL obj = new URL(url);
+				HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+				con.setRequestMethod("GET");
+				int responseCode = con.getResponseCode();
+				InputStream input = con.getInputStream();
+				System.out.println("\nSending 'POST' request to URL : " + url);
+				System.out.println("Response Code : " + responseCode);
+				transData(input);
+				break;
+			}catch (IOException e) {
+				e.printStackTrace();
+			}
+		default:
+			break;
+		}
 	}
 	
-}
+	public void transData(InputStream input) {
+		// data transform
+		byte[] buffer = new byte[8 * 1024];
+		try {
+			Date date = new Date();
+			SimpleDateFormat transFomat = new SimpleDateFormat("yyyyMMdd_HHmmss");
+			String fileName = transFomat.format(date);
+			String serverName = "C:\\workspace\\SaveForYou\\javadev\\SafeForYou\\WebContent\\img\\Event\\";
+			String fileExtension = ".png";
+			String androidPass = "http://192.168.0.35:8088/SafeForYou/AndoridIamgeGet.do?imageID=";
+		
+			String DbName = serverName + fileName + fileExtension;
+
+			OutputStream output = new FileOutputStream(DbName);
+			try {
+				int bytesRead;
+				while ((bytesRead = input.read(buffer)) != -1) {
+					output.write(buffer, 0, bytesRead);
+				}
+				System.out.println("Transform 완료!");
+			}catch (IOException e) {
+				e.printStackTrace();
+			}finally {
+				output.close();
+				ActionDAO dao = new ActionDAO();
+				TbActionIdVO vo = new TbActionIdVO();
+				vo.setUrl(DbName);
+				dao.insertPicture(vo);
+				System.out.println(androidPass + fileName + fileExtension);
+				androidSend(androidPass + fileName + fileExtension);
+				
+				
+			} 
+			}catch (IOException e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					input.close();
+			} 	catch (IOException e) {
+					e.printStackTrace();
+			}
+		} 	
+	}
 	
+	public void androidSend(String fileName) {
+		// TODO Auto-generated constructor stub
+//				String url = "https://fcm.googleapis.com/fcm/send"; 
+//				FCMDataTo fcmData = new FCMDataTo();
+//				Data data = new Data();
+//				data.setTitle("[I Save You]긴급상황 발생");
+//				data.setContent_1(fileName);
+//				data.setContent_2("http://192.168.0.13:5001/stream/1");
+//				data.setContent_3("http://192.168.0.13:5000/video_stream");
+//				fcmData.setData(data);
+//				fcmData.setTo("foSJVNORz8Y:APA91bEMxsYGGEEGlqnxPa3Gh3OB25evSPs5nR5yfbmxvEBbZvMn4aoo3L0Cn78bImFNVFSCEchn60Ii_-HQVjUapqkAeHeNo_roY4yUVeUgHIH2V20SaSdo3nFcQerbyrfjXPrxpImX");
+				
+				// DB에 전체 SELECT
+				ArrayList<TbHrVO> arrayList = new ArrayList<TbHrVO>();
+				TbHrVO vo = new TbHrVO();
+				HrDAO dao = new HrDAO();
+				arrayList = dao.getHrListAll();
+				ArrayList<String> fcmList = new ArrayList<String>();
+				for (TbHrVO tbHrVO : arrayList) {
+					fcmList.add(tbHrVO.getFcm());
+				}
+				Gson gson = new Gson();
+				JsonElement reglist = gson.toJsonTree(fcmList);
+				String url = "https://fcm.googleapis.com/fcm/send"; 
+				FCMData fcmData = new FCMData();
+				Data data = new Data();
+				data.setTitle("[I Save You]긴급상황 발생");
+				data.setContent_1(fileName);
+				fcmData.setData(data);
+				fcmData.setRegistration_ids(reglist);
+				
+				String params = gson.toJson(fcmData);
+				System.out.println(params);
+				try {
+					String returnData = sendPost(url, params);
+					System.out.println(returnData);
+				}catch(Exception e) {
+					System.out.println("e : " + e);
+				}		
+			}
+			
+			public String sendPost(String url, String parameters) throws Exception { 
+		        TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager(){
+		                public X509Certificate[] getAcceptedIssuers(){return new X509Certificate[0];}
+		                public void checkClientTrusted(X509Certificate[] certs, String authType){}
+		                public void checkServerTrusted(X509Certificate[] certs, String authType){}
+		        }};
+		        SSLContext sc = SSLContext.getInstance("TLS");
+		        sc.init(null, trustAllCerts, new SecureRandom());
+		        HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+		   
+		       URL obj = new URL(url);
+		       HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
+		   
+		       //reuqest header
+		       con.setRequestMethod("POST");
+		       con.setRequestProperty("Content-Type", "application/json");
+		       con.setRequestProperty("Authorization", "key=AAAA91-0IQE:APA91bEvPIXCvITxVpcVaxysasJzU4wjuTNT29zkgmRv6ayxLe0U1iIgO0zIvImluA4_5AczoDfZrlFZluTuVBqFM_JBvyjqkH6R9k2bBoMSQaNOPlTOVnjHYTFwjSjMuVt0-nusaVRJ");
+		       String urlParameters = parameters;
+		   
+		       //post request
+		       con.setDoOutput(true);
+		       DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+		       wr.write(urlParameters.getBytes("UTF-8"));
+		       wr.flush();
+		       wr.close();
+
+		       int responseCode = con.getResponseCode();     
+		       System.out.println("Post parameters : " + urlParameters);
+		       System.out.println("Response Code : " + responseCode);
+		   
+		       StringBuffer response = new StringBuffer();
+		   
+		       if(responseCode == 200){   
+		              BufferedReader in = new BufferedReader( new InputStreamReader(con.getInputStream()));
+		              String inputLine;
+		              while ((inputLine = in.readLine()) != null) {
+		                     response.append(inputLine);
+		              }
+		              in.close();   
+		       }
+		       //result
+		       System.out.println(response.toString());
+		       return response.toString();
+		}
+
+}

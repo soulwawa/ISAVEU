@@ -30,18 +30,18 @@ public class WebLogin extends Action{
 		
 		if(list.size() == 0) { 
 			System.out.println("Query FAIL");
-			msg = "���� ����";
+			msg = "시스템 오류";
 			request.setAttribute("result", msg);
 			request.getRequestDispatcher("WEB-INF/WebLoginTest.jsp").forward(request, response);
 		}else {
 			TbHrVO result = list.get(0);
 			System.out.println("0");
 			if(andId.equals(result.getId()) && andPw.equals(result.getPw())) {
-				msg = "�����ڴ� ȯ���մϴ�.";
+				msg = "로그인 성공!";
 				request.setAttribute("result", msg);
 				request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
 			}else {
-				msg = "�α��� ���� ���̵�� ��й�ȣ�� Ȯ���� �ּ���";
+				msg = "아이디 혹은 비밀번호를 확인해 주세요.";
 				request.setAttribute("result", msg);
 				request.getRequestDispatcher("WEB-INF/WebLoginTest.jsp").forward(request, response);
 			}
