@@ -24,7 +24,6 @@
 		<div class="hheader">	
 			<div class="ttop">
 				<div class="ccase">
-					<div class="button button_top" onclick="changeValue()">게이지 값 변경</div>
 					<div>
 						<%=request.getAttribute("result")%>
 					</div>

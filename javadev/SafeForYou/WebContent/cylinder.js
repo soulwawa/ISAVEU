@@ -29,7 +29,6 @@ var layoutStr =
                    +'labels="[0,20,40,60,80,100,120,140,160,180,200]" tickInterval="20" value="temp" '
                    +'cylinderColor="[#ff842e,#ffd44a,#ff842e]" cylinderAlpha="[1,1,1]" cylinderRatio="[0,100,255]" '
                    +'targetMark="120" snapInterval="1" labelJsFunction="labelFunc" valueLabelStyleName="valueLabel" valueChangeFunction="changeFunction"/>'
-                   +'<HttpServiceRepeater url="http://localhost/data3.jsp" target="{chart1}" interval="10" method="get"/>'
                    +'<Style>'
                         +'.valueLabel{fontSize:11;fontWeight:bold;}'
                    +'</Style>'  
@@ -62,7 +61,7 @@ function commitValue()
  
 function labelFunc(value)
 {
-   return value+"%";
+   return value+" 'c";
 }
    
 /**

@@ -17,6 +17,13 @@
 <link rel="stylesheet" type="text/css" href="./sample.css"/>
 <script type="text/javascript" src="./shCore.js"></script>
 <script type="text/javascript" src="./shBrushJScript.js"></script>
+<script type="text/javascript">
+
+function a()
+{
+	document.getElementById(id).setData(chartData);
+}
+</script>
 <link type="text/css" rel="stylesheet" href="./shCoreDefault.css"/>
 <title>관리자 페이지</title>
 </head>

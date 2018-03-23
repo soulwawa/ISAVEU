@@ -78,32 +78,14 @@ var layoutStr =
 							+'color:#555555;'
 						+'}'
 					+'</Style>'
-					+'<RealTimeChart id="chart1" dataDisplayType="time" timePeriod="60" interval="3" showDataTips="true">'
-					//60초동안 3초 간격으로 데이터 표현(시간 기준)
-						+'<horizontalAxis>'
-						//데이터와 축라벨은 모두 초단위, 데이터가 3초단위로 들어오므로 dataInterval=3, 축라벨 간격은 9(초), GMT가 아닌 Local시간 표시 true
-							+'<DateTimeAxis dataUnits="seconds" labelUnits="seconds" dataInterval="3" interval="9" displayLocalTime="true"/>'
-						+'</horizontalAxis>'
-						+'<series>'
-							+'<Column2DSeries xField="Time" yField="Volume" displayName="Trading Volume" itemRenderer="GradientColumnItemRenderer">'
-								+'<fill>'
-									+'<SolidColor color="0xB0C759" />'
-								+'</fill>'
-							+'</Column2DSeries>'
-						+'</series>'
-					+'</RealTimeChart>'
-					+'<HttpServiceRepeater url="http://localhost/data2.jsp" target="{chart1}" interval="3" method="get"/>'
 				+'</rMateChart>';
 				
 // 게이지 데이터
-var chartData = [22];
 
 //게이지 값 랜덤 변경 함수
 function changeValue()
 {
-	// 게이지의 값을 변경할려면 setData 함수를 사용하세요.
-	document.getElementById("chart1").setDataURL("./data3.jsp");
-	
+
 }
 
 // 게이지 값 보관.

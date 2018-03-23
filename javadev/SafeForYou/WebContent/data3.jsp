@@ -12,7 +12,7 @@
 			<%=request.getAttribute("sensorId")%>
 		</sensor>
 		<temp>
-			97
+			<%=request.getAttribute("temp")%>
 		</temp>
 		<smoke>
 			<%=request.getAttribute("smoke")%>
