@@ -4,10 +4,17 @@ public class Data {
 	String title;
 	String content_1;
 	String content_2;
+	String content_3;
 	String key1 = "key1";
 	String key2 = "key2";
 	public String getTitle() {
 		return title;
+	}
+	public String getContent_3() {
+		return content_3;
+	}
+	public void setContent_3(String content_3) {
+		this.content_3 = content_3;
 	}
 	public void setTitle(String title) {
 		this.title = title;
@@ -40,8 +47,8 @@ public class Data {
 	}
 	@Override
 	public String toString() {
-		return "Data [title=" + title + ", content_1=" + content_1 + ", content_2=" + content_2 + ", key1=" + key1
-				+ ", key2=" + key2 + "]";
+		return "Data [title=" + title + ", content_1=" + content_1 + ", content_2=" + content_2 + ", content_3="
+				+ content_3 + ", key1=" + key1 + ", key2=" + key2 + "]";
 	}
 	
 }

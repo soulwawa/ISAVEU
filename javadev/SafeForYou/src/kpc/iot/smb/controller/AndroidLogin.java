@@ -61,7 +61,14 @@ public class AndroidLogin extends Action{
 					System.out.println("FCM UPDATE");
 					vo.setFcm(fcmValue);
 					vo.setId(andId);
-					dao.updateFcm(vo);
+					dao.updateFcm(vo);loginOk.addProperty("access", "1");
+					loginOk.addProperty("name", result.getName().toString());				
+					loginOk.addProperty("profile", result.getProfile().toString());
+					loginOk.addProperty("email", result.getEmail().toString());
+					loginOk.addProperty("fcm", result.getFcm().toString());
+					String resultJson = loginOk.toString();
+					request.setAttribute("resultJson", resultJson);
+					request.getRequestDispatcher("WEB-INF/resultJson.jsp").forward(request, response);
 				}else {
 					System.out.println("FCM EQUALS");
 					loginOk.addProperty("access", "1");
