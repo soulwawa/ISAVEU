@@ -11,7 +11,6 @@ public class LoginDAO {
 	private Connection con;
 	
 	private LoginDAO() {
-		//切疑持失切
 	}
 	public static LoginDAO getInstance() {
 		if(loginDAO == null) {

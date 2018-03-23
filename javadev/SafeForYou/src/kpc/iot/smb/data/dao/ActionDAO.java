@@ -16,6 +16,7 @@ public class ActionDAO {
 			PreparedStatement stmt = conn.prepareStatement(INSERT_SQL);
 			stmt.setString(1, vo.getUrl());
 			stmt.execute();
+			stmt.close();
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}

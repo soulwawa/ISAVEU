@@ -11,6 +11,7 @@ import kpc.iot.smb.util.DBManager;
 
 public class HrDAO {
 	private static final String Select_SQL_ID = "select * from tb_hr where id = ?;";
+	private static final String UPDATE_SQL_FCM = "update tb_hr SET FCM = ? WHERE id = ?;";
 	
 	public ArrayList<TbHrVO> getHrList(TbHrVO vo){
 		ArrayList<TbHrVO> list = new ArrayList<TbHrVO>(); 
@@ -40,5 +41,17 @@ public class HrDAO {
 				System.out.println("Select ID Error: " + e);
 			}return list;
 	}
+	public void updateFcm(TbHrVO vo) {
+			try(Connection conn = DBManager.getConnection()) {
+				PreparedStatement stmt = conn.prepareStatement(UPDATE_SQL_FCM);
+				stmt.setString(1, vo.getFcm());
+				stmt.setString(2, vo.getId());
+				stmt.execute();
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+		}
+	}
 	
-}
