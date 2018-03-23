@@ -79,6 +79,13 @@ public class EventInServlet extends Action{
 			vo.setIssue(issue);
 			dao.insertEvent(vo);
 			System.out.println("InsertEvent Succes");
+			request.setAttribute("issue", issue);
+			request.setAttribute("sensorId", module_id);
+			request.setAttribute("temp", temp);
+			request.setAttribute("smoke", smoke);
+			request.setAttribute("gyro", gyro);
+			request.setAttribute("fire", fire);
+			request.getRequestDispatcher("data1.jsp").forward(request, response);
 			break;
 		}
 	}

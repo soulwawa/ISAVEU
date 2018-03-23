@@ -1,3 +1,9 @@
 eclipse.preferences.version=1
 encoding//WebContent/index.jsp=UTF-8
+encoding//src/kpc/iot/smb/controller/AndroidLogin.java=UTF-8
+encoding//src/kpc/iot/smb/controller/DispatcherServlet.java=UTF-8
+encoding//src/kpc/iot/smb/controller/EventInServlet.java=UTF-8
+encoding//src/kpc/iot/smb/controller/RaspIn.java=UTF-8
 encoding//src/svc/LoginService.java=UTF-8
+encoding/<project>=UTF-8
+separateDerivedEncodings=true
