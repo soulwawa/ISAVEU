@@ -2,6 +2,7 @@ package kpc.iot.smb.controller;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,9 +22,11 @@ import javax.net.ssl.X509TrustManager;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.Response;
+
+import org.apache.catalina.startup.Tomcat;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 import kpc.iot.smb.data.dao.ActionDAO;
 import kpc.iot.smb.data.dao.EventDAO;
@@ -145,6 +148,7 @@ public class EventInServlet extends Action{
 			String serverIp = "http://192.168.0.35:8088/SafeForYou/img/Event/";
 // http://192.168.0.35:8088/SafeForYou/img/Event/20180322_163657.png
 			String DbName = serverName + fileName + fileExtension;
+
 			OutputStream output = new FileOutputStream(DbName);
 			try {
 				int bytesRead;
