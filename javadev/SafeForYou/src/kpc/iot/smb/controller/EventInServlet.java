@@ -2,7 +2,6 @@ package kpc.iot.smb.controller;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,9 +21,12 @@ import javax.net.ssl.X509TrustManager;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.ws.Response;
+import javax.swing.text.Document;
+import javax.xml.bind.Element;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.apache.catalina.startup.Tomcat;
+import org.w3c.dom.NodeList;
 
 import com.google.gson.Gson;
 
@@ -79,13 +81,17 @@ public class EventInServlet extends Action{
 			vo.setIssue(issue);
 			dao.insertEvent(vo);
 			System.out.println("InsertEvent Succes");
+			Date date1 = new Date();
+			SimpleDateFormat transFomat1 = new SimpleDateFormat("yyyyMMdd_HHmmss");
+			String fileName1 = transFomat1.format(date1);
 			request.setAttribute("issue", issue);
 			request.setAttribute("sensorId", module_id);
 			request.setAttribute("temp", temp);
 			request.setAttribute("smoke", smoke);
 			request.setAttribute("gyro", gyro);
 			request.setAttribute("fire", fire);
-			request.getRequestDispatcher("data1.jsp").forward(request, response);
+			request.setAttribute("now", fileName1);
+			request.getRequestDispatcher("data3.jsp").forward(request, response);
 			break;
 		}
 	}
@@ -252,4 +258,5 @@ public class EventInServlet extends Action{
 		       System.out.println(response.toString());
 		       return response.toString();
 		}
+
 }

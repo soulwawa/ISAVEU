@@ -27,7 +27,7 @@ var layoutStr =
 						+'<Caption text="실시간 온도" fontFamily="맑은 고딕"/>'
 					+'</Options>'
 					+'<NumberFormatter id="numFmt" precision="0"/>' 
-					+'<CircularGauge valueChangeFunction="valueChangeFunc" padding="8" startAngle="90" minimumAngle="40" maximumAngle="320" minimum="0" maximum="150" value="25" interval="10" minorInterval="10" formatter="{numFmt}" tickLabelStyleName="tickText" valueLabelStyleName="valueText" editMode="true" majorTickType="circle" liveDragging="true" tickGap="-3" labelGap="-5" showDataTip="false" tickLabelPlacement="outside" tickColor="#1B699A" needleCoverRadius="100" needleThickness="100" pointThickness="0" tickRadius="2" needleLengthRatio="0.9" minorTickType="line" minorTickRadius="5" needlePointStyle="rounding" isValueTop="true" animationDuration="1000" bounceAnimating="true" rotateTickLabel="true" showOutFrame="true" outFrameLabelXOffset="0" outFrameLabelYOffset="0.2">'
+					+'<CircularGauge valueChangeFunction="valueChangeFunc" padding="8" startAngle="90" minimumAngle="40" maximumAngle="320" minimum="0" maximum="150" value="temp" interval="10" minorInterval="10" formatter="{numFmt}" tickLabelStyleName="tickText" valueLabelStyleName="valueText" editMode="true" majorTickType="circle" liveDragging="true" tickGap="-3" labelGap="-5" showDataTip="false" tickLabelPlacement="outside" tickColor="#1B699A" needleCoverRadius="100" needleThickness="100" pointThickness="0" tickRadius="2" needleLengthRatio="0.9" minorTickType="line" minorTickRadius="5" needlePointStyle="rounding" isValueTop="true" animationDuration="1000" bounceAnimating="true" rotateTickLabel="true" showOutFrame="true" outFrameLabelXOffset="0" outFrameLabelYOffset="0.2">'
 						+'<frameFill>'
 							+'<LinearGradient angle="0">'
 								+'<entries>'
@@ -78,8 +78,7 @@ var layoutStr =
 							+'color:#555555;'
 						+'}'
 					+'</Style>'
-					/**
-					 * +'<RealTimeChart id="chart1" dataDisplayType="time" timePeriod="60" interval="3" showDataTips="true">'
+					+'<RealTimeChart id="chart1" dataDisplayType="time" timePeriod="60" interval="3" showDataTips="true">'
 					//60초동안 3초 간격으로 데이터 표현(시간 기준)
 						+'<horizontalAxis>'
 						//데이터와 축라벨은 모두 초단위, 데이터가 3초단위로 들어오므로 dataInterval=3, 축라벨 간격은 9(초), GMT가 아닌 Local시간 표시 true
@@ -93,8 +92,7 @@ var layoutStr =
 							+'</Column2DSeries>'
 						+'</series>'
 					+'</RealTimeChart>'
-					+'<HttpServiceRepeater url="http://localhost/data2.jsp" target="{chart1}" interval="3" method="get" />'
-					 */
+					+'<HttpServiceRepeater url="http://localhost/data2.jsp" target="{chart1}" interval="3" method="get"/>'
 				+'</rMateChart>';
 				
 // 게이지 데이터
@@ -104,7 +102,7 @@ var chartData = [22];
 function changeValue()
 {
 	// 게이지의 값을 변경할려면 setData 함수를 사용하세요.
-	document.getElementById("chart1").setDataURL("http://localhost/data2.jsp");
+	document.getElementById("chart1").setDataURL("./data3.jsp");
 	
 }
 
