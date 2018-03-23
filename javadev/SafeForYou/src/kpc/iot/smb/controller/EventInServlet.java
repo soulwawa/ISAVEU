@@ -2,7 +2,6 @@ package kpc.iot.smb.controller;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,10 +21,6 @@ import javax.net.ssl.X509TrustManager;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.ws.Response;
-
-import org.apache.catalina.startup.Tomcat;
-
 import com.google.gson.Gson;
 
 import kpc.iot.smb.data.dao.ActionDAO;
@@ -152,8 +147,8 @@ public class EventInServlet extends Action{
 			String fileName = transFomat.format(date);
 			String serverName = "C:\\workspace\\SaveForYou\\javadev\\SafeForYou\\WebContent\\img\\Event\\";
 			String fileExtension = ".png";
-			String serverIp = "http://192.168.0.35:8088/SafeForYou/img/Event/";
-// http://192.168.0.35:8088/SafeForYou/img/Event/20180322_163657.png
+			String androidPass = "http://192.168.0.35:8088/SafeForYou/AndoridIamgeGet.do?imageID=";
+		
 			String DbName = serverName + fileName + fileExtension;
 
 			OutputStream output = new FileOutputStream(DbName);
@@ -169,9 +164,10 @@ public class EventInServlet extends Action{
 				output.close();
 				ActionDAO dao = new ActionDAO();
 				TbActionIdVO vo = new TbActionIdVO();
-				vo.setUrl(serverIp + fileName +fileExtension);
+				vo.setUrl(DbName);
 				dao.insertPicture(vo);
-				androidSend(serverIp + fileName +fileExtension);
+				System.out.println(androidPass + fileName + fileExtension);
+				androidSend(androidPass + fileName + fileExtension);
 				
 			} 
 			}catch (IOException e) {
