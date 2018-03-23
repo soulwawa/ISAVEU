@@ -6,24 +6,16 @@
 <% String root = request.getContextPath(); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="<%=root%>/javascript/temperature.js"></script>
 <link rel="stylesheet" type="text/css" href="./rMateChartH5.css"/>
 <script language="javascript" type="text/javascript" src="./rMateChartH5License.js"></script>
 <script language="javascript" type="text/javascript" src="./rMateGaugeChartH5.js"></script>
 <script type="text/javascript" src="./theme.js"></script>
-<script language="javascript" type="text/javascript" src="./gauge.js"></script>
+<script language="javascript" type="text/javascript" src="./cylinder.js"></script>
 <script type="text/javascript" src="./common.js"></script>
 <script type="text/javascript" src="./sample_util.js"></script>
 <link rel="stylesheet" type="text/css" href="./sample.css"/>
 <script type="text/javascript" src="./shCore.js"></script>
 <script type="text/javascript" src="./shBrushJScript.js"></script>
-<script type="text/javascript">
-
-function a()
-{
-	document.getElementById(id).setData(chartData);
-}
-</script>
 <link type="text/css" rel="stylesheet" href="./shCoreDefault.css"/>
 <title>관리자 페이지</title>
 </head>

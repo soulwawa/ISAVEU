@@ -22,6 +22,7 @@ import javax.net.ssl.X509TrustManager;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
@@ -79,13 +80,17 @@ public class EventInServlet extends Action{
 			vo.setIssue(issue);
 			dao.insertEvent(vo);
 			System.out.println("InsertEvent Succes");
+			Date date1 = new Date();
+			SimpleDateFormat transFomat1 = new SimpleDateFormat("yyyyMMdd_HHmmss");
+			String fileName1 = transFomat1.format(date1);
 			request.setAttribute("issue", issue);
 			request.setAttribute("sensorId", module_id);
 			request.setAttribute("temp", temp);
 			request.setAttribute("smoke", smoke);
 			request.setAttribute("gyro", gyro);
 			request.setAttribute("fire", fire);
-			request.getRequestDispatcher("data1.jsp").forward(request, response);
+			request.setAttribute("now", fileName1);
+			request.getRequestDispatcher("data3.jsp").forward(request, response);
 			break;
 		}
 	}
@@ -272,4 +277,5 @@ public class EventInServlet extends Action{
 		       System.out.println(response.toString());
 		       return response.toString();
 		}
+
 }
