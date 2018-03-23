@@ -29,7 +29,8 @@ public class FCMServer {
 		data.setContent_1("빠르게 대피해주세요!");
 		data.setTitle("[I Save You]긴급상황 발생");
 		fcmDataTo.setData(data);
-		fcmDataTo.setTo("dpLbZuQqfWI:APA91bGk_AXJK3q6Kx4_k9sil7hJQ1CzfqFvTPzonsQpl3OwOpCYVeHrcJdcBpvgY6XaazHcQLkSfHtho2cVdv6G9hkMZUELAPruewDjlffQ5sNCPyIQL71PNtQPVfPlPHOusLBnN6pJ");
+//		fcmDataTo.setTo("dpLbZuQqfWI:APA91bGk_AXJK3q6Kx4_k9sil7hJQ1CzfqFvTPzonsQpl3OwOpCYVeHrcJdcBpvgY6XaazHcQLkSfHtho2cVdv6G9hkMZUELAPruewDjlffQ5sNCPyIQL71PNtQPVfPlPHOusLBnN6pJ");
+		fcmDataTo.setTo("eDlAEqKMOAg:APA91bGmrrJpT48xU9ly004Hbu5uTtDL5048cj573a9JQVKSuQczCsj3764bKOqr72ZD7A_sDY886tWjj46vlyFp6ksGrRGaC659o4x2yFtNyt_LXuMgIic7vNjPmDg8Ht48vo5WeweG");
 		// DB에 전체 SELECT
 	
 		Gson gson = new Gson();
@@ -59,7 +60,8 @@ public class FCMServer {
        //reuqest header
        con.setRequestMethod("POST");
        con.setRequestProperty("Content-Type", "application/json");
-       con.setRequestProperty("Authorization", "key=AAAA91-0IQE:APA91bEvPIXCvITxVpcVaxysasJzU4wjuTNT29zkgmRv6ayxLe0U1iIgO0zIvImluA4_5AczoDfZrlFZluTuVBqFM_JBvyjqkH6R9k2bBoMSQaNOPlTOVnjHYTFwjSjMuVt0-nusaVRJ");
+//       con.setRequestProperty("Authorization", "key=AAAA91-0IQE:APA91bEvPIXCvITxVpcVaxysasJzU4wjuTNT29zkgmRv6ayxLe0U1iIgO0zIvImluA4_5AczoDfZrlFZluTuVBqFM_JBvyjqkH6R9k2bBoMSQaNOPlTOVnjHYTFwjSjMuVt0-nusaVRJ");
+       con.setRequestProperty("Authorization", "key=AAAA0_ZOwoo:APA91bFAAoFmJqqmfZIBKVgGaHESKCkQ_vMZKHFHEK1oFeAqCQILbk0aQlcytboPpaDEI9q8uJc8CUBVyKqmbjPLF7MuW4zXh_yKR3MhK5RyTJTFV2TFFhvTK5pBNosxm0o4lMHAnJpl");
        String urlParameters = parameters;
    
        //post request
