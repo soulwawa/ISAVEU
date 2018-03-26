@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context docBase="C:\workspace\SaveForYou\apache-tomcat-8.5.29\wtpwebapps\SafeForYou" path="/SafeForYou" reloadable="true" source="org.eclipse.jst.jee.server:SafeForYou"/>
