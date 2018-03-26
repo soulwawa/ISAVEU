@@ -2,13 +2,19 @@ package org.Isaveu;
 
 import javax.sql.DataSource;
 
+import org.Isaveu.filter.IsaveUFilter;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
+@MapperScan(value = {"org.Isaveu.mapper"})
+//* @MapperScan : Mapper 인터페이스를 인식할 수 있도록 설정
+
 public class ISaveUApplication {
 
 	public static void main(String[] args) {
@@ -29,5 +35,14 @@ public class ISaveUApplication {
 		 */
 		sessionFactory.setDataSource(dataSource);
 		return sessionFactory.getObject();
+	}
+	
+	@Bean
+	public FilterRegistrationBean<IsaveUFilter> someFilterRegistration() {
+		FilterRegistrationBean<IsaveUFilter> registration = new FilterRegistrationBean<IsaveUFilter>(new IsaveUFilter());
+		
+		registration.addUrlPatterns("/*");
+		registration.setName("IsaveUFilter");
+		return registration;
 	}
 }
