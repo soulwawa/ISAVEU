@@ -1,8 +1,6 @@
-package kr.co.isaveyou.isaveyou;
+package kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.main;
 
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,7 +9,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
-import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
@@ -26,14 +23,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
-import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 
@@ -50,6 +45,8 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
+
+import kr.co.isaveyou.isaveyou.R;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -69,14 +66,14 @@ public class MainActivity extends AppCompatActivity {
         final FloatingActionsMenu menuMultipleActions = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
 //        FloatingActionsMenu.collapse(); // close the menu
 //        FloatingActionsMenu.toggle(); // toggle the menu
-//        FloatingActionsMenu.expand(); // open the mneu
+//        FloatingActionsMenu.expand(); // open the menu
         findViewById(R.id.fab_streaming).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 android.support.v4.app.Fragment fragment_monitoring = new MonitoringFragment();
-                fragmentTransaction.replace( R.id.streming_framelayout,fragment_monitoring);
+                fragmentTransaction.add(R.id.streming_framelayout,fragment_monitoring);
                 fragmentTransaction.commit();
                 menuMultipleActions.collapse();
 

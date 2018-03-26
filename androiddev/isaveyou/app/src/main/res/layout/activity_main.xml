@@ -9,7 +9,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="kr.co.isaveyou.isaveyou.MainActivity">
+    tools:context="kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.main.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/map_framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/streming_framelayout"
@@ -17,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="250dp"
         android:layout_marginTop="60dp"
-        android:visibility="visible">
+        android:visibility="invisible">
 
     </FrameLayout>
 

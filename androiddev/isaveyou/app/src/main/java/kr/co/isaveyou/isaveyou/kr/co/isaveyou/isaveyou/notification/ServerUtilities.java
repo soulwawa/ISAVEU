@@ -1,4 +1,4 @@
-package kr.co.isaveyou.isaveyou;
+package kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.notification;
 
 //서버용 클래스
 

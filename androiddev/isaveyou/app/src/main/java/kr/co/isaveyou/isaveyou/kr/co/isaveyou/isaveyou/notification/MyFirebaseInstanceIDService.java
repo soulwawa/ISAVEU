@@ -1,8 +1,5 @@
-package kr.co.isaveyou.isaveyou;
+package kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.notification;
 
-import android.app.Service;
-import android.content.Intent;
-import android.os.IBinder;
 import android.util.Log;
 
 import com.google.firebase.iid.FirebaseInstanceId;

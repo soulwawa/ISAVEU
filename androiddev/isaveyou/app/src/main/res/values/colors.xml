@@ -27,5 +27,9 @@
     <color name="holo_purple">#ffaa66cc</color>
     <color name="holo_orange_dark">#ffff8800</color>
     <color name="holo_red_dark">#ffcc0000</color>
+    <color name="white_for_png">#00ffffff</color>
+
+
+
 
 </resources>

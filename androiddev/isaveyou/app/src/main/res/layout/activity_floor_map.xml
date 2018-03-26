@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frie_ext_map_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="#0099cc"
-    tools:context="kr.co.isaveyou.isaveyou.FullscreenFloorMapActivity">
+    android:backgroundTint="@color/colorWhite">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
@@ -15,134 +17,15 @@
          android:fitsSystemWindows. -->
     <ImageView
         android:id="@+id/mapImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:layout_gravity="top"
+        android:layout_marginTop="4dp"
         android:scaleType="fitXY"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/floor_6th" />
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/waitingRoom_Fire_ext"
-            android:layout_width="20dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="116dp"
-            android:layout_marginTop="56dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/pic_fire_ext" />
-
-        <ImageView
-            android:id="@+id/room604_Fire_ext"
-            android:layout_width="20dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="116dp"
-            android:layout_marginTop="44dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/waitingRoom_Fire_ext"
-            app:srcCompat="@drawable/pic_fire_ext" />
-
-        <ImageView
-            android:id="@+id/room603_Fire_ext"
-            android:layout_width="20dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="116dp"
-            android:layout_marginTop="92dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/room604_Fire_ext"
-            app:srcCompat="@drawable/pic_fire_ext" />
-
-        <ImageView
-            android:id="@+id/room602_Fire_ext"
-            android:layout_width="20dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="116dp"
-            android:layout_marginTop="64dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/room603_Fire_ext"
-            app:srcCompat="@drawable/pic_fire_ext" />
-
-        <ImageView
-            android:id="@+id/room601_Fire_ext"
-            android:layout_width="20dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="116dp"
-            android:layout_marginTop="84dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/room602_Fire_ext"
-            app:srcCompat="@drawable/pic_fire_ext" />
-
-        <ImageView
-            android:id="@+id/hallWay01_Fire_ext"
-            android:layout_width="20dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="180dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/pic_fire_ext" />
-
-        <ImageView
-            android:id="@+id/room605_Fire_ext"
-            android:layout_width="20dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toEndOf="@+id/hallWay01_Fire_ext"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/pic_fire_ext" />
-
-        <ImageView
-            android:id="@+id/hallWay02_Fire_ext"
-            android:layout_width="20dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="80dp"
-            app:layout_constraintStart_toEndOf="@+id/room604_Fire_ext"
-            app:layout_constraintTop_toBottomOf="@+id/hallWay01_Fire_ext"
-            app:srcCompat="@drawable/pic_fire_ext" />
-
-        <ImageView
-            android:id="@+id/room606_Fire_ext"
-            android:layout_width="20dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="112dp"
-            app:layout_constraintStart_toEndOf="@+id/hallWay02_Fire_ext"
-            app:layout_constraintTop_toBottomOf="@+id/room605_Fire_ext"
-            app:srcCompat="@drawable/pic_fire_ext" />
-
-        <ImageView
-            android:id="@+id/room607_Fire_ext"
-            android:layout_width="20dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="76dp"
-            android:layout_marginTop="96dp"
-            app:layout_constraintStart_toEndOf="@+id/room603_Fire_ext"
-            app:layout_constraintTop_toBottomOf="@+id/room606_Fire_ext"
-            app:srcCompat="@drawable/pic_fire_ext" />
-
-        <ImageView
-            android:id="@+id/room607_1_Fire_ext"
-            android:layout_width="20dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="76dp"
-            android:layout_marginTop="100dp"
-            app:layout_constraintStart_toEndOf="@+id/room601_Fire_ext"
-            app:layout_constraintTop_toBottomOf="@+id/room607_Fire_ext"
-            app:srcCompat="@drawable/pic_fire_ext" />
-
-        <ImageView
-            android:id="@+id/restRoom_Fire_ext"
-            android:layout_width="20dp"
-            android:layout_height="21dp"
-            android:layout_marginBottom="100dp"
-            android:layout_marginStart="164dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/room601_Fire_ext"
-            app:srcCompat="@drawable/pic_fire_ext" />
-
-    </android.support.constraint.ConstraintLayout>
-</android.support.constraint.ConstraintLayout>
+</FrameLayout>

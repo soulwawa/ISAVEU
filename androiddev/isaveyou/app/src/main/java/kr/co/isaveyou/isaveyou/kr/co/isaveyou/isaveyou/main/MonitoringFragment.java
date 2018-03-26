@@ -1,4 +1,4 @@
-package kr.co.isaveyou.isaveyou;
+package kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.main;
 
 
 import android.media.MediaPlayer;
@@ -17,10 +17,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-import java.io.BufferedInputStream;
+
+import java.io.IOException;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+
+import kr.co.isaveyou.isaveyou.R;
 
 //스트리밍을 위한 Fragment
 public class MonitoringFragment extends android.support.v4.app.Fragment {
@@ -29,6 +34,7 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
     TextView tv_monitoring;
     Button btn_stop, btn_start;
     String streamingServer_access, streamingServer_url;
+    HttpURLConnection conn;
     View.OnClickListener handler = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -63,15 +69,38 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
                         e.printStackTrace();
                     }
                 case R.id.btn_stop:
+                    //영상 정지 버튼을 눌렀을 때, 서버에 신호를 보내어 Streaming을 종료
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     fragmentManager.beginTransaction().remove(MonitoringFragment.this).commit();
                     Log.v(TAG,"정지버튼눌림");
                     StopTask stopTask = new StopTask();
                     stopTask.execute();
+                    String param = "act_st=" + "0";
+                    Log.v(TAG, "param : " + param);
+                    HttpURLConnection conn = null;
                     if(fragmentManager.getBackStackEntryCount()>0){
                         fragmentManager.popBackStack();
                     }else {
                     }
+                    try{
+                        URL url = new URL("http://192.168.0.35:8088/SafeForYou/AndroidStreming.do?");
+                        conn = (HttpURLConnection)url.openConnection();
+                        conn.setFixedLengthStreamingMode(param.length());
+                        conn.setRequestProperty("Content-type","application/x-www-form-urlencoded");
+                        conn.setRequestMethod("POST");
+                        conn.setDoInput(false);
+                        /*안드로이드 -> 서버 파라메터값 전달*/
+                        OutputStream outs = conn.getOutputStream();
+                        outs.write(param.getBytes("UTF-8"));
+                        outs.flush();
+                        outs.close();
+                    }catch (MalformedURLException e){
+                        e.printStackTrace();
+                    }catch (IOException e){
+                        e.printStackTrace();
+                    }
+
+
                     break;
             }
         }
@@ -93,7 +122,7 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
         btn_start.setOnClickListener(handler);
 
 
-        Log.v(TAG,"영상 준비");
+        Log.v(TAG,"영상 준비 작업 시작");
         Bundle bundle = getArguments();
         streamingServer_access = bundle.getString("streamingServer_access","");
         streamingServer_url = bundle.getString("steramingServer_url","");
@@ -122,6 +151,8 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
         @Override
         protected String doInBackground(String... strings) {
             try {
+                //서버 접속
+
                 URL url = new URL(streamingServer_access);
                 URLConnection conn = (HttpURLConnection)url.openConnection();
                 conn.setDoInput(false);

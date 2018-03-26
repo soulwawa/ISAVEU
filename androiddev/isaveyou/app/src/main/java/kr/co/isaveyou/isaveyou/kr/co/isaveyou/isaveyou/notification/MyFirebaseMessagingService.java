@@ -1,4 +1,4 @@
-package kr.co.isaveyou.isaveyou;
+package kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.notification;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -9,12 +9,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.os.Bundle;
 import android.os.PowerManager;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -23,6 +20,10 @@ import java.io.BufferedInputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
+
+import kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.map.FloorMapActivity;
+import kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.main.MainActivity;
+import kr.co.isaveyou.isaveyou.R;
 
 import static android.content.Intent.ACTION_VIEW;
 import static android.content.Intent.ACTION_DIAL;

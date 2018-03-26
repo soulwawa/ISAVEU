@@ -25,15 +25,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"
+        <activity android:name=".kr.co.isaveyou.isaveyou.login.LoginActivity"
             android:configChanges="orientation|keyboardHidden"
             />
-        <activity android:name=".MainActivity"
+        <activity android:name=".kr.co.isaveyou.isaveyou.main.MainActivity"
             android:configChanges="orientation|keyboardHidden"
             />
 
         <service
-            android:name=".MyFirebaseMessagingService"
+            android:name=".kr.co.isaveyou.isaveyou.notification.MyFirebaseMessagingService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -41,7 +41,7 @@
             </intent-filter>
         </service>
         <service
-            android:name=".MyFirebaseInstanceIDService"
+            android:name=".kr.co.isaveyou.isaveyou.notification.MyFirebaseInstanceIDService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -75,7 +75,7 @@
             android:resource="@xml/automotive_app_desc" />
 
         <activity
-            android:name=".FloorMapActivity"
+            android:name=".kr.co.isaveyou.isaveyou.map.FloorMapActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
     </application>
 

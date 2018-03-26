@@ -1,0 +1,164 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_fire_ext_framelayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    tools:context="kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.map.Fire_extFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        tools:context="kr.co.isaveyou.isaveyou.FullscreenFloorMapActivity">
+
+        <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+        <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+        <ImageSwitcher
+            android:id="@+id/room607_Fire_ext"
+            android:layout_width="20dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/pic_fire_ext"
+
+            app:layout_constraintStart_toEndOf="@+id/room603_Fire_ext"
+            app:layout_constraintTop_toBottomOf="@+id/room606_Fire_ext" />
+
+        <ImageSwitcher
+            android:id="@+id/waitingRoom_Fire_ext"
+            android:layout_width="20dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="96dp"
+            android:layout_marginTop="72dp"
+            android:background="@drawable/pic_fire_ext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageSwitcher
+            android:id="@+id/room605_Fire_ext"
+            android:layout_width="20dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/pic_fire_ext"
+            app:layout_constraintStart_toEndOf="@+id/hallWay01_Fire_ext"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageSwitcher
+            android:id="@+id/room606_Fire_ext"
+            android:layout_width="20dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="92dp"
+            android:background="@drawable/pic_fire_ext"
+            app:layout_constraintStart_toEndOf="@+id/hallWay02_Fire_ext"
+            app:layout_constraintTop_toBottomOf="@+id/room605_Fire_ext" />
+
+        <ImageSwitcher
+            android:id="@+id/restRoom_Fire_ext"
+            android:layout_width="20dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="164dp"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/pic_fire_ext"
+            app:layout_constraintStart_toEndOf="@+id/room601_Fire_ext"
+            app:layout_constraintTop_toBottomOf="@+id/room607_1_Fire_ext" />
+
+        <ImageSwitcher
+            android:id="@+id/room601_Fire_ext"
+            android:layout_width="20dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="84dp"
+            android:background="@drawable/pic_fire_ext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/room602_Fire_ext" />
+
+        <ImageSwitcher
+            android:id="@+id/hallWay02_Fire_ext"
+            android:layout_width="20dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/pic_fire_ext"
+            app:layout_constraintStart_toEndOf="@+id/room604_Fire_ext"
+            app:layout_constraintTop_toBottomOf="@+id/hallWay01_Fire_ext" />
+
+        <ImageSwitcher
+            android:id="@+id/room603_Fire_ext"
+            android:layout_width="20dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="96dp"
+            android:layout_marginTop="72dp"
+            android:background="@drawable/pic_fire_ext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/room604_Fire_ext" />
+
+        <ImageSwitcher
+            android:id="@+id/room607_1_Fire_ext"
+            android:layout_width="20dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="196dp"
+            android:layout_marginTop="84dp"
+            android:background="@drawable/pic_fire_ext"
+            app:layout_constraintStart_toEndOf="@+id/room602_Fire_ext"
+            app:layout_constraintTop_toBottomOf="@+id/room607_Fire_ext" />
+
+        <ImageSwitcher
+            android:id="@+id/room604_Fire_ext"
+            android:layout_width="20dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="96dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/pic_fire_ext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/waitingRoom_Fire_ext" />
+
+        <ImageSwitcher
+            android:id="@+id/room602_Fire_ext"
+            android:layout_width="20dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="96dp"
+            android:layout_marginTop="84dp"
+            android:background="@drawable/pic_fire_ext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/room603_Fire_ext" />
+
+        <ImageSwitcher
+            android:id="@+id/hallWay01_Fire_ext"
+            android:layout_width="20dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="176dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/pic_fire_ext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/checkButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/mybutton"
+            android:gravity="center_horizontal"
+            android:text="@string/possibleFire_ext"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>

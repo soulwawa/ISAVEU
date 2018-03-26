@@ -12,13 +12,13 @@
     <string name="monitoring">현장 스트리밍</string>
     <string name="stat">통계</string>
     <string name="map">비상대피도</string>
+    <string name="possibleFire_ext">사용가능한\n소화기 보기</string>
 
     <!--NavigationDraw-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="drawer_header_welcome">님, 환영합니다.</string>
     <string name="nav_sub_menu">Sub Menu</string>
-
 
 
     <!--Monitoring-->
@@ -34,4 +34,7 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <string name="title_activity_fullscreen_floor_map_1">FullscreenFloorMapActivity_1</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
