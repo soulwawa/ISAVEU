@@ -11,6 +11,9 @@ var chartVars = "rMateOnLoadCallFunction=chartReadyHandler";
 //  4. 차트의 가로 사이즈 (생략 가능, 생략 시 100%)
 //  5. 차트의 세로 사이즈 (생략 가능, 생략 시 100%)
 rMateChartH5.create("chart1", "chartHolder", chartVars, "100%", "100%"); 
+rMateChartH5.create("chart2", "chartHolder2", chartVars, "100%", "100%"); 
+rMateChartH5.create("chart3", "chartHolder3", chartVars, "100%", "100%"); 
+rMateChartH5.create("chart4", "chartHolder4", chartVars, "100%", "100%"); 
  
 // 차트의 속성인 rMateOnLoadCallFunction 으로 설정된 함수.
 // rMate 차트 준비가 완료된 경우 이 함수가 호출됩니다.
@@ -25,23 +28,25 @@ function chartReadyHandler(id) {
 var layoutStr = 
                 '<rMateChart backgroundColor="#FFFFFF"  horizontalAlign="center" verticalAlign="middle" borderStyle="none">'
                   +'<CurrencyFormatter id="cft" currencySymbol="%" alignSymbol="right"/>'
-                   +'<VCylinderGauge id="chart1" width="150" height="350" minimum="0" maximum="200" '
-                   +'labels="[0,20,40,60,80,100,120,140,160,180,200]" tickInterval="20" value="temp" '
-                   +'cylinderColor="[#ff842e,#ffd44a,#ff842e]" cylinderAlpha="[1,1,1]" cylinderRatio="[0,100,255]" '
+                   +'<VCylinderGauge width="150" height="350" minimum="0" maximum="200" '
+                   +'labels="[-20,-10,0,10,20,30,40,50,60,70,80]" tickInterval="10" value="25" '
+                  +'cylinderColor="[#ff842e,#ffd44a,#ff842e]" cylinderAlpha="[1,1,1]" cylinderRatio="[0,100,255]" '
                    +'targetMark="120" snapInterval="1" labelJsFunction="labelFunc" valueLabelStyleName="valueLabel" valueChangeFunction="changeFunction"/>'
-                   +'<Style>'
+                 +'<Style>'
                         +'.valueLabel{fontSize:11;fontWeight:bold;}'
-                   +'</Style>'  
+                    +'</Style>'
                +'</rMateChart>';
  
 // 게이지 데이터
-var chartData = [50];
+var chartData = [160];
  
 //게이지 값 랜덤 변경 함수
+
+
 function changeValue()
 {
   // 게이지의 값을 변경할려면 setData 함수를 사용하세요.
-	document.getElementById("chart1").setDataURL("./data3.jsp");
+ document.getElementById("chart1").setData([parseInt(Math.random()*200)]);
 }
  
 // 게이지 값 보관.
@@ -61,7 +66,7 @@ function commitValue()
  
 function labelFunc(value)
 {
-   return value+" 'c";
+   return value+"%";
 }
    
 /**

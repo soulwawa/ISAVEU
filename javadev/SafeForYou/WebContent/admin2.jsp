@@ -5,87 +5,101 @@
 <head>
 <% String root = request.getContextPath(); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="<%=root%>/javascript/temperature.js"></script>
 <link rel="stylesheet" type="text/css" href="./rMateChartH5.css"/>
 <script language="javascript" type="text/javascript" src="./rMateChartH5License.js"></script>
 <script language="javascript" type="text/javascript" src="./rMateGaugeChartH5.js"></script>
 <script type="text/javascript" src="./theme.js"></script>
-<script language="javascript" type="text/javascript" src="./gauge.js"></script>
+<script language="javascript" type="text/javascript" src="./cylinder.js"></script>
 <script type="text/javascript" src="./common.js"></script>
 <script type="text/javascript" src="./sample_util.js"></script>
 <link rel="stylesheet" type="text/css" href="./sample.css"/>
 <script type="text/javascript" src="./shCore.js"></script>
 <script type="text/javascript" src="./shBrushJScript.js"></script>
-<script type="text/javascript">
-
-function a()
-{
-	document.getElementById(id).setData(chartData);
-}
-</script>
 <link type="text/css" rel="stylesheet" href="./shCoreDefault.css"/>
+<script>
+  var interval = setInterval(function () {
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:8088/SafeForYou/Dispatcher",
+      dataType: "json",
+      success: function(data) {
+        ob = data;
+        
+        var result1 = document.getElementById("result1");
+        
+        
+        result1.innerHTML = ob.temp+", "+ob.msg;
+
+        
+        document.getElementById("chart1").setData([parseInt(ob.temp)]);
+        console.log(ob.temp);
+
+      }
+    });
+  }, 1000);
+  function setTimeout() { clearInterval(interval);
+  }
+  
+
+</script>
+<style>
+
+</style>
 <title>관리자 페이지</title>
+
 </head>
 <body>
-	<div class="wwrap">
-		<div class="hheader">	
-			<div class="ttop">
-				<div class="ccase">
-					<div>
-						<%=request.getAttribute("result")%>
-					</div>
-					<div>
-						hello admin
-					</div>
-					<div class="llogout">
-						logout
-					</div>
-				</div>
-			</div>
-			<div class="nnav">
-				<div class="fflex">
-					<div class="mmenuBtn" id="mBtn1" onclick="admin.do">
-						<img src="<%=root%>/img/main.png" alt="logo" class="mmainImg"/>
-					</div>
-					<div class="mmenuBtn" id="mBtn2">
-						sensor log
-					</div>
-					<div class="mmenuBtn" id="mBtn3">
-						event log
-					</div>
-					<div class="mmenuBtn" id="mBtn4">
-						streaming
-					</div>
-					<div class="mmenuBtn" id="mBtn5">
-						HR table
-					</div>
-					<div class="mmenuBtn" id="mBtn6">
-						location info
-					</div>
-				</div>
+	<div class="wrapper">
+		<div class="header">
+			<div class="case">
+				<img src="<%=root%>/img/logo1.png" alt="logo" class="logo"/>
 			</div>
 		</div>
-		<div class="ccontainer">
-			<div class="ccontent">
-				<div class="ttempChart">
-					<div id="content">
-							<!-- 차트가 삽입될 DIV -->
-						<div id="chartHolder"></div>
-					</div>
-				</div>
-				<div>
-				</div>
-				<div>
-				</div>
-				<div>
-				</div>
+		<div class="sidebar">
+			<div class="menuBtn">
+			sensor log
 			</div>
-			
+			<div class="menuBtn">
+			sensor log
+			</div>
+			<div class="menuBtn">
+			streaming
+			</div>
+			<div class="menuBtn">
+			HR table
+			</div>
+			<div class="menuBtn">
+			location info
+			</div>
+			<div class="menuBtn">
+			fire extinguosher
+			</div>
+
 		</div>
-		<div class="ffooter">
-			<%=request.getAttribute("result")%>
+		<div class="contents">
+			<div id="content">
+			<!-- 차트가 삽입될 DIV -->
+			<div id="chartHolder"></div>
 		</div>
-	</div>		
+
+		</div>
+		<div class="footer">
+		<div id="result1">
+
+		</div>
+		<div id="result2">
+
+		</div>
+		<div id="result3">
+
+		</div>
+		<div id="result4">
+
+		</div>
+		<input type="button" value="종료" onclick="setTimeout()"/>
+		</div>
+	</div>
 </body>
 </html>
