@@ -9,15 +9,37 @@
 <link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css"/>
 
 <script>
-function change() {
-	var change = document.getElementById("mySpan");
-	//id가 mySpan인 객체 찾기
-	span.style.color = "green"; //글자 색 green
-	span.style.fontSize= "30px"; //글자 크기는 30픽셀
-	span.style.display = "block"; //블록 박스로 변경
-	span.style.width = "6em"; // 박스의 폭, 6글자 크기
-	span.style.border = "3px dotted magenta"; //3픽셀 점선 magenta 테두리
-	span.style.margin = "20px"; // 상하좌우 여백 20px
+	var a = 0;
+function showExtinguisher() {
+	if(a == 1) {
+		document.getElementById("ex1").style.display = "none";	
+		document.getElementById("ex2").style.display = "none";	
+		document.getElementById("ex3").style.display = "none";	
+		document.getElementById("ex4").style.display = "none";	
+		document.getElementById("ex5").style.display = "none";	
+		document.getElementById("ex6").style.display = "none";	
+		document.getElementById("ex7").style.display = "none";	
+		document.getElementById("ex8").style.display = "none";	
+		document.getElementById("ex9").style.display = "none";	
+		document.getElementById("ex10").style.display = "none";	
+		document.getElementById("ex11").style.display = "none";	
+		document.getElementById("ex12").style.display = "none";
+		a = 0;
+	}else {
+		document.getElementById("ex1").style.display = "block";	
+		document.getElementById("ex2").style.display = "block";	
+		document.getElementById("ex3").style.display = "block";	
+		document.getElementById("ex4").style.display = "block";	
+		document.getElementById("ex5").style.display = "block";	
+		document.getElementById("ex6").style.display = "block";	
+		document.getElementById("ex7").style.display = "block";	
+		document.getElementById("ex8").style.display = "block";	
+		document.getElementById("ex9").style.display = "block";	
+		document.getElementById("ex10").style.display = "block";	
+		document.getElementById("ex11").style.display = "block";	
+		document.getElementById("ex12").style.display = "block";
+		a = 1;
+	}
 }
 </script>
 <style>

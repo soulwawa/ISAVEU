@@ -9,6 +9,7 @@
 <link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" type="text/css" href="./rMateChartH5.css"/>
 <script language="javascript" type="text/javascript" src="./rMateChartH5License.js"></script>
+<script language="javascript" type="text/javascript" src="./rMateIntegrationH5.js"></script>
 <script language="javascript" type="text/javascript" src="./rMateGaugeChartH5.js"></script>
 <script type="text/javascript" src="./theme.js"></script>
 <script language="javascript" type="text/javascript" src="./cylinder.js"></script>
@@ -80,26 +81,38 @@
 
 		</div>
 		<div class="contents">
-			<div id="content">
-			<!-- 차트가 삽입될 DIV -->
-				<div id="chartHolder">
-				</div>
-			</div>
-			<div id="content">
-			<!-- 차트가 삽입될 DIV -->
-				<div id="chartHolder2">
-				</div>
-			</div>
-			<div id="content">
-			<!-- 차트가 삽입될 DIV -->
-				<div id="chartHolder3">
-				</div>
-			</div>
-			<div id="content">
-			<!-- 차트가 삽입될 DIV -->
-				<div id="chartHolder4">
-				</div>
-			</div>
+			<table align="center" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td align="center">
+						<div class="content">
+							<!-- 차트가 삽입될 DIV -->
+							<div id="chartHolder1" style="width:600px; height:400px;">
+							</div>
+						</div>
+					</td>
+					<td align="center">
+						<div class="content">
+							<!-- 차트가 삽입될 DIV -->
+							<div id="chartHolder2" style="width:600px; height:400px;">
+							</div>
+						</div>
+					</td>
+					<td align="center">
+						<div class="content">
+							<!-- 차트가 삽입될 DIV -->
+							<div id="chartHolder3" style="width:600px; height:400px;">
+							</div>
+						</div>
+					</td>
+					<td align="center">
+						<div class="content">
+							<!-- 차트가 삽입될 DIV -->
+							<div id="chartHolder4" style="width:600px; height:400px;">
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
 		</div>
 		<div class="footer">
 		<div id="result1">
