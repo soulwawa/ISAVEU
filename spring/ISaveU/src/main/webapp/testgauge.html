@@ -1,3 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>rMate Chart for HTML5</title>
+<link rel="stylesheet" type="text/css" href="./rMateChartH5.css"/>
+<script language="javascript" type="text/javascript" src="./rMateChartH5License.js"></script>
+<script language="javascript" type="text/javascript" src="./rMateGaugeChartH5.js"></script>
+<script type="text/javascript" src="./theme.js"></script>
+
+<script type="text/javascript">
+
 var chartVars = "rMateOnLoadCallFunction=chartReadyHandler";
 
 rMateChartH5.create("chart1", "chartHolder1", chartVars, "100%", "100%");
@@ -41,7 +57,7 @@ function chartReadyHandler(id) {
 var layoutStr1 = 
 	'<rMateChart>'
 		+'<CurrencyFormatter id="cft" currencySymbol="%" alignSymbol="right" precision="0"/>'
-		+'<LinearGauge direction="horizontal" verticalRatio="0.5" fontSize="20" valueChangeFunction="changeFunction1" labelJsFunction="labelFunc1" formatter="{cft}" foregroundColor="#20cbc2" color="#ffffff" fontWeight="bold" width="818">'
+		+'<LinearGauge direction="horizontal" verticalRatio="0.5" fontSize="20" valueChangeFunction="changeFunction1" formatter="{cft}" foregroundColor="#20cbc2" color="#ffffff" fontWeight="bold" width="818">'
 			+'<backgroundStroke>'
 				+'<Stroke color="#20cbc2" weight="3"/>'
 			+'</backgroundStroke>'
@@ -50,7 +66,7 @@ var layoutStr1 =
 var layoutStr2 = 
 	'<rMateChart>'
 		+'<CurrencyFormatter id="cft" currencySymbol="%" alignSymbol="right" precision="0"/>'
-		+'<LinearGauge direction="horizontal" verticalRatio="0.5" fontSize="20" valueChangeFunction="changeFunction2" labelJsFunction="labelFunc2" formatter="{cft}" foregroundColor="#20cbc2" color="#ffffff" fontWeight="bold" width="818">'
+		+'<LinearGauge direction="horizontal" verticalRatio="0.5" fontSize="20" valueChangeFunction="changeFunction1" formatter="{cft}" foregroundColor="#20cbc2" color="#ffffff" fontWeight="bold" width="818">'
 			+'<backgroundStroke>'
 				+'<Stroke color="#20cbc2" weight="3"/>'
 			+'</backgroundStroke>'
@@ -59,7 +75,7 @@ var layoutStr2 =
 var layoutStr3 = 
 	'<rMateChart>'
 		+'<CurrencyFormatter id="cft" currencySymbol="%" alignSymbol="right" precision="0"/>'
-		+'<LinearGauge direction="horizontal" verticalRatio="0.5" fontSize="20" valueChangeFunction="changeFunction3" labelJsFunction="labelFunc3" formatter="{cft}" foregroundColor="#20cbc2" color="#ffffff" fontWeight="bold" width="818">'
+		+'<LinearGauge direction="horizontal" verticalRatio="0.5" fontSize="20" valueChangeFunction="changeFunction1" formatter="{cft}" foregroundColor="#20cbc2" color="#ffffff" fontWeight="bold" width="818">'
 			+'<backgroundStroke>'
 				+'<Stroke color="#20cbc2" weight="3"/>'
 			+'</backgroundStroke>'
@@ -92,14 +108,8 @@ function commitValue(){
 	alert("chart1 : " + gaugeValue1 + "\nchart2 : " + gaugeValue2 + "\nchart3 : " + gaugeValue3);
 }
 
-function labelFunc1(value){
-	return value+"'C";
-}
-function labelFunc2(value){
+function labelFunc(value){
 	return value+"%";
-}
-function labelFunc3(value){
-	return value+"#";
 }
 
 rMateChartH5.registerTheme(rMateChartH5.themes);
@@ -107,3 +117,27 @@ rMateChartH5.registerTheme(rMateChartH5.themes);
 function rMateChartH5ChangeTheme(theme){
 	document.getElementById("chart1").setTheme(theme);
 }
+
+
+</script>
+<!-- 샘플 작동을 위한 css와 js -->
+<script type="text/javascript" src="./Web/JS/common.js"></script>
+<script type="text/javascript" src="./Web/JS/sample_util.js"></script>
+<link rel="stylesheet" type="text/css" href="./Web/sample.css"/>
+
+<!-- SyntaxHighlighter -->
+<script type="text/javascript" src="./Web/syntax/shCore.js"></script>
+<script type="text/javascript" src="./Web/syntax/shBrushJScript.js"></script>
+<link type="text/css" rel="stylesheet" href="./Web/syntax/shCoreDefault.css"/>
+</head>
+<body>
+	<div class="wrapper">
+		<div id="content" style="height:390px;">
+			<!-- 차트가 삽입될 DIV -->
+			<div id="chartHolder1" class="chartHolder" style="height:130px;"></div>
+			<div id="chartHolder2" class="chartHolder" style="height:130px;"></div>
+			<div id="chartHolder3" class="chartHolder" style="height:130px;"></div>
+		</div>
+	</div>
+</body>
+</html>

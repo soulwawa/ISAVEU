@@ -12,12 +12,6 @@
 <script language="javascript" type="text/javascript" src="./rMateGaugeChartH5.js"></script>
 <script type="text/javascript" src="./theme.js"></script>
 <script language="javascript" type="text/javascript" src="./cylinder.js"></script>
-<script type="text/javascript" src="./common.js"></script>
-<script type="text/javascript" src="./sample_util.js"></script>
-<link rel="stylesheet" type="text/css" href="./sample.css"/>
-<script type="text/javascript" src="./shCore.js"></script>
-<script type="text/javascript" src="./shBrushJScript.js"></script>
-<link type="text/css" rel="stylesheet" href="./shCoreDefault.css"/>
 <script>
   var interval = setInterval(function () {
     $.ajax({
@@ -35,7 +29,8 @@
         
         document.getElementById("chart1").setData([parseInt(ob.temp)]);
         document.getElementById("chart2").setData([parseInt(ob.gyro)]);
-        console.log(ob.temp+", "+ob.gyro+", "+ob.msg);
+        document.getElementById("chart3").setData([parseInt(ob.smoke)]);
+        console.log("온도:"+ob.temp+",불꽃 "+ob.fire+",CO "+ob.smoke+",진동 "+ob.gyro+", "+ob.msg);
 
       }
     });
@@ -81,12 +76,11 @@
 
 		</div>
 		<div class="contents">
-			<div id="content">
-			<!-- 차트가 삽입될 DIV -->
-				<div id="chartHolder1">
-				</div>
-				<div id="chartHolder2">
-				</div>
+			<div id="content" style="height:390px;">
+				<!-- 차트가 삽입될 DIV -->
+				<div id="chartHolder1" class="chartHolder" style="height:130px;"></div>
+				<div id="chartHolder2" class="chartHolder" style="height:130px;"></div>
+				<div id="chartHolder3" class="chartHolder" style="height:130px;"></div>
 			</div>
 		</div>
 		<div class="footer">
