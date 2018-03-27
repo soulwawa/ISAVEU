@@ -131,9 +131,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         //notificaiton 눌렀을 때의 액션 정의
 
         Intent actionCall = new Intent(ACTION_DIAL,Uri.parse("tel:119"));
-        Intent actionCheckPlace = new Intent(ACTION_VIEW,Uri.parse("http://www.naver.com"));
+        Intent actionCheckPlace = new Intent(getApplicationContext(),FloorMapActivity.class);
         Intent actionCheckFire_ext = new Intent(getApplicationContext(),FloorMapActivity.class);
-
+        actionCheckPlace.putExtra("event" , "0");
+        actionCheckFire_ext.putExtra("event","1");
 
 
         //pending intetn에 액션 추가

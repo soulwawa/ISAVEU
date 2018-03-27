@@ -47,10 +47,11 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import kr.co.isaveyou.isaveyou.R;
+import kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.map.FloorMapActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    String strName, strPicUrl, strEmail, result, act_st, strimingServer_url, strimingServer_access ;
+    String strName, strPicUrl, strEmail, result, act_st, streamingServer_url, streamingServer_access ;
     TextView tvName, tvEmail;
     ImageView profile;
     Bitmap profileImg;
@@ -70,20 +71,26 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.fab_streaming).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                android.support.v4.app.Fragment fragment_monitoring = new MonitoringFragment();
-                fragmentTransaction.add(R.id.streming_framelayout,fragment_monitoring);
-                fragmentTransaction.commit();
+                StreamingTask streamingtask = new StreamingTask();
+                streamingtask.execute();
+
+//                FragmentManager fragmentManager = getSupportFragmentManager();
+//                android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                android.support.v4.app.Fragment fragment_monitoring = new MonitoringFragment();
+//                fragmentTransaction.add(R.id.streming_framelayout,fragment_monitoring);
+//                fragmentTransaction.commit();
                 menuMultipleActions.collapse();
 
-
+                Log.v(TAG, "스트리밍버튼 클릭");
             }
         });
         findViewById(R.id.fab_map).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"map클릭",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), FloorMapActivity.class);
+                intent.putExtra("event","2");
+                startActivity(intent);
             }
         });
         findViewById(R.id.fab_static).setOnClickListener(new View.OnClickListener() {
@@ -223,16 +230,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //스트리밍 요청
-    class StreamingTast extends AsyncTask<String, Void, String>{
+    class StreamingTask extends AsyncTask<String, Void, String>{
         @Override
         protected String doInBackground(String... strings) {
-            String param = "act_st" + "action";
+            String param = "act_st=1";
             Log.v(TAG, "param : " + param);
 
             HttpURLConnection conn = null;
             try{
                 /*서버연결*/
-                URL url = new URL("http://192.168.0.35:8088/SafeForYou/AndroidStreming.do?");
+                URL url = new URL("http://192.168.0.35:9999/AndroidStreaming.do?");
                 conn = (HttpURLConnection)url.openConnection();
 
                 conn.setFixedLengthStreamingMode(param.length());
@@ -279,8 +286,8 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
 
-            Log.v(TAG, "result in onPostExecute : " + result);
-            Log.v(TAG, "onPostExecute streamingServer_url :" + strimingServer_url + ",streamingServer_access :" + strimingServer_access);
+            Log.v(TAG, "result in  : " + result);
+            Log.v(TAG, "onPostExecute streamingServer_url :" + streamingServer_url + ",streamingServer_access :" + streamingServer_access);
             try{
                 String streamingServer_url = null;
                 String streamingServer_access = null;
@@ -290,17 +297,17 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject jsonObject = new JSONObject(result);
 
                 streamingServer_access = jsonObject.getString("streaming_access");
-                streamingServer_url = jsonObject.getString("streaming_url");
+                streamingServer_url = jsonObject.getString("streamingServer_url");
 
 
                 Log.v(TAG, "streamingServer_url : " + streamingServer_url);
                 Log.v(TAG, "streamingServer_access : " + streamingServer_access);
 
 
-                if(!strimingServer_access.equals(null)){
+                if(!streamingServer_access.equals("0")){
 
-                    String streaming_url = strimingServer_url;
-                    String streaming_access = strimingServer_access;
+                    String streaming_url = streamingServer_url;
+                    String streaming_access = streamingServer_access;
 
                     android.support.v4.app.Fragment fragment = new MonitoringFragment();
                     Bundle bundle = new Bundle();
@@ -309,16 +316,21 @@ public class MainActivity extends AppCompatActivity {
                     fragment.setArguments(bundle);
                     Log.v(TAG,"스트리밍서버 내용 받음");
                     Log.v(TAG,"번들 : "+ bundle);
-
-                }else if(strimingServer_access.equals(null)){
-                    Toast.makeText(getApplicationContext(),"로그인에 실패하였습니다. 다시 접속하여 주세요.", Toast.LENGTH_SHORT).show();
-                    Log.v(TAG, "로그인실패");
-
-                }else{
-                    Toast.makeText(getApplicationContext(),"잘못된 ID와 PW를 입력하셨습니다.",Toast.LENGTH_SHORT).show();
-                    Log.v(TAG, "로그인실패");
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    android.support.v4.app.Fragment fragment_monitoring = new MonitoringFragment();
+                    fragmentTransaction.add(R.id.streming_framelayout,fragment_monitoring);
+                    fragmentTransaction.commit();
+                }else {
+                    Toast.makeText(getApplicationContext(),"스트리밍 서버 접속실패", Toast.LENGTH_SHORT).show();
+                    Log.v(TAG, "스트리밍 서버 접속실패 : null");
 
                 }
+//                  else{
+//                    Toast.makeText(getApplicationContext(),"잘못된 ID와 PW를 입력하셨습니다.",Toast.LENGTH_SHORT).show();
+//                    Log.v(TAG, "스트리밍 서버 접속실패");
+//
+//                }
 
             }catch (JSONException e){
                 e.printStackTrace();
