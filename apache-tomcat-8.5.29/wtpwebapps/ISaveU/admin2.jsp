@@ -22,7 +22,7 @@
   var interval = setInterval(function () {
     $.ajax({
       type: "GET",
-      url: "http://localhost:8088/SafeForYou/Dispatcher",
+      url: "http://192.168.0.35:9999/Dispatcher",
       dataType: "json",
       success: function(data) {
         ob = data;
@@ -38,7 +38,7 @@
 
       }
     });
-  }, 5000);
+  }, 1000);
   
   $(window).on("unload", function(){
 	    alert("call");
@@ -83,21 +83,6 @@
 			<div id="content">
 			<!-- 차트가 삽입될 DIV -->
 				<div id="chartHolder">
-				</div>
-			</div>
-			<div id="content">
-			<!-- 차트가 삽입될 DIV -->
-				<div id="chartHolder2">
-				</div>
-			</div>
-			<div id="content">
-			<!-- 차트가 삽입될 DIV -->
-				<div id="chartHolder3">
-				</div>
-			</div>
-			<div id="content">
-			<!-- 차트가 삽입될 DIV -->
-				<div id="chartHolder4">
 				</div>
 			</div>
 		</div>

@@ -31,7 +31,8 @@ public class AndoroidContoller {
 		String fcmValue = request.getParameter("u_instancekey");
 		
 		System.out.println(andId);
-		ArrayList<TbHrVO> list = hService.getHrListId(andId);
+		ArrayList<TbHrVO> list = new ArrayList<TbHrVO>();
+		hService.getHrListId(andId);
 		System.out.println(list.get(0));
 	}
 	}

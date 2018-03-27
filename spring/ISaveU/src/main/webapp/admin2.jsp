@@ -22,7 +22,7 @@
   var interval = setInterval(function () {
     $.ajax({
       type: "GET",
-      url: "http://localhost:8080/Dispatcher",
+      url: "http://192.168.0.35:9999/Dispatcher",
       dataType: "json",
       success: function(data) {
         ob = data;
@@ -38,7 +38,7 @@
 
       }
     });
-  }, 5000);
+  }, 1000);
   
   $(window).on("unload", function(){
 	    alert("call");

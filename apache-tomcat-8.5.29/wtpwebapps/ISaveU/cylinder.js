@@ -10,18 +10,15 @@ var chartVars = "rMateOnLoadCallFunction=chartReadyHandler";
 //  3. 차트 생성 시 필요한 환경 변수들의 묶음인 chartVars
 //  4. 차트의 가로 사이즈 (생략 가능, 생략 시 100%)
 //  5. 차트의 세로 사이즈 (생략 가능, 생략 시 100%)
-rMateChartH5.create("chart1", "chartHolder", chartVars, "100%", "100%"); 
-rMateChartH5.create("chart2", "chartHolder2", chartVars, "100%", "100%"); 
-rMateChartH5.create("chart3", "chartHolder3", chartVars, "100%", "100%"); 
-rMateChartH5.create("chart4", "chartHolder4", chartVars, "100%", "100%"); 
+rMateChartH5.create("chart1", "chartHolder", chartVars, "80%", "80%"); 
 
 // 차트의 속성인 rMateOnLoadCallFunction 으로 설정된 함수.
 // rMate 차트 준비가 완료된 경우 이 함수가 호출됩니다.
 // 이 함수를 통해 차트에 레이아웃과 데이터를 삽입합니다.
 // 파라메터 : id - rMateChartH5.create() 사용 시 사용자가 지정한 id 입니다.
 function chartReadyHandler(id) {
- document.getElementById(id).setLayout(layoutStr);
-   document.getElementById(id).setData(chartData);
+	document.getElementById(id).setLayout(layoutStr);
+	document.getElementById(id).setData(chartData);
 }
  
 // 스트링 형식으로 레이아웃 정의.
