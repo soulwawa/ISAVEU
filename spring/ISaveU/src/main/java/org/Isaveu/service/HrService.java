@@ -1,5 +1,6 @@
 package org.Isaveu.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -15,12 +16,12 @@ public class HrService implements HrMapper{
 	
 
 	@Override
-	public List<TbHrVO> getHrAllList() throws Exception {
+	public ArrayList<TbHrVO> getHrAllList() throws Exception {
 		return hMapper.getHrAllList();
 	}
 
 	@Override
-	public List<TbHrVO> getHrListId(String id) throws Exception {
+	public ArrayList<TbHrVO> getHrListId(String id) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -1,105 +1,103 @@
 @charset "utf-8";
-body, html{
-	margin:0 !important;
-	padding:0 !important;
-	height:100% !important;
+*{
+	box-sizing: border-box;
 }
 html{
-	overflow-y: scroll !important;
+	height: auto;
+    min-height: 100%;
+    display: block;
 }
+
 body{
-	background: #fff !important;
+	height: auto;
+    min-height: 100%;
+    background: url(../img/boxed-bg.jpg) repeat fixed;
 }
-div{
-	display:block !important;
+
+html, body{
+	margin:0;
+	padding:0;
+	
 }
-.wwrap{
-	position: relative !important;
-    overflow: hidden !important;
-    min-width: 1100px !important;
-    background: #f2f4f7 !important;
+.wrapper{
+	overflow: hidden;
+    height: auto;
+    min-height: 100%;
+    width: 1250px;
+    margin: 0 auto;
+    min-height: 100%;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    position: relative;
+    display: block;
+    background-color: #222d32;
 }
-.hheader{
-	z-index: 100;
-    border-bottom: 1px solid #d1d8e4;
-    background: #fff;
-}
-.ccontainer{
-	margin: 0 auto;
-    padding: 8px 10px 0;
-    width: 1080px;
-    text-align: left;
-    zoom: 1;
-    min-height: 500px;
-    background:red;
-}
-.ccontainer:after {
-    display: table;
-    clear: both;
-    table-layout: fixed;
-    content: "";
-}
-.ffooter{
+.header{
+	position:relative;
 	height:100px;
-	margin-top: 8px;
-    border-top: 1px solid #e3e7ee;
-    background: yellow;
-    text-align: left;
+	background-color: #3c8dbc;
+	z-index: 815;
+		
 }
-body, button, input, select, table, textarea {
-    font-size: 12px !important;
-    font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif !important;
+.sidebar{
+	position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 100px;
+    min-height: 100%;
+    width: 230px;
+    z-index: 810;
+    background-color: #222d32;
+	
 }
-.ttop{
-	height:30px;
-	background:yellow;
+.contents{
+	margin-left: 230px;
+	background-color: #ecf0f5;
+    z-index: 800;
+    min-height: 824px;
 }
-.ccase{
-	width:250px;
-	float:right;
-	height:100%;
-	background:aqua;
+.footer{
+	margin-left: 230px;
+	z-index: 800;
+	background-color: white;
+	height:50px;
 }
-.ccase div{
-	float:left;
-	margin-left:20px;
-	background:pink;
+.menuBtn{
+	width:210px;
+	margin:10px 10px;
+	height:50px;
+	display:block;
+	background-color:#343f47;
 }
-.nnav{
-	height:170px;
-	background:yellowgreen;
+.menuBtn:hover{
+	width:230px;
+	height:80px;
+	margin:0px;
+	transition: 0.3s;
 }
-.fflex{
-	width:1080px;
-	margin:0 auto;
-	height:100%;
-	background:skyblue;
-	text-align:center;
+.case{
+	z-index: 820;
+	width:230px;
+	height:100px;
+	background-color: #367fa9;
 }
-.mmenuBtn{
-	width:120px;
-	height:90px;
-	float:left;
-	text-align:center;
-	margin:39px 29px;
-	color: #000;
+.logo{
+	width:230px;
+	height:100px;
 	background-color: transparent !important;
-	border: 1px solid #000;
-	border-radius: 7px;
 }
-.mmainImg{
-	width:120px;
-	height:90px;
+.rMateH5__Root{
+	width:0px !important;
 }
-.ttempChart{
-	margin:0px auto;
+.rMateH5__rMateChart{
+	margin-left:-300px;
+	margin-right:-300px;
 }
-.ccontent{
-	margin:0 auto;
+.rMateH5__ContentPane{
+	
 }
-#chart1{
-	margin:0 auto !important;
+.rMateH5__Main{
+	
 }
-.rMateH5__Root div{
-	margin:0 -60px;
+.rMateH5__VCylinderGauge{
+	
 }

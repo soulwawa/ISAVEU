@@ -1,5 +1,6 @@
 package org.Isaveu.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.Isaveu.domain.TbHrVO;
@@ -11,10 +12,10 @@ import org.springframework.stereotype.Repository;
 public interface HrMapper {
 //	public int hrCount() throws Exception;
 	
-	public List<TbHrVO> getHrAllList() throws Exception;
+	public ArrayList<TbHrVO> getHrAllList() throws Exception;
 	// "select * from tb_hr;";
 	
-	public List<TbHrVO> getHrListId(String id) throws Exception;
+	public ArrayList<TbHrVO> getHrListId(String id) throws Exception;
 	//"select * from tb_hr where id = ?;";
 	
 	public void hrInsert(TbHrVO hrVo) throws Exception;
