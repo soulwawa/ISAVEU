@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.security.SecureRandom;
@@ -20,8 +21,12 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.json.simple.JSONObject;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -38,17 +43,21 @@ import kpc.iot.smb.fcm.FCMDataTo;
 import kpc.iot.smb.util.Action;
 
 public class EventInServlet extends Action{
-
+	String issue;
+	String temp;
+	String smoke;
+	String gyro;
+	String fire;
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		response.setContentType("text/plain;charset=utf-8");
-		String issue = request.getParameter("issue");
+		issue = request.getParameter("issue");
 		String module_id = request.getParameter("module_id");
-		String temp = request.getParameter("temp");
-		String smoke = request.getParameter("smoke");
-		String gyro = request.getParameter("gyro");
-		String fire = request.getParameter("fire");
+		temp = request.getParameter("temp");
+		smoke = request.getParameter("smoke");
+		gyro = request.getParameter("gyro");
+		fire = request.getParameter("fire");
 //		String reqContentType = request.getContentType();
 		//ISSUE Process
 		// 0 -> DB, 1 -> Rasp,DB, 2->Rasp,DB, 3->Rasp,DB,
@@ -80,17 +89,6 @@ public class EventInServlet extends Action{
 			vo.setIssue(issue);
 			dao.insertEvent(vo);
 			System.out.println("InsertEvent Succes");
-			Date date1 = new Date();
-			SimpleDateFormat transFomat1 = new SimpleDateFormat("yyyyMMdd_HHmmss");
-			String fileName1 = transFomat1.format(date1);
-			request.setAttribute("issue", issue);
-			request.setAttribute("sensorId", module_id);
-			request.setAttribute("temp", temp);
-			request.setAttribute("smoke", smoke);
-			request.setAttribute("gyro", gyro);
-			request.setAttribute("fire", fire);
-			request.setAttribute("now", fileName1);
-			request.getRequestDispatcher("data3.jsp").forward(request, response);
 			break;
 		}
 	}
@@ -277,5 +275,46 @@ public class EventInServlet extends Action{
 		       System.out.println(response.toString());
 		       return response.toString();
 		}
+			
+			@WebServlet("/Dispatcher")
+			public class Dispatcher extends HttpServlet {
+				private static final long serialVersionUID = 1L;
+			       
+			    public Dispatcher() {
+			        super();
+			    }
 
+				protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+					process(req, resp);
+				}
+
+				protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+					process(req, resp);
+				}
+				
+				protected void process(HttpServletRequest req, HttpServletResponse resp)
+						throws ServletException, IOException {
+					//이번에는 이전 예제와는 다르게 Ajax요청이 오면 응답해줄꺼다.
+					//이전에는 그냥 내가 원하는 페이지로 json을 가져가는 거였다면?
+					//지금은 요청한 놈한테 return만 해주면 되기 때문에
+					//PrintWriter out = resp.getWriter();
+					//이걸 사용하면 된다.
+					
+					//주소요청 http://localhost:8000/JsonAjax/Dispatcher
+					//Get방식
+					//process()함수 호출
+					//JSON만들기
+					JSONObject jsonObj = new JSONObject();
+					jsonObj.put("temp",temp);
+					jsonObj.put("smoke",smoke);
+					jsonObj.put("fire",fire);
+					jsonObj.put("gyro",gyro);
+					jsonObj.put("msg", "success");
+					
+					PrintWriter out = resp.getWriter();
+					out.print(jsonObj);
+					System.out.println(out);
+				}
+
+			}
 }

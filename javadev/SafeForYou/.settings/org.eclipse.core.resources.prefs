@@ -3,6 +3,7 @@
 >>>>>>>=4f93c4b48f8d28ea1db016e37cd5072ffa12462b
 eclipse.preferences.version=1
 encoding//WebContent/index.jsp=UTF-8
+encoding//WebContent/test3.jsp=UTF-8
 encoding//src/kpc/iot/smb/controller/AndroidLogin.java=UTF-8
 encoding//src/kpc/iot/smb/controller/DispatcherServlet.java=UTF-8
 encoding//src/kpc/iot/smb/controller/EventInServlet.java=UTF-8
