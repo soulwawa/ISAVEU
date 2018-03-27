@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ 
+<mapper namespace="org.Isaveu.mapper.HrMapper">
+ 	<!--   Test
+    <select id="hrCount" resultType="int">
+        SELECT
+            COUNT(*)
+        FROM
+        	tb_hr
+    </select>
+    -->
+    
+    <select id="getHrAllList" parameterType="org.Isaveu.domain.TbHrVO" resultType="org.Isaveu.domain.TbHrVO"  >
+    	SELECT
+    		*
+    	FROM
+    		tb_hr
+    </select>
+    
+    <select id="getHrListId" parameterType="org.Isaveu.domain.TbHrVO">
+    	SELECT
+    		*
+    	FROM
+    		tb_hr
+    	WHERE
+    		id = #{id}
+    </select>
+    
+    <insert id="hrInsert" parameterType="org.Isaveu.domain.TbHrVO" >
+    	INSERT INTO
+    	VALUES
+    	 ((SELECT MAX( #{hr_id}+1 FROM tb_hr as e), #{id}, #{pw}, #{name}, #{location_id}, #{email}, #{sex}, #{birthday}, #{level}, null, null)
+    	 
+    </insert>
+    
+    <update id="fcmUpdate" parameterType="org.Isaveu.domain.TbHrVO">
+    	UPDATE tb_hr
+    		SET
+    	FCM = #{fcm}
+    	WHERE id = #{id}
+    </update>
+    
+</mapper>
+
+
