@@ -30,15 +30,16 @@
         var result1 = document.getElementById("result1");
         
         
-        result1.innerHTML = ob.temp+", "+ob.msg;
+        result1.innerHTML = ob.temp+", "+ob.gyro+", "+ob.msg;
 
         
         document.getElementById("chart1").setData([parseInt(ob.temp)]);
-        console.log(ob.temp);
+        document.getElementById("chart2").setData([parseInt(ob.gyro)]);
+        console.log(ob.temp+", "+ob.gyro+", "+ob.msg);
 
       }
     });
-  }, 1000);
+  }, 9900);
   
   $(window).on("unload", function(){
 	    alert("call");
@@ -82,7 +83,9 @@
 		<div class="contents">
 			<div id="content">
 			<!-- 차트가 삽입될 DIV -->
-				<div id="chartHolder">
+				<div id="chartHolder1">
+				</div>
+				<div id="chartHolder2">
 				</div>
 			</div>
 		</div>
