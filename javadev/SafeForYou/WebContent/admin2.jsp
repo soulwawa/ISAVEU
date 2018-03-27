@@ -38,11 +38,12 @@
 
       }
     });
-  }, 1000);
-  function setTimeout() { clearInterval(interval);
-  }
+  }, 5000);
   
-
+  $(window).on("unload", function(){
+	    alert("call");
+	    console.log("this will be triggered");
+	});
 </script>
 <style>
 
@@ -81,9 +82,24 @@
 		<div class="contents">
 			<div id="content">
 			<!-- 차트가 삽입될 DIV -->
-			<div id="chartHolder"></div>
-		</div>
-
+				<div id="chartHolder">
+				</div>
+			</div>
+			<div id="content">
+			<!-- 차트가 삽입될 DIV -->
+				<div id="chartHolder2">
+				</div>
+			</div>
+			<div id="content">
+			<!-- 차트가 삽입될 DIV -->
+				<div id="chartHolder3">
+				</div>
+			</div>
+			<div id="content">
+			<!-- 차트가 삽입될 DIV -->
+				<div id="chartHolder4">
+				</div>
+			</div>
 		</div>
 		<div class="footer">
 		<div id="result1">

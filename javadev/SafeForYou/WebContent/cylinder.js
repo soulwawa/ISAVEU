@@ -14,7 +14,7 @@ rMateChartH5.create("chart1", "chartHolder", chartVars, "100%", "100%");
 rMateChartH5.create("chart2", "chartHolder2", chartVars, "100%", "100%"); 
 rMateChartH5.create("chart3", "chartHolder3", chartVars, "100%", "100%"); 
 rMateChartH5.create("chart4", "chartHolder4", chartVars, "100%", "100%"); 
- 
+
 // 차트의 속성인 rMateOnLoadCallFunction 으로 설정된 함수.
 // rMate 차트 준비가 완료된 경우 이 함수가 호출됩니다.
 // 이 함수를 통해 차트에 레이아웃과 데이터를 삽입합니다.
@@ -66,7 +66,7 @@ function commitValue()
  
 function labelFunc(value)
 {
-   return value+"%";
+   return value+"'C";
 }
    
 /**

@@ -1,5 +1,19 @@
-body {
-	height: 100%;
+html{
+	height: auto;
+    min-height: 100%;
+    display: block;
+}
+
+body{
+	height: auto;
+    min-height: 100%;
+    background: url(../img/boxed-bg.jpg) repeat fixed;
+}
+
+html, body{
+	margin:0;
+	padding:0;
+	
 }
 
 #loginFormArea {
@@ -29,11 +43,12 @@ input[type=password] {
 }
 
 #loginBox {
-	width: 293px;
+	width: 333px;
 	margin: 20px auto 0 auto;
+	padding:15px 20px;
 	border-radius: 7px;
-	color: white;
-	height: 98px;
+	background-color:#343f47;
+	height: 128px;
 	font-size: 1.3rem;
 	border: 1px solid #999;
 	background: rgba(e, e, e, 1);
@@ -44,7 +59,8 @@ input[type=submit] {
 	background-color: transparent !important;
 	float: left;
 	height: 87px;
-	margin: 4px;
+	margin-top:20px;
+	margin-left:24px;
 	border: 1px solid #999;
 	border-radius: 7px;
 	width: 80px;
@@ -53,6 +69,8 @@ input[type=submit] {
 
 .box {
 	float: left;
+	margin-top:15px;
+	margin-left:10px;
 }
 
 .imgBox {
