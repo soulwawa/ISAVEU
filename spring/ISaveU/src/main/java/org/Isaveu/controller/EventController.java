@@ -12,7 +12,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.Isaveu.domain.TbActionVO;
@@ -168,16 +167,15 @@ public class EventController {
 			//process()함수 호출
 			//JSON만들기
 			JsonObject jsonObj = new JsonObject();
-			System.out.println(temp);
+//			System.out.println(temp);
 			jsonObj.addProperty("temp", temp);
 			jsonObj.addProperty("smoke", smoke);
 			jsonObj.addProperty("fire", fire);
 			jsonObj.addProperty("gyro", gyro);
 			jsonObj.addProperty("msg", "success");
-			
 			PrintWriter out = resp.getWriter();
 			out.print(jsonObj);
-			System.out.println(out);
+//			System.out.println(out);
 		}
 
 	}
