@@ -9,9 +9,9 @@
 <link href="<%=root%>/css/style1.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<!-- css 소스경로 수정해야함. -->
+
 	<section id="loginFormArea">
-		<form action="admin2.jsp" method="POST">
+		<form action="/loing.do" method="POST">
 			<div class="imgBox">
 				<img src="<%=root%>/img/main.png" alt="logo" class="mainImg">
 			</div>

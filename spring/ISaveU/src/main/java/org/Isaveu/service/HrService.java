@@ -22,8 +22,7 @@ public class HrService implements HrMapper{
 
 	@Override
 	public ArrayList<TbHrVO> getHrListId(String id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return hMapper.getHrListId(id);
 	}
 
 	@Override
