@@ -5,14 +5,16 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URI;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
 import javax.annotation.Resource;
-
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.Isaveu.domain.TbActionVO;
 import org.Isaveu.domain.TbEventVO;
 import org.Isaveu.domain.TbHrVO;
@@ -36,10 +38,16 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 @RestController
 public class EventController {
-
+	String issue; 
+	float temp; 
+	float smoke;
+	float gyro;
+	float fire;
+	
 	@Resource( name = "org.Isaveu.service.EventService")
 	EventService eService;
 	
@@ -51,7 +59,11 @@ public class EventController {
 	
 	@RequestMapping(value = "/eventIn.do", method = RequestMethod.GET)
 	private TbEventVO eventIn(@ModelAttribute TbEventVO event, Model model) throws Exception{
-		String issue = event.getIssue();
+		issue = event.getIssue();
+		temp = event.getTemp(); 
+		smoke = event.getSmoke();
+		gyro = event.getGyro();
+		fire = event.getFire();
 //		model.addAllAttributes(hService.getHrAllList());
 		switch (issue) {
 		case "1":
@@ -141,5 +153,31 @@ public class EventController {
 		ResponseEntity<String> result = restTemplate.exchange(url, HttpMethod.POST,request,String.class);
 		System.out.println(result.getBody());
 	}
+	
+	@RequestMapping("/Dispatcher")
+		private void process(HttpServletRequest req, HttpServletResponse resp)
+				throws Exception {
+			//이번에는 이전 예제와는 다르게 Ajax요청이 오면 응답해줄꺼다.
+			//이전에는 그냥 내가 원하는 페이지로 json을 가져가는 거였다면?
+			//지금은 요청한 놈한테 return만 해주면 되기 때문에
+			//PrintWriter out = resp.getWriter();
+			//이걸 사용하면 된다.
+			
+			//주소요청 http://localhost:8000/JsonAjax/Dispatcher
+			//Get방식
+			//process()함수 호출
+			//JSON만들기
+			JsonObject jsonObj = new JsonObject();
+			System.out.println(temp);
+			jsonObj.addProperty("temp", temp);
+			jsonObj.addProperty("smoke", smoke);
+			jsonObj.addProperty("fire", fire);
+			jsonObj.addProperty("gyro", gyro);
+			jsonObj.addProperty("msg", "success");
+			
+			PrintWriter out = resp.getWriter();
+			out.print(jsonObj);
+			System.out.println(out);
+		}
 
-}
+	}

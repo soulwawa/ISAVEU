@@ -17,9 +17,9 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping("/test")
+	@RequestMapping("/admin2")
 	private String jsptest() throws Exception{
 //		System.out.println(hMapper.hrCount()); 
-		return "test";
+		return "admin2";
 	}
 }
