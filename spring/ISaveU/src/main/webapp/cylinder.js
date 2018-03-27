@@ -3,6 +3,7 @@ var chartVars = "rMateOnLoadCallFunction=chartReadyHandler";
 rMateChartH5.create("chart1", "chartHolder1", chartVars, "100%", "100%");
 rMateChartH5.create("chart2", "chartHolder2", chartVars, "100%", "100%");
 rMateChartH5.create("chart3", "chartHolder3", chartVars, "100%", "100%");
+rMateChartH5.create("chart4", "chartHolder4", chartVars, "100%", "100%");
 
 function chartReadyHandler(id) {
 	var num = id.replace(/\D/g, "");
@@ -39,42 +40,63 @@ function chartReadyHandler(id) {
  * rightBottomRadius : 아래 오른쪽 보더 값 default 0
  */
 var layoutStr1 = 
-	'<rMateChart>'
-		+'<CurrencyFormatter id="cft" currencySymbol="%" alignSymbol="right" precision="0"/>'
-		+'<LinearGauge direction="horizontal" verticalRatio="0.5" fontSize="20" valueChangeFunction="changeFunction1" labelJsFunction="labelFunc1" formatter="{cft}" foregroundColor="#20cbc2" color="#ffffff" fontWeight="bold" width="818">'
-			+'<backgroundStroke>'
-				+'<Stroke color="#20cbc2" weight="3"/>'
-			+'</backgroundStroke>'
-		+'</LinearGauge>'
-	+'</rMateChart>';
+	 '<rMateChart backgroundColor="#FFFFFF" paddingTop="50" horizontalAlign="center" verticalScrollPolicy="off" verticalAlign="middle"  borderStyle="none">'
+    +'<CurrencyFormatter id="cmt" precision="0" currencySymbol="%" alignSymbol="right"/>'
+  +'<HLinearGauge width="500" height="150" minimum="0" maximum="100" labels="[0,10,20,30,40,50]" tickInterval="10" formatter="{cmt}" targetMark="40" '
+     +'targetMarkColor="[#ff842e,#ff842e,#ff842e]" targetMarkAlpha="[1,1,1]" targetMarkRatio="[0,125,255]" targetMarkThickness="3" targetMarkBorderColor="#ff842e" '
+  +'linearAlpha="[1,1,1]" linearColor="[#1bcfc6,#34d9d5,#1a97d1]" linearRatio="[0,90,255]" linearBorderColor="#1a97d1" labelJsFunction="labelFunc" '
+   +'linearBgAlpha="[1,1,1]" linearBgColor="[#555555,#555555,#555555]" linearBgRatio="[0,125,255]" '
+    +'valueLabelStyleName="valueLabel" valueChangeFunction="changeFunction2"/>'
+   +'<Style>'
+         +'.valueLabel{fontSize:20;color:0xffffff;fontWeight:bold;}'
+  +'</Style>'
++'</rMateChart>';
 var layoutStr2 = 
-	'<rMateChart>'
-		+'<CurrencyFormatter id="cft" currencySymbol="%" alignSymbol="right" precision="0"/>'
-		+'<LinearGauge direction="horizontal" verticalRatio="0.5" fontSize="20" valueChangeFunction="changeFunction2" labelJsFunction="labelFunc2" formatter="{cft}" foregroundColor="#20cbc2" color="#ffffff" fontWeight="bold" width="818">'
-			+'<backgroundStroke>'
-				+'<Stroke color="#20cbc2" weight="3"/>'
-			+'</backgroundStroke>'
-		+'</LinearGauge>'
-	+'</rMateChart>';
+	 '<rMateChart backgroundColor="#FFFFFF" paddingTop="50" horizontalAlign="center" verticalScrollPolicy="off" verticalAlign="middle"  borderStyle="none">'
+    +'<CurrencyFormatter id="cmt" precision="0" currencySymbol="%" alignSymbol="right"/>'
+  +'<HLinearGauge width="500" height="150" minimum="0" maximum="100" labels="[100,200,300,400,500,600]" tickInterval="100" formatter="{cmt}" targetMark="60" '
+     +'targetMarkColor="[#ff842e,#ff842e,#ff842e]" targetMarkAlpha="[1,1,1]" targetMarkRatio="[0,125,255]" targetMarkThickness="3" targetMarkBorderColor="#ff842e" '
+  +'linearAlpha="[1,1,1]" linearColor="[#1bcfc6,#34d9d5,#1a97d1]" linearRatio="[0,90,255]" linearBorderColor="#1a97d1" labelJsFunction="labelFunc" '
+   +'linearBgAlpha="[1,1,1]" linearBgColor="[#555555,#555555,#555555]" linearBgRatio="[0,125,255]" '
+    +'valueLabelStyleName="valueLabel" valueChangeFunction="changeFunction2"/>'
+   +'<Style>'
+         +'.valueLabel{fontSize:20;color:0xffffff;fontWeight:bold;}'
+  +'</Style>'
++'</rMateChart>';
 var layoutStr3 = 
-	'<rMateChart>'
-		+'<CurrencyFormatter id="cft" currencySymbol="%" alignSymbol="right" precision="0"/>'
-		+'<LinearGauge direction="horizontal" verticalRatio="0.5" fontSize="20" valueChangeFunction="changeFunction3" labelJsFunction="labelFunc3" formatter="{cft}" foregroundColor="#20cbc2" color="#ffffff" fontWeight="bold" width="818">'
-			+'<backgroundStroke>'
-				+'<Stroke color="#20cbc2" weight="3"/>'
-			+'</backgroundStroke>'
-		+'</LinearGauge>'
-	+'</rMateChart>';
-
+	 '<rMateChart backgroundColor="#FFFFFF" paddingTop="50" horizontalAlign="center" verticalScrollPolicy="off" verticalAlign="middle"  borderStyle="none">'
+    +'<CurrencyFormatter id="cmt" precision="0" currencySymbol="%" alignSymbol="right"/>'
+  +'<HLinearGauge width="500" height="150" minimum="0" maximum="100" labels="[0,20,40,60,80,100]" tickInterval="20" formatter="{cmt}" targetMark="60" '
+     +'targetMarkColor="[#ff842e,#ff842e,#ff842e]" targetMarkAlpha="[1,1,1]" targetMarkRatio="[0,125,255]" targetMarkThickness="3" targetMarkBorderColor="#ff842e" '
+  +'linearAlpha="[1,1,1]" linearColor="[#1bcfc6,#34d9d5,#1a97d1]" linearRatio="[0,90,255]" linearBorderColor="#1a97d1" labelJsFunction="labelFunc" '
+   +'linearBgAlpha="[1,1,1]" linearBgColor="[#555555,#555555,#555555]" linearBgRatio="[0,125,255]" '
+    +'valueLabelStyleName="valueLabel" valueChangeFunction="changeFunction2"/>'
+   +'<Style>'
+         +'.valueLabel{fontSize:20;color:0xffffff;fontWeight:bold;}'
+  +'</Style>'
++'</rMateChart>';
+var layoutStr4 = 
+	 '<rMateChart backgroundColor="#FFFFFF" paddingTop="50" horizontalAlign="center" verticalScrollPolicy="off" verticalAlign="middle"  borderStyle="none">'
+   +'<CurrencyFormatter id="cmt" precision="0" currencySymbol="%" alignSymbol="right"/>'
+ +'<HLinearGauge width="500" height="150" minimum="0" maximum="100" labels="[0,20,40,60,80,100]" tickInterval="20" formatter="{cmt}" targetMark="60" '
+    +'targetMarkColor="[#ff842e,#ff842e,#ff842e]" targetMarkAlpha="[1,1,1]" targetMarkRatio="[0,125,255]" targetMarkThickness="3" targetMarkBorderColor="#ff842e" '
+ +'linearAlpha="[1,1,1]" linearColor="[#1bcfc6,#34d9d5,#1a97d1]" linearRatio="[0,90,255]" linearBorderColor="#1a97d1" labelJsFunction="labelFunc" '
+  +'linearBgAlpha="[1,1,1]" linearBgColor="[#555555,#555555,#555555]" linearBgRatio="[0,125,255]" '
+   +'valueLabelStyleName="valueLabel" valueChangeFunction="changeFunction2"/>'
+  +'<Style>'
+        +'.valueLabel{fontSize:20;color:0xffffff;fontWeight:bold;}'
+ +'</Style>'
++'</rMateChart>';
 var chartData = [80];
 
 function changeValue(){
 	document.getElementById("chart1").setData([parseInt(Math.random()*100)]);
 	document.getElementById("chart2").setData([parseInt(Math.random()*100)]);
 	document.getElementById("chart3").setData([parseInt(Math.random()*100)]);
+	document.getElementById("chart4").setData([parseInt(Math.random()*100)]);
 }
 
-var gaugeValue1, gaugeValue2, gaugeValue3;
+var gaugeValue1, gaugeValue2, gaugeValue3, gaugeValue4;
 
 function changeFunction1(value){
 	gaugeValue1 = value;
@@ -88,17 +110,24 @@ function changeFunction3(value){
 	gaugeValue3 = value;
 }
 
+function changeFunction4(value){
+	gaugeValue4 = value;
+}
+
 function commitValue(){
-	alert("chart1 : " + gaugeValue1 + "\nchart2 : " + gaugeValue2 + "\nchart3 : " + gaugeValue3);
+	alert("chart1 : " + gaugeValue1 + "\nchart2 : " + gaugeValue2 + "\nchart3 : " + gaugeValue3+ "\nchart4 : " + gaugeValue4);
 }
 
 function labelFunc1(value){
-	return value+"'C";
+	return value+"\'C";
 }
 function labelFunc2(value){
 	return value+"%";
 }
 function labelFunc3(value){
+	return value+"#";
+}
+function labelFunc4(value){
 	return value+"#";
 }
 

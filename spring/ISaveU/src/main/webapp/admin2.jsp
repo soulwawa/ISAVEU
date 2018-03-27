@@ -24,13 +24,13 @@
         var result1 = document.getElementById("result1");
         
         
-        result1.innerHTML = ob.temp+", "+ob.gyro+", "+ob.msg;
-
+        result1.innerHTML = "온도:"+ob.temp+",진동 "+ob.gyro+",CO "+ob.smoke+",불꽃 "+ob.fire+", "+ob.msg;
         
         document.getElementById("chart1").setData([parseInt(ob.temp)]);
         document.getElementById("chart2").setData([parseInt(ob.gyro)]);
         document.getElementById("chart3").setData([parseInt(ob.smoke)]);
-        console.log("온도:"+ob.temp+",불꽃 "+ob.fire+",CO "+ob.smoke+",진동 "+ob.gyro+", "+ob.msg);
+        document.getElementById("chart4").setData([parseInt(ob.fire)]);
+        console.log("온도:"+ob.temp+",진동 "+ob.gyro+",CO "+ob.smoke+",불꽃 "+ob.fire+", "+ob.msg);
 
       }
     });
@@ -76,11 +76,12 @@
 
 		</div>
 		<div class="contents">
-			<div id="content" style="height:390px;">
+			<div id="content" style="height:520px;">
 				<!-- 차트가 삽입될 DIV -->
 				<div id="chartHolder1" class="chartHolder" style="height:130px;"></div>
 				<div id="chartHolder2" class="chartHolder" style="height:130px;"></div>
 				<div id="chartHolder3" class="chartHolder" style="height:130px;"></div>
+				<div id="chartHolder4" class="chartHolder" style="height:130px;"></div>
 			</div>
 		</div>
 		<div class="footer">
