@@ -13,6 +13,7 @@
     <string name="stat">통계</string>
     <string name="map">비상대피도</string>
     <string name="possibleFire_ext">사용가능한\n소화기 보기</string>
+    <string name="forfloor">층 비상대피도</string>
 
     <!--NavigationDraw-->
     <string name="navigation_drawer_open">Open navigation drawer</string>

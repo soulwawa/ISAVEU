@@ -23,16 +23,657 @@
         <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
 
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/hallway01_cLayout"
+            android:layout_width="223dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="16dp"
+            android:foregroundGravity="center"
+            android:background="@drawable/myprogressbarbackground"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/hallWay01_Fire_ext"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/tv_endDate_hallway01"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="8dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_hallway01" />
+
+            <TextView
+                android:id="@+id/tv_startDate_hallway01"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/pb_hallway01"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_hallway01" />
+
+            <ProgressBar
+                android:id="@+id/pb_hallway01"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="114dp"
+                android:layout_height="13dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_hallway01"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/room605_cLayout"
+            android:layout_width="223dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginEnd="8dp"
+            android:foregroundGravity="center"
+            android:background="@drawable/myprogressbarbackground"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/room605_Fire_ext"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/tv_endDate_605"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="8dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_605" />
+
+            <TextView
+                android:id="@+id/tv_startDate_605"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toStartOf="@+id/pb_605"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_605" />
+
+            <ProgressBar
+                android:id="@+id/pb_605"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="114dp"
+                android:layout_height="14dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_605"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/waitingroom_cLayout"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center"
+            android:background="@drawable/myprogressbarbackground"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/waitingRoom_Fire_ext"
+            app:layout_constraintTop_toTopOf="@+id/waitingRoom_Fire_ext">
+
+            <TextView
+                android:id="@+id/tv_endDate_waiting"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_waitingRoom" />
+
+            <TextView
+                android:id="@+id/tv_startDate_waiting"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toStartOf="@+id/pb_waitingRoom"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_waitingRoom" />
+
+            <ProgressBar
+                android:id="@+id/pb_waitingRoom"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="114dp"
+                android:layout_height="14dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_waiting"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/room604_cLayout"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center"
+            android:background="@drawable/myprogressbarbackground"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/room604_Fire_ext"
+            app:layout_constraintStart_toStartOf="@+id/room604_Fire_ext">
+
+            <TextView
+                android:id="@+id/tv_endDate_604"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_604" />
+
+            <TextView
+                android:id="@+id/tv_startDate_604"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toStartOf="@+id/pb_604"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_604" />
+
+            <ProgressBar
+                android:id="@+id/pb_604"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="114dp"
+                android:layout_height="14dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="4dp"
+                android:indeterminateOnly="false"
+                android:max="100"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_604"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/hallway02_cLayout"
+            android:layout_width="216dp"
+            android:layout_height="27dp"
+            android:foregroundGravity="center"
+            android:background="@drawable/myprogressbarbackground"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/hallWay02_Fire_ext"
+            app:layout_constraintStart_toStartOf="@+id/hallWay02_Fire_ext">
+
+            <TextView
+                android:id="@+id/tv_endtDate_hallway02"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_hallway02" />
+
+            <TextView
+                android:id="@+id/tv_startDate_hallway02"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toStartOf="@+id/pb_hallway02"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_hallway02" />
+
+            <ProgressBar
+                android:id="@+id/pb_hallway02"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="114dp"
+                android:layout_height="14dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="4dp"
+                android:indeterminateOnly="false"
+                android:max="100"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endtDate_hallway02"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/room606_cLayout"
+            android:layout_width="212dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="4dp"
+            android:foregroundGravity="center"
+            android:background="@drawable/myprogressbarbackground"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/room606_Fire_ext">
+
+            <TextView
+                android:id="@+id/tv_endDate_606"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_startDate_606"
+                android:layout_width="wrap_content"
+                android:layout_height="11dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toStartOf="@+id/pb_606"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_606" />
+
+            <ProgressBar
+                android:id="@+id/pb_606"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="114dp"
+                android:layout_height="14dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="4dp"
+                android:indeterminateOnly="false"
+                android:max="100"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_606"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/room603_cLayout"
+            android:layout_width="217dp"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center"
+            android:background="@drawable/myprogressbarbackground"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/room603_Fire_ext"
+            app:layout_constraintTop_toTopOf="@+id/room603_Fire_ext">
+
+            <TextView
+                android:id="@+id/tv_endDate_603"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_603" />
+
+            <TextView
+                android:id="@+id/tv_startDate_603"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toStartOf="@+id/pb_603"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/pb_603"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="114dp"
+                android:layout_height="14dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="4dp"
+                android:indeterminateOnly="false"
+                android:max="100"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_603"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/room607_cLayout"
+            android:layout_width="211dp"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center"
+            android:background="@drawable/myprogressbarbackground"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/room607_Fire_ext"
+            app:layout_constraintTop_toTopOf="@+id/room607_Fire_ext">
+
+            <TextView
+                android:id="@+id/tv_endDate_607"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_607" />
+
+            <TextView
+                android:id="@+id/tv_startDate_607"
+                android:layout_width="wrap_content"
+                android:layout_height="12dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toStartOf="@+id/pb_607"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_607" />
+
+            <ProgressBar
+                android:id="@+id/pb_607"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="114dp"
+                android:layout_height="14dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="4dp"
+                android:indeterminateOnly="false"
+                android:max="100"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_607"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/room602_cLayout"
+            android:layout_width="214dp"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center"
+            android:background="@drawable/myprogressbarbackground"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/room602_Fire_ext"
+            app:layout_constraintTop_toTopOf="@+id/room602_Fire_ext">
+
+            <TextView
+                android:id="@+id/tv_endDate_602"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_602" />
+
+            <TextView
+                android:id="@+id/tv_startDate_602"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toStartOf="@+id/pb_602"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_602" />
+
+            <ProgressBar
+                android:id="@+id/pb_602"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="114dp"
+                android:layout_height="14dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="4dp"
+                android:indeterminateOnly="false"
+                android:max="100"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_602"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/room607_1_cLayout"
+            android:layout_width="223dp"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center"
+            android:background="@drawable/myprogressbarbackground"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/room607_1_Fire_ext"
+            app:layout_constraintTop_toTopOf="@+id/room607_1_Fire_ext">
+
+            <TextView
+                android:id="@+id/tv_endDate_607_1"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_607_1" />
+
+            <TextView
+                android:id="@+id/tv_startDate_607_1"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toStartOf="@+id/pb_607_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_607_1" />
+
+            <ProgressBar
+                android:id="@+id/pb_607_1"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="114dp"
+                android:layout_height="14dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="4dp"
+                android:indeterminateOnly="false"
+                android:max="100"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_607_1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/room601_cLayout"
+            android:layout_width="223dp"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center"
+            android:background="@drawable/myprogressbarbackground"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/room601_Fire_ext"
+            app:layout_constraintStart_toStartOf="@+id/room601_Fire_ext">
+
+            <TextView
+                android:id="@+id/tv_endDate_601"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_601" />
+
+            <TextView
+                android:id="@+id/tv_startDate_601"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toStartOf="@+id/pb_601"
+                app:layout_constraintHorizontal_bias="0.666"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_601" />
+
+            <ProgressBar
+                android:id="@+id/pb_601"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="114dp"
+                android:layout_height="14dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="4dp"
+                android:indeterminateOnly="false"
+                android:max="100"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_601"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/restRoom_cLayout"
+            android:layout_width="222dp"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center"
+            android:background="@drawable/myprogressbarbackground"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/restRoom_Fire_ext"
+            app:layout_constraintTop_toBottomOf="@+id/restRoom_Fire_ext">
+
+            <TextView
+                android:id="@+id/tv_endDate_restRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_restRoom" />
+
+            <TextView
+                android:id="@+id/tv_startDate_restRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:hint="2015.01.24"
+                android:text="2015.01.24"
+                android:textColor="@color/pink"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toStartOf="@+id/pb_restRoom"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pb_restRoom" />
+
+            <ProgressBar
+                android:id="@+id/pb_restRoom"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="114dp"
+                android:layout_height="14dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="4dp"
+                android:indeterminateOnly="false"
+                android:max="100"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_restRoom"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </android.support.constraint.ConstraintLayout>
+
         <ImageSwitcher
             android:id="@+id/room607_Fire_ext"
             android:layout_width="20dp"
             android:layout_height="21dp"
             android:layout_marginStart="128dp"
             android:layout_marginTop="80dp"
+            android:clickable="true"
             android:background="@drawable/pic_fire_ext"
-
             app:layout_constraintStart_toEndOf="@+id/room603_Fire_ext"
-            app:layout_constraintTop_toBottomOf="@+id/room606_Fire_ext" />
+            app:layout_constraintTop_toBottomOf="@+id/room606_Fire_ext">
+
+        </ImageSwitcher>
 
         <ImageSwitcher
             android:id="@+id/waitingRoom_Fire_ext"
@@ -40,6 +681,7 @@
             android:layout_height="21dp"
             android:layout_marginStart="96dp"
             android:layout_marginTop="72dp"
+            android:clickable="true"
             android:background="@drawable/pic_fire_ext"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -50,6 +692,7 @@
             android:layout_height="21dp"
             android:layout_marginStart="28dp"
             android:layout_marginTop="48dp"
+            android:clickable="true"
             android:background="@drawable/pic_fire_ext"
             app:layout_constraintStart_toEndOf="@+id/hallWay01_Fire_ext"
             app:layout_constraintTop_toTopOf="parent" />
@@ -60,6 +703,7 @@
             android:layout_height="21dp"
             android:layout_marginStart="48dp"
             android:layout_marginTop="92dp"
+            android:clickable="true"
             android:background="@drawable/pic_fire_ext"
             app:layout_constraintStart_toEndOf="@+id/hallWay02_Fire_ext"
             app:layout_constraintTop_toBottomOf="@+id/room605_Fire_ext" />
@@ -70,6 +714,7 @@
             android:layout_height="21dp"
             android:layout_marginStart="164dp"
             android:layout_marginTop="52dp"
+            android:clickable="true"
             android:background="@drawable/pic_fire_ext"
             app:layout_constraintStart_toEndOf="@+id/room601_Fire_ext"
             app:layout_constraintTop_toBottomOf="@+id/room607_1_Fire_ext" />
@@ -80,6 +725,7 @@
             android:layout_height="21dp"
             android:layout_marginStart="128dp"
             android:layout_marginTop="84dp"
+            android:clickable="true"
             android:background="@drawable/pic_fire_ext"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/room602_Fire_ext" />
@@ -89,7 +735,8 @@
             android:layout_width="20dp"
             android:layout_height="21dp"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="92dp"
+            android:clickable="true"
             android:background="@drawable/pic_fire_ext"
             app:layout_constraintStart_toEndOf="@+id/room604_Fire_ext"
             app:layout_constraintTop_toBottomOf="@+id/hallWay01_Fire_ext" />
@@ -100,6 +747,7 @@
             android:layout_height="21dp"
             android:layout_marginStart="96dp"
             android:layout_marginTop="72dp"
+            android:clickable="true"
             android:background="@drawable/pic_fire_ext"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/room604_Fire_ext" />
@@ -110,6 +758,7 @@
             android:layout_height="21dp"
             android:layout_marginStart="196dp"
             android:layout_marginTop="84dp"
+            android:clickable="true"
             android:background="@drawable/pic_fire_ext"
             app:layout_constraintStart_toEndOf="@+id/room602_Fire_ext"
             app:layout_constraintTop_toBottomOf="@+id/room607_Fire_ext" />
@@ -120,6 +769,7 @@
             android:layout_height="21dp"
             android:layout_marginStart="96dp"
             android:layout_marginTop="36dp"
+            android:clickable="true"
             android:background="@drawable/pic_fire_ext"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/waitingRoom_Fire_ext" />
@@ -130,9 +780,12 @@
             android:layout_height="21dp"
             android:layout_marginStart="96dp"
             android:layout_marginTop="84dp"
+            android:clickable="true"
             android:background="@drawable/pic_fire_ext"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/room603_Fire_ext" />
+            app:layout_constraintTop_toBottomOf="@+id/room603_Fire_ext">
+
+        </ImageSwitcher>
 
         <ImageSwitcher
             android:id="@+id/hallWay01_Fire_ext"
@@ -140,9 +793,12 @@
             android:layout_height="21dp"
             android:layout_marginStart="176dp"
             android:layout_marginTop="48dp"
+            android:clickable="true"
             android:background="@drawable/pic_fire_ext"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+        </ImageSwitcher>
 
         <Button
             android:id="@+id/checkButton"

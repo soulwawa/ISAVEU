@@ -83,7 +83,7 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
                     }else {
                     }
                     try{
-                        URL url = new URL("http://192.168.0.35:8088/SafeForYou/AndroidStreming.do?");
+                        URL url = new URL("http://192.168.0.35:9999/AndroidStreming.do?");
                         conn = (HttpURLConnection)url.openConnection();
                         conn.setFixedLengthStreamingMode(param.length());
                         conn.setRequestProperty("Content-type","application/x-www-form-urlencoded");
@@ -94,6 +94,8 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
                         outs.write(param.getBytes("UTF-8"));
                         outs.flush();
                         outs.close();
+
+
                     }catch (MalformedURLException e){
                         e.printStackTrace();
                     }catch (IOException e){
@@ -124,8 +126,8 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
 
         Log.v(TAG,"영상 준비 작업 시작");
         Bundle bundle = getArguments();
-        streamingServer_access = bundle.getString("streamingServer_access","");
-        streamingServer_url = bundle.getString("steramingServer_url","");
+        streamingServer_access = bundle.getString("streamingServer_access");
+        streamingServer_url = bundle.getString("steramingServer_url");
 
         Log.v(TAG, "bundle 값, streamingSever_access :"+ streamingServer_access + ", streamingServer_url :" + streamingServer_url);
 

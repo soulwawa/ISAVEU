@@ -1,36 +1,22 @@
 package kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.map;
 
-import android.content.Context;
+
 import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import android.media.MediaPlayer;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
+import android.support.constraint.ConstraintLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
-import android.widget.MediaController;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
-import android.widget.VideoView;
 import android.widget.ViewSwitcher;
-
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 
 
@@ -40,13 +26,16 @@ import kr.co.isaveyou.isaveyou.R;
 public class Fire_extFragment extends android.support.v4.app.Fragment {
     private static final String TAG = "Fire_extFragment";
     ImageSwitcher fire_ext1, fire_ext2, fire_ext3, fire_ext4, fire_ext5, fire_ext6,  fire_ext7,  fire_ext8,  fire_ext9, fire_ext10, fire_ext11, fire_ext12;
+    ProgressBar pb_hallway01, pb_hallway02, pb_601, pb_602, pb_603, pb_604,pb_605,pb_606,pb_607, pb_waitingRoom, pb_restRoom, pb_607_1;
     ArrayList<ImageSwitcher>switcherList = new ArrayList();
-    ArrayList<ImageView> imageViews = new ArrayList();
     Handler threadHandler = new Handler();
     ImageSwitcher switcher;
     boolean running;
     Thread thread;
     Button checkButton;
+    ConstraintLayout layout_fire_ext1,layout_fire_ext2,layout_fire_ext3,layout_fire_ext4,layout_fire_ext5,layout_fire_ext6,layout_fire_ext7,layout_fire_ext8,layout_fire_ext9,layout_fire_ext10,layout_fire_ext11,layout_fire_ext12;
+    Resources res;
+
 
     View.OnClickListener handler = new View.OnClickListener() {
         @Override
@@ -58,8 +47,12 @@ public class Fire_extFragment extends android.support.v4.app.Fragment {
                     startCheckFire_ext_Animation();
                     break;
                 case R.id.hallWay01_Fire_ext:
+                    Log.v(TAG, "hallWay01_Fire_ext 눌림");
+                    Toast.makeText(getContext(),"hallWay01_Fire_ext 눌림",Toast.LENGTH_SHORT).show();
+                    layout_fire_ext1.setVisibility(View.VISIBLE);
 
                     break;
+
             }
         }
     };
@@ -75,7 +68,24 @@ public class Fire_extFragment extends android.support.v4.app.Fragment {
         View view = inflater.inflate(R.layout.fragment_fire_ext,null);
 
         checkButton = view.findViewById(R.id.checkButton);
+        checkButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()){
+                    case MotionEvent.ACTION_UP:
+                        v.setBackgroundResource(R.drawable.mybutton);
+                        break;
+                    case MotionEvent.ACTION_CANCEL:
+                        v.setBackgroundResource(R.drawable.mybutton);
+                        break;
+                    case MotionEvent.ACTION_DOWN:
+                        v.setBackgroundResource(R.drawable.mybuttonpressed);
+                }
+                return false;
+            }
+        });
         checkButton.setOnClickListener(handler);
+
         fire_ext1 = view.findViewById(R.id.hallWay01_Fire_ext);
         fire_ext2 = view.findViewById(R.id.hallWay02_Fire_ext);
         fire_ext3 = view.findViewById(R.id.restRoom_Fire_ext);
@@ -89,6 +99,19 @@ public class Fire_extFragment extends android.support.v4.app.Fragment {
         fire_ext11 = view.findViewById(R.id.room607_1_Fire_ext);
         fire_ext12 = view.findViewById(R.id.waitingRoom_Fire_ext);
 
+        fire_ext1.setOnClickListener(handler);
+        fire_ext2.setOnClickListener(handler);
+        fire_ext3.setOnClickListener(handler);
+        fire_ext4.setOnClickListener(handler);
+        fire_ext5.setOnClickListener(handler);
+        fire_ext6.setOnClickListener(handler);
+        fire_ext7.setOnClickListener(handler);
+        fire_ext8.setOnClickListener(handler);
+        fire_ext9.setOnClickListener(handler);
+        fire_ext10.setOnClickListener(handler);
+        fire_ext11.setOnClickListener(handler);
+        fire_ext12.setOnClickListener(handler);
+
         switcherList.add(fire_ext1);
         switcherList.add(fire_ext2);
         switcherList.add(fire_ext3);
@@ -96,6 +119,44 @@ public class Fire_extFragment extends android.support.v4.app.Fragment {
         switcherList.add(fire_ext5);
         switcherList.add(fire_ext6);
         switcherList.add(fire_ext7);
+        switcherList.add(fire_ext8);
+        switcherList.add(fire_ext9);
+        switcherList.add(fire_ext10);
+        switcherList.add(fire_ext11);
+        switcherList.add(fire_ext12);
+
+        pb_hallway01 = view.findViewById(R.id.pb_hallway01);
+        pb_hallway02 = view.findViewById(R.id.pb_hallway02);
+        pb_restRoom = view.findViewById(R.id.pb_restRoom);
+        pb_601 = view.findViewById(R.id.pb_601);
+        pb_602 = view.findViewById(R.id.pb_602);
+        pb_603 = view.findViewById(R.id.pb_603);
+        pb_604 = view.findViewById(R.id.pb_604);
+        pb_605 = view.findViewById(R.id.pb_605);
+        pb_606 = view.findViewById(R.id.pb_606);
+        pb_607 = view.findViewById(R.id.pb_607);
+        pb_607_1 = view.findViewById(R.id.pb_607_1);
+        pb_waitingRoom = view.findViewById(R.id.pb_waitingRoom);
+
+        pb_hallway01.setProgress(80);
+
+        layout_fire_ext1 = view.findViewById(R.id.hallway01_cLayout);
+        layout_fire_ext2 = view.findViewById(R.id.hallway02_cLayout);
+        layout_fire_ext3 = view.findViewById(R.id.hallway01_cLayout);
+        layout_fire_ext4 = view.findViewById(R.id.hallway01_cLayout);
+        layout_fire_ext5 = view.findViewById(R.id.hallway01_cLayout);
+        layout_fire_ext6 = view.findViewById(R.id.hallway01_cLayout);
+        layout_fire_ext7 = view.findViewById(R.id.hallway01_cLayout);
+        layout_fire_ext8 = view.findViewById(R.id.hallway01_cLayout);
+        layout_fire_ext9 = view.findViewById(R.id.hallway01_cLayout);
+        layout_fire_ext10 = view.findViewById(R.id.hallway01_cLayout);
+        layout_fire_ext11 = view.findViewById(R.id.hallway01_cLayout);
+        layout_fire_ext12 = view.findViewById(R.id.hallway01_cLayout);
+
+
+
+
+
 
 
         for(int i= 0; i<switcherList.size();i++) {
@@ -112,18 +173,19 @@ public class Fire_extFragment extends android.support.v4.app.Fragment {
                 }
             });
         }
-
-
         return view;
     }
 
 
-    //존재하는 소화기위치 표시
+    //존재하는 소화기위치 표시하는 애니메이션
     private void startCheckFire_ext_Animation(){
-        switcher.setVisibility(View.VISIBLE);
+        for(int i = 0; i<switcherList.size();i++){
+            switcher = switcherList.get(i);
+            switcher.setVisibility(View.VISIBLE);
 
-        thread = new ImageThread();
-        thread.start();
+            thread = new ImageThread();
+            thread.start();
+        }
         Log.v(TAG, "소화기 체크 애니메이션 시작");
     }
     private void stopCheckFire_ext_Animation(){
@@ -150,8 +212,10 @@ public class Fire_extFragment extends android.support.v4.app.Fragment {
                     threadHandler.post(new Runnable() {
                         @Override
                         public void run() {
-                            switcher.setImageResource(imageId[currentIndex]);
-                        }
+                            for(int i = 0; i<switcherList.size();i++){
+                                switcher = switcherList.get(i);
+                                switcher.setImageResource(imageId[currentIndex]);
+                            }}
                     });
                     currentIndex++;
                     if(currentIndex == imageId.length){

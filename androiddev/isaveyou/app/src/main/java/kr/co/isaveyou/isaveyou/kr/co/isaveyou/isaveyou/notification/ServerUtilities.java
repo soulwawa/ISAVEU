@@ -32,7 +32,7 @@ public final class ServerUtilities {
         String serverUrl = SERVER_URL + "/register.jsp";
         //자신의 전화번호 얻어오기
         TelephonyManager manager = (TelephonyManager)context.getSystemService(context.TELEPHONY_SERVICE);
-        String phoneNumber = "119";
+        String phoneNumber = "";
         try{
             phoneNumber = manager.getLine1Number();
         }catch (SecurityException e){
