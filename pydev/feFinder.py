@@ -19,10 +19,6 @@ class Bluetoothctl:
             print("startScan() error : " + str(e))
             return None
 
-def feCam():
-    cmd = "camstream"
-    os.system(cmd)
-
 def feScan():
     while True:
         name = "FE-01"
@@ -48,29 +44,16 @@ def feScan():
             payload = {'missing': name}
             r = requests.get("http://192.168.0.35:9999/fe.do", params=payload)
             print(r.url)
+            break
 
         print("state : " + str(state))
 
 app = Flask(__name__)
 
-@app.route("/fe/<state>/")
-def feState(state):
-    if state == "0":
-        streamcmd = 'fuser -k -n tcp 5000'
-        os.system(streamcmd)
-        print('off streaming...')
-        time.sleep(0.5)
-    else:
-        pid1 = os.fork()
-        while 1 :
-            if pid1 :
-                print("streaming...")
-            else:
-                feCam()
-            break
-
-        time.sleep(0.01)
-    return "streaming control"
+@app.route("/feRestart/")
+def feRestart():
+    feScan()
+    return "Scanning Restart..."
 
 
 if __name__ == "__main__":
