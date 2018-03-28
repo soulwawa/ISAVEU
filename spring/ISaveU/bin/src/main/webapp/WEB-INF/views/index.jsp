@@ -5,13 +5,13 @@
 <head>
 <% String root = request.getContextPath(); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
 <title>관리자 페이지 로그인</title>
 <link href="<%=root%>/css/style1.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<!-- css 소스경로 수정해야함. -->
 	<section id="loginFormArea">
-		<form action="admin2.jsp" method="POST">
+		<form action="/weblogin" method="post">
 			<div class="imgBox">
 				<img src="<%=root%>/img/main.png" alt="logo" class="mainImg">
 			</div>
@@ -21,7 +21,7 @@
 						<input type="text" name="id" class="txtbox">
 					</div>
 					<div>
-						<input type="password" name="password" class="txtbox">
+						<input type="password" name="pw" class="txtbox">
 					</div>
 				</div>
 				<div class="loginBtn">

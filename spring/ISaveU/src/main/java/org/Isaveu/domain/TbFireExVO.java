@@ -2,6 +2,9 @@ package org.Isaveu.domain;
 
 import java.io.Serializable;
 
+import lombok.ToString;
+
+@ToString
 public class TbFireExVO implements Serializable {
 
 	private static final long serialVersionUID = 1L;

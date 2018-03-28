@@ -8,8 +8,28 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="<%=root%>/rMateChartH5.css" />
+<script language="javascript" type="text/javascript"
+	src="<%=root%>/rMateChartH5License.js"></script>
+<script language="javascript" type="text/javascript"
+	src="<%=root%>/rMateGaugeChartH5.js"></script>
+<script type="text/javascript" src="<%=root%>/theme.js"></script>
 <script>
-
+function showAlert(){
+	  document.getElementById("art").style.display="block";
+	  document.getElementById("fireBtn").style.display="block";
+}
+function closeAlert(){
+	  showLocation();
+	  document.getElementById("art").style.display="none";
+	  document.getElementById("fireBtn").style.display="none";
+}
+function showLocation(){
+	  document.getElementById("lct").style.display="block";
+}
+function closeLocation(){
+	  document.getElementById("lct").style.display="none";
+}
 </script>
 <style>
 
@@ -19,20 +39,23 @@
 </head>
 <body>
 	<div class="wrapper">
-		<div class="alert">
+		<div class="alert" id="art" >
+			화재 발생
+			<div id="fireBtn" onclick="closeAlert()">위치확인</div>			
+		</div>
+		<div class="location" id="lct" onclick="closeLocation()">
 		</div>
 		<div class="header">
 			<div class="case">
-				<img src="<%=root%>/img/logo1.png" alt="logo" class="logo" onclick=""/>
+				<img src="<%=root%>/img/logo1.png" alt="logo" class="logo" />
 			</div>
 		</div>
 		<div class="sidebar">
-			<div class="menuBtn" onclick="">sensor log</div>
-			<div class="menuBtn" onclick="">event log</div>
-			<div class="menuBtn" onclick="">streaming</div>
-			<div class="menuBtn" onclick="">HR table</div>
-			<div class="menuBtn" onclick="">location info</div>
-			<div class="menuBtn" onclick="">fire extinguosher</div>
+			<div class="menuBtn" onclick="sensorlog.go">sensor log</div>
+			<div class="menuBtn" onclick="eventlog.go">event log</div>
+			<div class="menuBtn" onclick="streaming.go">streaming</div>
+			<div class="menuBtn" onclick="hrtable.go">HR table</div>
+			<div class="menuBtn" onclick="location.go">location info</div>
 
 		</div>
 		<div class="contents">

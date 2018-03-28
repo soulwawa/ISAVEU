@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     		tb_hr
     </select>
     
-    <select id="getHrListId" parameterType="org.Isaveu.domain.TbHrVO">
+    <select id="getHrListId" resultType="org.Isaveu.domain.TbHrVO"  >
     	SELECT
     		*
     	FROM

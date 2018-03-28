@@ -23,13 +23,48 @@ html, body{
 	overflow: hidden;
     height: auto;
     min-height: 100%;
-    width: 1250px;
     margin: 0 auto;
     min-height: 100%;
     box-shadow: 0 0 8px rgba(0,0,0,0.5);
     position: relative;
     display: block;
     background-color: #222d32;
+}
+#art{
+	min-width: 100%;
+    margin: 0 auto;
+	display:none;
+	height:100px;
+	background:rgba(255,0,0,0.8);
+	position:fixed;
+	z-index:1200;
+	transition:0.5s;
+	text-align:center;
+	font-size:40px;
+}
+#lct{
+	display:none;
+	width:455px;
+	height:825px;
+	position:fixed;
+	left:700px;
+	top:100px;
+	z-index:1201;
+	transition:0.5s;
+	background: url(../img/fire.png);	
+}
+.closeBtn{
+	display:none;
+	font-size:20px;
+	width:100px;
+	height:30px;
+}
+#fireBtn{
+	display:none;
+	font-size:20px;
+	width:100px;
+	height:30px;
+	margin: 0 auto;
 }
 .header{
 	position:relative;
@@ -50,6 +85,9 @@ html, body{
 	
 }
 .contents{
+	position:relative;
+	width:1673px;
+	height:824px;
 	margin-left: 230px;
 	background-color: #ecf0f5;
     z-index: 800;
@@ -58,7 +96,7 @@ html, body{
 .footer{
 	margin-left: 230px;
 	z-index: 800;
-	background-color: white;
+	background-color: #d9d9d9;
 	height:50px;
 }
 .menuBtn{
@@ -67,11 +105,16 @@ html, body{
 	height:50px;
 	display:block;
 	background-color:#343f47;
+	border-radius: 3px;
+	text-align:center;
+	vertical-align:middle;
+	padding-top:15px;
 }
 .menuBtn:hover{
 	width:230px;
 	height:80px;
 	margin:0px;
+	padding-top:30px;
 	transition: 0.3s;
 }
 .case{
@@ -81,8 +124,9 @@ html, body{
 	background-color: #367fa9;
 }
 .logo{
-	width:230px;
-	height:100px;
+	margin:5px 55px;
+	width:120px;
+	height:90px;
 	background-color: transparent !important;
 }
 .rMateH5__Root{
@@ -90,16 +134,16 @@ html, body{
 }
 .rMateH5__rMateChart{
 	margin-left:-300px;
-	margin-right:-300px;
+
 }
 .rMateH5__ContentPane{
-	
+
 }
 .rMateH5__Main{
-	
+
 }
 .rMateH5__VCylinderGauge{
-	
+
 }
 .map{
 	height: 824px;

@@ -21,6 +21,7 @@ public class WebLoginController {
 	@RequestMapping("/weblogin")
 	private String webLogin(@ModelAttribute TbHrVO hrvo, @RequestParam("id") String id, @RequestParam("pw") String pw ) throws Exception{
 		if("".equals(id) || "".equals(pw)){
+			System.out.println("WebLogin Fail");
 			return "redirect:/";
 		}else {
 //			System.out.println(id);

@@ -45,7 +45,7 @@
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-            <version>8.0.36</version>
+            <scope>provided</scope>
         </dependency>
                 
         <dependency>
@@ -58,7 +58,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
-            <version>1.4.1.RELEASE</version>
         </dependency>
                 
         <!-- MYSQL -->
@@ -91,9 +90,20 @@
 		<dependency>
 		    <groupId>com.google.code.gson</groupId>
 		    <artifactId>gson</artifactId>
-		    </dependency>
- 
+    	</dependency>
+    	
+    	<!--  lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.20</version>
+			<scope>provided</scope>
+		</dependency>
+
+    	
+    	
 	</dependencies>
+	
 
 	<build>
 		<plugins>
@@ -103,6 +113,8 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+	
 
 
 </project>
