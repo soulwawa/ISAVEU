@@ -45,7 +45,7 @@ html, body{
 #lct{
 	display:none;
 	width:455px;
-	height:0px;
+	height:825px;
 	position:fixed;
 	left:700px;
 	top:100px;
@@ -85,6 +85,9 @@ html, body{
 	
 }
 .contents{
+	position:relative;
+	width:1673px;
+	height:824px;
 	margin-left: 230px;
 	background-color: #ecf0f5;
     z-index: 800;
@@ -130,17 +133,17 @@ html, body{
 	width:0px !important;
 }
 .rMateH5__rMateChart{
-	margin-left:-250px;
-	margin-right:-250px;
+	margin-left:-300px;
+
 }
 .rMateH5__ContentPane{
-	
+
 }
 .rMateH5__Main{
-	
+
 }
 .rMateH5__VCylinderGauge{
-	
+
 }
 .map{
 	height: 824px;
