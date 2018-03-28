@@ -12,19 +12,17 @@
     tools:context="kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.main.MainActivity">
 
     <FrameLayout
-        android:id="@+id/map_framelayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:id="@+id/streming_framelayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
 
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/streming_framelayout"
+        android:id="@+id/map_framelayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="250dp"
-        android:layout_marginTop="60dp"
-        android:visibility="invisible">
+        android:layout_height="match_parent">
 
     </FrameLayout>
 
@@ -58,7 +56,7 @@
             android:layout_gravity="end|bottom"
             fab:fab_addButtonColorNormal="@color/holo_green_light"
             fab:fab_addButtonColorPressed="@color/white_pressed"
-            fab:fab_addButtonPlusIconColor="@color/half_black"
+            fab:fab_addButtonPlusIconColor="@color/white"
             fab:fab_labelStyle="@style/menu_labels_style"
             >
 

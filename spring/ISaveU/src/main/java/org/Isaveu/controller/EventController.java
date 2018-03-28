@@ -139,7 +139,8 @@ public class EventController {
 		String url = "https://fcm.googleapis.com/fcm/send"; 
 		FCMData fcmData = new FCMData();
 		Data data = new Data();
-		data.setTitle("[I Save You]긴급상황 발생");
+		// DB에서 호출 예정
+		data.setTitle("601");
 		data.setContent_1(fileName);
 		fcmData.setData(data);
 		fcmData.setRegistration_ids(reglist);

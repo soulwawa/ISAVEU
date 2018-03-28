@@ -26,6 +26,7 @@
     <string name="monitoring_text">호, 영상</string>
     <string name="monitoring_back">돌아가기</string>
     <string name="monitoring_stop">종료</string>
+    <string name="monitoring_start">재생시작</string>
 
 
     <string name="action_settings">Settings</string>

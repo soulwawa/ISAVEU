@@ -11,7 +11,7 @@
 </head>
 <body>
 	<section id="loginFormArea">
-		<form action="/loing.do" method="POST">
+		<form action="/weblogin" method="POST">
 			<div class="imgBox">
 				<img src="<%=root%>/img/main.png" alt="logo" class="mainImg">
 			</div>
@@ -21,7 +21,7 @@
 						<input type="text" name="id" class="txtbox">
 					</div>
 					<div>
-						<input type="password" name="password" class="txtbox">
+						<input type="password" name="pw" class="txtbox">
 					</div>
 				</div>
 				<div class="loginBtn">

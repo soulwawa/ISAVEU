@@ -45,7 +45,7 @@ html, body{
 #lct{
 	display:none;
 	width:455px;
-	height:825px;
+	height:0px;
 	position:fixed;
 	left:700px;
 	top:100px;

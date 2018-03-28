@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v4.view.GravityCompat;
@@ -74,11 +75,6 @@ public class MainActivity extends AppCompatActivity {
                 StreamingTask streamingtask = new StreamingTask();
                 streamingtask.execute();
 
-//                FragmentManager fragmentManager = getSupportFragmentManager();
-//                android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                android.support.v4.app.Fragment fragment_monitoring = new MonitoringFragment();
-//                fragmentTransaction.add(R.id.streming_framelayout,fragment_monitoring);
-//                fragmentTransaction.commit();
                 menuMultipleActions.collapse();
 
                 Log.v(TAG, "스트리밍버튼 클릭");
@@ -309,28 +305,24 @@ public class MainActivity extends AppCompatActivity {
                     String streaming_url = streamingServer_url;
                     String streaming_access = streamingServer_access;
 
-                    android.support.v4.app.Fragment fragment = new MonitoringFragment();
-                    Bundle bundle = new Bundle();
+                    MonitoringFragment fragment = new MonitoringFragment();
+                    Bundle bundle = new Bundle(2);
                     bundle.putString("streamingServer_access",streaming_url);
                     bundle.putString("streamingServer_url",streaming_access);
                     fragment.setArguments(bundle);
                     Log.v(TAG,"스트리밍서버 내용 받음");
                     Log.v(TAG,"번들 : "+ bundle);
                     FragmentManager fragmentManager = getSupportFragmentManager();
-                    android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    android.support.v4.app.Fragment fragment_monitoring = new MonitoringFragment();
-                    fragmentTransaction.add(R.id.streming_framelayout,fragment_monitoring);
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.add(R.id.streming_framelayout,fragment);
                     fragmentTransaction.commit();
                 }else {
                     Toast.makeText(getApplicationContext(),"스트리밍 서버 접속실패", Toast.LENGTH_SHORT).show();
                     Log.v(TAG, "스트리밍 서버 접속실패 : null");
 
                 }
-//                  else{
-//                    Toast.makeText(getApplicationContext(),"잘못된 ID와 PW를 입력하셨습니다.",Toast.LENGTH_SHORT).show();
-//                    Log.v(TAG, "스트리밍 서버 접속실패");
 //
-//                }
 
             }catch (JSONException e){
                 e.printStackTrace();

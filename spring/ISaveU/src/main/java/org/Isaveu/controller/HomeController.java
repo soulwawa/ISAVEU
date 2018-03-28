@@ -17,9 +17,16 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping("/admin2")
+	//추후 차단 예정
+	@RequestMapping("/admin")
 	private String jsptest() throws Exception{
 //		System.out.println(hMapper.hrCount()); 
-		return "admin2";
+		return "admin";
 	}
+	
+//	@RequestMapping("/weblogin")
+//	private String weblogin() throws Exception{
+////		System.out.println(hMapper.hrCount()); 
+//		return "admin";
+//	}
 }
