@@ -6,11 +6,16 @@ import org.Isaveu.filter.IsaveUFilter;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.Isaveu.interceptor.AuthInterceptor;
 
+@Configuration
 @SpringBootApplication
 @MapperScan(value = {"org.Isaveu.mapper"})
 //* @MapperScan : Mapper 인터페이스를 인식할 수 있도록 설정
@@ -37,6 +42,7 @@ public class ISaveUApplication {
 		return sessionFactory.getObject();
 	}
 	
+	//필터 설정
 	@Bean
 	public FilterRegistrationBean<IsaveUFilter> someFilterRegistration() {
 		FilterRegistrationBean<IsaveUFilter> registration = new FilterRegistrationBean<IsaveUFilter>(new IsaveUFilter());
@@ -45,4 +51,14 @@ public class ISaveUApplication {
 		registration.setName("IsaveUFilter");
 		return registration;
 	}
+	
+	// 세션 인증
+	@Autowired
+	AuthInterceptor authInterceptor;
+	
+	public void addInterceptor(InterceptorRegistry registry) {
+		registry.addInterceptor(authInterceptor)
+			.addPathPatterns("/*.go").excludePathPatterns("/*.do");
+	}
+	
 }
