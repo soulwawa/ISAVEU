@@ -129,12 +129,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Uri notificationSoundURI = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         //notificaiton 눌렀을 때의 액션 정의
-
+        Log.v(TAG,"title : "+title);
         Intent actionCall = new Intent(ACTION_DIAL,Uri.parse("tel:119"));
         Intent actionCheckPlace = new Intent(getApplicationContext(),FloorMapActivity.class);
         Intent actionCheckFire_ext = new Intent(getApplicationContext(),FloorMapActivity.class);
-        actionCheckPlace.putExtra("event" , "0");
+        actionCheckPlace.putExtra("event", "0");
+        actionCheckPlace.putExtra("place",title);
+        actionCheckFire_ext.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         actionCheckFire_ext.putExtra("event","1");
+        actionCheckFire_ext.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 
 
         //pending intetn에 액션 추가
@@ -145,8 +148,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 
         PendingIntent callPendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionCall,PendingIntent.FLAG_CANCEL_CURRENT);
-        PendingIntent checkPlacePendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionCheckPlace,PendingIntent.FLAG_CANCEL_CURRENT);
-        PendingIntent checkFire_ext = PendingIntent.getActivity(getApplicationContext(),0,actionCheckFire_ext,PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent checkPlacePendingIntent = PendingIntent.getActivity(getApplicationContext(),34,actionCheckPlace,PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent checkFire_ext = PendingIntent.getActivity(getApplicationContext(),23,actionCheckFire_ext,PendingIntent.FLAG_CANCEL_CURRENT);
 
 
 
@@ -159,6 +162,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setVibrate(pattern) //진동 설정
                 .setPriority(NotificationCompat.PRIORITY_MAX)
                 .setSound(notificationSoundURI)
+                .setNumber(100)
                 .setContentTitle("긴급상황 발생")
                 .setWhen(System.currentTimeMillis())
                 .setStyle(new NotificationCompat.BigPictureStyle() /*스타일 지정*/

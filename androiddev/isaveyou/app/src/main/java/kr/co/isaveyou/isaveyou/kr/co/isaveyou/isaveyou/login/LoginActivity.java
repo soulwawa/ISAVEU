@@ -224,7 +224,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 JSONObject jsonObject = new JSONObject(result);
-
+                if(jsonObject.equals(null)){
+                    Toast.makeText(getApplicationContext(),"서버에 접속할 수 없습니다.\n 다시 접속해 주세요.",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                }
                 code_access = jsonObject.getString("access");
                 code_name = jsonObject.getString("name");
                 code_profile = jsonObject.getString("profile");

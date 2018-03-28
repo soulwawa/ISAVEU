@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:visibility="visible">
@@ -11,7 +11,7 @@
         android:id="@+id/tv_monitoring"
         android:layout_width="86dp"
         android:layout_height="38dp"
-        android:layout_marginStart="96dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginTop="16dp"
         android:fontFamily="casual"
         android:gravity="center"
@@ -19,59 +19,44 @@
         android:textSize="30dp"
         android:textStyle="bold"
         android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_text"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_text"
         android:layout_width="117dp"
         android:layout_height="38dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="84dp"
         android:fontFamily="casual"
         android:text="@string/monitoring_text"
         android:textSize="30dp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tv_monitoring"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <VideoView
-        android:id="@+id/videoView_monitoring"
-        android:layout_width="378dp"
-        android:layout_height="265dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_text" />
+        app:layout_constraintTop_toTopOf="@+id/tv_monitoring" />
 
     <Button
         android:id="@+id/btn_start"
-        android:layout_width="wrap_content"
+        android:layout_width="133dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="8dp"
-
-        android:text="@string/monitoring_stop"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/mybutton"
+        android:text="@string/monitoring_start"
+        android:textAlignment="center"
+        android:textSize="14sp"
         android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/videoView_monitoring" />
+        app:layout_constraintEnd_toStartOf="@+id/btn_stop"
+        tools:layout_editor_absoluteY="300dp" />
 
     <Button
         android:id="@+id/btn_stop"
-        android:layout_width="wrap_content"
+        android:layout_width="133dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="112dp"
-        android:layout_marginTop="8dp"
-
+        android:background="@drawable/mybutton"
         android:text="@string/monitoring_stop"
+        android:textAlignment="center"
+        android:textSize="14sp"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/videoView_monitoring" />
+        app:layout_constraintTop_toTopOf="@+id/btn_start"
+        tools:layout_editor_absoluteX="221dp" />
+
 </android.support.constraint.ConstraintLayout>
