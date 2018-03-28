@@ -107,7 +107,7 @@
 			<div class="menuBtn" onclick="streaming.go">streaming</div>
 			<div class="menuBtn" onclick="hrtable.go">HR table</div>
 			<div class="menuBtn" onclick="location.go">location info</div>
-
+			<input type="button" value="불내기" onclick="showAlert()"/>
 		</div>
 		<div class="contents">
 			<div id="content"
