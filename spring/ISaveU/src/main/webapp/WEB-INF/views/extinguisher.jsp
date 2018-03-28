@@ -28,6 +28,8 @@ function change() {
 </head>
 <body>
 	<div class="wrapper">
+		<div class="alert">
+		</div>
 		<div class="header">
 			<div class="case">
 				<img src="<%=root%>/img/logo1.png" alt="logo" class="logo"/>

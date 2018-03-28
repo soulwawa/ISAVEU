@@ -8,13 +8,13 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="../rMateChartH5.css" />
+<link rel="stylesheet" type="text/css" href="<%=root%>/rMateChartH5.css" />
 <script language="javascript" type="text/javascript"
-	src="../rMateChartH5License.js"></script>
+	src="<%=root%>/rMateChartH5License.js"></script>
 <script language="javascript" type="text/javascript"
-	src="../rMateGaugeChartH5.js"></script>
-<script type="text/javascript" src="../theme.js"></script>
-<script language="javascript" type="text/javascript" src="../cylinder.js"></script>
+	src="<%=root%>/rMateGaugeChartH5.js"></script>
+<script type="text/javascript" src="<%=root%>/theme.js"></script>
+<script language="javascript" type="text/javascript" src="<%=root%>/cylinder.js"></script>
 <script>
   var interval = setInterval(function () {
     $.ajax({
@@ -34,6 +34,9 @@
         document.getElementById("chart3").setData([parseInt(ob.smoke)]);
         document.getElementById("chart4").setData([parseInt(ob.fire)]);
         console.log("온도:"+ob.temp+",진동 "+ob.gyro+",CO "+ob.smoke+",불꽃 "+ob.fire+", "+ob.msg);
+        if([parseInt(ob.temp)] > 40) {
+        	showAlert();
+        }
 
       }
     });
@@ -43,6 +46,20 @@
 	    alert("call");
 	    console.log("this will be triggered");
 	});
+  function showAlert(){
+	  document.getElementById("art").style.margin = "0px";
+	  alert("불났어");
+  }
+  function closeAlert(){
+	  document.getElementById("art").style.margin = "-200px";
+	  showLocation();
+  }
+  function showLocation(){
+	  document.getElementById("lct").style.height = "825px";
+  }
+  function closeLocation(){
+	  document.getElementById("lct").style.height = "0px";
+  }
 </script>
 <style>
 .contents div {
@@ -72,18 +89,23 @@
 </head>
 <body>
 	<div class="wrapper">
+		<div class="alert" id="art" >
+			화재 발생
+			<div class="fireBtn" onclick="closeAlert()">위치확인</div>			
+		</div>
+		<div class="location" id="lct" onclick="closeLocation()">
+		</div>
 		<div class="header">
 			<div class="case">
 				<img src="<%=root%>/img/logo1.png" alt="logo" class="logo" />
 			</div>
 		</div>
 		<div class="sidebar">
-			<div class="menuBtn">sensor log</div>
-			<div class="menuBtn">event log</div>
-			<div class="menuBtn">streaming</div>
-			<div class="menuBtn">HR table</div>
-			<div class="menuBtn">location info</div>
-			<div class="menuBtn">fire extinguosher</div>
+			<div class="menuBtn" onclick="sensorlog.go">sensor log</div>
+			<div class="menuBtn" onclick="eventlog.go">event log</div>
+			<div class="menuBtn" onclick="streaming.go">streaming</div>
+			<div class="menuBtn" onclick="hrtable.go">HR table</div>
+			<div class="menuBtn" onclick="location.go">location info</div>
 
 		</div>
 		<div class="contents">
