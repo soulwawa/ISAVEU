@@ -57,7 +57,7 @@ public class EventController {
 	HrService hService;
 	
 	@RequestMapping(value = "/eventIn.do", method = RequestMethod.GET)
-	private TbEventVO eventIn(@ModelAttribute TbEventVO event, Model model) throws Exception{
+	private TbEventVO eventIn(@ModelAttribute TbEventVO event) throws Exception{
 		issue = event.getIssue();
 		temp = event.getTemp(); 
 		smoke = event.getSmoke();
@@ -67,15 +67,15 @@ public class EventController {
 		switch (issue) {
 		case "1":
 			System.out.println("화재경보");
-			imageGet(issue, model);
+			imageGet(issue);
 			break;
 		case "2":
 			System.out.println("지진경보");
-			imageGet(issue, model);
+			imageGet(issue);
 			break;
 		case "3":
 			System.out.println("지진 + 화재경보");
-			imageGet(issue, model);
+			imageGet(issue);
 			break;
 		default:
 			eService.insertEvent(event);
@@ -85,7 +85,7 @@ public class EventController {
 		return event;
 	}
 	
-	public void imageGet(String issue, Model model) {
+	public void imageGet(String issue) {
 		RestTemplate restTemplate = new RestTemplate();
 		URI uri = UriComponentsBuilder.fromHttpUrl("http://192.168.0.13:5001/cam/" +issue).build().toUri();
 		byte[] response = new byte[8*1024];

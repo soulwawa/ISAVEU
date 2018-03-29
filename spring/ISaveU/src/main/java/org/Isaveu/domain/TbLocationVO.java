@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import lombok.ToString;
 
-@ToString
 public class TbLocationVO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -13,7 +12,7 @@ public class TbLocationVO implements Serializable {
 	private String dept_name;
 	private String manager;
 	private String dept_tel;
-
+	
 	public int getLocation_id() {
 		return location_id;
 	}
@@ -54,4 +53,11 @@ public class TbLocationVO implements Serializable {
 		this.dept_tel = dept_tel;
 	}
 
+	@Override
+	public String toString() {
+		return "TbLocationVO [location_id=" + location_id + ", location=" + location + ", dept_name=" + dept_name
+				+ ", manager=" + manager + ", dept_tel=" + dept_tel + "]";
+	}
+	
 }
+

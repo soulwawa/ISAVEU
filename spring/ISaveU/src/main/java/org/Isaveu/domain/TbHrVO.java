@@ -115,4 +115,12 @@ public class TbHrVO implements Serializable {
 		this.fcm = fcm;
 	}
 
+	@Override
+	public String toString() {
+		return "TbHrVO [hr_id=" + hr_id + ", id=" + id + ", pw=" + pw + ", name=" + name + ", location_id="
+				+ location_id + ", tel=" + tel + ", email=" + email + ", sex=" + sex + ", birthday=" + birthday
+				+ ", level=" + level + ", fcm=" + fcm + ", profile=" + profile + "]";
+	}
+
+
 }

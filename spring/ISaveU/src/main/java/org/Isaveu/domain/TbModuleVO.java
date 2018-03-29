@@ -45,4 +45,9 @@ public class TbModuleVO implements Serializable {
 		this.location_id = location_id;
 	}
 
+	@Override
+	public String toString() {
+		return "TbModuleVO [module=" + module + ", type=" + type + ", ip=" + ip + ", location_id=" + location_id + "]";
+	}
+	
 }

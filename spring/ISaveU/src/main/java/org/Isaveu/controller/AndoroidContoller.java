@@ -24,8 +24,10 @@ public class AndoroidContoller {
 
 	@ResponseBody
 	@RequestMapping(value = "/AndroidLogin.do")
-	private Map<String, String> androidLogin(@ModelAttribute TbHrVO hrvo, HttpServletRequest request, HttpServletResponse response) throws Exception{
+	public Map<String, String> androidLogin(@ModelAttribute TbHrVO hrvo, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		response.setContentType("text/plain;charset=utf-8");
+		
+		
 		String andId = request.getParameter("u_id");
 		String andPw = request.getParameter("u_pw");
 		String fcmValue = request.getParameter("u_instancekey");

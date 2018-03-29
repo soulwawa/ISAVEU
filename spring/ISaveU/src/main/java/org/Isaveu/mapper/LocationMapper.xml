@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="org.Isaveu.mapper.LocationMapper">
+	<select id="locationByFireEx" parameterType="org.Isaveu.domain.LocationByTbFireExVO" resultType="org.Isaveu.domain.LocationByTbFireExVO" >
+	SELECT
+ 		tb_location.location, tb_fire_ex.fire_ex_status
+	FROM tb_location
+	INNER JOIN
+ 	tb_fire_ex
+		ON tb_location.location_id = tb_fire_ex.location_id;
+	</select>
+
+</mapper>

@@ -81,4 +81,11 @@ public class TbEventVO implements Serializable {
 		this.issue = issue;
 	}
 
+	@Override
+	public String toString() {
+		return "TbEventVO [event_id=" + event_id + ", module_id=" + module_id + ", datetime=" + datetime + ", temp="
+				+ temp + ", smoke=" + smoke + ", gyro=" + gyro + ", fire=" + fire + ", issue=" + issue + "]";
+	}
+	
+	
 }

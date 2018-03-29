@@ -2,10 +2,9 @@ package org.Isaveu.domain;
 
 import java.io.Serializable;
 
-import lombok.ToString;
-
-@ToString
 public class TbActionVO implements Serializable {
+	
+
 	private static final long serialVersionUID = 1L;
 	private int action_id;
 	private String module_id;
@@ -43,5 +42,10 @@ public class TbActionVO implements Serializable {
 	public void setDatetime(String datetime) {
 		this.datetime = datetime;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "TbActionVO [action_id=" + action_id + ", module_id=" + module_id + ", url=" + url + ", datetime="
+				+ datetime + "]";
+	}
 }
