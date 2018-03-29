@@ -1,48 +1,26 @@
 package org.Isaveu.domain;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 @ToString
+@Getter
+@Setter
 public class TbFireExVO implements Serializable {
-
+	
 	private static final long serialVersionUID = 1L;
-	int fire_ex_id;
-	int location_id;
-	String ex_date;
-	String datetime;
-
-	public int getFire_ex_id() {
-		return fire_ex_id;
-	}
-
-	public void setFire_ex_id(int fire_ex_id) {
-		this.fire_ex_id = fire_ex_id;
-	}
-
-	public int getLocation_id() {
-		return location_id;
-	}
-
-	public void setLocation_id(int location_id) {
-		this.location_id = location_id;
-	}
-
-	public String getEx_date() {
-		return ex_date;
-	}
-
-	public void setEx_date(String ex_date) {
-		this.ex_date = ex_date;
-	}
-
-	public String getDatetime() {
-		return datetime;
-	}
-
-	public void setDatetime(String datetime) {
-		this.datetime = datetime;
-	}
+	private int fire_ex_id;
+	private int location_id;
+	private String fire_ex_name;
+	private String fire_ex_mac;
+	private String fire_ex_status;
+	private Timestamp fire_ex_make;
+	private Timestamp next_check;
+	private Timestamp check_date;
+	 
 
 }

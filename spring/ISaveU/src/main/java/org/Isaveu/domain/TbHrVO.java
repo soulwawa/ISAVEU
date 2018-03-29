@@ -6,18 +6,18 @@ import lombok.ToString;
 @ToString
 public class TbHrVO implements Serializable {
 	private static final long serialVersionUID = 1L;
-	int hr_id;
-	String id;
-	String pw;
-	String name;
-	int location_id;
-	String tel;
-	String email;
-	String sex;
-	String birthday;
-	String level;
-	String fcm;
-	String profile;
+	private int hr_id;
+	private	String id;
+	private String pw;
+	private String name;
+	private int location_id;
+	private String tel;
+	private String email;
+	private String sex;
+	private String birthday;
+	private String level;
+	private String fcm;
+	private String profile;
 
 	public String getProfile() {
 		return profile;

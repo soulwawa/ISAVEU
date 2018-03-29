@@ -8,9 +8,9 @@ import lombok.ToString;
 public class TbModuleVO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	String module;
-	String type;
-	String ip;
+	private String module;
+	private String type;
+	private String ip;
 	int location_id;
 
 	public String getModule() {

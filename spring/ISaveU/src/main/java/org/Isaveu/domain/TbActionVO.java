@@ -7,10 +7,10 @@ import lombok.ToString;
 @ToString
 public class TbActionVO implements Serializable {
 	private static final long serialVersionUID = 1L;
-	int action_id;
-	String module_id;
-	String url;
-	String datetime;
+	private int action_id;
+	private String module_id;
+	private String url;
+	private String datetime;
 
 	public int getAction_id() {
 		return action_id;

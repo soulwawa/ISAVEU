@@ -8,14 +8,14 @@ import lombok.ToString;
 public class TbEventVO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	int event_id;
-	String module_id;
-	String datetime;
-	float temp;
-	float smoke;
-	float gyro;
-	float fire;
-	String issue;
+	private int event_id;
+	private String module_id;
+	private String datetime;
+	private float temp;
+	private float smoke;
+	private float gyro;
+	private float fire;
+	private String issue;
 
 	public int getEvent_id() {
 		return event_id;

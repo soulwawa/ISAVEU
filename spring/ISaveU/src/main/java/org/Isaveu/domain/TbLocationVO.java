@@ -8,11 +8,11 @@ import lombok.ToString;
 public class TbLocationVO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	int location_id;
-	String location;
-	String dept_name;
-	String manager;
-	String dept_tel;
+	private int location_id;
+	private String location;
+	private String dept_name;
+	private String manager;
+	private String dept_tel;
 
 	public int getLocation_id() {
 		return location_id;
