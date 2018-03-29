@@ -17,6 +17,8 @@ function chartReadyHandler2(id) {
  document.getElementById(id).setLayout(layoutStr);
    document.getElementById(id).setData(chartData2);
 }
+
+var effect = compIE() ? "SeriesClip" : "SeriesInterpolate";
  
 // 스트링 형식으로 레이아웃 정의.
 var layoutStr = 
@@ -42,27 +44,27 @@ var layoutStr =
                       */
                       
                     
-                    	+'<Line2DSeries yField="Sheep" fill="#ffffff" radius="5" displayName="Sheep" itemRenderer="RectangleItemRenderer">'
+                    	+'<Line2DSeries labelPosition="up" yField="Sheep" fill="#ffffff" radius="5" displayName="Sheep" itemRenderer="RectangleItemRenderer">'
                            +'<showDataEffect>'
-                               +'<SeriesInterpolate/>'
+                           + '<' + effect + ' duration="1000"/>'
                            +'</showDataEffect>'
                         +'</Line2DSeries>'
                       
-                        +'<Line2DSeries labelPosition="up" yField="Beef" fill="#ffffff" radius="5" displayName="Beef" showValueLabels="[5]" itemRenderer="CircleItemRenderer">'
+                        +'<Line2DSeries labelPosition="up" yField="Beef" fill="#ffffff" radius="5" displayName="Beef" itemRenderer="CircleItemRenderer">'
                            +'<showDataEffect>'
-                               +'<SeriesInterpolate/>'
+                           + '<' + effect + ' duration="1000"/>'
                            +'</showDataEffect>'
                          +'</Line2DSeries>'
                          
-                        +'<Line2DSeries yField="Chicken" fill="#ffffff" radius="6" displayName="Chicken" itemRenderer="TriangleItemRenderer">'
+                        +'<Line2DSeries labelPosition="up" yField="Chicken" fill="#ffffff" radius="6" displayName="Chicken" itemRenderer="TriangleItemRenderer">'
                          +'<showDataEffect>'
-                               +'<SeriesInterpolate/>'
+                         + '<' + effect + ' duration="1000"/>'
                            +'</showDataEffect>'
                         +'</Line2DSeries>'
                       
-                        +'<Line2DSeries yField="aaa" fill="#ffffff" radius="6" displayName="aaa" itemRenderer="DiamondItemRenderer">'
+                        +'<Line2DSeries labelPosition="up" yField="aaa" fill="#ffffff" radius="6" displayName="aaa" itemRenderer="DiamondItemRenderer">'
                          +'<showDataEffect>'
-                               +'<SeriesInterpolate/>'
+                         + '<' + effect + ' duration="1000"/>'
                            +'</showDataEffect>'
                        +'</Line2DSeries>'
                       
@@ -88,6 +90,18 @@ var chartData2 = [{"Month":"Jan", "Beef":38.5, "Chicken":20, "Sheep":50, "aaa":1
               {"Month":"Oct", "Beef":75.15, "Chicken":42.12, "Sheep":57.58, "aaa":11},
               {"Month":"Nov", "Beef":69.12, "Chicken":35.54, "Sheep":54.47, "aaa":10},
               {"Month":"Dec", "Beef":73.24, "Chicken":40.45, "Sheep":62.47, "aaa":14}];
+
+//IE 판별
+function compIE(){
+  var agent = navigator.userAgent;
+    if(agent.indexOf("MSIE 7.0") > -1 || agent.indexOf("MSIE 8.0") > - 1 || agent.indexOf("Trident 4.0") > -1)
+     return false;
+ 
+   if(document.documentMode && document.documentMode <= 5)
+      return false;
+ 
+   return true;
+}
  
 
 rMateChartH5.registerTheme(rMateChartH5.themes);

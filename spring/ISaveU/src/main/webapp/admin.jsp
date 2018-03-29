@@ -145,6 +145,8 @@
 				<div class="area" id="a3">
 					<div id="content3"
 						style="height: 400px; width: 550; position: relative;">
+						<iframe>
+						</iframe>
 					</div>
 				</div>
 				<div class="area" id="a4">
