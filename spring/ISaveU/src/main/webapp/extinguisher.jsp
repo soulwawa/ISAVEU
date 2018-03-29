@@ -21,7 +21,7 @@
 var interval = setInterval(function () {
     $.ajax({
       type: "GET",
-      url: "http://192.168.0.35:9999/Dispatcher",
+      url: "http://192.168.0.35:9999/locationFireEx.do",
       dataType: "json",
       success: function(data) {
         ob = data;
@@ -29,13 +29,9 @@ var interval = setInterval(function () {
         var result1 = document.getElementById("result1");
         
         
-        result1.innerHTML = "온도:"+ob.temp+",진동 "+ob.gyro+",CO "+ob.smoke+",불꽃 "+ob.fire+", "+ob.msg;
+        result1.innerHTML = data;
         
-        document.getElementById("chart1").setData([parseInt(ob.temp)]);
-        document.getElementById("chart2").setData([parseInt(ob.gyro)]);
-        document.getElementById("chart3").setData([parseInt(ob.smoke)]);
-        document.getElementById("chart4").setData([parseInt(ob.fire)]);
-        console.log("온도:"+ob.temp+",진동 "+ob.gyro+",CO "+ob.smoke+",불꽃 "+ob.fire+", "+ob.msg);
+        console.log(data);
         
 
       }
