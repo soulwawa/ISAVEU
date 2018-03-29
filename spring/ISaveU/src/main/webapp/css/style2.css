@@ -86,7 +86,7 @@ html, body{
 }
 .contents{
 	position:relative;
-	width:1673px;
+	width:1690px;
 	height:824px;
 	margin-left: 230px;
 	background-color: #ecf0f5;
@@ -132,9 +132,27 @@ html, body{
 .rMateH5__Root{
 	width:0px !important;
 }
-.rMateH5__rMateChart{
-	margin-left:-550px;
-
+#a1{
+	position:relative;
+	left:30px;
+	top:30px;
+}
+#a2{
+	position:relative;
+	left:650px;
+	bottom:370px;
+}
+#a3{
+	position:relative;
+	left:30px;
+	bottom:350px;
+	
+}
+#content1 .rMateH5__rMateChart{
+	margin-top:0px !important;
+}
+#content2 .rMateH5__rMateChart{
+	
 }
 .rMateH5__ContentPane{
 
@@ -156,56 +174,93 @@ html, body{
 .imgEtg{
 	width:25px;
 	height:25px;
-}
-.extinguishers{
-	position:absolute;
-	z-index:1005;
+ 	animation: hideAndShow 0.5s infinite linear;
 }
 #ex1{
-	left:355px;
-	top:205px;
+	position:absolute;
+	z-index:1005;
+	left:120px;
+	top:105px;
+	z-index:1500;
 }
 #ex2{
-	left:455px;
-	top:165px;
+	position:absolute;
+	z-index:1005;
+	left:280px;
+	top:65px;
+	z-index:1500;
 }
 #ex3{
-	left:515px;
-	top:165px;
+	position:absolute;
+	z-index:1005;
+	left:120px;
+	top:190px;
+	z-index:1500;
 }
 #ex4{
-	left:355px;
-	top:290px;
+	position:absolute;
+	z-index:1005;
+	left:120px;
+	top:330px;
+	z-index:1500;
 }
 #ex5{
-	left:355px;
-	top:430px;
+	position:absolute;
+	z-index:1005;
+	left:120px;
+	top:475px;
+	z-index:1500;
 }
 #ex6{
-	left:355px;
-	top:575px;
+	position:absolute;
+	z-index:1005;
+	left:160px;
+	top:645px;
+	z-index:1500;
 }
 #ex7{
-	left:395px;
-	top:745px;
+	position:absolute;
+	z-index:1005;
+	left:280px;
+	top:225px;
+	z-index:1500;
 }
 #ex8{
-	left:515px;
-	top:325px;
+	position:absolute;
+	z-index:1005;
+	left:300px;
+	top:380px;
+	z-index:1500;
 }
 #ex9{
-	left:535px;
-	top:480px;
+	position:absolute;
+	z-index:1005;
+	left:390px;
+	top:540px;
+	z-index:1500;
 }
 #ex10{
-	left:625px;
-	top:640px;
+	position:absolute;
+	z-index:1005;
+	left:390px;
+	top:645px;
+	z-index:1500;
 }
 #ex11{
-	left:625px;
-	top:745px;
+	position:absolute;
+	z-index:1005;
+	left:193px;
+	top:215px;
+	z-index:1500;
 }
-#ex12{
-	left:425px;
-	top:315px;
+@keyframes hideAndShow {
+    0% {
+      opacity:1;  
+    }
+    50% {
+      opacity:0;
+    }
+    0% {
+      opacity:1;
+    }
 }

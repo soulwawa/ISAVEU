@@ -168,11 +168,16 @@ public class EventController {
 			//process()함수 호출
 			//JSON만들기
 			JsonObject jsonObj = new JsonObject();
+			
+			Date date2 = new Date();
+			SimpleDateFormat transFomat2 = new SimpleDateFormat("yyyyMMdd_HHmmss");
+			String datenow = transFomat2.format(date2);
 //			System.out.println(temp);
 			jsonObj.addProperty("temp", temp);
 			jsonObj.addProperty("smoke", smoke);
 			jsonObj.addProperty("fire", fire);
 			jsonObj.addProperty("gyro", gyro);
+			jsonObj.addProperty("date", datenow);
 			jsonObj.addProperty("msg", "success");
 			PrintWriter out = resp.getWriter();
 			out.print(jsonObj);

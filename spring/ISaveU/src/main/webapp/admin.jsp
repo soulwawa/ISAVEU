@@ -12,9 +12,10 @@
 <script language="javascript" type="text/javascript"
 	src="<%=root%>/rMateChartH5License.js"></script>
 <script language="javascript" type="text/javascript"
-	src="<%=root%>/rMateGaugeChartH5.js"></script>
+	src="<%=root%>/rMateIntegrationH5.js"></script>
 <script type="text/javascript" src="<%=root%>/theme.js"></script>
 <script language="javascript" type="text/javascript" src="<%=root%>/cylinder.js"></script>
+<script language="javascript" type="text/javascript" src="<%=root%>/line4.js"></script>
 <script>
   var interval = setInterval(function () {
     $.ajax({
@@ -69,17 +70,17 @@
 
 .info {
 	width: 500px;
-	height: 500px;
+	height: 400px;
 	position: absolute;
 	background-color: transparent !important;
-	left: 240px;
-	bottom: 380px;
+	left: 42px;
+	top:60px;
 }
 
 .value {
 	margin: 0;
 	padding: 15px 20px;
-	height: 125px;
+	height: 100px;
 	width: 500px;
 	background-color: transparent !important;
 	text-align: center;
@@ -110,25 +111,49 @@
 			<input type="button" value="불내기" onclick="showAlert()"/>
 		</div>
 		<div class="contents">
-			<div id="content"
-				style="height: 400px; width: 550; position: relative;">
-				<!-- 차트가 삽입될 DIV -->
-				<div id="chartHolder1" class="chartHolder" style="height: 100px;"></div>
-				<div id="chartHolder2" class="chartHolder" style="height: 100px;"></div>
-				<div id="chartHolder3" class="chartHolder" style="height: 100px;"></div>
-				<div id="chartHolder4" class="chartHolder" style="height: 100px;"></div>
+			<div id="floor1">
+				<div class="area" id="a1">
+					<div id="content1"
+						style="height: 400px; width: 550; position: relative;">
+						<!-- 차트가 삽입될 DIV -->
+						<div id="chartHolder1" class="chartHolder" style="height: 100px;"></div>
+						<div id="chartHolder2" class="chartHolder" style="height: 100px;"></div>
+						<div id="chartHolder3" class="chartHolder" style="height: 100px;"></div>
+						<div id="chartHolder4" class="chartHolder" style="height: 100px;"></div>
+					</div>
+					<div class="info">
+						<div class="value">실시간 온도 센서값</div>
+						<div class="value">실시간 진동 센서값</div>
+						<div class="value">실시간 CO 센서값</div>
+						<div class="value">실시간 불꽃 센서값</div>
+					</div>
+				</div>
+				<div class="area" id="a2">
+					<div id="content2"
+						style="height: 400px; width: 550; position: relative;">
+						<div id="chartHolder5" class="chartHolder" style="height: 400px; width: 550;"></div>
+					</div>
+					<div>
+						<div id="result1"></div>
+						<div id="result2"></div>
+						<div id="result3"></div>
+						<div id="result4"></div>
+					</div>
+				</div>
 			</div>
-			<div class="info">
-				<div class="value">현재 온도 센서값</div>
-				<div class="value">현재 진동 센서값</div>
-				<div class="value">현재 CO 센서값</div>
-				<div class="value">현재 불꽃 센서값</div>
-			</div>
-			<div>
-				<div id="result1"></div>
-				<div id="result2"></div>
-				<div id="result3"></div>
-				<div id="result4"></div>
+			<div id="floor2">
+				<div class="area" id="a3">
+					<div id="content3"
+						style="height: 400px; width: 550; position: relative;">
+						<iframe>
+						</iframe>
+					</div>
+				</div>
+				<div class="area" id="a4">
+					<div id="content4"
+						style="height: 400px; width: 550; position: relative;">
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="footer">
