@@ -5,24 +5,51 @@
 <head>
 <% String root = request.getContextPath(); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css"/>
-
-<script>
-function change() {
-	var change = document.getElementById("mySpan");
-	//id가 mySpan인 객체 찾기
-	span.style.color = "green"; //글자 색 green
-	span.style.fontSize= "30px"; //글자 크기는 30픽셀
-	span.style.display = "block"; //블록 박스로 변경
-	span.style.width = "6em"; // 박스의 폭, 6글자 크기
-	span.style.border = "3px dotted magenta"; //3픽셀 점선 magenta 테두리
-	span.style.margin = "20px"; // 상하좌우 여백 20px
-}
-</script>
+<link href="<%=root%>/css/shake.css" rel="stylesheet" type="text/css"/>
 <style>
-
+	#exts1{
+	width:456px;
+	height:824px;
+	position:fixed;
+	z-index:1250;
+	}
 </style>
+<script>
+var interval = setInterval(function () {
+    $.ajax({
+      type: "GET",
+      url: "http://192.168.0.35:9999/locationFireEx.do",
+      dataType: "json",
+      success: function(data) {
+        ob = data;
+        
+        var result1 = document.getElementById("result1");
+        
+        
+        result1.innerHTML = ob.600;
+        
+        console.log(data);
+        
+
+      }
+    });
+  }, 9900);
+  
+
+function sleep(gap){
+	var then, now;
+	then = new Date().getTime();
+	now=then;
+	while((now-then)<gap)
+		{
+			now = new Date().getTime();
+		}
+}
+
+</script>
 <title>관리자 페이지</title>
 
 </head>
@@ -59,49 +86,45 @@ function change() {
 		<div class="contents">
 			<div class="map">
 			</div>
-			<div id="exts">
-				<div class="extinguishers" id="ex1">
-					<img src="<%=root%>/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+			<div id="exts1">
+				<div class="shake-freeze" id="ex1">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
-				<div class="extinguishers" id="ex2">
-					<img src="<%=root%>/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+				<div class="shake-freeze" id="ex2">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
-				<div class="extinguishers" id="ex3">
-					<img src="<%=root%>/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+				<div class="shake-freeze" id="ex3">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
-				<div class="extinguishers" id="ex4">
-					<img src="<%=root%>/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+				<div class="shake-freeze" id="ex4">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
-				<div class="extinguishers" id="ex5">
-					<img src="<%=root%>/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+				<div class="shake-freeze" id="ex5">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
-				<div class="extinguishers" id="ex6">
-					<img src="<%=root%>/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+				<div class="shake-freeze" id="ex6">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
-				<div class="extinguishers" id="ex7">
-					<img src="<%=root%>/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+				<div class="shake-freeze" id="ex7">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
-				<div class="extinguishers" id="ex8">
-					<img src="<%=root%>/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+				<div class="shake-freeze" id="ex8">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
-				<div class="extinguishers" id="ex9">
-					<img src="<%=root%>/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+				<div class="shake-freeze" id="ex9">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
-				<div class="extinguishers" id="ex10">
-					<img src="<%=root%>/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+				<div class="shake-freeze" id="ex10">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
-				<div class="extinguishers" id="ex11">
-					<img src="<%=root%>/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
-				</div>
-				<div class="extinguishers" id="ex12">
-					<img src="<%=root%>/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+				<div class="shake-freeze" id="ex11">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 			</div>
-			
-		
 		</div>
 		<div class="footer">
-			<input type="button" value="소화기 위치 찾기" onclick="showExtinguisher()"/>
+			<div id="result1">
+			</div>
 		</div>
 	</div>
 </body>
