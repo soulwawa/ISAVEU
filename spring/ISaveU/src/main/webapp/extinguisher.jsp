@@ -5,7 +5,8 @@
 <head>
 <% String root = request.getContextPath(); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css"/>
 <link href="<%=root%>/css/shake.css" rel="stylesheet" type="text/css"/>
 <style>
@@ -20,7 +21,7 @@
 var interval = setInterval(function () {
     $.ajax({
       type: "GET",
-      url: "http://192.168.0.35:9999/locationFireEx.do",
+      url: "http://192.168.0.35:9999/Dispatcher",
       dataType: "json",
       success: function(data) {
         ob = data;
@@ -35,9 +36,7 @@ var interval = setInterval(function () {
         document.getElementById("chart3").setData([parseInt(ob.smoke)]);
         document.getElementById("chart4").setData([parseInt(ob.fire)]);
         console.log("온도:"+ob.temp+",진동 "+ob.gyro+",CO "+ob.smoke+",불꽃 "+ob.fire+", "+ob.msg);
-        if([parseInt(ob.temp)] > 40) {
-        	showAlert();
-        }
+        
 
       }
     });

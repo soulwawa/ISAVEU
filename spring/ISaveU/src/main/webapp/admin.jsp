@@ -133,12 +133,6 @@
 						style="height: 400px; width: 550; position: relative;">
 						<div id="chartHolder5" class="chartHolder" style="height: 400px; width: 550;"></div>
 					</div>
-					<div>
-						<div id="result1"></div>
-						<div id="result2"></div>
-						<div id="result3"></div>
-						<div id="result4"></div>
-					</div>
 				</div>
 			</div>
 			<div id="floor2">
@@ -158,6 +152,12 @@
 		</div>
 		<div class="footer">
 			<div style="padding: 7px;">Copyright © 2018 HSB Inc.</div>
+			<div>
+				<div id="result1"></div>
+				<div id="result2"></div>
+				<div id="result3"></div>
+				<div id="result4"></div>
+			</div>
 		</div>
 	</div>
 </body>
