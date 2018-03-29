@@ -24,6 +24,12 @@ public class HomeController {
 		return "admin";
 	}
 	
+	@RequestMapping("/ex")
+	private String extest() throws Exception{
+//		System.out.println(hMapper.hrCount()); 
+		return "extinguisher";
+	}
+	
 //	@RequestMapping("/weblogin")
 //	private String weblogin() throws Exception{
 ////		System.out.println(hMapper.hrCount()); 
