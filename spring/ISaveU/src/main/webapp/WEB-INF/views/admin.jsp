@@ -20,6 +20,7 @@
     $.ajax({
       type: "GET",
       url: "http://192.168.0.35:9999/Dispatcher",
+      // url: "http://192.168.0.35:9999/Dispatcher",
       dataType: "json",
       success: function(data) {
         ob = data;
