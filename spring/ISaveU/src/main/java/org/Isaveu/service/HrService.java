@@ -32,8 +32,7 @@ public class HrService implements HrMapper{
 	}
 
 	@Override
-	public void fcmUpdate(TbHrVO hrVo) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public void fcmUpdate(String id) throws Exception {
+		hMapper.fcmUpdate(id);
 	}
 }

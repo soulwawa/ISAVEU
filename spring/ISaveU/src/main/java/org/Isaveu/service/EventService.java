@@ -1,5 +1,7 @@
 package org.Isaveu.service;
 
+import java.util.ArrayList;
+
 import javax.annotation.Resource;
 
 import org.Isaveu.domain.TbEventVO;
@@ -16,6 +18,11 @@ public class EventService implements EventMapper{
 	public void insertEvent(TbEventVO event) {
 		eMapper.insertEvent(event);
 		
+	}
+
+	@Override
+	public ArrayList<TbEventVO> selectRecent(int num) {
+		return eMapper.selectRecent(num);
 	}
 	
 }

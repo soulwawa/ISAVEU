@@ -11,6 +11,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES
 			(null, #{module_id}, now(), #{temp}, #{smoke}, #{gyro}, #{fire}, #{issue});
     </insert>
+    
+    <select id="selectRecent" parameterType="int" resultType="org.Isaveu.domain.TbEventVO">
+    	SELECT
+    	 * 
+    	FROM
+    	 tb_event
+    	ORDER BY
+    	 event_id
+     	DESC LIMIT ${value}
+    
+    </select>
 </mapper>
 
 

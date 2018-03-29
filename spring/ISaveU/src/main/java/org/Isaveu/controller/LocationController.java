@@ -32,7 +32,6 @@ public class LocationController {
 		for (int i = 0 ; i < list.size() ; i++) {
 			map.put(list.get(i).getLocation(), list.get(i).getFire_ex_status());
 		}
-//		map.put("a", "a");
 		return map;
 
 	}

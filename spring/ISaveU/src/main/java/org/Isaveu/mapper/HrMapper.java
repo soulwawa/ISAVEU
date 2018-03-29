@@ -26,7 +26,7 @@ public interface HrMapper {
 	 * 'http://192.168.0.35:8088/SafeForYou/img/HR_profile/0000000000.png');
 	 */
 	
-	public void fcmUpdate(TbHrVO hrVo) throws Exception;
+	public void fcmUpdate(String id) throws Exception;
 	// "update tb_hr SET FCM = ? WHERE id = ?;";
 
 }

@@ -10,7 +10,12 @@ import java.net.URI;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,6 +36,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -155,7 +161,7 @@ public class EventController {
 	}
 	
 	@RequestMapping("/Dispatcher")
-		private void process(HttpServletRequest req, HttpServletResponse resp)
+		private void process(HttpServletResponse resp)
 				throws Exception {
 			//이번에는 이전 예제와는 다르게 Ajax요청이 오면 응답해줄꺼다.
 			//이전에는 그냥 내가 원하는 페이지로 json을 가져가는 거였다면?
@@ -169,9 +175,9 @@ public class EventController {
 			//JSON만들기
 			JsonObject jsonObj = new JsonObject();
 			
-			Date date2 = new Date();
+			Date date = new Date();
 			SimpleDateFormat transFomat2 = new SimpleDateFormat("yyyyMMdd_HHmmss");
-			String datenow = transFomat2.format(date2);
+			String datenow = transFomat2.format(date);
 //			System.out.println(temp);
 			jsonObj.addProperty("temp", temp);
 			jsonObj.addProperty("smoke", smoke);
@@ -183,5 +189,25 @@ public class EventController {
 			out.print(jsonObj);
 //			System.out.println(out);
 		}
+	@RequestMapping("/DispatcherRecent")
+		private List<Map<String, String>> dispatcherRecent(@ModelAttribute TbEventVO event, @RequestParam("num") int num) throws Exception{
+		ArrayList<TbEventVO> list = new ArrayList<TbEventVO>();
+		list = eService.selectRecent(num);
+		Map<String, String> map = new HashMap<String, String>();
+		
+		map.put("time", list.get(0).getDatetime());
+		map.put("temp", Float.toString(list.get(0).getTemp()));
+		map.put("smoke", Float.toString(list.get(0).getSmoke()));
+		map.put("gyro", Float.toString(list.get(0).getGyro()));
+		map.put("time", Float.toString(list.get(0).getTemp()));
+		
+		List<Map<String, String>> myList = new ArrayList<Map<String, String>>();
+		myList.add(map);
+		return myList;
+		
+//			map.put(list.get(i).getDatetime(), list.get(i).getTemp(), list.get(i).getSmoke(), list.get(i).getGyro(), list.get(i).getFire() );
+		
+		
+	}
 
 	}
