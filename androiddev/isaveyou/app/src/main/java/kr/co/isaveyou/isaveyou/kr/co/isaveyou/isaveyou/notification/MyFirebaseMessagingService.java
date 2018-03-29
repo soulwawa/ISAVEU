@@ -133,10 +133,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Intent actionCall = new Intent(ACTION_DIAL,Uri.parse("tel:119"));
         Intent actionCheckPlace = new Intent(getApplicationContext(),FloorMapActivity.class);
         Intent actionCheckFire_ext = new Intent(getApplicationContext(),FloorMapActivity.class);
-        actionCheckPlace.putExtra("event", "0");
-        actionCheckPlace.putExtra("place",title);
+        String roomNum = title;
+        actionCheckPlace.setData(Uri.parse("0" + "/" + roomNum));
         actionCheckFire_ext.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        actionCheckFire_ext.putExtra("event","1");
+
+        actionCheckFire_ext.setData(Uri.parse("1" + "/" + roomNum));
         actionCheckFire_ext.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 
 
@@ -148,8 +149,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 
         PendingIntent callPendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionCall,PendingIntent.FLAG_CANCEL_CURRENT);
-        PendingIntent checkPlacePendingIntent = PendingIntent.getActivity(getApplicationContext(),34,actionCheckPlace,PendingIntent.FLAG_CANCEL_CURRENT);
-        PendingIntent checkFire_ext = PendingIntent.getActivity(getApplicationContext(),23,actionCheckFire_ext,PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent checkPlacePendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionCheckPlace,PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent checkFire_ext = PendingIntent.getActivity(getApplicationContext(),0,actionCheckFire_ext,PendingIntent.FLAG_UPDATE_CURRENT);
 
 
 

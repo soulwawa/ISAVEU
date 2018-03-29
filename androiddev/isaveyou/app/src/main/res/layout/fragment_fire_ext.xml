@@ -236,58 +236,6 @@
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/hallway02_cLayout"
-            android:layout_width="216dp"
-            android:layout_height="27dp"
-            android:foregroundGravity="center"
-            android:background="@drawable/myprogressbarbackground"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/hallWay02_Fire_ext"
-            app:layout_constraintStart_toStartOf="@+id/hallWay02_Fire_ext">
-
-            <TextView
-                android:id="@+id/tv_endtDate_hallway02"
-                android:layout_width="wrap_content"
-                android:layout_height="14dp"
-                android:layout_marginEnd="4dp"
-                android:hint="2015.01.24"
-                android:text="2015.01.24"
-                android:textColor="@color/pink"
-                android:textSize="8sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_hallway02" />
-
-            <TextView
-                android:id="@+id/tv_startDate_hallway02"
-                android:layout_width="wrap_content"
-                android:layout_height="14dp"
-                android:layout_marginEnd="4dp"
-                android:layout_marginStart="4dp"
-                android:hint="2015.01.24"
-                android:text="2015.01.24"
-                android:textColor="@color/pink"
-                android:textSize="8sp"
-                app:layout_constraintEnd_toStartOf="@+id/pb_hallway02"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_hallway02" />
-
-            <ProgressBar
-                android:id="@+id/pb_hallway02"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="114dp"
-                android:layout_height="14dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginEnd="4dp"
-                android:layout_marginTop="4dp"
-                android:indeterminateOnly="false"
-                android:max="100"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_endtDate_hallway02"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </android.support.constraint.ConstraintLayout>
-
-        <android.support.constraint.ConstraintLayout
             android:id="@+id/room606_cLayout"
             android:layout_width="212dp"
             android:layout_height="wrap_content"
@@ -701,12 +649,11 @@
             android:id="@+id/room606_Fire_ext"
             android:layout_width="20dp"
             android:layout_height="21dp"
-            android:layout_marginStart="48dp"
             android:layout_marginTop="92dp"
-            android:clickable="true"
             android:background="@drawable/pic_fire_ext"
-            app:layout_constraintStart_toEndOf="@+id/hallWay02_Fire_ext"
-            app:layout_constraintTop_toBottomOf="@+id/room605_Fire_ext" />
+            android:clickable="true"
+            app:layout_constraintTop_toBottomOf="@+id/room605_Fire_ext"
+            tools:layout_editor_absoluteX="224dp" />
 
         <ImageSwitcher
             android:id="@+id/restRoom_Fire_ext"
@@ -729,17 +676,6 @@
             android:background="@drawable/pic_fire_ext"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/room602_Fire_ext" />
-
-        <ImageSwitcher
-            android:id="@+id/hallWay02_Fire_ext"
-            android:layout_width="20dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="92dp"
-            android:clickable="true"
-            android:background="@drawable/pic_fire_ext"
-            app:layout_constraintStart_toEndOf="@+id/room604_Fire_ext"
-            app:layout_constraintTop_toBottomOf="@+id/hallWay01_Fire_ext" />
 
         <ImageSwitcher
             android:id="@+id/room603_Fire_ext"

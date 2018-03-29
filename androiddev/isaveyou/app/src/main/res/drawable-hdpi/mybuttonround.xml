@@ -11,8 +11,6 @@
         android:bottom="10dp"
         />
     <solid
-        android:color="@color/white"/>
-    <stroke
-        android:color="@color/black_semi_transparent"
-        android:width="2dp" />
+        android:color="@color/colorMediumSpringGreen"/>
+
 </shape>

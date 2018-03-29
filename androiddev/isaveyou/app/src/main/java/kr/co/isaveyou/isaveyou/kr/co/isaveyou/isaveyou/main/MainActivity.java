@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -24,6 +25,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -85,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"map클릭",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), FloorMapActivity.class);
-                intent.putExtra("event","2");
+                intent.setData(Uri.parse("2/000"));
                 startActivity(intent);
             }
         });
@@ -331,4 +333,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-}
+    }
+
+

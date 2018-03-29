@@ -26,7 +26,7 @@ import kr.co.isaveyou.isaveyou.R;
 public class Fire_extFragment extends android.support.v4.app.Fragment {
     private static final String TAG = "Fire_extFragment";
     ImageSwitcher fire_ext1, fire_ext2, fire_ext3, fire_ext4, fire_ext5, fire_ext6,  fire_ext7,  fire_ext8,  fire_ext9, fire_ext10, fire_ext11, fire_ext12;
-    ProgressBar pb_hallway01, pb_hallway02, pb_601, pb_602, pb_603, pb_604,pb_605,pb_606,pb_607, pb_waitingRoom, pb_restRoom, pb_607_1;
+    ProgressBar pb_hallway01, pb_601, pb_602, pb_603, pb_604,pb_605,pb_606,pb_607, pb_waitingRoom, pb_restRoom, pb_607_1;
     ArrayList<ImageSwitcher>switcherList = new ArrayList();
     Handler threadHandler = new Handler();
     ImageSwitcher switcher;
@@ -34,7 +34,7 @@ public class Fire_extFragment extends android.support.v4.app.Fragment {
     Thread thread;
     Button checkButton;
     ConstraintLayout layout_fire_ext1,layout_fire_ext2,layout_fire_ext3,layout_fire_ext4,layout_fire_ext5,layout_fire_ext6,layout_fire_ext7,layout_fire_ext8,layout_fire_ext9,layout_fire_ext10,layout_fire_ext11,layout_fire_ext12;
-    Resources res;
+
 
 
     View.OnClickListener handler = new View.OnClickListener() {
@@ -52,7 +52,6 @@ public class Fire_extFragment extends android.support.v4.app.Fragment {
                     layout_fire_ext1.setVisibility(View.VISIBLE);
 
                     break;
-
             }
         }
     };
@@ -87,17 +86,16 @@ public class Fire_extFragment extends android.support.v4.app.Fragment {
         checkButton.setOnClickListener(handler);
 
         fire_ext1 = view.findViewById(R.id.hallWay01_Fire_ext);
-        fire_ext2 = view.findViewById(R.id.hallWay02_Fire_ext);
-        fire_ext3 = view.findViewById(R.id.restRoom_Fire_ext);
-        fire_ext4 = view.findViewById(R.id.room601_Fire_ext);
-        fire_ext5 = view.findViewById(R.id.room602_Fire_ext);
-        fire_ext6 = view.findViewById(R.id.room603_Fire_ext);
-        fire_ext7 = view.findViewById(R.id.room604_Fire_ext);
-        fire_ext8 = view.findViewById(R.id.room605_Fire_ext);
-        fire_ext9 = view.findViewById(R.id.room606_Fire_ext);
-        fire_ext10 = view.findViewById(R.id.room607_Fire_ext);
-        fire_ext11 = view.findViewById(R.id.room607_1_Fire_ext);
-        fire_ext12 = view.findViewById(R.id.waitingRoom_Fire_ext);
+        fire_ext2 = view.findViewById(R.id.restRoom_Fire_ext);
+        fire_ext3 = view.findViewById(R.id.room601_Fire_ext);
+        fire_ext4 = view.findViewById(R.id.room602_Fire_ext);
+        fire_ext5 = view.findViewById(R.id.room603_Fire_ext);
+        fire_ext6 = view.findViewById(R.id.room604_Fire_ext);
+        fire_ext7 = view.findViewById(R.id.room605_Fire_ext);
+        fire_ext8 = view.findViewById(R.id.room606_Fire_ext);
+        fire_ext9 = view.findViewById(R.id.room607_Fire_ext);
+        fire_ext10 = view.findViewById(R.id.room607_1_Fire_ext);
+        fire_ext11 = view.findViewById(R.id.waitingRoom_Fire_ext);
 
         fire_ext1.setOnClickListener(handler);
         fire_ext2.setOnClickListener(handler);
@@ -110,7 +108,6 @@ public class Fire_extFragment extends android.support.v4.app.Fragment {
         fire_ext9.setOnClickListener(handler);
         fire_ext10.setOnClickListener(handler);
         fire_ext11.setOnClickListener(handler);
-        fire_ext12.setOnClickListener(handler);
 
         switcherList.add(fire_ext1);
         switcherList.add(fire_ext2);
@@ -123,10 +120,8 @@ public class Fire_extFragment extends android.support.v4.app.Fragment {
         switcherList.add(fire_ext9);
         switcherList.add(fire_ext10);
         switcherList.add(fire_ext11);
-        switcherList.add(fire_ext12);
 
         pb_hallway01 = view.findViewById(R.id.pb_hallway01);
-        pb_hallway02 = view.findViewById(R.id.pb_hallway02);
         pb_restRoom = view.findViewById(R.id.pb_restRoom);
         pb_601 = view.findViewById(R.id.pb_601);
         pb_602 = view.findViewById(R.id.pb_602);
@@ -141,7 +136,6 @@ public class Fire_extFragment extends android.support.v4.app.Fragment {
         pb_hallway01.setProgress(80);
 
         layout_fire_ext1 = view.findViewById(R.id.hallway01_cLayout);
-        layout_fire_ext2 = view.findViewById(R.id.hallway02_cLayout);
         layout_fire_ext3 = view.findViewById(R.id.hallway01_cLayout);
         layout_fire_ext4 = view.findViewById(R.id.hallway01_cLayout);
         layout_fire_ext5 = view.findViewById(R.id.hallway01_cLayout);

@@ -1,48 +1,41 @@
 package kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.main;
 
 
-import android.media.MediaPlayer;
-import android.media.MediaPlayer.OnCompletionListener;
-import android.media.MediaPlayer.OnPreparedListener;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 
-import android.support.v4.app.FragmentManager;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 
-import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
+
 import kr.co.isaveyou.isaveyou.R;
 
 //스트리밍을 위한 Fragment
 public class MonitoringFragment extends android.support.v4.app.Fragment {
     private static final String TAG = "MonitoringFragment";
-    VideoView videoView_monitoring;
-    TextView tv_monitoring, tv_time, tv_text;
+    WebView wv_monitoring;
+
     Button btn_stop, btn_start;
-    SeekBar sk_monitoring;
+
     String streamingServer_access, streamingServer_url;
     HttpURLConnection conn;
-    Handler updateHandler = new Handler();
+    String myUrl;
 
     String result;
     View.OnClickListener handler = new View.OnClickListener() {
@@ -52,64 +45,23 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
                 case R.id.btn_start:
                     try {
                         Toast.makeText(getContext(),"로딩 중, 잠시만 기다려주세요.",Toast.LENGTH_SHORT).show();
-                        String url = streamingServer_url;
-//                        try{
-//                            Uri uri = Uri.parse(url);
-//
-//                            videoView_monitoring.setVideoURI(uri);}catch (Exception e){
-//                            Toast.makeText(getContext(),"Error", Toast.LENGTH_SHORT).show();
-//                        }
-//                        //준비하는 과정
-//                        videoView_monitoring.requestFocus();
-//
-//                        videoView_monitoring.setOnInfoListener(new MediaPlayer.OnInfoListener() {
-//                            @Override
-//                            public boolean onInfo(MediaPlayer mp, int what, int extra) {
-//                                switch (what) {
-//                                    case MediaPlayer.MEDIA_INFO_BUFFERING_START:
-//                                        Toast.makeText(getContext(), "Buffering", Toast.LENGTH_SHORT).show();
-//                                        break;
-//                                    case MediaPlayer.MEDIA_INFO_BUFFERING_END:
-//                                        Toast.makeText(getContext(), "Buffering finished\n Resume Playing", Toast.LENGTH_SHORT).show();
-//                                        videoView_monitoring.start();
-//                                        break;
-//                                }
-//
-//                                return false;
-//                            }
-//                        });
-//
-//                        videoView_monitoring.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-//                            @Override
-//                            public void onPrepared(MediaPlayer mp) {
-//                                long finalTime = videoView_monitoring.getDuration();
-//                                tv_time.setText(String.format("%d:%d", TimeUnit.MILLISECONDS.toMinutes((long) finalTime), TimeUnit.MILLISECONDS.toSeconds((long) finalTime), TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long) finalTime))));
-//                                sk_monitoring.setMax((int) finalTime);
-//                                sk_monitoring.setProgress(0);
-//                                updateHandler.postDelayed(updateVideoTime, 100);
-//                                Toast.makeText(getContext(), "Playing Video", Toast.LENGTH_SHORT).show();
-//                                videoView_monitoring.start();
-//                            }
-//                        });
+                        wv_monitoring.loadUrl(streamingServer_url);
+
 
 
 
                         Log.v(TAG,"영상 재생 시작");
-                        Log.v(TAG,"재생 버튼 눌림");
+                        Log.v(TAG,"재생 버튼 누름");
 
 
                     }catch (Exception e) {
                         e.printStackTrace();
                     }
-//                case R.id.btn_stop:
-//                    //영상 정지 버튼을 눌렀을 때, 서버에 신호를 보내어 Streaming을 종료
-//                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//                    fragmentManager.beginTransaction().remove(MonitoringFragment.this).commit();
-//                    Log.v(TAG,"정지버튼눌림");
-//                    StopTask stopTask = new StopTask();
-//                    stopTask.execute();
-//
-//                    break;
+                case R.id.btn_stop:
+                    StopTask stopTask = new StopTask();
+                    stopTask.execute();
+                    Log.v(TAG,"영상 재생 종료");
+                    Log.v(TAG,"종료 버튼 누름");
             }
         }
     };
@@ -129,19 +81,38 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_monitoring,null);
-        tv_monitoring = (TextView)view.findViewById(R.id.tv_monitoring);
-        tv_text = (TextView)view.findViewById(R.id.tv_text);
-//        sk_monitoring = (SeekBar) view.findViewById(R.id.sk_monitoring);
+
+        wv_monitoring = (WebView)view.findViewById(R.id.wv_monitoring);
         btn_start = view.findViewById(R.id.btn_start);
         btn_stop = view.findViewById(R.id.btn_stop);
-        sk_monitoring.bringToFront();
-        tv_monitoring.bringToFront();
-        tv_text.bringToFront();
+
+
         btn_start.bringToFront();
         btn_stop.bringToFront();
 
-
-
+        wv_monitoring.getSettings().setJavaScriptEnabled(true);
+        wv_monitoring.setWebChromeClient(new WebChromeClient());
+        wv_monitoring.setWebViewClient(new WebViewClient());
+        wv_monitoring.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                //필터
+                if(event.getAction()!=KeyEvent.ACTION_DOWN){
+                    return true;
+                }
+                if(keyCode == KeyEvent.KEYCODE_BACK){
+                    if(wv_monitoring.canGoBack()){
+                        wv_monitoring.goBack();
+                        Log.v(TAG,"뒤로 가기 눌림");
+                    } else {
+                        Log.v(TAG,"뒤로 갈 수 없음");
+                        ((MainActivity)getActivity()).onBackPressed();
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
         btn_stop.setOnClickListener(handler);
         btn_stop.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -180,14 +151,14 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
         });
 
 
-//        tv_time = view.findViewById(R.id.tv_time);
+
 
         Log.v(TAG,"영상 준비 작업 시작");
         Log.v(TAG, getArguments()+"");
 
         Log.v(TAG, "bundle 값 : streamingSever_access :"+ streamingServer_access + ", streamingServer_url :" + streamingServer_url);
 
-//        videoView_monitoring = (VideoView)view.findViewById(R.id.videoView_monitoring);
+
 
         StartTask starttask = new StartTask();
         starttask.execute();
@@ -195,16 +166,11 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
 
         return view;
     }
+    public void loadUrl(String url){
+        wv_monitoring.loadUrl(url);
+    }
 
 
-//    private Runnable updateVideoTime = new Runnable() {
-//        @Override
-//        public void run() {
-//            long currentPosition = videoView_monitoring.getCurrentPosition();
-//            sk_monitoring.setProgress((int)currentPosition);
-//            updateHandler.postDelayed(this,100);
-//        }
-//    };
 
     class StopTask extends AsyncTask<String, Void, String> {
         @Override
