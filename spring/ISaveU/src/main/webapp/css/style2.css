@@ -132,9 +132,21 @@ html, body{
 .rMateH5__Root{
 	width:0px !important;
 }
-.rMateH5__rMateChart{
-	margin-left:-550px;
-
+#a1{
+	position:relative;
+	left:30px;
+	top:30px;
+}
+#a2{
+	position:relative;
+	left:650px;
+	bottom:370px;
+}
+#content1 .rMateH5__rMateChart{
+	margin-top:0px !important;
+}
+#content2 .rMateH5__rMateChart{
+	
 }
 .rMateH5__ContentPane{
 
