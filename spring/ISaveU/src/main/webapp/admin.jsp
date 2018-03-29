@@ -111,12 +111,12 @@
 		</div>
 		<div class="contents">
 			<div id="content"
-				style="height: 520px; width: 550; position: relative;">
+				style="height: 400px; width: 550; position: relative;">
 				<!-- 차트가 삽입될 DIV -->
-				<div id="chartHolder1" class="chartHolder" style="height: 130px;"></div>
-				<div id="chartHolder2" class="chartHolder" style="height: 130px;"></div>
-				<div id="chartHolder3" class="chartHolder" style="height: 130px;"></div>
-				<div id="chartHolder4" class="chartHolder" style="height: 130px;"></div>
+				<div id="chartHolder1" class="chartHolder" style="height: 100px;"></div>
+				<div id="chartHolder2" class="chartHolder" style="height: 100px;"></div>
+				<div id="chartHolder3" class="chartHolder" style="height: 100px;"></div>
+				<div id="chartHolder4" class="chartHolder" style="height: 100px;"></div>
 			</div>
 			<div class="info">
 				<div class="value">현재 온도 센서값</div>
