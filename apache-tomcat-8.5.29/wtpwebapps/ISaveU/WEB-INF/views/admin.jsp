@@ -47,18 +47,19 @@
 	    console.log("this will be triggered");
 	});
   function showAlert(){
-	  document.getElementById("art").style.margin = "0px";
-	  alert("불났어");
+	  document.getElementById("art").style.display="block";
+	  document.getElementById("fireBtn").style.display="block";
   }
   function closeAlert(){
-	  document.getElementById("art").style.margin = "-200px";
 	  showLocation();
+	  document.getElementById("art").style.display="none";
+	  document.getElementById("fireBtn").style.display="none";
   }
   function showLocation(){
-	  document.getElementById("lct").style.height = "825px";
+	  document.getElementById("lct").style.display="block";
   }
   function closeLocation(){
-	  document.getElementById("lct").style.height = "0px";
+	  document.getElementById("lct").style.display="none";
   }
 </script>
 <style>
@@ -71,7 +72,7 @@
 	height: 500px;
 	position: absolute;
 	background-color: transparent !important;
-	left: 240px;
+	left: 250px;
 	bottom: 380px;
 }
 
@@ -91,7 +92,7 @@
 	<div class="wrapper">
 		<div class="alert" id="art" >
 			화재 발생
-			<div class="fireBtn" onclick="closeAlert()">위치확인</div>			
+			<div id="fireBtn" onclick="closeAlert()">위치확인</div>			
 		</div>
 		<div class="location" id="lct" onclick="closeLocation()">
 		</div>
@@ -109,26 +110,33 @@
 
 		</div>
 		<div class="contents">
-			<div id="content"
-				style="height: 520px; width: 550; position: relative;">
-				<!-- 차트가 삽입될 DIV -->
-				<div id="chartHolder1" class="chartHolder" style="height: 130px;"></div>
-				<div id="chartHolder2" class="chartHolder" style="height: 130px;"></div>
-				<div id="chartHolder3" class="chartHolder" style="height: 130px;"></div>
-				<div id="chartHolder4" class="chartHolder" style="height: 130px;"></div>
+			<div class="Area" id="sector1">
+				<div id="content"
+					style="height: 520px; width: 550; position: relative;">
+					<!-- 차트가 삽입될 DIV -->
+					<div id="chartHolder1" class="chartHolder" style="height: 130px;"></div>
+					<div id="chartHolder2" class="chartHolder" style="height: 130px;"></div>
+					<div id="chartHolder3" class="chartHolder" style="height: 130px;"></div>
+					<div id="chartHolder4" class="chartHolder" style="height: 130px;"></div>
+				</div>
+				<div class="info">
+					<div class="value">현재 온도 센서값</div>
+					<div class="value">현재 진동 센서값</div>
+					<div class="value">현재 CO 센서값</div>
+					<div class="value">현재 불꽃 센서값</div>
+				</div>
 			</div>
-			<div class="info">
-				<div class="value">현재 온도 센서값</div>
-				<div class="value">현재 진동 센서값</div>
-				<div class="value">현재 CO 센서값</div>
-				<div class="value">현재 불꽃 센서값</div>
-			</div>
-			<div>
+			<div class="Area" id="sector2">
 				<div id="result1"></div>
 				<div id="result2"></div>
 				<div id="result3"></div>
 				<div id="result4"></div>
 			</div>
+			<div class="Area" id="sector3">
+			</div>
+			<div class="Area" id="sector4">
+			</div>
+			
 		</div>
 		<div class="footer">
 			<div style="padding: 7px;">Copyright © 2018 HSB Inc.</div>
