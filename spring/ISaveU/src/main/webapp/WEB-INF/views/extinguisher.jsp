@@ -53,8 +53,8 @@ function checkex(){
 	        state[10] = ob.toString(610);
 	        
 	        var result1 = document.getElementById("result1");
-	        result1.innerHTML = state;
-	        console.log(state);
+	        result1.innerHTML = state[0];
+	        console.log(state[0]);
 	      }
 	    });
 }  
