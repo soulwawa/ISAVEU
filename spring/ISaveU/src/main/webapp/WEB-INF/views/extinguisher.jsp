@@ -19,6 +19,83 @@
 	.result{
 	float:left;
 	}
+#ex1{
+	position:absolute;
+	z-index:1005;
+	left:120px;
+	top:105px;
+	z-index:1500;
+}
+#ex2{
+	position:absolute;
+	z-index:1005;
+	left:280px;
+	top:65px;
+	z-index:1500;
+}
+#ex3{
+	position:absolute;
+	z-index:1005;
+	left:120px;
+	top:190px;
+	z-index:1500;
+}
+#ex4{
+	position:absolute;
+	z-index:1005;
+	left:120px;
+	top:330px;
+	z-index:1500;
+}
+#ex5{
+	position:absolute;
+	z-index:1005;
+	left:120px;
+	top:475px;
+	z-index:1500;
+}
+#ex6{
+	position:absolute;
+	z-index:1005;
+	left:160px;
+	top:645px;
+	z-index:1500;
+}
+#ex7{
+	position:absolute;
+	z-index:1005;
+	left:280px;
+	top:225px;
+	z-index:1500;
+}
+#ex8{
+	position:absolute;
+	z-index:1005;
+	left:300px;
+	top:380px;
+	z-index:1500;
+}
+#ex9{
+	position:absolute;
+	z-index:1005;
+	left:390px;
+	top:540px;
+	z-index:1500;
+}
+#ex10{
+	position:absolute;
+	z-index:1005;
+	left:390px;
+	top:645px;
+	z-index:1500;
+}
+#ex11{
+	position:absolute;
+	z-index:1005;
+	left:193px;
+	top:215px;
+	z-index:1500;
+}
 </style>
 <script>
 var interval = setInterval(function () {
@@ -48,7 +125,6 @@ function checkex(){
 	        	var j = 600 + i;
 	            var k = j.toString(); 
 	        	state[i] = ob[k];
-	            document.getElementById("result"+i).innerHTML = state[i];
 	        }
 	      }
 	    });
@@ -104,37 +180,37 @@ function sleep(gap){
 			</div>
 			<div id="exts1">
 				<div class="shake-freeze" id="ex1">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ex2">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ex3">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ex4">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ex5">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ex6">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ex7">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ex8">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ex9">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ex10">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ex11">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 			</div>
 		</div>

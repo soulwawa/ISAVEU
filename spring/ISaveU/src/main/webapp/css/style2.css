@@ -44,14 +44,13 @@ html, body{
 }
 #lct{
 	display:none;
-	width:455px;
-	height:825px;
+	width:555px;
+	height:987px;
 	position:fixed;
-	left:700px;
-	top:100px;
+	left:650px;
 	z-index:1201;
 	transition:0.5s;
-	background: url(../img/fire.png);	
+	background: url(../img/map.png);	
 }
 .closeBtn{
 	display:none;
@@ -69,7 +68,7 @@ html, body{
 .header{
 	position:relative;
 	height:100px;
-	background-color: #ffffff;
+	background-color: #aaaaaa;
 	z-index: 815;
 		
 }
@@ -81,7 +80,7 @@ html, body{
     min-height: 100%;
     width: 230px;
     z-index: 810;
-    background-color: #ffffff;
+    background-color: #bbbbbb;
 	
 }
 .contents{
@@ -172,85 +171,86 @@ html, body{
     position:absolute;
 }
 .imgEtg{
+	position:relative;
 	width:25px;
 	height:25px;
  	animation: hideAndShow 0.5s infinite linear;
 }
+#ex0{
+	position:absolute;
+	z-index:1005;
+	left:240px;
+	top:270px;
+	z-index:1500;
+}
 #ex1{
 	position:absolute;
 	z-index:1005;
-	left:120px;
-	top:105px;
+	left:150px;
+	top:132px;
 	z-index:1500;
 }
 #ex2{
 	position:absolute;
 	z-index:1005;
-	left:280px;
-	top:65px;
+	left:150px;
+	top:235px;
 	z-index:1500;
 }
 #ex3{
 	position:absolute;
 	z-index:1005;
-	left:120px;
-	top:190px;
+	left:150px;
+	top:400px;
 	z-index:1500;
 }
 #ex4{
 	position:absolute;
 	z-index:1005;
-	left:120px;
-	top:330px;
+	left:150px;
+	top:570px;
 	z-index:1500;
 }
 #ex5{
 	position:absolute;
 	z-index:1005;
-	left:120px;
-	top:475px;
+	left:205px;
+	top:790px;
 	z-index:1500;
 }
 #ex6{
 	position:absolute;
 	z-index:1005;
-	left:160px;
-	top:645px;
+	left:350px;
+	top:75px;
 	z-index:1500;
 }
 #ex7{
 	position:absolute;
 	z-index:1005;
-	left:280px;
-	top:225px;
+	left:350px;
+	top:280px;
 	z-index:1500;
 }
 #ex8{
 	position:absolute;
 	z-index:1005;
-	left:300px;
-	top:380px;
+	left:390px;
+	top:460px;
 	z-index:1500;
 }
 #ex9{
 	position:absolute;
 	z-index:1005;
-	left:390px;
-	top:540px;
+	left:490px;
+	top:690px;
 	z-index:1500;
 }
 #ex10{
 	position:absolute;
 	z-index:1005;
-	left:390px;
-	top:645px;
-	z-index:1500;
-}
-#ex11{
-	position:absolute;
-	z-index:1005;
-	left:193px;
-	top:215px;
+	left:490px;
+	top:790px;
 	z-index:1500;
 }
 @keyframes hideAndShow {

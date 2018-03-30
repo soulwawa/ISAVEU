@@ -50,6 +50,24 @@
   function showAlert(){
 	  document.getElementById("art").style.display="block";
 	  document.getElementById("fireBtn").style.display="block";
+	  $.ajax({
+	      type: "GET",
+	      url: "http://192.168.0.35:9999/locationFireEx.do",
+	      dataType: "json",
+	      success: function(data) {
+	        ob = data;
+	        var state = new Array();
+
+	        for(var i = 0; i < 11; i++){
+	        	var j = 600 + i;
+	            var k = j.toString(); 
+	        	state[i] = ob[k];
+	        	if(state[i] == 0){
+	        		document.getElementById("ex"+i).style.display="none";
+	        	}
+	        }
+	      }
+	    });
   }
   function closeAlert(){
 	  showLocation();
@@ -115,6 +133,43 @@
 			<div id="fireBtn" onclick="closeAlert()">위치확인</div>			
 		</div>
 		<div class="location" id="lct" onclick="closeLocation()">
+			<div id="fire">
+			<div id="exts1">
+				<div class="shake-freeze" id="ex0">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex1">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex2">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex3">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex4">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex5">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex6">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex7">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex8">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex9">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex10">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+			</div>
+			</div>
 		</div>
 		<div class="header">
 			<div class="case">
