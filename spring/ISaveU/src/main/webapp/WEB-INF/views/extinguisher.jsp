@@ -39,22 +39,21 @@ function checkex(){
 	      dataType: "json",
 	      success: function(data) {
 	        ob = data;
-	        var state = new Array();
-	        state[0] = ob.toString(600);
-	        state[1] = ob.toString(601);
-	        state[2] = ob.toString(602);
-	        state[3] = ob.toString(603);
-	        state[4] = ob.toString(604);
-	        state[5] = ob.toString(605);
-	        state[6] = ob.toString(606);
-	        state[7] = ob.toString(607);
-	        state[8] = ob.toString(608);
-	        state[9] = ob.toString(609);
-	        state[10] = ob.toString(610);
+	        var state0 = ob.toString(600);
+	        var state1 = ob.toString(601);
+	        var state2 = ob.toString(602);
+	        var state3 = ob.toString(603);
+	        var state4 = ob.toString(604);
+	        var state5 = ob.toString(605);
+	        var state6 = ob.toString(606);
+	        var state7 = ob.toString(607);
+	        var state8 = ob.toString(608);
+	        var state9 = ob.toString(609);
+	        var state10 = ob.toString(610);
 	        
 	        var result1 = document.getElementById("result1");
-	        result1.innerHTML = state[0];
-	        console.log(state[0]);
+	        result1.innerHTML = state1;
+	        console.log(state1);
 	      }
 	    });
 }  
