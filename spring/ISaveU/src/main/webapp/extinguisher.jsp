@@ -39,8 +39,10 @@ function checkex(){
 	      dataType: "json",
 	      success: function(data) {
 	        ob = data;
+	        a = ob.toString(601);
 	        var result1 = document.getElementById("result1");
-	        result1.innerHTML = ob.toString(600);
+	        result1.innerHTML = ob.toString(600) + a;
+	        console.log(a);
 
 	      }
 	    });
@@ -129,13 +131,13 @@ function sleep(gap){
 					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 			</div>
-		</div>
-		<div class="footer">
-			<input type="button" value="사용가능한 소화기 확인하기" onclick="checkex()"/>
 			<div id="result1">
 			</div>
 			<div id="result2">
 			</div>
+		</div>
+		<div class="footer">
+			<input type="button" value="사용가능한 소화기 확인하기" onclick="checkex()"/>
 		</div>
 	</div>
 </body>

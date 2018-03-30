@@ -69,7 +69,7 @@ html, body{
 .header{
 	position:relative;
 	height:100px;
-	background-color: #3c8dbc;
+	background-color: #ffffff;
 	z-index: 815;
 		
 }
@@ -81,7 +81,7 @@ html, body{
     min-height: 100%;
     width: 230px;
     z-index: 810;
-    background-color: #222d32;
+    background-color: #ffffff;
 	
 }
 .contents{
