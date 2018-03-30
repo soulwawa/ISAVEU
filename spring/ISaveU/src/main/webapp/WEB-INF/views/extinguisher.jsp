@@ -16,6 +16,9 @@
 	position:fixed;
 	z-index:1250;
 	}
+	.result{
+	float:left;
+	}
 </style>
 <script>
 var interval = setInterval(function () {
@@ -39,9 +42,14 @@ function checkex(){
 	      dataType: "json",
 	      success: function(data) {
 	        ob = data;
-	        var result1 = document.getElementById("result1");
-	        result1.innerHTML = ob.600.toString();
+	        var state = new Array();
 
+	        for(var i = 0; i < 11; i++){
+	        	var j = 600 + i;
+	            var k = j.toString(); 
+	        	state[i] = ob[k];
+	            document.getElementById("result"+i).innerHTML = state[i];
+	        }
 	      }
 	    });
 }  
@@ -132,9 +140,27 @@ function sleep(gap){
 		</div>
 		<div class="footer">
 			<input type="button" value="사용가능한 소화기 확인하기" onclick="checkex()"/>
-			<div id="result1">
+			<div class="result" id="result0">
 			</div>
-			<div id="result2">
+			<div class="result" id="result1">
+			</div>
+			<div class="result" id="result2">
+			</div>
+			<div class="result" id="result3">
+			</div>
+			<div class="result" id="result4">
+			</div>
+			<div class="result" id="result5">
+			</div>
+			<div class="result" id="result6">
+			</div>
+			<div class="result" id="result7">
+			</div>
+			<div class="result" id="result8">
+			</div>
+			<div class="result" id="result9">
+			</div>
+			<div class="result" id="result10">
 			</div>
 		</div>
 	</div>
