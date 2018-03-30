@@ -42,12 +42,10 @@ function checkex(){
 	        var state = new Array();
 	        for(var i = 0; i < 11; i++){
 	        	state[i] = ob.toString(600+i);
-	        }
-	        var result1 = document.getElementById("result1");
-	        result1.innerHTML = state;
-	        for(var i = 0; i < 11; i++){
 	        	console.log(state[i]);
 	        }
+	        var result1 = document.getElementById("result1");
+	        result1.innerHTML = state[0]+state[1]+state[2]+state[3]+state[4]+state[5]+state[6]];
 	      }
 	    });
 }  
