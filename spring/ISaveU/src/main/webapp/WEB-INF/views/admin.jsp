@@ -65,6 +65,9 @@
 	        	if(state[i] == 0){
 	        		document.getElementById("ex"+i).style.display="none";
 	        	}
+	        	if(state[i] == 1){
+	        		document.getElementById("ex"+i).style.display="block";
+	        	}
 	        }
 	      }
 	    });
@@ -82,29 +85,6 @@
   }
 </script>
 <style>
-#streaming{
-	height:360px; 
-	width:590px; 
-	margin:0px;
-	padding:0px;
-	position:relative;
-	background:red;
-}
-#streaming html{
-	height:360px; 
-	width:590px; 
-	margin:0px;
-	padding:0px;
-	position:relative;
-}
-#streaming body{
-	height:360px; 
-	width:590px; 
-	margin:0px;
-	padding:0px;
-	position:relative;
-}
-
 .info {
 	width: 500px;
 	height: 400px;
@@ -213,8 +193,6 @@
 				<div class="area" id="a3">
 					<div id="content3"
 						style="height: 400px; width: 550; position: relative;">
-						<iframe id="streaming" src="">
-						</iframe>
 					</div>
 				</div>
 				<div class="area" id="a4">
