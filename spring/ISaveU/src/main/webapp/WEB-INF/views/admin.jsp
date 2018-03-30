@@ -64,8 +64,27 @@
   }
 </script>
 <style>
-.contents div {
-	
+#streaming{
+	height:360px; 
+	width:590px; 
+	margin:0px;
+	padding:0px;
+	position:relative;
+	background:red;
+}
+#streaming html{
+	height:360px; 
+	width:590px; 
+	margin:0px;
+	padding:0px;
+	position:relative;
+}
+#streaming body{
+	height:360px; 
+	width:590px; 
+	margin:0px;
+	padding:0px;
+	position:relative;
 }
 
 .info {
@@ -139,7 +158,7 @@
 				<div class="area" id="a3">
 					<div id="content3"
 						style="height: 400px; width: 550; position: relative;">
-						<iframe>
+						<iframe id="streaming" src="">
 						</iframe>
 					</div>
 				</div>
