@@ -132,13 +132,13 @@ function sleep(gap){
 					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 			</div>
-		</div>
-		<div class="footer">
-			<input type="button" value="사용가능한 소화기 확인하기" onclick="checkex()"/>
 			<div id="result1">
 			</div>
 			<div id="result2">
 			</div>
+		</div>
+		<div class="footer">
+			<input type="button" value="사용가능한 소화기 확인하기" onclick="checkex()"/>
 		</div>
 	</div>
 </body>
