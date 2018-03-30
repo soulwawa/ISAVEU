@@ -1,4 +1,4 @@
-package kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.login;
+package kr.co.isaveyou.isaveyou.login;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -27,7 +27,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-import kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.main.MainActivity;
+import kr.co.isaveyou.isaveyou.main.MainActivity;
 import kr.co.isaveyou.isaveyou.R;
 
 
@@ -60,6 +60,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
+
         etId = findViewById(R.id.login_id);
         etPw = findViewById(R.id.login_pw);
         findViewById(R.id.login_button).setOnClickListener(handler);

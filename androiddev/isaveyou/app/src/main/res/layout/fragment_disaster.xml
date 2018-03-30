@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.map.DisasterFragment">
+    tools:context="kr.co.isaveyou.isaveyou.map.DisasterFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -12,16 +12,16 @@
         android:layout_height="match_parent">
 
         <ImageSwitcher
-            android:id="@+id/iv_hallway"
+            android:id="@+id/is_600"
             android:layout_width="35dp"
             android:layout_height="33dp"
             android:layout_marginStart="40dp"
             android:visibility="visible"
-            app:layout_constraintStart_toEndOf="@+id/iv_603"
-            app:layout_constraintTop_toTopOf="@+id/iv_603" />
+            app:layout_constraintStart_toEndOf="@+id/is_603"
+            app:layout_constraintTop_toTopOf="@+id/is_603" />
 
         <ImageSwitcher
-            android:id="@+id/iv_waitingRoom"
+            android:id="@+id/is_waitingRoom_601"
             android:layout_width="35dp"
             android:layout_height="33dp"
             android:layout_marginStart="92dp"
@@ -32,86 +32,86 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageSwitcher
-            android:id="@+id/iv_restRoom"
+            android:id="@+id/is_restRoom_610"
             android:layout_width="35dp"
             android:layout_height="33dp"
             android:layout_marginEnd="140dp"
             android:layout_marginTop="48dp"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_607_1" />
+            app:layout_constraintTop_toBottomOf="@+id/is_609" />
 
         <ImageSwitcher
-            android:id="@+id/iv_607_1"
+            android:id="@+id/is_609"
             android:layout_width="35dp"
             android:layout_height="33dp"
             android:layout_marginTop="64dp"
             android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="@+id/iv_607"
-            app:layout_constraintTop_toBottomOf="@+id/iv_607" />
+            app:layout_constraintEnd_toEndOf="@+id/is_608"
+            app:layout_constraintTop_toBottomOf="@+id/is_608" />
 
         <ImageSwitcher
-            android:id="@+id/iv_607"
+            android:id="@+id/is_608"
             android:layout_width="35dp"
             android:layout_height="33dp"
             android:layout_marginTop="88dp"
             android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="@+id/iv_606"
-            app:layout_constraintTop_toBottomOf="@+id/iv_606" />
+            app:layout_constraintEnd_toEndOf="@+id/is_607"
+            app:layout_constraintTop_toBottomOf="@+id/is_607" />
 
         <ImageSwitcher
-            android:id="@+id/iv_606"
+            android:id="@+id/is_607"
             android:layout_width="35dp"
             android:layout_height="33dp"
             android:layout_marginTop="60dp"
             android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="@+id/iv_605"
-            app:layout_constraintTop_toBottomOf="@+id/iv_605" />
+            app:layout_constraintEnd_toEndOf="@+id/is_606"
+            app:layout_constraintTop_toBottomOf="@+id/is_606" />
 
         <ImageSwitcher
-            android:id="@+id/iv_605"
+            android:id="@+id/is_606"
             android:layout_width="35dp"
             android:layout_height="33dp"
             android:layout_marginEnd="72dp"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/iv_waitingRoom" />
+            app:layout_constraintTop_toTopOf="@+id/is_waitingRoom_601" />
 
         <ImageSwitcher
-            android:id="@+id/iv_601"
+            android:id="@+id/is_605"
             android:layout_width="35dp"
             android:layout_height="33dp"
             android:layout_marginTop="60dp"
             android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="@+id/iv_602"
-            app:layout_constraintTop_toBottomOf="@+id/iv_602" />
+            app:layout_constraintEnd_toEndOf="@+id/is_604"
+            app:layout_constraintTop_toBottomOf="@+id/is_604" />
 
         <ImageSwitcher
-            android:id="@+id/iv_602"
+            android:id="@+id/is_604"
             android:layout_width="35dp"
             android:layout_height="33dp"
             android:layout_marginTop="56dp"
             android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="@+id/iv_603"
-            app:layout_constraintTop_toBottomOf="@+id/iv_603" />
+            app:layout_constraintEnd_toEndOf="@+id/is_603"
+            app:layout_constraintTop_toBottomOf="@+id/is_603" />
 
         <ImageSwitcher
-            android:id="@+id/iv_603"
+            android:id="@+id/is_603"
             android:layout_width="35dp"
             android:layout_height="33dp"
             android:layout_marginTop="72dp"
             android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="@+id/iv_604"
-            app:layout_constraintTop_toBottomOf="@+id/iv_604" />
+            app:layout_constraintEnd_toEndOf="@+id/is_602"
+            app:layout_constraintTop_toBottomOf="@+id/is_602" />
 
         <ImageSwitcher
-            android:id="@+id/iv_604"
+            android:id="@+id/is_602"
             android:layout_width="35dp"
             android:layout_height="33dp"
             android:layout_marginTop="40dp"
             android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="@+id/iv_waitingRoom"
-            app:layout_constraintTop_toBottomOf="@+id/iv_waitingRoom" />
+            app:layout_constraintEnd_toEndOf="@+id/is_waitingRoom_601"
+            app:layout_constraintTop_toBottomOf="@+id/is_waitingRoom_601" />
 
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>

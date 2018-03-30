@@ -1,4 +1,4 @@
-package kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.static_isssue;
+package kr.co.isaveyou.isaveyou.static_isssue;
 
 import android.content.Context;
 import android.net.Uri;

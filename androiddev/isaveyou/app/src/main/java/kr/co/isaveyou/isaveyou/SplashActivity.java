@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.login.LoginActivity;
+import kr.co.isaveyou.isaveyou.login.LoginActivity;
 
 /*
     앱 실행시 첫 화면

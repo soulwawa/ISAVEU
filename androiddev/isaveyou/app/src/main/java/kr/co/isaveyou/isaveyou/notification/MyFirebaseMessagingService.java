@@ -1,4 +1,4 @@
-package kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.notification;
+package kr.co.isaveyou.isaveyou.notification;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -21,11 +21,10 @@ import java.net.URL;
 import java.net.URLConnection;
 
 
-import kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.map.FloorMapActivity;
-import kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.main.MainActivity;
+import kr.co.isaveyou.isaveyou.map.FloorMapActivity;
+import kr.co.isaveyou.isaveyou.main.MainActivity;
 import kr.co.isaveyou.isaveyou.R;
 
-import static android.content.Intent.ACTION_VIEW;
 import static android.content.Intent.ACTION_DIAL;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -51,8 +50,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
             sendNotification(
                     remoteMessage.getData().get("title"),
-                    remoteMessage.getData().get("content_1"));
-//                    remoteMessage.getData().get("content_2"),
+                    remoteMessage.getData().get("content_1"),
+                    remoteMessage.getData().get("content_2"));
 //                    remoteMessage.getData().get("content_3"));
         }
 
@@ -64,8 +63,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         sendNotification(
                 //서버에서 보내오는 title, content를 인수로 지정
                 remoteMessage.getData().get("title"),
-                remoteMessage.getData().get("content_1")
-//                remoteMessage.getData().get("content_2"),
+                remoteMessage.getData().get("content_1"),
+                remoteMessage.getData().get("content_2")
 //                remoteMessage.getData().get("content_3")
         );
 
@@ -91,7 +90,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
 
-    private void sendNotification(String title, String messageBody) {
+    private void sendNotification(String title, String messageBody,String messageBody1) {
 
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -116,12 +115,26 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             BufferedInputStream bis = new BufferedInputStream(connection.getInputStream());
 
             img = BitmapFactory.decodeStream(bis);
-            Log.v(TAG, "url : " + url + ", messagebody : " + messageBody);
+            Log.v(TAG, "url : " + url + ", messagebody : " + messageBody + ", messagebody1 :" + messageBody1);
         }catch (Exception e) {
             e.printStackTrace();
         }
-
-
+        //issue 구분을 위한 switch문
+        String issue = "";
+        switch (messageBody1){
+            case "1" :
+                issue = "화재";
+                break;
+            case "2" :
+                issue = "지진";
+                break;
+            case "3" :
+                issue = "화재/지진";
+                break;
+            case "4" :
+                issue = "소화기";
+                break;
+        }
         String channelId = getString(R.string.default_notification_channel_id);
 
 
@@ -133,7 +146,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Intent actionCall = new Intent(ACTION_DIAL,Uri.parse("tel:119"));
         Intent actionCheckPlace = new Intent(getApplicationContext(),FloorMapActivity.class);
         Intent actionCheckFire_ext = new Intent(getApplicationContext(),FloorMapActivity.class);
-        String roomNum = title;
+
+        String [] sArray = title.split("/");
+        String roomNum = sArray[0];
+        String roomName = sArray[1];
+        Log.v(TAG,"title : "+ title);
+        Log.v(TAG,"roomNum : "+ roomNum);
+        Log.v(TAG,"roomName : "+ roomName);
         actionCheckPlace.setData(Uri.parse("0" + "/" + roomNum));
         actionCheckFire_ext.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
@@ -164,13 +183,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setPriority(NotificationCompat.PRIORITY_MAX)
                 .setSound(notificationSoundURI)
                 .setNumber(100)
-                .setContentTitle("긴급상황 발생")
+                .setContentTitle(roomName +", "+ issue + " 발생")
                 .setWhen(System.currentTimeMillis())
                 .setStyle(new NotificationCompat.BigPictureStyle() /*스타일 지정*/
                         .bigPicture(mLargeIconForNoti)
                         .bigPicture(img)
-                        )
-                .setContentText(title + "호 비상상황 발생, 빠르게 대피해주세요!")
+                )
+                .setContentText("빠르게 대피해주세요!" +"\n 사진보기 ▼")
                 .addAction(R.drawable.pic_fire_call,getResources().getString(R.string.call),callPendingIntent) //119신고 액션 추가
                 .addAction(R.drawable.pic_checkplace, getResources().getString(R.string.checkPlace),checkPlacePendingIntent)
                 .addAction(R.drawable.pic_fire_ext,getResources().getString(R.string.checkFire_ext),checkFire_ext);

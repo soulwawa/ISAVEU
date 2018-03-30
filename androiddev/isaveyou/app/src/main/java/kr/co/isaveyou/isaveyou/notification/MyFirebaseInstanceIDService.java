@@ -1,4 +1,4 @@
-package kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.notification;
+package kr.co.isaveyou.isaveyou.notification;
 
 import android.util.Log;
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
-    tools:context="kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.map.Fire_extFragment">
+    tools:context="kr.co.isaveyou.isaveyou.map.Fire_extFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -24,19 +24,19 @@
          android:fitsSystemWindows. -->
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/hallway01_cLayout"
+            android:id="@+id/room600_hallway01_cLayout"
             android:layout_width="223dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:layout_marginStart="16dp"
-            android:foregroundGravity="center"
             android:background="@drawable/myprogressbarbackground"
+            android:foregroundGravity="center"
             android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/hallWay01_Fire_ext"
+            app:layout_constraintBottom_toTopOf="@+id/room600_hallWay01_Fire_ext"
             app:layout_constraintStart_toStartOf="parent">
 
             <TextView
-                android:id="@+id/tv_endDate_hallway01"
+                android:id="@+id/tv_600_endDate_hallway01"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="8dp"
@@ -46,10 +46,10 @@
                 android:textSize="8sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_hallway01" />
+                app:layout_constraintTop_toTopOf="@+id/room600_hallway01_cLayout" />
 
             <TextView
-                android:id="@+id/tv_startDate_hallway01"
+                android:id="@+id/tv_600_startDate_hallway01"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="4dp"
@@ -59,12 +59,12 @@
                 android:textColor="@color/pink"
                 android:textSize="8sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/pb_hallway01"
+                app:layout_constraintEnd_toStartOf="@+id/room600_hallway01_cLayout"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_hallway01" />
+                app:layout_constraintTop_toTopOf="@+id/room600_hallway01_cLayout" />
 
             <ProgressBar
-                android:id="@+id/pb_hallway01"
+                android:id="@+id/pb_hallway_600"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="114dp"
                 android:layout_height="13dp"
@@ -72,26 +72,26 @@
                 android:layout_marginEnd="4dp"
                 android:layout_marginTop="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_hallway01"
+                app:layout_constraintEnd_toStartOf="@+id/tv_600_endDate_hallway01"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/room605_cLayout"
+            android:id="@+id/room606_cLayout"
             android:layout_width="223dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:layout_marginEnd="8dp"
-            android:foregroundGravity="center"
             android:background="@drawable/myprogressbarbackground"
+            android:foregroundGravity="center"
             android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/room605_Fire_ext"
+            app:layout_constraintBottom_toTopOf="@+id/room606_Fire_ext"
             app:layout_constraintEnd_toEndOf="parent">
 
             <TextView
-                android:id="@+id/tv_endDate_605"
+                android:id="@+id/tv_endDate_606"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="8dp"
@@ -100,10 +100,10 @@
                 android:textColor="@color/pink"
                 android:textSize="8sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_605" />
+                app:layout_constraintTop_toTopOf="@+id/pb_606" />
 
             <TextView
-                android:id="@+id/tv_startDate_605"
+                android:id="@+id/tv_startDate_606"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="4dp"
@@ -112,12 +112,12 @@
                 android:text="2015.01.24"
                 android:textColor="@color/pink"
                 android:textSize="8sp"
-                app:layout_constraintEnd_toStartOf="@+id/pb_605"
+                app:layout_constraintEnd_toStartOf="@+id/pb_606"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_605" />
+                app:layout_constraintTop_toTopOf="@+id/pb_606" />
 
             <ProgressBar
-                android:id="@+id/pb_605"
+                android:id="@+id/pb_606"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="114dp"
                 android:layout_height="14dp"
@@ -125,24 +125,24 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginTop="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_605"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_606"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/waitingroom_cLayout"
+            android:id="@+id/room601_waitingroom_cLayout"
             android:layout_width="215dp"
             android:layout_height="wrap_content"
-            android:foregroundGravity="center"
             android:background="@drawable/myprogressbarbackground"
+            android:foregroundGravity="center"
             android:visibility="invisible"
-            app:layout_constraintStart_toEndOf="@+id/waitingRoom_Fire_ext"
-            app:layout_constraintTop_toTopOf="@+id/waitingRoom_Fire_ext">
+            app:layout_constraintStart_toEndOf="@+id/room601_waitingRoom_Fire_ext"
+            app:layout_constraintTop_toTopOf="@+id/room601_waitingRoom_Fire_ext">
 
             <TextView
-                android:id="@+id/tv_endDate_waiting"
+                android:id="@+id/tv_endDate_waiting_601"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="4dp"
@@ -151,10 +151,10 @@
                 android:textColor="@color/pink"
                 android:textSize="8sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_waitingRoom" />
+                app:layout_constraintTop_toTopOf="@+id/pb_waitingRoom_601" />
 
             <TextView
-                android:id="@+id/tv_startDate_waiting"
+                android:id="@+id/tv_startDate_waiting_601"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="4dp"
@@ -163,12 +163,12 @@
                 android:text="2015.01.24"
                 android:textColor="@color/pink"
                 android:textSize="8sp"
-                app:layout_constraintEnd_toStartOf="@+id/pb_waitingRoom"
+                app:layout_constraintEnd_toStartOf="@+id/pb_waitingRoom_601"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_waitingRoom" />
+                app:layout_constraintTop_toTopOf="@+id/pb_waitingRoom_601" />
 
             <ProgressBar
-                android:id="@+id/pb_waitingRoom"
+                android:id="@+id/pb_waitingRoom_601"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="114dp"
                 android:layout_height="14dp"
@@ -176,24 +176,26 @@
                 android:layout_marginEnd="4dp"
                 android:layout_marginTop="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_waiting"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_waiting_601"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/room604_cLayout"
+            android:id="@+id/room602_cLayout"
             android:layout_width="213dp"
             android:layout_height="wrap_content"
-            android:foregroundGravity="center"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="20dp"
             android:background="@drawable/myprogressbarbackground"
+            android:foregroundGravity="center"
             android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/room604_Fire_ext"
-            app:layout_constraintStart_toStartOf="@+id/room604_Fire_ext">
+            app:layout_constraintBottom_toBottomOf="@+id/room602_Fire_ext"
+            app:layout_constraintStart_toStartOf="@+id/room602_Fire_ext">
 
             <TextView
-                android:id="@+id/tv_endDate_604"
+                android:id="@+id/tv_endDate_602"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="4dp"
@@ -202,10 +204,10 @@
                 android:textColor="@color/pink"
                 android:textSize="8sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_604" />
+                app:layout_constraintTop_toTopOf="@+id/pb_602" />
 
             <TextView
-                android:id="@+id/tv_startDate_604"
+                android:id="@+id/tv_startDate_602"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="4dp"
@@ -214,12 +216,12 @@
                 android:text="2015.01.24"
                 android:textColor="@color/pink"
                 android:textSize="8sp"
-                app:layout_constraintEnd_toStartOf="@+id/pb_604"
+                app:layout_constraintEnd_toStartOf="@+id/pb_602"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_604" />
+                app:layout_constraintTop_toTopOf="@+id/pb_602" />
 
             <ProgressBar
-                android:id="@+id/pb_604"
+                android:id="@+id/pb_602"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="114dp"
                 android:layout_height="14dp"
@@ -229,26 +231,26 @@
                 android:indeterminateOnly="false"
                 android:max="100"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_604"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_602"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/room606_cLayout"
+            android:id="@+id/room607_cLayout"
             android:layout_width="212dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginTop="4dp"
-            android:foregroundGravity="center"
             android:background="@drawable/myprogressbarbackground"
+            android:foregroundGravity="center"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/room606_Fire_ext">
+            app:layout_constraintTop_toBottomOf="@+id/room607_Fire_ext">
 
             <TextView
-                android:id="@+id/tv_endDate_606"
+                android:id="@+id/tv_endDate_607"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="4dp"
@@ -261,22 +263,22 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_startDate_606"
-                android:layout_width="wrap_content"
-                android:layout_height="11dp"
+                android:id="@+id/tv_startDate_607"
+                android:layout_width="43dp"
+                android:layout_height="15dp"
                 android:layout_marginEnd="4dp"
                 android:layout_marginStart="4dp"
                 android:hint="2015.01.24"
                 android:text="2015.01.24"
                 android:textColor="@color/pink"
                 android:textSize="8sp"
-                app:layout_constraintEnd_toStartOf="@+id/pb_606"
+                app:layout_constraintEnd_toStartOf="@+id/pb_607"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_606" />
+                app:layout_constraintTop_toTopOf="@+id/pb_607" />
 
             <ProgressBar
-                android:id="@+id/pb_606"
+                android:id="@+id/pb_607"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="114dp"
                 android:layout_height="14dp"
@@ -286,7 +288,7 @@
                 android:indeterminateOnly="false"
                 android:max="100"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_606"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_607"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </android.support.constraint.ConstraintLayout>
@@ -346,17 +348,17 @@
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/room607_cLayout"
+            android:id="@+id/room608_cLayout"
             android:layout_width="211dp"
             android:layout_height="wrap_content"
-            android:foregroundGravity="center"
             android:background="@drawable/myprogressbarbackground"
+            android:foregroundGravity="center"
             android:visibility="invisible"
-            app:layout_constraintEnd_toStartOf="@+id/room607_Fire_ext"
-            app:layout_constraintTop_toTopOf="@+id/room607_Fire_ext">
+            app:layout_constraintEnd_toStartOf="@+id/room608_Fire_ext"
+            app:layout_constraintTop_toTopOf="@+id/room608_Fire_ext">
 
             <TextView
-                android:id="@+id/tv_endDate_607"
+                android:id="@+id/tv_endDate_608"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="4dp"
@@ -365,10 +367,10 @@
                 android:textColor="@color/pink"
                 android:textSize="8sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_607" />
+                app:layout_constraintTop_toTopOf="@+id/pb_608" />
 
             <TextView
-                android:id="@+id/tv_startDate_607"
+                android:id="@+id/tv_startDate_608"
                 android:layout_width="wrap_content"
                 android:layout_height="12dp"
                 android:layout_marginEnd="4dp"
@@ -377,12 +379,12 @@
                 android:text="2015.01.24"
                 android:textColor="@color/pink"
                 android:textSize="8sp"
-                app:layout_constraintEnd_toStartOf="@+id/pb_607"
+                app:layout_constraintEnd_toStartOf="@+id/pb_608"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_607" />
+                app:layout_constraintTop_toTopOf="@+id/pb_608" />
 
             <ProgressBar
-                android:id="@+id/pb_607"
+                android:id="@+id/pb_608"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="114dp"
                 android:layout_height="14dp"
@@ -392,24 +394,24 @@
                 android:indeterminateOnly="false"
                 android:max="100"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_607"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_608"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/room602_cLayout"
+            android:id="@+id/room604_cLayout"
             android:layout_width="214dp"
             android:layout_height="wrap_content"
-            android:foregroundGravity="center"
             android:background="@drawable/myprogressbarbackground"
+            android:foregroundGravity="center"
             android:visibility="invisible"
-            app:layout_constraintStart_toEndOf="@+id/room602_Fire_ext"
-            app:layout_constraintTop_toTopOf="@+id/room602_Fire_ext">
+            app:layout_constraintStart_toEndOf="@+id/room604_Fire_ext"
+            app:layout_constraintTop_toTopOf="@+id/room604_Fire_ext">
 
             <TextView
-                android:id="@+id/tv_endDate_602"
+                android:id="@+id/tv_endDate_604"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="4dp"
@@ -418,10 +420,10 @@
                 android:textColor="@color/pink"
                 android:textSize="8sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_602" />
+                app:layout_constraintTop_toTopOf="@+id/pb_604" />
 
             <TextView
-                android:id="@+id/tv_startDate_602"
+                android:id="@+id/tv_startDate_604"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="4dp"
@@ -430,12 +432,12 @@
                 android:text="2015.01.24"
                 android:textColor="@color/pink"
                 android:textSize="8sp"
-                app:layout_constraintEnd_toStartOf="@+id/pb_602"
+                app:layout_constraintEnd_toStartOf="@+id/pb_604"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_602" />
+                app:layout_constraintTop_toTopOf="@+id/pb_604" />
 
             <ProgressBar
-                android:id="@+id/pb_602"
+                android:id="@+id/pb_604"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="114dp"
                 android:layout_height="14dp"
@@ -445,24 +447,24 @@
                 android:indeterminateOnly="false"
                 android:max="100"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_602"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_604"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/room607_1_cLayout"
+            android:id="@+id/room609_cLayout"
             android:layout_width="223dp"
             android:layout_height="wrap_content"
-            android:foregroundGravity="center"
             android:background="@drawable/myprogressbarbackground"
+            android:foregroundGravity="center"
             android:visibility="invisible"
-            app:layout_constraintEnd_toStartOf="@+id/room607_1_Fire_ext"
-            app:layout_constraintTop_toTopOf="@+id/room607_1_Fire_ext">
+            app:layout_constraintEnd_toStartOf="@+id/room609_Fire_ext"
+            app:layout_constraintTop_toTopOf="@+id/room609_Fire_ext">
 
             <TextView
-                android:id="@+id/tv_endDate_607_1"
+                android:id="@+id/tv_endDate_609"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="4dp"
@@ -471,10 +473,10 @@
                 android:textColor="@color/pink"
                 android:textSize="8sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_607_1" />
+                app:layout_constraintTop_toTopOf="@+id/pb_609" />
 
             <TextView
-                android:id="@+id/tv_startDate_607_1"
+                android:id="@+id/tv_startDate_609"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="4dp"
@@ -483,12 +485,12 @@
                 android:text="2015.01.24"
                 android:textColor="@color/pink"
                 android:textSize="8sp"
-                app:layout_constraintEnd_toStartOf="@+id/pb_607_1"
+                app:layout_constraintEnd_toStartOf="@+id/pb_609"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_607_1" />
+                app:layout_constraintTop_toTopOf="@+id/pb_609" />
 
             <ProgressBar
-                android:id="@+id/pb_607_1"
+                android:id="@+id/pb_609"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="114dp"
                 android:layout_height="14dp"
@@ -498,24 +500,26 @@
                 android:indeterminateOnly="false"
                 android:max="100"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_607_1"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_609"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/room601_cLayout"
+            android:id="@+id/room605_cLayout"
             android:layout_width="223dp"
             android:layout_height="wrap_content"
-            android:foregroundGravity="center"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
             android:background="@drawable/myprogressbarbackground"
+            android:foregroundGravity="center"
             android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/room601_Fire_ext"
-            app:layout_constraintStart_toStartOf="@+id/room601_Fire_ext">
+            app:layout_constraintBottom_toBottomOf="@+id/room605_Fire_ext"
+            app:layout_constraintStart_toEndOf="@+id/room605_Fire_ext">
 
             <TextView
-                android:id="@+id/tv_endDate_601"
+                android:id="@+id/tv_endDate_605"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="4dp"
@@ -524,10 +528,10 @@
                 android:textColor="@color/pink"
                 android:textSize="8sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_601" />
+                app:layout_constraintTop_toTopOf="@+id/pb_605" />
 
             <TextView
-                android:id="@+id/tv_startDate_601"
+                android:id="@+id/tv_startDate_605"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="4dp"
@@ -536,13 +540,13 @@
                 android:text="2015.01.24"
                 android:textColor="@color/pink"
                 android:textSize="8sp"
-                app:layout_constraintEnd_toStartOf="@+id/pb_601"
+                app:layout_constraintEnd_toStartOf="@+id/pb_605"
                 app:layout_constraintHorizontal_bias="0.666"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_601" />
+                app:layout_constraintTop_toTopOf="@+id/pb_605" />
 
             <ProgressBar
-                android:id="@+id/pb_601"
+                android:id="@+id/pb_605"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="114dp"
                 android:layout_height="14dp"
@@ -552,23 +556,23 @@
                 android:indeterminateOnly="false"
                 android:max="100"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_601"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_605"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/restRoom_cLayout"
+            android:id="@+id/restRoom610_cLayout"
             android:layout_width="222dp"
             android:layout_height="wrap_content"
-            android:foregroundGravity="center"
             android:background="@drawable/myprogressbarbackground"
+            android:foregroundGravity="center"
             android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="@+id/restRoom_Fire_ext"
-            app:layout_constraintTop_toBottomOf="@+id/restRoom_Fire_ext">
+            app:layout_constraintEnd_toEndOf="@+id/restRoom610_Fire_ext"
+            app:layout_constraintTop_toBottomOf="@+id/restRoom610_Fire_ext">
 
             <TextView
-                android:id="@+id/tv_endDate_restRoom"
+                android:id="@+id/tv_endDate_restRoom_610"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="4dp"
@@ -577,10 +581,10 @@
                 android:textColor="@color/pink"
                 android:textSize="8sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_restRoom" />
+                app:layout_constraintTop_toTopOf="@+id/pb_restRoom_610" />
 
             <TextView
-                android:id="@+id/tv_startDate_restRoom"
+                android:id="@+id/tv_startDate_restRoom_610"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_marginEnd="4dp"
@@ -589,12 +593,12 @@
                 android:text="2015.01.24"
                 android:textColor="@color/pink"
                 android:textSize="8sp"
-                app:layout_constraintEnd_toStartOf="@+id/pb_restRoom"
+                app:layout_constraintEnd_toStartOf="@+id/pb_restRoom_610"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/pb_restRoom" />
+                app:layout_constraintTop_toTopOf="@+id/pb_restRoom_610" />
 
             <ProgressBar
-                android:id="@+id/pb_restRoom"
+                android:id="@+id/pb_restRoom_610"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="114dp"
                 android:layout_height="14dp"
@@ -604,14 +608,14 @@
                 android:indeterminateOnly="false"
                 android:max="100"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_restRoom"
+                app:layout_constraintEnd_toStartOf="@+id/tv_endDate_restRoom_610"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
         </android.support.constraint.ConstraintLayout>
 
         <ImageSwitcher
-            android:id="@+id/room607_Fire_ext"
+            android:id="@+id/room608_Fire_ext"
             android:layout_width="20dp"
             android:layout_height="21dp"
             android:layout_marginStart="128dp"
@@ -619,12 +623,12 @@
             android:clickable="true"
             android:background="@drawable/pic_fire_ext"
             app:layout_constraintStart_toEndOf="@+id/room603_Fire_ext"
-            app:layout_constraintTop_toBottomOf="@+id/room606_Fire_ext">
+            app:layout_constraintTop_toBottomOf="@+id/room607_Fire_ext">
 
         </ImageSwitcher>
 
         <ImageSwitcher
-            android:id="@+id/waitingRoom_Fire_ext"
+            android:id="@+id/room601_waitingRoom_Fire_ext"
             android:layout_width="20dp"
             android:layout_height="21dp"
             android:layout_marginStart="96dp"
@@ -635,47 +639,47 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageSwitcher
-            android:id="@+id/room605_Fire_ext"
+            android:id="@+id/room606_Fire_ext"
             android:layout_width="20dp"
             android:layout_height="21dp"
             android:layout_marginStart="28dp"
             android:layout_marginTop="48dp"
             android:clickable="true"
             android:background="@drawable/pic_fire_ext"
-            app:layout_constraintStart_toEndOf="@+id/hallWay01_Fire_ext"
+            app:layout_constraintStart_toEndOf="@+id/room600_hallWay01_Fire_ext"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageSwitcher
-            android:id="@+id/room606_Fire_ext"
+            android:id="@+id/room607_Fire_ext"
             android:layout_width="20dp"
             android:layout_height="21dp"
-            android:layout_marginTop="92dp"
+            android:layout_marginStart="108dp"
+            android:layout_marginTop="80dp"
             android:background="@drawable/pic_fire_ext"
             android:clickable="true"
-            app:layout_constraintTop_toBottomOf="@+id/room605_Fire_ext"
-            tools:layout_editor_absoluteX="224dp" />
+            app:layout_constraintStart_toEndOf="@+id/room602_Fire_ext"
+            app:layout_constraintTop_toBottomOf="@+id/room606_Fire_ext" />
 
         <ImageSwitcher
-            android:id="@+id/restRoom_Fire_ext"
+            android:id="@+id/restRoom610_Fire_ext"
             android:layout_width="20dp"
             android:layout_height="21dp"
-            android:layout_marginStart="164dp"
-            android:layout_marginTop="52dp"
-            android:clickable="true"
+            android:layout_marginStart="172dp"
             android:background="@drawable/pic_fire_ext"
-            app:layout_constraintStart_toEndOf="@+id/room601_Fire_ext"
-            app:layout_constraintTop_toBottomOf="@+id/room607_1_Fire_ext" />
+            android:clickable="true"
+            app:layout_constraintStart_toEndOf="@+id/room605_Fire_ext"
+            app:layout_constraintTop_toBottomOf="@+id/room605_Fire_ext" />
 
         <ImageSwitcher
-            android:id="@+id/room601_Fire_ext"
+            android:id="@+id/room605_Fire_ext"
             android:layout_width="20dp"
             android:layout_height="21dp"
-            android:layout_marginStart="128dp"
-            android:layout_marginTop="84dp"
-            android:clickable="true"
+            android:layout_marginStart="116dp"
+            android:layout_marginTop="72dp"
             android:background="@drawable/pic_fire_ext"
+            android:clickable="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/room602_Fire_ext" />
+            app:layout_constraintTop_toBottomOf="@+id/room604_Fire_ext" />
 
         <ImageSwitcher
             android:id="@+id/room603_Fire_ext"
@@ -686,21 +690,21 @@
             android:clickable="true"
             android:background="@drawable/pic_fire_ext"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/room604_Fire_ext" />
+            app:layout_constraintTop_toBottomOf="@+id/room602_Fire_ext" />
 
         <ImageSwitcher
-            android:id="@+id/room607_1_Fire_ext"
+            android:id="@+id/room609_Fire_ext"
             android:layout_width="20dp"
             android:layout_height="21dp"
             android:layout_marginStart="196dp"
             android:layout_marginTop="84dp"
             android:clickable="true"
             android:background="@drawable/pic_fire_ext"
-            app:layout_constraintStart_toEndOf="@+id/room602_Fire_ext"
-            app:layout_constraintTop_toBottomOf="@+id/room607_Fire_ext" />
+            app:layout_constraintStart_toEndOf="@+id/room604_Fire_ext"
+            app:layout_constraintTop_toBottomOf="@+id/room608_Fire_ext" />
 
         <ImageSwitcher
-            android:id="@+id/room604_Fire_ext"
+            android:id="@+id/room602_Fire_ext"
             android:layout_width="20dp"
             android:layout_height="21dp"
             android:layout_marginStart="96dp"
@@ -708,10 +712,10 @@
             android:clickable="true"
             android:background="@drawable/pic_fire_ext"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/waitingRoom_Fire_ext" />
+            app:layout_constraintTop_toBottomOf="@+id/room601_waitingRoom_Fire_ext" />
 
         <ImageSwitcher
-            android:id="@+id/room602_Fire_ext"
+            android:id="@+id/room604_Fire_ext"
             android:layout_width="20dp"
             android:layout_height="21dp"
             android:layout_marginStart="96dp"
@@ -724,7 +728,7 @@
         </ImageSwitcher>
 
         <ImageSwitcher
-            android:id="@+id/hallWay01_Fire_ext"
+            android:id="@+id/room600_hallWay01_Fire_ext"
             android:layout_width="20dp"
             android:layout_height="21dp"
             android:layout_marginStart="176dp"

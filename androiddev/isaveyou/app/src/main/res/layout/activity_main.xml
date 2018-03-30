@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.main.MainActivity">
+    tools:context="kr.co.isaveyou.isaveyou.main.MainActivity">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="wrap_content"
@@ -18,17 +18,17 @@
             android:id="@+id/streming_framelayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:paddingLeft="3dp"
-            android:paddingRight="3dp"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="50dp"
+            android:clickable="true"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
             app:layout_constraintEnd_toEndOf="@+id/map_framelayout"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/map_framelayout"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
 
         </FrameLayout>
 
@@ -41,7 +41,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimary"
+                android:background="@color/blue600"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
         </RelativeLayout>
@@ -77,7 +77,7 @@
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            fab:fab_addButtonColorNormal="@color/holo_green_light"
+            fab:fab_addButtonColorNormal="@color/lightbluea70"
             fab:fab_addButtonColorPressed="@color/white_pressed"
             fab:fab_addButtonPlusIconColor="@color/white"
             fab:fab_labelStyle="@style/menu_labels_style">

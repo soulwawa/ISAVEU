@@ -1,10 +1,13 @@
-package kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.main;
+package kr.co.isaveyou.isaveyou.main;
 
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -49,7 +52,6 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
 
 
 
-
                         Log.v(TAG,"영상 재생 시작");
                         Log.v(TAG,"재생 버튼 누름");
 
@@ -57,11 +59,17 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
                     }catch (Exception e) {
                         e.printStackTrace();
                     }
+                    break;
                 case R.id.btn_stop:
+                    Toast.makeText(getContext(),"뒤로가기를 누르시면 영상이 종료됩니다.",Toast.LENGTH_LONG).show();
                     StopTask stopTask = new StopTask();
                     stopTask.execute();
-                    Log.v(TAG,"영상 재생 종료");
-                    Log.v(TAG,"종료 버튼 누름");
+                    Log.v(TAG,"영상 재생 멈춤");
+                    Log.v(TAG,"멈춤 버튼 누름");
+
+                    MonitoringFragment.this.getFragmentManager().beginTransaction().detach(   MonitoringFragment.this  ) ;
+
+                    break;
             }
         }
     };
@@ -75,6 +83,8 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
             streamingServer_access = bundle.getString("streamingServer_access");
             streamingServer_url = bundle.getString("streamingServer_url");
         }
+
+
     }
 
     @Nullable
@@ -85,6 +95,8 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
         wv_monitoring = (WebView)view.findViewById(R.id.wv_monitoring);
         btn_start = view.findViewById(R.id.btn_start);
         btn_stop = view.findViewById(R.id.btn_stop);
+
+
 
 
         btn_start.bringToFront();
@@ -114,41 +126,8 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
             }
         });
         btn_stop.setOnClickListener(handler);
-        btn_stop.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()){
-                    case MotionEvent.ACTION_UP:
-                        v.setBackgroundResource(R.drawable.mybutton);
-                        break;
-                    case MotionEvent.ACTION_CANCEL:
-                        v.setBackgroundResource(R.drawable.mybutton);
-                        break;
-                    case MotionEvent.ACTION_DOWN:
-                        v.setBackgroundResource(R.drawable.mybuttonpressed);
-                }
-                return false;
-            }
-        });
-
         btn_start.setOnClickListener(handler);
-        btn_start.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()){
-                    case MotionEvent.ACTION_UP:
-                        v.setBackgroundResource(R.drawable.mybutton);
-                        break;
-                    case MotionEvent.ACTION_CANCEL:
-                        v.setBackgroundResource(R.drawable.mybutton);
-                        break;
-                    case MotionEvent.ACTION_DOWN:
-                        v.setBackgroundResource(R.drawable.mybuttonpressed);
-                }
 
-                return false;
-            }
-        });
 
 
 
@@ -185,8 +164,23 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
                 conn.setDoInput(true);
                 conn.connect();
 
+                if(conn.getResponseCode()!=HttpURLConnection.HTTP_OK){
 
+                } else {
+
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    String line;
+                    StringBuffer buffer = new StringBuffer();
+                    while ((line = reader.readLine())!=null){
+                        buffer.append(line + "\n");
+                    }
+                    result = buffer.toString();
+                    Log.v(TAG, "buffer result : " + line );
+                    reader.close();
+                }
                 Log.v(TAG, "url : " + url );
+
+
             }catch (Exception e) {
                 e.printStackTrace();
             }
@@ -196,7 +190,7 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
         @Override
         protected void onPostExecute(String s) {
 
-            Log.v(TAG, "전달완료");
+            Log.v(TAG, "전달받음");
 
             super.onPostExecute(s);
         }
@@ -216,10 +210,7 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
                 conn.setDoInput(true);
                 conn.connect();
 
-//                OutputStream outs = conn.getOutputStream();
-//                outs.write(streamingServer_access.getBytes("UTF-8"));
-//                outs.flush();
-//                outs.close();
+                Log.v(TAG,"streamingServer_access : " + streamingServer_access);
 
 
                 if(conn.getResponseCode()!=HttpURLConnection.HTTP_OK){
@@ -253,5 +244,11 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
 
             super.onPostExecute(s);
         }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
     }
 }

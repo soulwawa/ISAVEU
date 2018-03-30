@@ -1,12 +1,14 @@
-package kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.main;
+package kr.co.isaveyou.isaveyou.main;
 
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
@@ -25,7 +27,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -50,7 +51,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import kr.co.isaveyou.isaveyou.R;
-import kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.map.FloorMapActivity;
+import kr.co.isaveyou.isaveyou.map.FloorMapActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -65,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (Build.VERSION.SDK_INT >= 21) {
+            getWindow().setStatusBarColor(Color.rgb(53, 53, 53));
+        }
+
 
         //floating action button 설정
         final FloatingActionsMenu menuMultipleActions = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
@@ -116,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
+        actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -317,7 +323,8 @@ public class MainActivity extends AppCompatActivity {
                     FragmentManager fragmentManager = getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.add(R.id.streming_framelayout,fragment);
+                    fragmentTransaction.replace(R.id.streming_framelayout,fragment);
+
                     fragmentTransaction.commit();
                 }else {
                     Toast.makeText(getApplicationContext(),"스트리밍 서버 접속실패", Toast.LENGTH_SHORT).show();

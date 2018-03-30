@@ -1,4 +1,4 @@
-package kr.co.isaveyou.isaveyou.kr.co.isaveyou.isaveyou.map;
+package kr.co.isaveyou.isaveyou.map;
 
 
 import android.os.Bundle;
@@ -13,8 +13,6 @@ import android.widget.ImageView;
 import android.widget.ViewSwitcher;
 
 
-import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
 
 import kr.co.isaveyou.isaveyou.R;
@@ -23,7 +21,7 @@ import kr.co.isaveyou.isaveyou.R;
 public class DisasterFragment extends android.support.v4.app.Fragment {
     private static final String TAG = "DisasterFragment";
     String place;
-    ImageSwitcher iv_601,iv_602,iv_603,iv_604,iv_605,iv_606,iv_607,iv_607_1,iv_hallway,iv_restRoom,iv_waitingRoom;
+    ImageSwitcher is_601,is_602,is_603,is_604,is_606,is_607,is_608,is_609,is_610,is_600,is_605;
     ImageSwitcher switcher;
     ArrayList<ImageSwitcher> switcherList = new ArrayList();
     Thread thread;
@@ -43,30 +41,47 @@ public class DisasterFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_disaster,null);
-        iv_601 = (ImageSwitcher) view.findViewById(R.id.iv_601);
-        iv_602 = (ImageSwitcher)view.findViewById(R.id.iv_602);
-        iv_603 = (ImageSwitcher)view.findViewById(R.id.iv_603);
-        iv_604 = (ImageSwitcher)view.findViewById(R.id.iv_604);
-        iv_605 = (ImageSwitcher)view.findViewById(R.id.iv_605);
-        iv_606 = (ImageSwitcher)view.findViewById(R.id.iv_606);
-        iv_607 = (ImageSwitcher)view.findViewById(R.id.iv_607);
-        iv_607_1 = (ImageSwitcher)view.findViewById(R.id.iv_607_1);
-        iv_hallway = (ImageSwitcher)view.findViewById(R.id.iv_hallway);
-        iv_restRoom = (ImageSwitcher)view.findViewById(R.id.iv_restRoom);
-        iv_waitingRoom = (ImageSwitcher)view.findViewById(R.id.iv_waitingRoom);
+        is_601 = (ImageSwitcher) view.findViewById(R.id.is_waitingRoom_601);
+        is_604 = (ImageSwitcher)view.findViewById(R.id.is_604);
+        is_603 = (ImageSwitcher)view.findViewById(R.id.is_603);
+        is_602 = (ImageSwitcher)view.findViewById(R.id.is_602);
+        is_606 = (ImageSwitcher)view.findViewById(R.id.is_606);
+        is_607 = (ImageSwitcher)view.findViewById(R.id.is_607);
+        is_608 = (ImageSwitcher)view.findViewById(R.id.is_608);
+        is_609 = (ImageSwitcher)view.findViewById(R.id.is_609);
+        is_600 = (ImageSwitcher)view.findViewById(R.id.is_600);
+        is_610 = (ImageSwitcher)view.findViewById(R.id.is_restRoom_610);
+
         Log.v(TAG,"place : " + place);
 
-        switcherList.add(iv_601);
-        switcherList.add(iv_602);
-        switcherList.add(iv_603);
-        switcherList.add(iv_604);
-        switcherList.add(iv_605);
-        switcherList.add(iv_606);
-        switcherList.add(iv_607);
-        switcherList.add(iv_607_1);
-        switcherList.add(iv_hallway);
-        switcherList.add(iv_restRoom);
-        switcherList.add(iv_waitingRoom);
+        switch (place){
+            case "600" :
+                switcherList.add(is_600);
+            case "601" :
+                switcherList.add(is_601);
+            case "602" :
+                switcherList.add(is_602);
+            case "603" :
+                switcherList.add(is_603);
+            case "604" :
+                switcherList.add(is_604);
+            case "605" :
+                switcherList.add(is_605);
+            case "606" :
+                switcherList.add(is_606);
+            case "607" :
+                switcherList.add(is_607);
+            case "608" :
+                switcherList.add(is_608);
+            case "609" :
+                switcherList.add(is_609);
+            case "610" :
+                switcherList.add(is_610);
+            default:
+                    break;
+        }
+
+
 
         Log.v(TAG, switcherList+"");
 
@@ -85,18 +100,14 @@ public class DisasterFragment extends android.support.v4.app.Fragment {
             });
         }
 
-        switch(place){
-            case "601":
-                Log.v(TAG,"place : " +place);
-                    startCheckFire_ext_Animation();
-            case "602" :
-                break;
-        }
+
+        startCheckDisaster_Animation();
+
 
 
         return view;
     }
-    private void startCheckFire_ext_Animation(){
+    private void startCheckDisaster_Animation(){
         for(int i = 0; i<switcherList.size();i++){
             switcher = switcherList.get(i);
             switcher.setVisibility(View.VISIBLE);

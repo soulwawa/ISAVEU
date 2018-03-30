@@ -1,76 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@color/white"
+    android:fadingEdgeLength="5dp"
+
     android:visibility="visible">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="370dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="4dp"
         android:backgroundTintMode="screen"
         android:orientation="vertical"
         android:paddingBottom="5dp"
         android:paddingEnd="3dp"
         android:paddingStart="3dp"
         android:paddingTop="5dp"
+        android:background="@drawable/layout_webview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <android.support.constraint.ConstraintLayout
+            style="@style/AppTheme"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:background="@color/colorPrimary"
+            android:layout_height="280dp"
+            android:background="?attr/colorBackgroundFloating"
             android:paddingEnd="10dp"
             android:paddingStart="10dp">
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="365dp"
-                android:layout_height="38dp"
+                android:layout_width="75dp"
+                android:layout_height="44dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="12dp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/img_cctv" />
 
             <WebView
                 android:id="@+id/wv_monitoring"
-                android:layout_width="362dp"
-                android:layout_height="213dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
+                android:layout_width="358dp"
+                android:layout_height="208dp"
+                android:background="@color/half_black"
                 android:scrollIndicators="right"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/imageView2"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2">
+                app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                app:layout_constraintVertical_bias="0.0">
 
             </WebView>
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
+            style="@style/AppTheme"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimary">
+            android:layout_height="wrap_content"
+            android:background="?android:attr/colorBackgroundFloating">
 
             <Button
                 android:id="@+id/btn_stop"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
+
                 android:layout_marginEnd="16dp"
                 android:layout_weight="1"
-
-                android:background="@mipmap/ic_pause"
-                android:textAlignment="center"
+                android:background="@drawable/mybuttonround"
+                android:drawableTop="@drawable/pic_stop"
+                android:text="@string/stop"
                 android:textSize="14sp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -80,15 +87,15 @@
                 android:id="@+id/btn_start"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
+
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_weight="1"
-
-                android:background="@mipmap/ic_play"
-                android:textAlignment="center"
+                android:background="@drawable/mybuttonround"
+                android:drawableTop="@drawable/pic_play"
+                android:text="@string/play"
                 android:textSize="14sp"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -96,6 +103,7 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
         </android.support.constraint.ConstraintLayout>
 
     </LinearLayout>
