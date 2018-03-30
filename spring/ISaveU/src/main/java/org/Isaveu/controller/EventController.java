@@ -52,16 +52,16 @@ public class EventController {
 	float smoke;
 	float gyro;
 	float fire;
-	
+
 	@Resource( name = "org.Isaveu.service.EventService")
 	EventService eService;
-	
+
 	@Resource (name = "org.Isaveu.service.ActionService")
 	ActionService aService;
-	
+
 	@Resource (name = "org.Isaveu.service.HrService")
 	HrService hService;
-	
+
 	@RequestMapping(value = "/eventIn.do", method = RequestMethod.GET)
 	private TbEventVO eventIn(@ModelAttribute TbEventVO event) throws Exception{
 		issue = event.getIssue();
@@ -69,7 +69,7 @@ public class EventController {
 		smoke = event.getSmoke();
 		gyro = event.getGyro();
 		fire = event.getFire();
-//		model.addAllAttributes(hService.getHrAllList());
+		//		model.addAllAttributes(hService.getHrAllList());
 		switch (issue) {
 		case "1":
 			System.out.println("화재경보");
@@ -90,7 +90,7 @@ public class EventController {
 		}
 		return event;
 	}
-	
+
 	public void imageGet(String issue) {
 		RestTemplate restTemplate = new RestTemplate();
 		URI uri = UriComponentsBuilder.fromHttpUrl("http://192.168.0.13:5001/cam/" +issue).build().toUri();
@@ -109,7 +109,7 @@ public class EventController {
 			BufferedOutputStream os = new BufferedOutputStream(new FileOutputStream(imageFile));
 			os.write(response);
 			os.flush();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -150,64 +150,80 @@ public class EventController {
 		data.setContent_1(fileName);
 		fcmData.setData(data);
 		fcmData.setRegistration_ids(reglist);
-		
+
 		String params = gson.toJson(fcmData);
 		System.out.println(params);
-		
+
 		HttpEntity request;
 		request = new HttpEntity(params, headers);
 		ResponseEntity<String> result = restTemplate.exchange(url, HttpMethod.POST,request,String.class);
 		System.out.println(result.getBody());
+		RaspControl(issue);
 	}
-	
+
+	public void RaspControl(String issue) {
+		switch (issue) {
+		case "1": case "2": case "3":
+			issue = "1";
+			break;
+		default:
+			issue = "0";
+			break;
+		} 
+		String url = "http://192.168.0.61:5002/siren/" + issue;
+		RestTemplate restTemplate = new RestTemplate();
+		String result = restTemplate.getForObject(url, String.class);
+		System.out.println(result);
+	}
+
+
 	@RequestMapping("/Dispatcher")
-		private void process(HttpServletResponse resp)
-				throws Exception {
-			//이번에는 이전 예제와는 다르게 Ajax요청이 오면 응답해줄꺼다.
-			//이전에는 그냥 내가 원하는 페이지로 json을 가져가는 거였다면?
-			//지금은 요청한 놈한테 return만 해주면 되기 때문에
-			//PrintWriter out = resp.getWriter();
-			//이걸 사용하면 된다.
-			
-			//주소요청 http://localhost:8000/JsonAjax/Dispatcher
-			//Get방식
-			//process()함수 호출
-			//JSON만들기
-			JsonObject jsonObj = new JsonObject();
-			
-			Date date = new Date();
-			SimpleDateFormat transFomat2 = new SimpleDateFormat("yyyyMMdd_HHmmss");
-			String datenow = transFomat2.format(date);
-//			System.out.println(temp);
-			jsonObj.addProperty("temp", temp);
-			jsonObj.addProperty("smoke", smoke);
-			jsonObj.addProperty("fire", fire);
-			jsonObj.addProperty("gyro", gyro);
-			jsonObj.addProperty("date", datenow);
-			jsonObj.addProperty("msg", "success");
-			PrintWriter out = resp.getWriter();
-			out.print(jsonObj);
-//			System.out.println(out);
-		}
+	private void process(HttpServletResponse resp)
+			throws Exception {
+		//이번에는 이전 예제와는 다르게 Ajax요청이 오면 응답해줄꺼다.
+		//이전에는 그냥 내가 원하는 페이지로 json을 가져가는 거였다면?
+		//지금은 요청한 놈한테 return만 해주면 되기 때문에
+		//PrintWriter out = resp.getWriter();
+		//이걸 사용하면 된다.
+
+		//주소요청 http://localhost:8000/JsonAjax/Dispatcher
+		//Get방식
+		//process()함수 호출
+		//JSON만들기
+		JsonObject jsonObj = new JsonObject();
+
+		Date date = new Date();
+		SimpleDateFormat transFomat2 = new SimpleDateFormat("yyyyMMdd_HHmmss");
+		String datenow = transFomat2.format(date);
+		//			System.out.println(temp);
+		jsonObj.addProperty("temp", temp);
+		jsonObj.addProperty("smoke", smoke);
+		jsonObj.addProperty("fire", fire);
+		jsonObj.addProperty("gyro", gyro);
+		jsonObj.addProperty("date", datenow);
+		jsonObj.addProperty("msg", "success");
+		PrintWriter out = resp.getWriter();
+		out.print(jsonObj);
+		//			System.out.println(out);
+	}
 	@RequestMapping("/DispatcherRecent")
-		private List<Map<String, String>> dispatcherRecent(@ModelAttribute TbEventVO event, @RequestParam("num") int num) throws Exception{
+	private List<Map<String, String>> dispatcherRecent(@ModelAttribute TbEventVO event, @RequestParam("num") int num) throws Exception{
 		ArrayList<TbEventVO> list = new ArrayList<TbEventVO>();
 		list = eService.selectRecent(num);
 		Map<String, String> map = new HashMap<String, String>();
-		
-		map.put("time", list.get(0).getDatetime());
-		map.put("temp", Float.toString(list.get(0).getTemp()));
-		map.put("smoke", Float.toString(list.get(0).getSmoke()));
-		map.put("gyro", Float.toString(list.get(0).getGyro()));
-		map.put("time", Float.toString(list.get(0).getTemp()));
-		
 		List<Map<String, String>> myList = new ArrayList<Map<String, String>>();
-		myList.add(map);
+
+		for(int i = 0 ; i < list.size() ; i++ ) {
+			for(int j = 0; j < i ; j++) {
+				map.put("time", list.get(j).getDatetime());
+				map.put("temp", Float.toString(list.get(j).getTemp()));
+				map.put("smoke", Float.toString(list.get(j).getSmoke()));
+				map.put("gyro", Float.toString(list.get(j).getGyro()));
+				map.put("time", Float.toString(list.get(j).getTemp()));
+			}
+			myList.add(map);
+		}
 		return myList;
-		
-//			map.put(list.get(i).getDatetime(), list.get(i).getTemp(), list.get(i).getSmoke(), list.get(i).getGyro(), list.get(i).getFire() );
-		
-		
 	}
 
-	}
+}
