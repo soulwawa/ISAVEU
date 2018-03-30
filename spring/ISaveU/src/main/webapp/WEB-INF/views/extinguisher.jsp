@@ -45,7 +45,7 @@ function checkex(){
 	        	console.log(state[i]);
 	        }
 	        var result1 = document.getElementById("result1");
-	        result1.innerHTML = state[0]+state[1]+state[2]+state[3]+state[4]+state[5]+state[6]];
+	        result1.innerHTML = state[0]+state[1]+state[2]+state[3]+state[4]+state[5]+state[6];
 	      }
 	    });
 }  
