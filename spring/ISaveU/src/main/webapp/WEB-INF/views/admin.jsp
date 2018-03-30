@@ -68,6 +68,7 @@
 	        	if(state[i] == 1){
 	        		document.getElementById("ex"+i).style.display="block";
 	        	}
+	        	
 	        }
 	      }
 	    });
