@@ -32,7 +32,7 @@ public class HrService implements HrMapper{
 	}
 
 	@Override
-	public void fcmUpdate(String id) throws Exception {
-		hMapper.fcmUpdate(id);
+	public void fcmUpdate(TbHrVO hrVo) throws Exception {
+		hMapper.fcmUpdate(hrVo);
 	}
 }

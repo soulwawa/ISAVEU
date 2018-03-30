@@ -36,11 +36,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	 
     </insert>
     
-    <update id="fcmUpdate" parameterType="org.Isaveu.domain.TbHrVO">
+    <update id="fcmUpdate" parameterType="String">
     	UPDATE tb_hr
     		SET
     	FCM = #{fcm}
-    	WHERE id = #{id}
+    	WHERE
+    	id = #{id}
     </update>
     
 </mapper>

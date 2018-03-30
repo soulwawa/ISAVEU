@@ -3,10 +3,8 @@ package org.Isaveu.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-
 import org.Isaveu.domain.TbHrVO;
 import org.Isaveu.service.HrService;
 import org.springframework.stereotype.Controller;
@@ -37,27 +35,30 @@ public class AndoroidContoller {
 		}else {
 			ArrayList<TbHrVO> list = new ArrayList<TbHrVO>();
 			list = hService.getHrListId(id);
-			TbHrVO result = list.get(0);
+			hrvo = list.get(0);
+			
 			System.out.println("Android Login Query SUCCESS");
-			System.out.println(fcm);
-			if(id.equals(result.getId()) && pw.equals(result.getPw())) {
-				if(!(fcm.equals(result.getFcm()) || (!"".equals(fcm)) )) {
-					System.out.println("FCM UPDATE");
-					hrvo.setFcm(fcm);
-					hService.fcmUpdate(id);
-					map.put("access", "1");
-					map.put("name", result.getName().toString());
-					map.put("profile", result.getProfile().toString());
-					map.put("email", result.getEmail().toString());
-					map.put("fcm", result.getFcm().toString());
-					return map;
-				}else {
+//			System.out.println(fcm);
+			if(id.equals(hrvo.getId()) && pw.equals(hrvo.getPw())) {
+				if(fcm.equals(hrvo.getFcm())) {
 					System.out.println("FCM EQUALS");
 					map.put("access", "1");
-					map.put("name", result.getName().toString());
-					map.put("profile", result.getProfile().toString());
-					map.put("email", result.getEmail().toString());
-					map.put("fcm", result.getFcm().toString());
+					map.put("name", hrvo.getName().toString());
+					map.put("profile", hrvo.getProfile().toString());
+					map.put("email", hrvo.getEmail().toString());
+					map.put("fcm", hrvo.getFcm().toString());
+					return map;
+				}else {
+					System.out.println("FCM UPDATE");
+//					System.out.println(hrvo.getFcm());
+					System.out.println(fcm);
+					hrvo.setFcm(fcm);
+					hService.fcmUpdate(hrvo);
+					map.put("access", "1");
+					map.put("name", hrvo.getName().toString());
+					map.put("profile", hrvo.getProfile().toString());
+					map.put("email", hrvo.getEmail().toString());
+					map.put("fcm", hrvo.getFcm().toString());
 					return map;
 				}
 			}else{

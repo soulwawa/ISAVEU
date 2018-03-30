@@ -85,6 +85,7 @@ public class EventController {
 			break;
 		default:
 			eService.insertEvent(event);
+			RaspControl(issue);
 			System.out.println("InsertEvent Succes");
 			break;
 		}

@@ -40,7 +40,7 @@ function checkex(){
 	      success: function(data) {
 	        ob = data;
 	        var result1 = document.getElementById("result1");
-	        result1.innerHTML = ob.toString(600);
+	        result1.innerHTML = ob.600.toString();
 
 	      }
 	    });
