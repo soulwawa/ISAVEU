@@ -38,12 +38,11 @@ function checkex(){
 	      url: "http://192.168.0.35:9999/locationFireEx.do",
 	      dataType: "json",
 	      success: function(data) {
-	        ob = data;     
+	        ob = data;
+	        a = ob.toString(601);
 	        var result1 = document.getElementById("result1");
-	        var result2 = document.getElementById("result2");
-	        result1.innerHTML = ob;
-	        console.log(ob);
-	        result2.innerHTML = ob.toString(600);
+	        result1.innerHTML = ob.toString(600) + a;
+	        console.log(a);
 
 	      }
 	    });
