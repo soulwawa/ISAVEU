@@ -21,22 +21,36 @@
 var interval = setInterval(function () {
     $.ajax({
       type: "GET",
-      url: "http://192.168.0.35:9999/locationFireEx.do",
+      url: "http://192.168.0.35:9999/Dispatcher",
       dataType: "json",
       success: function(data) {
-        ob = data;
-        
-        var result1 = document.getElementById("result1");
-        
-        
-        result1.innerHTML = ob.600;
-        
-        console.log(data);
-        
-
+        live = data;
+        var result2 = document.getElementById("result2");
+        result2.innerHTML = "온도:"+live.temp+",진동 "+live.gyro+",CO "+live.smoke+",불꽃 "+live.fire+", "+live.msg;
+        console.log("온도:"+live.temp+",진동 "+live.gyro+",CO "+live.smoke+",불꽃 "+live.fire+", "+live.msg);
       }
     });
   }, 9900);
+  
+function checkex(){
+	$.ajax({
+	      type: "GET",
+	      url: "http://192.168.0.35:9999/locationFireEx.do",
+	      dataType: "json",
+	      success: function(data) {
+	        ob = data;
+	        var state = new Array();
+	        for(var i = 0; i < 11; i++){
+	        	state[i] = ob.toString(600+i);
+	        }
+	        var result1 = document.getElementById("result1");
+	        result1.innerHTML = state;
+	        for(var i = 0; i < 11; i++){
+	        	console.log(state[i]);
+	        }
+	      }
+	    });
+}  
   
 
 function sleep(gap){
@@ -123,7 +137,10 @@ function sleep(gap){
 			</div>
 		</div>
 		<div class="footer">
+			<input type="button" value="사용가능한 소화기 확인하기" onclick="checkex()"/>
 			<div id="result1">
+			</div>
+			<div id="result2">
 			</div>
 		</div>
 	</div>
