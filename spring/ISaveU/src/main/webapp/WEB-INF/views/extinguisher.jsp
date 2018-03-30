@@ -40,12 +40,21 @@ function checkex(){
 	      success: function(data) {
 	        ob = data;
 	        var state = new Array();
-	        for(var i = 0; i < 11; i++){
-	        	state[i] = ob.toString(600+i);
-	        	console.log(state[i]);
-	        }
+	        state[0] = ob.toString(600);
+	        state[1] = ob.toString(601);
+	        state[2] = ob.toString(602);
+	        state[3] = ob.toString(603);
+	        state[4] = ob.toString(604);
+	        state[5] = ob.toString(605);
+	        state[6] = ob.toString(606);
+	        state[7] = ob.toString(607);
+	        state[8] = ob.toString(608);
+	        state[9] = ob.toString(609);
+	        state[10] = ob.toString(610);
+	        
 	        var result1 = document.getElementById("result1");
-	        result1.innerHTML = state[0]+state[1]+state[2]+state[3]+state[4]+state[5]+state[6];
+	        result1.innerHTML = state;
+	        console.log(state);
 	      }
 	    });
 }  

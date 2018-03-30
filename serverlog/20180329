@@ -168,3 +168,25 @@ FCM EQUALS
 /Dispatcher
 /Dispatcher
 /Dispatcher
+/Dispatcher
+/Dispatcher
+/Dispatcher
+/Dispatcher
+/Dispatcher
+/Dispatcher
+/Dispatcher
+/Dispatcher
+/locationFireEx.do
+2018-03-30 11:17:57.403  INFO 119848 --- [nio-9999-exec-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2018-03-30 11:17:57.408  INFO 119848 --- [nio-9999-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-2 - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2018-03-30 11:17:57.409  INFO 119848 --- [nio-9999-exec-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+/Dispatcher
+/AndroidLogin.do
+Android Login Query SUCCESS
+foSJVNORz8Y:APA91bEMxsYGGEEGlqnxPa3Gh3OB25evSPs5nR5yfbmxvEBbZvMn4aoo3L0Cn78bImFNVFSCEchn60Ii_-HQVjUapqkAeHeNo_roY4yUVeUgHIH2V20SaSdo3nFcQerbyrfjXPrxpImX
+FCM EQUALS
+/img/HR_profile/0000000000.png
+/AndroidStreaming.do
+/Dispatcher
+/Dispatcher
+/Dispatcher
