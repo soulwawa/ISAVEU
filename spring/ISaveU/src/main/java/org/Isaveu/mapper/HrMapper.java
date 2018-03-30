@@ -18,6 +18,9 @@ public interface HrMapper {
 	public ArrayList<TbHrVO> getHrListId(String id) throws Exception;
 	//"select * from tb_hr where id = ?;";
 	
+	public ArrayList<TbHrVO> getHrListLevel(String level) throws Exception;
+	//"select * from tb_hr where level = ?;";
+	
 	public void hrInsert(TbHrVO hrVo) throws Exception;
 	/*"INSERT INTO tb_hr 
 	 * VALUES ((SELECT MAX(hr_id)+1 FROM tb_hr as e),

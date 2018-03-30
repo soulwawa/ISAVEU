@@ -7,7 +7,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 
-import org.Isaveu.domain.LocationByTbFireExVO;
+import org.Isaveu.domain.LocationByFireExVO;
 import org.Isaveu.service.LocationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,10 +22,10 @@ public class LocationController {
 
 	@ResponseBody
 	@RequestMapping(value = "/locationFireEx.do")
-	public Map<String, String> locationFireEx(@ModelAttribute LocationByTbFireExVO location, HttpServletResponse response) throws Exception{
+	public Map<String, String> locationFireEx(@ModelAttribute LocationByFireExVO location, HttpServletResponse response) throws Exception{
 
 		response.setContentType("text/plain;charset=utf-8");
-		ArrayList<LocationByTbFireExVO> list = new ArrayList<LocationByTbFireExVO>();
+		ArrayList<LocationByFireExVO> list = new ArrayList<LocationByFireExVO>();
 		list = lService.locationByFireEx();
 		Map<String, String> map = new HashMap<String, String>();
 

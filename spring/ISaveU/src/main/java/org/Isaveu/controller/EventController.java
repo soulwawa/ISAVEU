@@ -10,21 +10,22 @@ import java.net.URI;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.Isaveu.domain.ModuleByLocationVO;
 import org.Isaveu.domain.TbActionVO;
 import org.Isaveu.domain.TbEventVO;
 import org.Isaveu.domain.TbHrVO;
 import org.Isaveu.service.ActionService;
 import org.Isaveu.service.EventService;
 import org.Isaveu.service.HrService;
+import org.Isaveu.service.LocationService;
 import org.Isaveu.util.Data;
 import org.Isaveu.util.FCMData;
 import org.springframework.http.HttpEntity;
@@ -32,7 +33,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -52,6 +52,7 @@ public class EventController {
 	float smoke;
 	float gyro;
 	float fire;
+	String module_id;
 
 	@Resource( name = "org.Isaveu.service.EventService")
 	EventService eService;
@@ -61,14 +62,19 @@ public class EventController {
 
 	@Resource (name = "org.Isaveu.service.HrService")
 	HrService hService;
-
+	
+	@Resource (name = "org.Isaveu.service.LocationService")
+	LocationService LService;
+	
 	@RequestMapping(value = "/eventIn.do", method = RequestMethod.GET)
-	private TbEventVO eventIn(@ModelAttribute TbEventVO event) throws Exception{
+	private String eventIn(@ModelAttribute TbEventVO event) throws Exception{
 		issue = event.getIssue();
 		temp = event.getTemp(); 
 		smoke = event.getSmoke();
 		gyro = event.getGyro();
 		fire = event.getFire();
+		module_id = event.getModule_id();
+		
 		//		model.addAllAttributes(hService.getHrAllList());
 		switch (issue) {
 		case "1":
@@ -89,7 +95,7 @@ public class EventController {
 			System.out.println("InsertEvent Succes");
 			break;
 		}
-		return event;
+		return "200".toString();
 	}
 
 	public void imageGet(String issue) {
@@ -102,7 +108,7 @@ public class EventController {
 		String fileName = transFomat.format(date);
 		String localName = "C:\\workspace\\SaveForYou\\spring\\ISaveU\\src\\main\\resources\\eventImage\\";
 		String fileExtension = ".png"; 
-		String androidPass = "http://192.168.0.35:8080/AndoridIamgeGet.do?imageID=";
+		String androidPass = "http://192.168.0.35:9999/AndoridIamgeGet.do?imageID=";
 		String serverName = localName + fileName + fileExtension;
 		//C:\workspace\SaveForYou\spring\ISaveU\src\main\resources\eventImage
 		File imageFile = new File(serverName);
@@ -115,9 +121,9 @@ public class EventController {
 			e.printStackTrace();
 		} finally {
 			TbActionVO action = new TbActionVO();
-			System.out.println(serverName);
+//			System.out.println(serverName);
 			action.setUrl(serverName);
-			FcmSend(androidPass + fileName + fileExtension);
+			FcmSend(androidPass + fileName + fileExtension, issue);
 			try {
 				aService.insertAction(action);
 				System.out.println("Rasp Send Succes");
@@ -126,19 +132,30 @@ public class EventController {
 			}
 		}
 	}
-	public void FcmSend(String fileName) {
+	public void FcmSend(String fileName, String issue) {
 		RestTemplate restTemplate = new RestTemplate();
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
-		headers.add("Authorization", "key=AAAA91-0IQE:APA91bEvPIXCvITxVpcVaxysasJzU4wjuTNT29zkgmRv6ayxLe0U1iIgO0zIvImluA4_5AczoDfZrlFZluTuVBqFM_JBvyjqkH6R9k2bBoMSQaNOPlTOVnjHYTFwjSjMuVt0-nusaVRJ");
-		ArrayList<TbHrVO> arrayList = new ArrayList<TbHrVO>();
+		//TITILE
+		ArrayList<ModuleByLocationVO> localList = new ArrayList<ModuleByLocationVO>();
 		try {
-			arrayList = hService.getHrAllList();
+			localList = LService.moduleByLocation(module_id);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		ModuleByLocationVO location = localList.get(0);
+		String title = location.getLocation() + "/"+ location.getDept_name();
+		
+		//DATA
+		headers.add("Authorization", "key=AAAA91-0IQE:APA91bEvPIXCvITxVpcVaxysasJzU4wjuTNT29zkgmRv6ayxLe0U1iIgO0zIvImluA4_5AczoDfZrlFZluTuVBqFM_JBvyjqkH6R9k2bBoMSQaNOPlTOVnjHYTFwjSjMuVt0-nusaVRJ");
+		ArrayList<TbHrVO> hrList = new ArrayList<TbHrVO>();
+		try {
+			hrList = hService.getHrAllList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		ArrayList<String> fcmList = new ArrayList<String>();
-		for (TbHrVO tbHrVO : arrayList) {
+		for (TbHrVO tbHrVO : hrList) {
 			fcmList.add(tbHrVO.getFcm());
 		}
 		Gson gson = new Gson();
@@ -147,8 +164,10 @@ public class EventController {
 		FCMData fcmData = new FCMData();
 		Data data = new Data();
 		// DB에서 호출 예정
-		data.setTitle("601");
-		data.setContent_1(fileName);
+		
+		data.setTitle(title);
+		data.setContent_1(fileName); //사진
+		data.setContent_2(issue); //0 - 화재, 1 - 소화기
 		fcmData.setData(data);
 		fcmData.setRegistration_ids(reglist);
 

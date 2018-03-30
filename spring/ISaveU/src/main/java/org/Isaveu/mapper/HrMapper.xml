@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     		tb_hr
     </select>
     
-    <select id="getHrListId" resultType="org.Isaveu.domain.TbHrVO"  >
+    <select id="getHrListId" resultType="org.Isaveu.domain.TbHrVO" parameterType="String" >
     	SELECT
     		*
     	FROM
@@ -28,6 +28,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	WHERE
     		id = #{id}
     </select>
+    
+     <select id="getHrListLevel" resultType="org.Isaveu.domain.TbHrVO" parameterType="String"  >
+    	SELECT
+    		*
+    	FROM
+    		tb_hr
+    	WHERE
+    		level = #{level}
+    </select>
+    
     
     <insert id="hrInsert" parameterType="org.Isaveu.domain.TbHrVO" >
     	INSERT INTO

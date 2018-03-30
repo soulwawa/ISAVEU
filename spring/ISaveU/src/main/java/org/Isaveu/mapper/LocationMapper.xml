@@ -4,13 +4,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="org.Isaveu.mapper.LocationMapper">
-	<select id="locationByFireEx" parameterType="org.Isaveu.domain.LocationByTbFireExVO" resultType="org.Isaveu.domain.LocationByTbFireExVO" >
+	<select id="locationByFireEx" parameterType="org.Isaveu.domain.LocationByFireExVO" resultType="org.Isaveu.domain.LocationByFireExVO" >
 	SELECT
  		tb_location.location, tb_fire_ex.fire_ex_status
 	FROM tb_location
 	INNER JOIN
  	tb_fire_ex
 		ON tb_location.location_id = tb_fire_ex.location_id;
+	</select>
+	
+	<select id="moduleByLocation" parameterType="String" resultType="org.Isaveu.domain.ModuleByLocationVO">
+	SELECT
+		* 
+	FROM tb_module
+	INNER JOIN
+	tb_location
+		ON tb_module.location_id = tb_location.location_id
+	WHERE
+		module_id = #{value};
 	</select>
 
 </mapper>

@@ -2,7 +2,7 @@ package org.Isaveu.domain;
 
 import java.io.Serializable;
 
-public class LocationByTbFireExVO  implements Serializable{
+public class LocationByFireExVO  implements Serializable{
 
 	private static final long serialVersionUID = -8738748657870704357L;
 	

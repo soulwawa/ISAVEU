@@ -19,12 +19,17 @@ public class HrService implements HrMapper{
 	public ArrayList<TbHrVO> getHrAllList() throws Exception {
 		return hMapper.getHrAllList();
 	}
-
+	
 	@Override
 	public ArrayList<TbHrVO> getHrListId(String id) throws Exception {
 		return hMapper.getHrListId(id);
 	}
 
+	@Override
+	public ArrayList<TbHrVO> getHrListLevel(String level) throws Exception {
+		return hMapper.getHrListLevel(level);
+	}
+	
 	@Override
 	public void hrInsert(TbHrVO hrVo) throws Exception {
 		// TODO Auto-generated method stub
@@ -35,4 +40,6 @@ public class HrService implements HrMapper{
 	public void fcmUpdate(TbHrVO hrVo) throws Exception {
 		hMapper.fcmUpdate(hrVo);
 	}
+
+	
 }

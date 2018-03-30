@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 import javax.annotation.Resource;
 
-import org.Isaveu.domain.LocationByTbFireExVO;
+import org.Isaveu.domain.LocationByFireExVO;
+import org.Isaveu.domain.ModuleByLocationVO;
 import org.Isaveu.mapper.LocationMapper;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +16,13 @@ public class LocationService implements LocationMapper{
 	LocationMapper lMapper;
 
 	@Override
-	public ArrayList<LocationByTbFireExVO> locationByFireEx() throws Exception {
+	public ArrayList<LocationByFireExVO> locationByFireEx() throws Exception {
 		return lMapper.locationByFireEx();
+	}
+
+	@Override
+	public ArrayList<ModuleByLocationVO> moduleByLocation(String module_id) throws Exception {
+		return lMapper.moduleByLocation(module_id);
 	}
 	
 }

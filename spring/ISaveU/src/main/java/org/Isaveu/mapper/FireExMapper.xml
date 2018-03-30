@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace = "org.Isaveu.mapper.FireExMapper">
 	
-	<select id="getFireEx" resultType="org.Isaveu.domain.TbFireExVO">
+	<select id="getFireEx" resultType="org.Isaveu.domain.TbFireExVO" parameterType="String">
 	SELECT
 		*
 	FROM

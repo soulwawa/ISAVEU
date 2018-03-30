@@ -8,11 +8,8 @@ public class RaspberryController {
 
 	@RequestMapping(value = "/raspstream")
 	private void raspStreaming() throws Exception{
-		
-		
 		// 192.168.0.13:5001/stream/
 		// http://192.168.0.13:5000
-		
-		
+		// LOG 구현
 	}
 }
