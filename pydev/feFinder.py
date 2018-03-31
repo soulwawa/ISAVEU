@@ -1,5 +1,6 @@
 from flask import Flask
 import time, pexpect, threading, requests, os
+import RPi.GPIO as GPIO
 
 class Bluetoothctl:
 
@@ -38,22 +39,41 @@ def feScan():
                 flag = True
 
         if flag:
-            state = 1
+            print(str(name) + " in service")
+            print()
         else:
-            state = 0
             payload = {'missing': name}
+            print(str(name) + " missing")
+            print()
             r = requests.get("http://192.168.0.35:9999/fe.do", params=payload)
-            print(r.url)
+            # print(r.url)
             break
 
-        print("state : " + str(state))
-
 app = Flask(__name__)
+
+GPIO.setmode(GPIO.BCM)
+led = 14
+siren = 13
+GPIO.setup(led, GPIO.OUT)
+GPIO.setup(siren, GPIO.OUT)
 
 @app.route("/feRestart/")
 def feRestart():
     feScan()
-    return "Scanning Restart..."
+    return "Scanning restart necessary..."
+
+
+@app.route("/siren/<state>/")
+def siren(state):
+    try:
+        if state == "0":
+            GPIO.output(led, False)
+        else:
+            GPIO.output(led, True)
+    except Exception as e:
+        print("siren error : " + str(e))
+
+    return "Siren Control"
 
 
 if __name__ == "__main__":

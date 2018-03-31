@@ -12,7 +12,7 @@ def streaming():
 def cam(issue):
     try:
         # 사진을 찍는 부분
-        camcmd = 'raspistill -t 500 -o cam/event.png -w 800 -h 480'
+        camcmd = 'raspistill -t 500 -o cam/event.png -e png -w 800 -h 480'
         os.system(camcmd)
 
         # 사진을 서버로 보내는 부분
