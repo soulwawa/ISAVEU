@@ -1,6 +1,8 @@
 package kr.co.isaveyou.isaveyou.map;
 
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -14,13 +16,24 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 
 import kr.co.isaveyou.isaveyou.R;
+import kr.co.isaveyou.isaveyou.login.LoginActivity;
+import kr.co.isaveyou.isaveyou.main.MainActivity;
 
 //소화기 위치 확인을 위한 Fragment
 public class Fire_extFragment extends Fragment {
@@ -33,9 +46,9 @@ public class Fire_extFragment extends Fragment {
     boolean running;
     Thread thread;
     Button checkButton;
-    ConstraintLayout layout_fire_ext1,layout_fire_ext2,layout_fire_ext3,layout_fire_ext4,layout_fire_ext5,layout_fire_ext6,layout_fire_ext7,layout_fire_ext8,layout_fire_ext9,layout_fire_ext10,layout_fire_ext11;
-
-
+    LinearLayout layout_fire_ext1,layout_fire_ext2,layout_fire_ext3,layout_fire_ext4,layout_fire_ext5,layout_fire_ext6,layout_fire_ext7,layout_fire_ext8,layout_fire_ext9,layout_fire_ext10,layout_fire_ext11;
+    String place_fire_ext,result;
+    HttpURLConnection conn;
 
     View.OnClickListener handler = new View.OnClickListener() {
         @Override
@@ -59,6 +72,11 @@ public class Fire_extFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle bundle = this.getArguments();
+        Log.v(TAG,bundle+"");
+        if(bundle != null) {
+            place_fire_ext = bundle.getString("place");
+        }
     }
 
     @Nullable
@@ -109,17 +127,33 @@ public class Fire_extFragment extends Fragment {
         fire_ext10.setOnClickListener(handler);
         fire_ext11.setOnClickListener(handler);
 
-        switcherList.add(fire_ext1);
-        switcherList.add(fire_ext2);
-        switcherList.add(fire_ext3);
-        switcherList.add(fire_ext4);
-        switcherList.add(fire_ext5);
-        switcherList.add(fire_ext6);
-        switcherList.add(fire_ext7);
-        switcherList.add(fire_ext8);
-        switcherList.add(fire_ext9);
-        switcherList.add(fire_ext10);
-        switcherList.add(fire_ext11);
+        switch (place_fire_ext){
+            case "600" :
+                switcherList.add(fire_ext1);
+            case "601" :
+                switcherList.add(fire_ext2);
+            case "602" :
+                switcherList.add(fire_ext3);
+            case "603" :
+                switcherList.add(fire_ext4);
+            case "604" :
+                switcherList.add(fire_ext5);
+            case "605" :
+                switcherList.add(fire_ext6);
+            case "606" :
+                switcherList.add(fire_ext7);
+            case "607" :
+                switcherList.add(fire_ext8);
+            case "608" :
+                switcherList.add(fire_ext9);
+            case "609" :
+                switcherList.add(fire_ext10);
+            case "610" :
+                switcherList.add(fire_ext11);
+            default:
+                break;
+        }
+
 
         pb_600 = view.findViewById(R.id.pb_hallway_600);
         pb_610 = view.findViewById(R.id.pb_restRoom_610);
@@ -135,17 +169,17 @@ public class Fire_extFragment extends Fragment {
 
         pb_600.setProgress(80);
 
-        layout_fire_ext1 = view.findViewById(R.id.room600_hallway01_cLayout);
-        layout_fire_ext2 = view.findViewById(R.id.room601_waitingroom_cLayout);
-        layout_fire_ext3 = view.findViewById(R.id.room602_cLayout);
-        layout_fire_ext4 = view.findViewById(R.id.room603_cLayout);
-        layout_fire_ext5 = view.findViewById(R.id.room604_cLayout);
-        layout_fire_ext6 = view.findViewById(R.id.room605_cLayout);
-        layout_fire_ext7 = view.findViewById(R.id.room606_cLayout);
-        layout_fire_ext8 = view.findViewById(R.id.room607_cLayout);
-        layout_fire_ext9 = view.findViewById(R.id.room608_cLayout);
-        layout_fire_ext10 = view.findViewById(R.id.room609_cLayout);
-        layout_fire_ext11 = view.findViewById(R.id.restRoom610_cLayout);
+        layout_fire_ext1 = view.findViewById(R.id.room600_hallway01_Layout);
+        layout_fire_ext2 = view.findViewById(R.id.room601_waitingroom_Layout);
+        layout_fire_ext3 = view.findViewById(R.id.room602_Layout);
+        layout_fire_ext4 = view.findViewById(R.id.room603_Layout);
+        layout_fire_ext5 = view.findViewById(R.id.room604_Layout);
+        layout_fire_ext6 = view.findViewById(R.id.room605_Layout);
+        layout_fire_ext7 = view.findViewById(R.id.room606_Layout);
+        layout_fire_ext8 = view.findViewById(R.id.room607_Layout);
+        layout_fire_ext9 = view.findViewById(R.id.room608_Layout);
+        layout_fire_ext10 = view.findViewById(R.id.room609_Layout);
+        layout_fire_ext11 = view.findViewById(R.id.restRoom610_Layout);
 
 
 
@@ -222,6 +256,76 @@ public class Fire_extFragment extends Fragment {
                     }
                 }
             }
+        }
+    }
+    class Fire_ext_CheckTast extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                //서버 접속
+
+                URL url = new URL("http://192.168.0.35:9999/AndroidFire_extCheck.do?");
+                conn = (HttpURLConnection)url.openConnection();
+                conn.setRequestProperty("Content-type","application/xml");
+                conn.setRequestMethod("GET");
+                conn.setDoInput(true);
+                conn.connect();
+
+                if(conn.getResponseCode()!=HttpURLConnection.HTTP_OK){
+
+                } else {
+
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    String line;
+                    StringBuffer buffer = new StringBuffer();
+                    while ((line = reader.readLine())!=null){
+                        buffer.append(line + "\n");
+                    }
+                    result = buffer.toString();
+                    Log.v(TAG, "buffer result : " + line );
+                    reader.close();
+                }
+                Log.v(TAG, "url : " + url );
+
+
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            Log.v(TAG, "result in onPostExecute : " + result);
+//            Log.v(TAG, "onPostExecute place :" + place + ",loginPw :" + loginPw + ",deviceKey :" +deviceKey );
+            try{
+                String code_checkDay = null;
+                String code_checkEvent = null;
+                String code_place = null;
+
+
+                JSONObject jsonObject = new JSONObject(result);
+                if(jsonObject.equals(null)){
+                    Toast.makeText(getContext(),"서버에 접속할 수 없습니다.\n 다시 눌러 주세요.",Toast.LENGTH_SHORT).show();
+                }
+                code_checkDay = jsonObject.getString("checkDay");
+                code_checkEvent = jsonObject.getString("event");
+                code_place = jsonObject.getString("place");
+
+                Log.v(TAG, "code_checkDay : " + code_checkDay);
+                Log.v(TAG, "code_checkEvent : " + code_checkEvent);
+                Log.v(TAG, "code_place : " + code_place);
+
+
+
+            }catch (JSONException e){
+                e.printStackTrace();
+            }
+
+
         }
     }
 

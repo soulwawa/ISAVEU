@@ -1,6 +1,7 @@
 package kr.co.isaveyou.isaveyou.map;
 
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -115,7 +116,7 @@ public class DisasterFragment extends android.support.v4.app.Fragment {
             thread = new ImageThread();
             thread.start();
         }
-        Log.v(TAG, "소화기 체크 애니메이션 시작");
+        Log.v(TAG, "재난 애니메이션 시작");
     }
     class ImageThread extends Thread{
         int duration = 250;
@@ -148,4 +149,5 @@ public class DisasterFragment extends android.support.v4.app.Fragment {
             }
         }
     }
+
 }

@@ -218,7 +218,7 @@ public class LoginActivity extends AppCompatActivity {
             super.onPostExecute(s);
             Log.v(TAG, "result in onPostExecute : " + result);
             Log.v(TAG, "onPostExecute loginId :" +loginId + ",loginPw :" + loginPw + ",deviceKey :" +deviceKey );
-//            profileJsonParser(result);
+
             try{
                 String code_access = null;
                 String code_name = null;
