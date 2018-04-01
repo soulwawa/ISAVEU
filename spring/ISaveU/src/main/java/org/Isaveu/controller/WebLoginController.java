@@ -28,14 +28,18 @@ public class WebLoginController {
 //			System.out.println(pw);
 			ArrayList<TbHrVO> list = new ArrayList<TbHrVO>(); 
 			list = hrService.getHrListId(id);
-			TbHrVO result = list.get(0);
-			System.out.println("WebLogin Querry OK");
-			if(id.equals(result.getId()) && pw.equals(result.getPw())){
-				System.out.println("WebLogin Succes");
-				return "admin";
-			}else {
-				System.out.println("WebLogin Fail");
+			if(list.size() == 0) {
 				return "redirect:/";
+			}else {
+				TbHrVO result = list.get(0);
+				System.out.println("WebLogin Querry OK");
+				if(id.equals(result.getId()) && pw.equals(result.getPw())){
+					System.out.println("WebLogin Succes");
+					return "admin";
+				}else {
+					System.out.println("WebLogin Fail");
+					return "redirect:/";
+				}
 			}
 		}	
 	}
