@@ -9,15 +9,19 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="I Save You"
+        android:label="I Save U"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:hardwareAccelerated="true"
-        android:largeHeap="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
@@ -29,13 +33,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login.LoginActivity"
-            android:configChanges="orientation|keyboardHidden"
-            />
-        <activity android:name=".main.MainActivity"
-            android:configChanges="orientation|keyboardHidden"
-
-            />
+        <activity
+            android:name=".login.LoginActivity"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity
+            android:name=".main.MainActivity"
+            android:configChanges="orientation|keyboardHidden" />
 
         <service
             android:name=".notification.MyFirebaseMessagingService"
@@ -69,12 +72,6 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
-
-        <!-- <receiver android:name=".NotiBroadCastRecevier"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action"></action> -->
-        <!-- </intent-filter> -->
-        <!-- </receiver> -->
         <meta-data
             android:name="com.google.android.gms.car.application"
             android:resource="@xml/automotive_app_desc" />
@@ -82,6 +79,24 @@
         <activity
             android:name=".map.FloorMapActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+
+
+
+        <activity android:name=".voice.VoiceActivity" />
+
+        <receiver android:name=".widget.NewAppWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED" />
+
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/new_app_widget_info" />
+        </receiver>
     </application>
 
 </manifest>

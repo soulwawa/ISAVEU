@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialKeyguardLayout="@layout/new_app_widget"
+    android:initialLayout="@layout/new_app_widget"
+    android:minHeight="72dp"
+    android:minWidth="250dp"
+    android:previewImage="@drawable/example_appwidget_preview"
+    android:updatePeriodMillis="86400000"
+    android:widgetCategory="home_screen"></appwidget-provider>
+
+    <!--
+    android:initialLayout="@layout/widget_layout" : 위젯의 처음 레이아웃입니다, 처음이라고 한 이유는 나중에 java에서 RemoteViews를 이용해 변경할수 있기 때문
+    android:minHeight="72dp" : 최소 높이
+    android:minWidth="146dp" : 최소 너비
+    android:previewImage="@drawable/preview" : 위젯을 선택할때 미리보기 이미지
+    android:resizeMode="horizontal|vertical" : 위젯의 크기를 변경할수 있도록 설정
+    android:updatePeriodMillis="1800000" : 업데이트 간격으로, 1800000는 30분. 30분 아래의 간격으로 설정할수 없으며, 0으로 설정하면 업데이트를 하지 않음
+
+    -->
