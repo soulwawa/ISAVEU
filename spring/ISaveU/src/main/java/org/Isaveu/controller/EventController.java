@@ -241,7 +241,7 @@ public class EventController {
 //		out.print(jsonObj);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("temp", temp);
-		map.put("smoke", 120-(smoke/10f));
+		map.put("smoke", (smoke/10f));
 		map.put("fire", 120-(fire/10f));
 		map.put("gyro", 120-(gyro/10f));
 		map.put("date", datenow);
@@ -260,8 +260,8 @@ public class EventController {
 			map.put("time", list.get(i).getTime().substring(11,19));
 			map.put("temp", list.get(i).getTemp());
 			map.put("smoke", (list.get(i).getSmoke()/10f));
-			map.put("fire", (1450-list.get(i).getFire())/10f);
-			map.put("gyro", (1450-list.get(i).getGyro())/10f);
+			map.put("fire", (1050-list.get(i).getFire())/10f);
+			map.put("gyro", (1050-list.get(i).getGyro())/10f);
 			myList.add(i, map);
 		}
 		return myList;

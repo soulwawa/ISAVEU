@@ -13,19 +13,7 @@
 	type="text/css">
 <link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css" />
 </head>
-<div class="wrapper">
-	<div class="header">
-		<div class="case">
-			<img src="<%=root%>/img/logo1.png" alt="logo" class="logo" />
-		</div>
-	</div>
-	<div class="sidebar">
-		<div class="menuBtn" onclick="sensorlog.go">sensor log</div>
-		<div class="menuBtn" onclick="eventlog.go">event log</div>
-		<div class="menuBtn" onclick="streaming.go">streaming</div>
-		<div class="menuBtn" onclick="hrtable.go">HR table</div>
-		<div class="menuBtn" onclick="location.go">location info</div>
-	</div>
+
 	<!-- Main content -->
 	<section class="contents">
 		<div class="row">
@@ -70,16 +58,7 @@
 		<!-- /.row -->
 	</section>
 	<!-- /.content -->
-	<div class="footer">
-		<div style="padding: 7px;">Copyright © 2018 HSB Inc.</div>
-		<div>
-			<div id="result1"></div>
-			<div id="result2"></div>
-			<div id="result3"></div>
-			<div id="result4"></div>
-		</div>
-	</div>
-</div>
+
 </body>
 </html>
 

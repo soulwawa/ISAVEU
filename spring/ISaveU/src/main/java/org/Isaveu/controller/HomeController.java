@@ -43,7 +43,7 @@ public class HomeController {
 	@RequestMapping("/hr")
 	private String hrtest() throws Exception{
 //		System.out.println(hMapper.hrCount()); 
-		return "straming";
+		return "registerhr";
 	}
 
 	
