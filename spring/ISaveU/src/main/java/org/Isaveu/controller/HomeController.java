@@ -45,11 +45,11 @@ public class HomeController {
 //		System.out.println(hMapper.hrCount()); 
 		return "registerhr";
 	}
+	@RequestMapping("/cal")
+	private String calTest() throws Exception{
+//		System.out.println(hMapper.hrCount()); 
+		return "Calendar/schedule";
+	}
 
 	
-//	@RequestMapping("/weblogin")
-//	private String weblogin() throws Exception{
-////		System.out.println(hMapper.hrCount()); 
-//		return "admin";
-//	}
 }
