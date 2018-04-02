@@ -54,6 +54,9 @@
 	        console.log(ob2);
 	        var result2 = document.getElementById("content3");
 	        result2.innerHTML = ob2;
+	        
+	        document.getElementById("chart1").setData(ob2);
+	        chartData2 = ob2;
 	      }
 	    });
 	  }, 9900);

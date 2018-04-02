@@ -14,8 +14,7 @@
 <script language="javascript" type="text/javascript"
 	src="<%=root%>/rMateIntegrationH5.js"></script>
 <script type="text/javascript" src="<%=root%>/theme.js"></script>
-<script language="javascript" type="text/javascript" src="<%=root%>/cylinder.js"></script>
-<script language="javascript" type="text/javascript" src="<%=root%>/line4.js"></script>
+<script type="text/javascript" src="<%=root%>/charts.js"></script>
 <script language="javascript" type="text/javascript" src="<%=root%>/js1.js"></script>
 <script>
   var interval = setInterval(function () {
