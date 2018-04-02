@@ -31,7 +31,7 @@ var layoutStr =
              +'<NumberFormatter id="numFmt" precision="0"/>'
                +'<Line2DChart showDataTips="true" dataTipDisplayMode="axis" paddingTop="0">'
                  +'<horizontalAxis>'
-                       +'<CategoryAxis categoryField="Month" padding="0.2"/>'
+                       +'<CategoryAxis categoryField="time" padding="0.2"/>'
                     +'</horizontalAxis>'
                   +'<verticalAxis>'
                      +'<LinearAxis maximum="100"/>'
@@ -44,25 +44,25 @@ var layoutStr =
                       */
                       
                     
-                    	+'<Line2DSeries labelPosition="up" yField="Sheep" fill="#ffffff" radius="5" displayName="Sheep" itemRenderer="RectangleItemRenderer">'
+                    	+'<Line2DSeries labelPosition="up" yField="Sheep" fill="#ffffff" radius="5" displayName="temp" itemRenderer="RectangleItemRenderer">'
                            +'<showDataEffect>'
                            + '<' + effect + ' duration="1000"/>'
                            +'</showDataEffect>'
                         +'</Line2DSeries>'
                       
-                        +'<Line2DSeries labelPosition="up" yField="Beef" fill="#ffffff" radius="5" displayName="Beef" itemRenderer="CircleItemRenderer">'
+                        +'<Line2DSeries labelPosition="up" yField="Beef" fill="#ffffff" radius="5" displayName="smoke" itemRenderer="CircleItemRenderer">'
                            +'<showDataEffect>'
                            + '<' + effect + ' duration="1000"/>'
                            +'</showDataEffect>'
                          +'</Line2DSeries>'
                          
-                        +'<Line2DSeries labelPosition="up" yField="Chicken" fill="#ffffff" radius="6" displayName="Chicken" itemRenderer="TriangleItemRenderer">'
+                        +'<Line2DSeries labelPosition="up" yField="Chicken" fill="#ffffff" radius="6" displayName="fire" itemRenderer="TriangleItemRenderer">'
                          +'<showDataEffect>'
                          + '<' + effect + ' duration="1000"/>'
                            +'</showDataEffect>'
                         +'</Line2DSeries>'
                       
-                        +'<Line2DSeries labelPosition="up" yField="aaa" fill="#ffffff" radius="6" displayName="aaa" itemRenderer="DiamondItemRenderer">'
+                        +'<Line2DSeries labelPosition="up" yField="aaa" fill="#ffffff" radius="6" displayName="gyro" itemRenderer="DiamondItemRenderer">'
                          +'<showDataEffect>'
                          + '<' + effect + ' duration="1000"/>'
                            +'</showDataEffect>'
