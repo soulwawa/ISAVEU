@@ -18,7 +18,12 @@
 <script language="javascript" type="text/javascript" src="<%=root%>/line4.js"></script>
 <script language="javascript" type="text/javascript" src="<%=root%>/js1.js"></script>
 <script>
-  var interval = setInterval(function () {
+	var data1;
+	var data2;
+	var data3;
+	var data4;
+	var data5;
+/*   var interval = setInterval(function () {
     $.ajax({
       type: "GET",
       url: "http://192.168.0.35:9999/Dispatcher",
@@ -30,6 +35,11 @@
         
         
         result1.innerHTML = "온도:"+ob.temp+",진동 "+ob.gyro+",CO "+ob.smoke+",불꽃 "+ob.fire+", "+ob.msg;
+        
+        data1=[parseInt(ob.temp)];
+       data2=[parseInt(ob.gyro)];
+        data3=[parseInt(ob.smoke)];
+        data4=[parseInt(ob.fire)];
         
         document.getElementById("chart1").setData([parseInt(ob.temp)]);
         document.getElementById("chart2").setData([parseInt(ob.gyro)]);
@@ -43,8 +53,7 @@
       }
     });
   }, 9900);
-  
-  var interval = setInterval(function () {
+ */  var interval = setInterval(function () {
 	    $.ajax({
 	      type: "GET",
 	      url: "http://192.168.0.35:9999/DispatcherRecent?num=12",
@@ -53,7 +62,7 @@
 	        ob2 = data2;
 	        console.log(ob2);
 	        var result2 = document.getElementById("content3");
-	        result2.innerHTML = ob2.toString(0).temp;
+	        result2.innerHTML = ob2.temp;
 	        
 	        
 	        document.getElementById("chart5").setData(ob2);

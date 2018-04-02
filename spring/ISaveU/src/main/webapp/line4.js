@@ -34,7 +34,7 @@ var layoutStr =
                        +'<CategoryAxis categoryField="time" padding="0.2"/>'
                     +'</horizontalAxis>'
                   +'<verticalAxis>'
-                     +'<LinearAxis maximum="1200"/>'
+                     +'<LinearAxis maximum="100"/>'
                     +'</verticalAxis>'
                     +'<series>'
                        /* 
@@ -44,25 +44,25 @@ var layoutStr =
                       */
                       
                     
-                    	+'<Line2DSeries labelPosition="up" yField="Sheep" fill="#ffffff" radius="5" displayName="temp" itemRenderer="RectangleItemRenderer">'
+                    	+'<Line2DSeries labelPosition="up" yField="fire" fill="#ffffff" radius="5" displayName="temp" itemRenderer="RectangleItemRenderer">'
                            +'<showDataEffect>'
                            + '<' + effect + ' duration="1000"/>'
                            +'</showDataEffect>'
                         +'</Line2DSeries>'
                       
-                        +'<Line2DSeries labelPosition="up" yField="Beef" fill="#ffffff" radius="5" displayName="smoke" itemRenderer="CircleItemRenderer">'
+                        +'<Line2DSeries labelPosition="up" yField="temp" fill="#ffffff" radius="5" displayName="smoke" itemRenderer="CircleItemRenderer">'
                            +'<showDataEffect>'
                            + '<' + effect + ' duration="1000"/>'
                            +'</showDataEffect>'
                          +'</Line2DSeries>'
                          
-                        +'<Line2DSeries labelPosition="up" yField="Chicken" fill="#ffffff" radius="6" displayName="fire" itemRenderer="TriangleItemRenderer">'
+                        +'<Line2DSeries labelPosition="up" yField="smoke" fill="#ffffff" radius="6" displayName="fire" itemRenderer="TriangleItemRenderer">'
                          +'<showDataEffect>'
                          + '<' + effect + ' duration="1000"/>'
                            +'</showDataEffect>'
                         +'</Line2DSeries>'
                       
-                        +'<Line2DSeries labelPosition="up" yField="aaa" fill="#ffffff" radius="6" displayName="gyro" itemRenderer="DiamondItemRenderer">'
+                        +'<Line2DSeries labelPosition="up" yField="gyro" fill="#ffffff" radius="6" displayName="gyro" itemRenderer="DiamondItemRenderer">'
                          +'<showDataEffect>'
                          + '<' + effect + ' duration="1000"/>'
                            +'</showDataEffect>'
@@ -78,19 +78,18 @@ var layoutStr =
          +'</rMateChart>';
  
 //// 차트 데이터
-var chartData2 = [{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
-	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
-	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
-	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
-	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
-	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
-	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
-	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
-	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
-	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
-	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
-	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590}];
-	
+var chartData2 = [{"time":"00:00:55", "temp":38.5, "smoke":20, "fire":50, "gyro":10},
+                  {"time":"00:00:50", "temp":56.57, "smoke":27.52, "fire":42, "gyro":11},
+                  {"time":"00:00:45", "temp":58.57, "smoke":23.65, "fire":40, "gyro":12},
+                  {"time":"00:00:40", "temp":41.13, "smoke":29.54, "fire":60, "gyro":13},
+                  {"time":"00:00:35", "temp":"50", "smoke":24.21, "fire":50, "gyro":14},
+                  {"time":"00:00:30", "temp":60.79, "smoke":39.12, "fire":52.5, "gyro":15},
+                  {"time":"00:00:25", "temp":49.14, "smoke":32.56, "fire":70.64, "gyro":14},
+                  {"time":"00:00:20", "temp":89.35, "smoke":39.24, "fire":68.57, "gyro":13},
+                  {"time":"00:00:15", "temp":65.21, "smoke":32.12, "fire":54.14, "gyro":12},
+                  {"time":"00:00:10", "temp":75.15, "smoke":42.12, "fire":57.58, "gyro":11},
+                  {"time":"00:00:05", "temp":69.12, "smoke":35.54, "fire":54.47, "gyro":10},
+                  {"time":"00:00:00", "temp":73.24, "smoke":40.45, "fire":62.47, "gyro":14}];
 
 //IE 판별
 function compIE(){
