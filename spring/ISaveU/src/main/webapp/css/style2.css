@@ -28,7 +28,8 @@ html, body{
     box-shadow: 0 0 8px rgba(0,0,0,0.5);
     position: relative;
     display: block;
-    background-color: #222d32;
+    background-color: #eeeeee;
+    
 }
 #art{
 	min-width: 100%;
@@ -50,7 +51,8 @@ html, body{
 	left:650px;
 	z-index:1201;
 	transition:0.5s;
-	background: url(../img/map.png);	
+	background: url(../img/map.png);
+	background-size: 555px 987px;	
 }
 .closeBtn{
 	display:none;
@@ -68,8 +70,11 @@ html, body{
 .header{
 	position:relative;
 	height:100px;
-	background-color: #aaaaaa;
 	z-index: 815;
+	background: -moz-linear-gradient(top, #cedce7 0%, #596a72 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #cedce7 0%,#596a72 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #cedce7 0%,#596a72 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cedce7', endColorstr='#596a72',GradientType=0 ); /* IE6-9 */
 		
 }
 .sidebar{
@@ -80,47 +85,39 @@ html, body{
     min-height: 100%;
     width: 230px;
     z-index: 810;
-    background-color: #bbbbbb;
-	
+    background:#cccccc;
+    
 }
 .contents{
 	position:relative;
 	width:1690px;
 	height:824px;
 	margin-left: 230px;
-	background-color: #ecf0f5;
     z-index: 800;
     min-height: 824px;
 }
 .footer{
 	margin-left: 230px;
 	z-index: 800;
-	background-color: #d9d9d9;
+	background-color: #dddddd;
 	height:50px;
 }
 .menuBtn{
 	width:210px;
-	margin:10px 10px;
-	height:50px;
-	display:block;
-	background-color:#343f47;
-	border-radius: 3px;
-	text-align:center;
-	vertical-align:middle;
-	padding-top:15px;
-}
-.menuBtn:hover{
-	width:230px;
 	height:80px;
 	margin:0px;
 	padding-top:30px;
-	transition: 0.3s;
+	display:block;
+	vertical-align:middle;
 }
 .case{
 	z-index: 820;
 	width:230px;
 	height:100px;
-	background-color: #367fa9;
+	background: -moz-linear-gradient(top, #cedce7 0%, #596a72 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #cedce7 0%,#596a72 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #cedce7 0%,#596a72 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cedce7', endColorstr='#596a72',GradientType=0 ); /* IE6-9 */
 }
 .logo{
 	margin:5px 55px;
@@ -179,8 +176,8 @@ html, body{
 #ex0{
 	position:absolute;
 	z-index:1005;
-	left:240px;
-	top:270px;
+	left:243px;
+	top:265px;
 	z-index:1500;
 }
 #ex1{
@@ -215,7 +212,7 @@ html, body{
 	position:absolute;
 	z-index:1005;
 	left:205px;
-	top:790px;
+	top:780px;
 	z-index:1500;
 }
 #ex6{
@@ -250,7 +247,7 @@ html, body{
 	position:absolute;
 	z-index:1005;
 	left:490px;
-	top:790px;
+	top:780px;
 	z-index:1500;
 }
 @keyframes hideAndShow {
@@ -263,4 +260,8 @@ html, body{
     0% {
       opacity:1;
     }
+}
+button{
+	margin-left: 10px !important;
+	text-align:left !important;
 }

@@ -30,6 +30,23 @@ public class HomeController {
 		return "extinguisher";
 	}
 	
+	@RequestMapping("/sensor")
+	private String sstest() throws Exception{
+//		System.out.println(hMapper.hrCount()); 
+		return "sensorLog";
+	}
+	@RequestMapping("/stream")
+	private String sttest() throws Exception{
+//		System.out.println(hMapper.hrCount()); 
+		return "streaming";
+	}
+	@RequestMapping("/hr")
+	private String hrtest() throws Exception{
+//		System.out.println(hMapper.hrCount()); 
+		return "straming";
+	}
+
+	
 //	@RequestMapping("/weblogin")
 //	private String weblogin() throws Exception{
 ////		System.out.println(hMapper.hrCount()); 

@@ -16,6 +16,7 @@
 <script type="text/javascript" src="<%=root%>/theme.js"></script>
 <script language="javascript" type="text/javascript" src="<%=root%>/cylinder.js"></script>
 <script language="javascript" type="text/javascript" src="<%=root%>/line4.js"></script>
+<script language="javascript" type="text/javascript" src="<%=root%>/js1.js"></script>
 <script>
   var interval = setInterval(function () {
     $.ajax({
@@ -58,44 +59,7 @@
   $(window).on("unload", function(){
 	    alert("call");
 	    console.log("this will be triggered");
-	});
-  function showAlert(){
-	  document.getElementById("art").style.display="block";
-	  document.getElementById("fireBtn").style.display="block";
-	  $.ajax({
-	      type: "GET",
-	      url: "http://192.168.0.35:9999/locationFireEx.do",
-	      dataType: "json",
-	      success: function(data) {
-	        ob = data;
-	        var state = new Array();
-
-	        for(var i = 0; i < 11; i++){
-	        	var j = 600 + i;
-	            var k = j.toString(); 
-	        	state[i] = ob[k];
-	        	if(state[i] == 0){
-	        		document.getElementById("ex"+i).style.display="none";
-	        	}
-	        	if(state[i] == 1){
-	        		document.getElementById("ex"+i).style.display="block";
-	        	}
-	        	
-	        }
-	      }
-	    });
-  }
-  function closeAlert(){
-	  showLocation();
-	  document.getElementById("art").style.display="none";
-	  document.getElementById("fireBtn").style.display="none";
-  }
-  function showLocation(){
-	  document.getElementById("lct").style.display="block";
-  }
-  function closeLocation(){
-	  document.getElementById("lct").style.display="none";
-  }
+	}); 
 </script>
 <style>
 .info {
@@ -116,6 +80,8 @@
 	text-align: center;
 }
 </style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <title>관리자 페이지</title>
 
 </head>
@@ -165,16 +131,36 @@
 			</div>
 		</div>
 		<div class="header">
-			<div class="case">
+			<div class="case" onclick="goReplace('/admin')">
 				<img src="<%=root%>/img/logo1.png" alt="logo" class="logo" />
 			</div>
 		</div>
 		<div class="sidebar">
-			<div class="menuBtn" onclick="sensorlog.go">sensor log</div>
-			<div class="menuBtn" onclick="eventlog.go">event log</div>
-			<div class="menuBtn" onclick="streaming.go">streaming</div>
-			<div class="menuBtn" onclick="hrtable.go">HR table</div>
-			<div class="menuBtn" onclick="location.go">location info</div>
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/sensor')">
+  					<span class="glyphicon glyphicon-tasks" ></span> Sensor Log
+				</button>
+			</div>
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/event')">
+  					<span class="glyphicon glyphicon-alert" ></span> Envent Log
+				</button>
+			</div>
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/stream')">
+  					<span class="glyphicon glyphicon-play-circle" ></span> Striming
+				</button>
+			</div>
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/hr')">
+  					<span class="glyphicon glyphicon-user" ></span> H.R
+				</button>
+			</div>
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/ex')">
+  					<span class="glyphicon glyphicon-map-marker"></span> Map
+				</button>
+			</div>
 			<input type="button" value="불내기" onclick="showAlert()"/>
 		</div>
 		<div class="contents">

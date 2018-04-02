@@ -9,93 +9,86 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css"/>
 <link href="<%=root%>/css/shake.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script language="javascript" type="text/javascript" src="<%=root%>/js1.js"></script>
 <style>
-	#exts1{
+#exts1{
 	width:456px;
-	height:824px;
-	position:fixed;
+	height:624px;
+	position:relative;
 	z-index:1250;
-	}
-	.result{
+}
+.result{
 	float:left;
-	}
-#ex1{
-	position:absolute;
-	z-index:1005;
-	left:120px;
-	top:105px;
-	z-index:1500;
 }
-#ex2{
-	position:absolute;
-	z-index:1005;
-	left:280px;
-	top:65px;
-	z-index:1500;
+#ext0{
+	display:none;
+	position:relative;
+	left:200px;
+	top:205px;
 }
-#ex3{
-	position:absolute;
-	z-index:1005;
+#ext1{
+	display:none;
+	position:relative;
 	left:120px;
+	top:80px;
+}
+#ext2{
+	display:none;
+	position:relative;
+	left:120px;
+	top:145px;
+}
+#ext3{
+	display:none;
+	position:relative;
+	left:120px;
+	top:250px;
+}
+#ext4{
+	display:none;
+	position:relative;
+	left:120px;
+	top:375px;
+}
+#ext5{
+	display:none;
+	position:relative;
+	left:165px;
+	top:513px;
+}
+#ext6{
+	display:none;
+	position:relative;
+	left:290px;
+	bottom:80px;
+}
+#ext7{
+	display:none;
+	position:relative;
+	left:290px;
+	top:50px;
+}
+#ext8{
+	display:none;
+	position:relative;
+	left:320px;
 	top:190px;
-	z-index:1500;
 }
-#ex4{
-	position:absolute;
-	z-index:1005;
-	left:120px;
-	top:330px;
-	z-index:1500;
+#ext9{
+	display:none;
+	position:relative;
+	left:395px;
+	top:345px;
 }
-#ex5{
-	position:absolute;
-	z-index:1005;
-	left:120px;
-	top:475px;
-	z-index:1500;
+#ext10{
+	display:none;
+	position:relative;
+	left:395px;
+	top:390px;
 }
-#ex6{
-	position:absolute;
-	z-index:1005;
-	left:160px;
-	top:645px;
-	z-index:1500;
-}
-#ex7{
-	position:absolute;
-	z-index:1005;
-	left:280px;
-	top:225px;
-	z-index:1500;
-}
-#ex8{
-	position:absolute;
-	z-index:1005;
-	left:300px;
-	top:380px;
-	z-index:1500;
-}
-#ex9{
-	position:absolute;
-	z-index:1005;
-	left:390px;
-	top:540px;
-	z-index:1500;
-}
-#ex10{
-	position:absolute;
-	z-index:1005;
-	left:390px;
-	top:645px;
-	z-index:1500;
-}
-#ex11{
-	position:absolute;
-	z-index:1005;
-	left:193px;
-	top:215px;
-	z-index:1500;
-}
+
 </style>
 <script>
 var interval = setInterval(function () {
@@ -117,99 +110,142 @@ function checkex(){
 	      type: "GET",
 	      url: "http://192.168.0.35:9999/locationFireEx.do",
 	      dataType: "json",
-	      success: function(data) {
-	        ob = data;
+	      success: function(data2) {
+	        ob2 = data2;
 	        var state = new Array();
 
 	        for(var i = 0; i < 11; i++){
 	        	var j = 600 + i;
 	            var k = j.toString(); 
-	        	state[i] = ob[k];
+	        	state[i] = ob2[k];
+	        	if(state[i] == 0){
+	        		document.getElementById("ext"+i).style.display="none";
+	        	}
+	        	if(state[i] == 1){
+	        		document.getElementById("ext"+i).style.display="block";
+	        	}
+	        	
 	        }
 	      }
 	    });
 }  
-  
-
-function sleep(gap){
-	var then, now;
-	then = new Date().getTime();
-	now=then;
-	while((now-then)<gap)
-		{
-			now = new Date().getTime();
-		}
-}
-
 </script>
 <title>관리자 페이지</title>
 
 </head>
 <body>
 	<div class="wrapper">
-		<div class="alert">
+		<div class="alert" id="art" >
+			화재 발생
+			<div id="fireBtn" onclick="closeAlert()">위치확인</div>			
+		</div>
+		<div class="location" id="lct" onclick="closeLocation()">
+			<div id="fire">
+			<div id="exts1">
+				<div class="shake-freeze" id="ex0">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex1">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex2">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex3">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex4">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex5">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex6">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex7">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex8">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex9">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+				<div class="shake-freeze" id="ex10">
+					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+				</div>
+			</div>
+			</div>
 		</div>
 		<div class="header">
-			<div class="case">
+			<div class="case" onclick="goReplace('/admin')">
 				<img src="<%=root%>/img/logo1.png" alt="logo" class="logo"/>
 			</div>
 		</div>
 		<div class="sidebar">
-			<div class="menuBtn">
-			sensor log
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/sensor')">
+  					<span class="glyphicon glyphicon-tasks" ></span> Sensor Log
+				</button>
 			</div>
-			<div class="menuBtn">
-			sensor log
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/event')">
+  					<span class="glyphicon glyphicon-alert" ></span> Envent Log
+				</button>
 			</div>
-			<div class="menuBtn">
-			streaming
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/stream')">
+  					<span class="glyphicon glyphicon-play-circle" ></span> Striming
+				</button>
 			</div>
-			<div class="menuBtn">
-			HR table
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/hr')">
+  					<span class="glyphicon glyphicon-user" ></span> H.R
+				</button>
 			</div>
-			<div class="menuBtn">
-			location info
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/ex')">
+  					<span class="glyphicon glyphicon-map-marker"></span> Map
+				</button>
 			</div>
-			<div class="menuBtn">
-			fire extinguosher
-			</div>
-
+			<input type="button" value="불내기" onclick="showAlert()"/>
 		</div>
 		<div class="contents">
 			<div class="map">
 			</div>
 			<div id="exts1">
-				<div class="shake-freeze" id="ex1">
+				<div class="shake-freeze" id="ext0">
 					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
-				<div class="shake-freeze" id="ex2">
+				<div class="shake-freeze" id="ext1">
 					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
-				<div class="shake-freeze" id="ex3">
+				<div class="shake-freeze" id="ext2">
 					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
-				<div class="shake-freeze" id="ex4">
+				<div class="shake-freeze" id="ext3">
 					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
-				<div class="shake-freeze" id="ex5">
+				<div class="shake-freeze" id="ext4">
 					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
-				<div class="shake-freeze" id="ex6">
+				<div class="shake-freeze" id="ext5">
 					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
-				<div class="shake-freeze" id="ex7">
+				<div class="shake-freeze" id="ext6">
 					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
-				<div class="shake-freeze" id="ex8">
+				<div class="shake-freeze" id="ext7">
 					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
-				<div class="shake-freeze" id="ex9">
+				<div class="shake-freeze" id="ext8">
 					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
-				<div class="shake-freeze" id="ex10">
+				<div class="shake-freeze" id="ext9">
 					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
-				<div class="shake-freeze" id="ex11">
+				<div class="shake-freeze" id="ext10">
 					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 			</div>

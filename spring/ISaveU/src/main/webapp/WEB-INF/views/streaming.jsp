@@ -8,6 +8,9 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script language="javascript" type="text/javascript" src="<%=root%>/js1.js"></script>
 <script>
   function play(){
 	  $.ajax({
@@ -39,7 +42,6 @@
 	  setTimeout(function() {
 		  location.reload();
 	  }, 3000);
-  }
 </script>
 <style>
 #streaming{
@@ -74,17 +76,81 @@
 </head>
 <body>
 	<div class="wrapper">
+		<div class="alert" id="art" >
+				화재 발생
+				<div id="fireBtn" onclick="closeAlert()">위치확인</div>			
+			</div>
+			<div class="location" id="lct" onclick="closeLocation()">
+				<div id="fire">
+				<div id="exts1">
+					<div class="shake-freeze" id="ex0">
+						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					</div>
+					<div class="shake-freeze" id="ex1">
+						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					</div>
+					<div class="shake-freeze" id="ex2">
+						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					</div>
+					<div class="shake-freeze" id="ex3">
+						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					</div>
+					<div class="shake-freeze" id="ex4">
+						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					</div>
+					<div class="shake-freeze" id="ex5">
+						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					</div>
+					<div class="shake-freeze" id="ex6">
+						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					</div>
+					<div class="shake-freeze" id="ex7">
+						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					</div>
+					<div class="shake-freeze" id="ex8">
+						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					</div>
+					<div class="shake-freeze" id="ex9">
+						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					</div>
+					<div class="shake-freeze" id="ex10">
+						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					</div>
+				</div>
+				</div>
+		</div>
 		<div class="header">
-			<div class="case">
+			<div class="case" onclick="goReplace('/admin')">
 				<img src="<%=root%>/img/logo1.png" alt="logo" class="logo" />
 			</div>
 		</div>
 		<div class="sidebar">
-			<div class="menuBtn" onclick="sensorlog.go">sensor log</div>
-			<div class="menuBtn" onclick="eventlog.go">event log</div>
-			<div class="menuBtn" onclick="streaming.go">streaming</div>
-			<div class="menuBtn" onclick="hrtable.go">HR table</div>
-			<div class="menuBtn" onclick="location.go">location info</div>
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/sensor')">
+  					<span class="glyphicon glyphicon-tasks" ></span> Sensor Log
+				</button>
+			</div>
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/event')">
+  					<span class="glyphicon glyphicon-alert" ></span> Envent Log
+				</button>
+			</div>
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/stream')">
+  					<span class="glyphicon glyphicon-play-circle" ></span> Striming
+				</button>
+			</div>
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/hr')">
+  					<span class="glyphicon glyphicon-user" ></span> H.R
+				</button>
+			</div>
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/ex')">
+  					<span class="glyphicon glyphicon-map-marker"></span> Map
+				</button>
+			</div>
+			<input type="button" value="불내기" onclick="showAlert()"/>
 		</div>
 		<div class="contents">
 			<div id="cam">
