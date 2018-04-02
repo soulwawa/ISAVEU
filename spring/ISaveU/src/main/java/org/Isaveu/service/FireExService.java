@@ -26,5 +26,11 @@ public class FireExService implements FireExMapper{
 		
 	}
 
+	@Override
+	public void updatefireExStatus(String location) throws Exception {
+		fMapper.updatefireExStatus(location);
+	}
+
+
 	
 }

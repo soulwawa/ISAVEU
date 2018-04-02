@@ -12,8 +12,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -22,6 +24,8 @@ import org.Isaveu.domain.ModuleByLocationVO;
 import org.Isaveu.domain.TbActionVO;
 import org.Isaveu.domain.TbEventVO;
 import org.Isaveu.domain.TbHrVO;
+import org.Isaveu.domain.TbModuleVO;
+import org.Isaveu.mapper.ModuleMapper;
 import org.Isaveu.service.ActionService;
 import org.Isaveu.service.EventService;
 import org.Isaveu.service.HrService;
@@ -53,7 +57,7 @@ public class EventController {
 	float gyro;
 	float fire;
 	String module_id;
-
+	
 	@Resource( name = "org.Isaveu.service.EventService")
 	EventService eService;
 
@@ -64,7 +68,10 @@ public class EventController {
 	HrService hService;
 	
 	@Resource (name = "org.Isaveu.service.LocationService")
-	LocationService LService;
+	LocationService lService;
+	
+	@Resource (name = "org.Isaveu.service.ModuleService")
+	ModuleMapper mService;
 	
 	@RequestMapping(value = "/eventIn.do", method = RequestMethod.GET)
 	private String eventIn(@ModelAttribute TbEventVO event) throws Exception{
@@ -73,8 +80,15 @@ public class EventController {
 		smoke = event.getSmoke();
 		gyro = event.getGyro();
 		fire = event.getFire();
-		module_id = event.getModule_id();
 		
+		//if 모듈이 여러개일때 가정
+		String typeArduino = "arduino"; 
+		List<TbModuleVO> moduleList = mService.getModuleList(typeArduino);
+		int moduleRandom;
+		Random generator = new Random();
+		moduleRandom = generator.nextInt(moduleList.size() + 1);
+		event.setModule_id(String.valueOf(moduleRandom));
+		module_id = String.valueOf(moduleRandom);
 		//		model.addAllAttributes(hService.getHrAllList());
 		switch (issue) {
 		case "1":
@@ -90,6 +104,7 @@ public class EventController {
 			imageGet(issue);
 			break;
 		default:
+			
 			eService.insertEvent(event);
 			RaspControl(issue);
 			System.out.println("InsertEvent Succes");
@@ -123,6 +138,7 @@ public class EventController {
 			TbActionVO action = new TbActionVO();
 //			System.out.println(serverName);
 			action.setUrl(serverName);
+			action.setModule_id(module_id);
 			FcmSend(androidPass + fileName + fileExtension, issue);
 			try {
 				aService.insertAction(action);
@@ -139,10 +155,11 @@ public class EventController {
 		//TITILE
 		ArrayList<ModuleByLocationVO> localList = new ArrayList<ModuleByLocationVO>();
 		try {
-			localList = LService.moduleByLocation(module_id);
+			localList = lService.moduleByLocation(module_id);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
+		System.out.println(module_id);
 		ModuleByLocationVO location = localList.get(0);
 		String title = location.getLocation() + "/"+ location.getDept_name();
 		
@@ -198,50 +215,54 @@ public class EventController {
 
 
 	@RequestMapping("/Dispatcher")
-	private void process(HttpServletResponse resp)
-			throws Exception {
+	private Map<String, Object> dispatcher(@ModelAttribute TbEventVO event) throws Exception{
+	
 		//이번에는 이전 예제와는 다르게 Ajax요청이 오면 응답해줄꺼다.
 		//이전에는 그냥 내가 원하는 페이지로 json을 가져가는 거였다면?
 		//지금은 요청한 놈한테 return만 해주면 되기 때문에
 		//PrintWriter out = resp.getWriter();
 		//이걸 사용하면 된다.
-
 		//주소요청 http://localhost:8000/JsonAjax/Dispatcher
 		//Get방식
 		//process()함수 호출
 		//JSON만들기
-		JsonObject jsonObj = new JsonObject();
-
+//		JsonObject jsonObj = new JsonObject();
+//
 		Date date = new Date();
 		SimpleDateFormat transFomat2 = new SimpleDateFormat("yyyyMMdd_HHmmss");
 		String datenow = transFomat2.format(date);
-		//			System.out.println(temp);
-		jsonObj.addProperty("temp", temp);
-		jsonObj.addProperty("smoke", smoke);
-		jsonObj.addProperty("fire", fire);
-		jsonObj.addProperty("gyro", gyro);
-		jsonObj.addProperty("date", datenow);
-		jsonObj.addProperty("msg", "success");
-		PrintWriter out = resp.getWriter();
-		out.print(jsonObj);
-		//			System.out.println(out);
+//		jsonObj.addProperty("temp", temp);
+//		jsonObj.addProperty("smoke", smoke);
+//		jsonObj.addProperty("fire", fire);
+//		jsonObj.addProperty("gyro", gyro);
+//		jsonObj.addProperty("date", datenow);
+//		jsonObj.addProperty("msg", "success");
+//		PrintWriter out = resp.getWriter();
+//		out.print(jsonObj);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("temp", temp);
+		map.put("smoke", 120-(smoke/10f));
+		map.put("fire", 120-(fire/10f));
+		map.put("gyro", 120-(gyro/10f));
+		map.put("date", datenow);
+		return map;		
 	}
 	@RequestMapping("/DispatcherRecent")
-	private List<Map<String, String>> dispatcherRecent(@ModelAttribute TbEventVO event, @RequestParam("num") int num) throws Exception{
+	private List<Map<String, Object>> dispatcherRecent(@ModelAttribute TbEventVO event, @RequestParam("num") int num) throws Exception{
 		ArrayList<TbEventVO> list = new ArrayList<TbEventVO>();
 		list = eService.selectRecent(num);
-		Map<String, String> map = new HashMap<String, String>();
-		List<Map<String, String>> myList = new ArrayList<Map<String, String>>();
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<Map<String, Object>> myList = new ArrayList<Map<String, Object>>();
 
 		for(int i = 0 ; i < list.size() ; i++ ) {
-			for(int j = 0; j < i ; j++) {
-				map.put("time", list.get(j).getDatetime());
-				map.put("temp", Float.toString(list.get(j).getTemp()));
-				map.put("smoke", Float.toString(list.get(j).getSmoke()));
-				map.put("gyro", Float.toString(list.get(j).getGyro()));
-				map.put("time", Float.toString(list.get(j).getTemp()));
-			}
-			myList.add(map);
+			map = new LinkedHashMap();
+			
+			map.put("time", list.get(i).getTime().substring(11,19));
+			map.put("temp", list.get(i).getTemp());
+			map.put("smoke", (list.get(i).getSmoke()/10f));
+			map.put("fire", (1450-list.get(i).getFire())/10f);
+			map.put("gyro", (1450-list.get(i).getGyro())/10f);
+			myList.add(i, map);
 		}
 		return myList;
 	}
