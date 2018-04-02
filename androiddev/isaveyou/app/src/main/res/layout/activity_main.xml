@@ -41,8 +41,8 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/blue600"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+                android:background="@color/colorMediumSpringGreen"
+                android:theme="@style/AppTheme" />
 
         </RelativeLayout>
 
@@ -77,7 +77,7 @@
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            fab:fab_addButtonColorNormal="@color/lightbluea70"
+            fab:fab_addButtonColorNormal="@color/colorMediumSpringGreen"
             fab:fab_addButtonColorPressed="@color/white_pressed"
             fab:fab_addButtonPlusIconColor="@color/white"
             fab:fab_labelStyle="@style/menu_labels_style">

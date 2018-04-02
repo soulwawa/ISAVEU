@@ -12,7 +12,7 @@
     <string name="monitoring">현장 스트리밍</string>
     <string name="stat">통계</string>
     <string name="map">비상대피도</string>
-    <string name="possibleFire_ext">사용가능한\n소화기 보기</string>
+    <string name="possibleFire_ext">사용 가능한\n소화기 보기</string>
     <string name="forfloor">층 비상대피도</string>
     <string name="play">재생</string>
     <string name="stop">멈춤</string>

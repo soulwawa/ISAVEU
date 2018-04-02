@@ -15,18 +15,6 @@
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
-    <ImageView
-        android:id="@+id/mapImg"
-        android:layout_width="match_parent"
-        android:layout_height="550dp"
-        android:layout_gravity="top"
-        android:layout_marginTop="4dp"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/floor_6th" />
 
     <TextView
         android:id="@+id/textView"
@@ -47,5 +35,18 @@
         android:layout_marginLeft="20dp"
         android:hint="6"
         android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/mapImg"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:layout_gravity="top"
+        android:layout_marginTop="4dp"
+        android:scaleType="fitXY"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pic_6h_floor_white" />
 
 </FrameLayout>

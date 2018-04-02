@@ -171,31 +171,47 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         PendingIntent checkPlacePendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionCheckPlace,PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent checkFire_ext = PendingIntent.getActivity(getApplicationContext(),0,actionCheckFire_ext,PendingIntent.FLAG_UPDATE_CURRENT);
 
+        if(issue == "소화기"){
+            NotificationCompat.Builder nNotificationBuilder = new NotificationCompat.Builder(this, channelId) //4.1 아래 버전과의 호환성을 위해 notificationCompat을 사용
+                    .setSmallIcon(R.drawable.ic_stat_name)
+                    .setColor(color)
+                    .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
+                    .setAutoCancel(false)
+                    .setVibrate(pattern)
+                    .setPriority(NotificationCompat.PRIORITY_MAX)
+                    .setSound(notificationSoundURI)
+                    .setNumber(100)
+                    .setContentTitle(roomName + ", " + issue + " 문제 발생")
+                    .setWhen(System.currentTimeMillis())
+                    .setContentText(roomName +"에 위치한 소화기에 문제가 생겼습니다. 확인해주세요.");
 
+            notificationManager.notify(0 /* ID of notification */, nNotificationBuilder.build());
 
-        NotificationCompat.Builder mNotificationBuilder = new NotificationCompat.Builder( this, channelId) //4.1 아래 버전과의 호환성을 위해 notificationCompat을 사용
-                .setSmallIcon(R.drawable.ic_stat_name) //작은 아이콘 세팅
-                .setLargeIcon(mLargeIconForNoti) //큰 아이콘 세팅 - 큰 아이콘 세팅을 위해서 위에 bitmap 이용
-                .setColor(color)
-                .setDefaults(Notification.DEFAULT_LIGHTS|Notification.DEFAULT_SOUND)
-                .setAutoCancel( false ) // notification을 클릭한 경우, notification을 사라지게 하려면 true 값을 줘야함
-                .setVibrate(pattern) //진동 설정
-                .setPriority(NotificationCompat.PRIORITY_MAX)
-                .setSound(notificationSoundURI)
-                .setNumber(100)
-                .setContentTitle(roomName +", "+ issue + " 발생")
-                .setWhen(System.currentTimeMillis())
-                .setStyle(new NotificationCompat.BigPictureStyle() /*스타일 지정*/
-                        .bigPicture(mLargeIconForNoti)
-                        .bigPicture(img)
-                )
-                .setContentText("빠르게 대피해주세요!" +"\n 사진보기 ▼")
-                .addAction(R.drawable.pic_fire_call,getResources().getString(R.string.call),callPendingIntent) //119신고 액션 추가
-                .addAction(R.drawable.pic_checkplace, getResources().getString(R.string.checkPlace),checkPlacePendingIntent)
-                .addAction(R.drawable.pic_fire_ext,getResources().getString(R.string.checkFire_ext),checkFire_ext);
+        }else {
 
+            NotificationCompat.Builder mNotificationBuilder = new NotificationCompat.Builder(this, channelId) //4.1 아래 버전과의 호환성을 위해 notificationCompat을 사용
+                    .setSmallIcon(R.drawable.ic_stat_name) //작은 아이콘 세팅
+                    .setLargeIcon(mLargeIconForNoti) //큰 아이콘 세팅 - 큰 아이콘 세팅을 위해서 위에 bitmap 이용
+                    .setColor(color)
+                    .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
+                    .setAutoCancel(false) // notification을 클릭한 경우, notification을 사라지게 하려면 true 값을 줘야함
+                    .setVibrate(pattern) //진동 설정
+                    .setPriority(NotificationCompat.PRIORITY_MAX)
+                    .setSound(notificationSoundURI)
+                    .setNumber(100)
+                    .setContentTitle(roomName + ", " + issue + " 발생")
+                    .setWhen(System.currentTimeMillis())
+                    .setStyle(new NotificationCompat.BigPictureStyle() /*스타일 지정*/
+                            .bigPicture(mLargeIconForNoti)
+                            .bigPicture(img)
+                    )
+                    .setContentText("빠르게 대피해주세요!" + "\n 사진보기 ▼")
+                    .addAction(R.drawable.pic_fire_call, getResources().getString(R.string.call), callPendingIntent) //119신고 액션 추가
+                    .addAction(R.drawable.pic_checkplace, getResources().getString(R.string.checkPlace), checkPlacePendingIntent)
+                    .addAction(R.drawable.pic_fire_ext, getResources().getString(R.string.checkFire_ext), checkFire_ext);
 
+            notificationManager.notify(0 /* ID of notification */, mNotificationBuilder.build());
+        }
 
-        notificationManager.notify(0 /* ID of notification */, mNotificationBuilder.build());
     }
 }

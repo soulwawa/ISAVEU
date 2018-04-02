@@ -1,10 +1,12 @@
 package kr.co.isaveyou.isaveyou.map;
 
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 
 import kr.co.isaveyou.isaveyou.R;
 
@@ -44,8 +46,6 @@ public class FloorMapActivity extends AppCompatActivity {
             fragmentTransaction.commit();
             Log.v(TAG, "event-0 : " +event);
             Log.v(TAG,"place0 : " + place);
-        }else if(event.equals("2")){
-            Log.v(TAG, "event-2 : " +event);
         }
 
 

@@ -17,7 +17,7 @@ public class SplashActivity extends Activity{
         super.onCreate(savedInstanceState);
 
         try{
-            Thread.sleep(1000); //화면이 보여지는 시간
+            Thread.sleep(3000); //화면이 보여지는 시간
         }catch(InterruptedException e){
             e.printStackTrace();
         }

@@ -3,7 +3,7 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/blue650</item>
+        <item name="colorPrimary">@color/colorMediumSpringGreen</item>
         <item name="colorPrimaryDark">@android:color/background_dark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <!-- No Action bar -->
@@ -12,7 +12,7 @@
     </style>
 
     <style name="SplashTheme" parent="android:style/Theme.Light.NoTitleBar">
-        <item name="android:background">@drawable/pic_1st</item>
+        <item name="android:background">@drawable/pic_app_intro2</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

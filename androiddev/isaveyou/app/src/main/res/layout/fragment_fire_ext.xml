@@ -36,7 +36,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <TextView
-                android:id="@+id/tv_600_startDate_hallway01"
+                android:id="@+id/tv_startDate_600_hallway01"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_weight="1"
@@ -56,13 +56,13 @@
                 android:layout_weight="1"
                 app:rcBackgroundColor="#808080"
                 app:rcBackgroundPadding="5dp"
-                app:rcMax="100"
+                app:rcMax="30"
                 app:rcProgress="50"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
 
             <TextView
-                android:id="@+id/tv_600_endDate_hallway01"
+                android:id="@+id/tv_endDate_600_hallway01"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_weight="1"
@@ -82,7 +82,7 @@
             android:layout_marginEnd="8dp"
             android:background="@drawable/layout_for_progressbar"
             android:gravity="center"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/room606_Fire_ext"
             app:layout_constraintEnd_toEndOf="parent">
 
@@ -95,7 +95,9 @@
                 android:hint="2015.01.24"
                 android:textAllCaps="false"
                 android:textColor="@color/black_semi_transparent"
-                android:textSize="8sp" />
+                android:textSize="8sp"
+                android:textStyle="bold"
+                />
 
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:id="@+id/pb_606"
@@ -108,8 +110,7 @@
                 android:gravity="center"
                 app:rcBackgroundColor="#808080"
                 app:rcBackgroundPadding="5dp"
-                app:rcMax="100"
-                app:rcProgress="50"
+                app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp">
 
@@ -122,6 +123,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:hint="2015.01.24"
+                android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
 
@@ -138,12 +140,13 @@
             app:layout_constraintTop_toTopOf="@+id/room601_waitingRoom_Fire_ext">
 
             <TextView
-                android:id="@+id/tv_startDate_waiting_601"
+                android:id="@+id/tv_startDate_601_waiting"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:hint="2015.01.24"
+                android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
 
@@ -158,18 +161,18 @@
 
                 app:rcBackgroundColor="#808080"
                 app:rcBackgroundPadding="5dp"
-                app:rcMax="100"
-                app:rcProgress="50"
+                app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
 
             <TextView
-                android:id="@+id/tv_endDate_waiting_601"
+                android:id="@+id/tv_endDate_601_waiting"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:hint="2015.01.24"
+                android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
 
@@ -193,6 +196,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:textStyle="bold"
                 android:hint="2015.01.24"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
@@ -209,8 +213,7 @@
 
                 app:rcBackgroundColor="#808080"
                 app:rcBackgroundPadding="5dp"
-                app:rcMax="100"
-                app:rcProgress="50"
+                app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
 
@@ -220,6 +223,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:textStyle="bold"
                 android:hint="2015.01.24"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
@@ -245,6 +249,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:hint="2015.01.24"
+                android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
 
@@ -260,8 +265,7 @@
 
                 app:rcBackgroundColor="#808080"
                 app:rcBackgroundPadding="5dp"
-                app:rcMax="100"
-                app:rcProgress="50"
+                app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
 
@@ -272,6 +276,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:hint="2015.01.24"
+                android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
 
@@ -291,7 +296,7 @@
                 android:id="@+id/tv_startDate_603"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
-
+                android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:hint="2015.01.24"
@@ -310,8 +315,7 @@
 
                 app:rcBackgroundColor="#808080"
                 app:rcBackgroundPadding="5dp"
-                app:rcMax="100"
-                app:rcProgress="50"
+                app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
 
@@ -322,6 +326,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:hint="2015.01.24"
+                android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
 
@@ -345,6 +350,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:hint="2015.01.24"
+                android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
 
@@ -360,8 +366,7 @@
 
                 app:rcBackgroundColor="#808080"
                 app:rcBackgroundPadding="5dp"
-                app:rcMax="100"
-                app:rcProgress="50"
+                app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
 
@@ -372,6 +377,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:hint="2015.01.24"
+                android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
 
@@ -394,6 +400,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:hint="2015.01.24"
+                android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
 
@@ -409,8 +416,7 @@
 
                 app:rcBackgroundColor="#808080"
                 app:rcBackgroundPadding="5dp"
-                app:rcMax="100"
-                app:rcProgress="50"
+                app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
 
@@ -421,6 +427,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:hint="2015.01.24"
+                android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
 
@@ -443,6 +450,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:hint="2015.01.24"
+                android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
 
@@ -458,8 +466,7 @@
 
                 app:rcBackgroundColor="#808080"
                 app:rcBackgroundPadding="5dp"
-                app:rcMax="100"
-                app:rcProgress="50"
+                app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
 
@@ -470,6 +477,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:hint="2015.01.24"
+                android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
 
@@ -491,10 +499,10 @@
                 android:id="@+id/tv_startDate_605"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
-
                 android:layout_weight="1"
                 android:gravity="center"
                 android:hint="2015.01.24"
+                android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
 
@@ -510,8 +518,7 @@
 
                 app:rcBackgroundColor="#808080"
                 app:rcBackgroundPadding="5dp"
-                app:rcMax="100"
-                app:rcProgress="50"
+                app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
 
@@ -522,6 +529,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:hint="2015.01.24"
+
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
 
@@ -533,11 +541,12 @@
             android:layout_height="wrap_content"
             android:background="@drawable/layout_for_progressbar"
             android:gravity="center"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@+id/restRoom610_Fire_ext"
             app:layout_constraintTop_toBottomOf="@+id/restRoom610_Fire_ext">
 
             <TextView
-                android:id="@+id/tv_startDate_restRoom_610"
+                android:id="@+id/tv_startDate_610_restRoom"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
 
@@ -559,15 +568,14 @@
 
                 app:rcBackgroundColor="#808080"
                 app:rcBackgroundPadding="5dp"
-                app:rcMax="100"
-                app:rcProgress="50"
+                app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
 
             <TextView
-                android:id="@+id/tv_endDate_restRoom_610"
+                android:id="@+id/tv_endDate_610_restRoom"
                 android:layout_width="wrap_content"
-                android:layout_height="14dp"
+                android:layout_height="22dp"
 
                 android:layout_weight="1"
                 android:gravity="center"
@@ -628,10 +636,11 @@
             android:layout_width="20dp"
             android:layout_height="21dp"
             android:layout_marginStart="172dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/pic_fire_ext"
             android:clickable="true"
             app:layout_constraintStart_toEndOf="@+id/room605_Fire_ext"
-            app:layout_constraintTop_toBottomOf="@+id/room605_Fire_ext" />
+            app:layout_constraintTop_toTopOf="@+id/room605_Fire_ext" />
 
         <ImageSwitcher
             android:id="@+id/room605_Fire_ext"
@@ -707,15 +716,15 @@
             android:id="@+id/checkButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="4dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:background="@drawable/mybutton"
-            android:gravity="center_horizontal"
+            android:gravity="center_horizontal|center"
             android:text="@string/possibleFire_ext"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent" />
 
     </android.support.constraint.ConstraintLayout>

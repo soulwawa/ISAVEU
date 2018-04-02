@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().setStatusBarColor(Color.rgb(53, 53, 53));
+            getWindow().setStatusBarColor(Color.rgb(14, 198, 127));
         }
 
 
@@ -84,22 +84,23 @@ public class MainActivity extends AppCompatActivity {
 
                 menuMultipleActions.collapse();
 
-                Log.v(TAG, "스트리밍버튼 클릭");
+                Log.v(TAG, "스트리밍 버튼 클릭");
             }
         });
         findViewById(R.id.fab_map).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"map클릭",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), FloorMapActivity.class);
-                intent.setData(Uri.parse("2/000"));
+                intent.setData(Uri.parse("1/000"));
                 startActivity(intent);
+                Log.v(TAG, "맵 버튼 클릭");
             }
         });
         findViewById(R.id.fab_static).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"static클릭",Toast.LENGTH_SHORT).show();
+                Log.v(TAG, "통계 버튼 클릭");
             }
         });
 
