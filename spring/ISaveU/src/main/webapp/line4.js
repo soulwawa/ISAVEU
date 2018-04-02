@@ -78,18 +78,19 @@ var layoutStr =
          +'</rMateChart>';
  
 //// 차트 데이터
-//var chartData2 = [{"Month":"Jan", "Beef":38.5, "Chicken":20, "Sheep":50, "aaa":10},
-//                {"Month":"Feb", "Beef":56.57, "Chicken":27.52, "Sheep":42, "aaa":11},
-//             {"Month":"Mar", "Beef":58.57, "Chicken":23.65, "Sheep":40, "aaa":12},
-//             {"Month":"Apr", "Beef":41.13, "Chicken":29.54, "Sheep":60, "aaa":13},
-//             {"Month":"May", "Beef":40.58, "Chicken":24.21, "Sheep":50, "aaa":14},
-//             {"Month":"Jun", "Beef":60.79, "Chicken":39.12, "Sheep":52.5, "aaa":15},
-//               {"Month":"Jul", "Beef":49.14, "Chicken":32.56, "Sheep":70.64, "aaa":14},
-//              {"Month":"Aug", "Beef":89.35, "Chicken":39.24, "Sheep":68.57, "aaa":13},
-//              {"Month":"Sep", "Beef":65.21, "Chicken":32.12, "Sheep":54.14, "aaa":12},
-//              {"Month":"Oct", "Beef":75.15, "Chicken":42.12, "Sheep":57.58, "aaa":11},
-//              {"Month":"Nov", "Beef":69.12, "Chicken":35.54, "Sheep":54.47, "aaa":10},
-//              {"Month":"Dec", "Beef":73.24, "Chicken":40.45, "Sheep":62.47, "aaa":14}];
+var chartData2 = [  {"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
+	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
+	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
+	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
+	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
+	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
+	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
+	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
+	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
+	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
+	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
+	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0}];
+	
 
 //IE 판별
 function compIE(){
