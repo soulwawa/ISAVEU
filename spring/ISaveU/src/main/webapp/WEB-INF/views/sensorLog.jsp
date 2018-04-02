@@ -5,8 +5,6 @@
 <head>
 <% String root = request.getContextPath(); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="<%=root%>/rMateChartH5.css" />
 <script language="javascript" type="text/javascript"
@@ -14,28 +12,48 @@
 <script language="javascript" type="text/javascript"
 	src="<%=root%>/rMateIntegrationH5.js"></script>
 <script type="text/javascript" src="<%=root%>/theme.js"></script>
+<script type="text/javascript" src="<%=root%>/rMateChartH5.js"></script>
 <script type="text/javascript" src="<%=root%>/charts.js"></script>
 <script language="javascript" type="text/javascript" src="<%=root%>/js1.js"></script>
+<script type="text/javascript" src="<%=root%>/charts.js"></script>
+<script type="text/javascript" src="<%=root%>/jquery-ui.js"></script>
+<script type="text/javascript" src="<%=root%>/jquery-1.12.4.min.js"></script>
+
 <script>
 
 </script>
 <style>
-.info {
-	width: 500px;
-	height: 400px;
-	position: absolute;
-	background-color: transparent !important;
-	left: 42px;
-	top:60px;
+.ui-tabs-nav{
+	margin:0 0 10px 0;
+	padding:0;
+	display:table;
 }
-
-.value {
-	margin: 0;
-	padding: 15px 20px;
-	height: 100px;
-	width: 500px;
-	background-color: transparent !important;
-	text-align: center;
+.ui-tabs-nav *{
+	box-sizing:border-box;
+}
+.ui-tabs-tab{
+	float:left;
+	color:#666;
+	position:relative;
+	list-style:none;
+	margin-right:4px;
+	border:solid 1px #eee;
+	border-bottom:none;
+}
+.ui-tabs-tab:hover{
+	color:#222;
+	font-weight:bold;
+}
+.li_select{
+	color:#000;
+	border-color:#40b2e6;
+}
+.ui-tabs-anchor{
+	float:left;
+	color:inherit;
+	padding:10px 30px;
+	text-decoration:none;
+	outline:none;
 }
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
@@ -126,17 +144,24 @@
 				<div class="area" id="a1">
 					<div id="content1"
 						style="height: 400px; width: 550; position: relative;">
-						<!-- 차트가 삽입될 DIV -->
-						<div id="chartHolder1" class="chartHolder" style="height: 100px;"></div>
-						<div id="chartHolder2" class="chartHolder" style="height: 100px;"></div>
-						<div id="chartHolder3" class="chartHolder" style="height: 100px;"></div>
-						<div id="chartHolder4" class="chartHolder" style="height: 100px;"></div>
+						<div id="content">
+							<div id="jqueryTabs">
+								<ul>
+									<li class="li_select"><a href="#chartHolder1">chart1</a></li>
+									<li><a href="#chartHolder2">chart2</a></li>
+									<li><a href="#chartHolder3">chart3</a></li>
+								</ul>
+								<!-- 차트가 삽입될 DIV -->
+								<div id="chartHolder1" style="width:850px;height:400px;"></div>
+								<div id="chartHolder2" style="width:850px;height:400px;"></div>
+								<div id="chartHolder3" style="width:850px;height:400px;"></div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="area" id="a2">
 					<div id="content2"
 						style="height: 400px; width: 550; position: relative;">
-						<div id="chartHolder5" class="chartHolder" style="height: 400px; width: 550;"></div>
 					</div>
 				</div>
 			</div>
