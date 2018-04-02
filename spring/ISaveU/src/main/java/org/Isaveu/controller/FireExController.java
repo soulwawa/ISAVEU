@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.Isaveu.domain.LocationByFireExVO;
 import org.Isaveu.domain.ModuleByLocationVO;
 import org.Isaveu.domain.TbFireExVO;
 import org.Isaveu.domain.TbHrVO;
@@ -40,7 +41,7 @@ public class FireExController {
 	HrService hService;
 	
 	@Resource (name = "org.Isaveu.service.LocationService")
-	LocationService LService;
+	LocationService lService;
 	
 	
 	@ResponseBody
@@ -65,7 +66,7 @@ public class FireExController {
 		
 		String module_id = String.valueOf(fireVo.getLocation_id());
 		try {
-			localList = LService.moduleByLocation(module_id);
+			localList = lService.moduleByLocation(module_id);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
@@ -112,22 +113,19 @@ public class FireExController {
 		return map;
 	}
 	
-	//소화기 UPDATE 수정
+	// 소화기 유효기간 확인
 	@ResponseBody
-	@RequestMapping(value = "/fe1.do")
-	private Map<String, String> fireExStatus(@ModelAttribute TbFireExVO fire,  @RequestParam("missing") String fire_ex_name) throws Exception{
-		//192.168.0.61:5002/feRestart/
-		
-		fire.setFire_ex_name(fire_ex_name);
-		fire.setFire_ex_status("0");
-		
-		fService.fireExStatusUpdate(fire);
-		System.out.println(fire_ex_name + "의 상태값이 변했습니다.");
+	@RequestMapping(value = "/AndroidFire_extCheck.do")
+	private Map<String, String>AndroidFire_extCheck(@ModelAttribute TbFireExVO fire, LocationByFireExVO location, @RequestParam("loc") String loc) throws Exception{
+		fService.updatefireExStatus(loc);
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("Access", "ok");
+		map.put(loc, "1");
 		return map;
 	}
 	
+	//AndroidFire_extCheck.do?loc=600?status=1
+	
+
 	
 	
 }

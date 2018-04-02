@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface FireExMapper {
 	public ArrayList<TbFireExVO> getFireEx(String fire_ex_name) throws Exception;
 	public void fireExStatusUpdate(TbFireExVO fire) throws Exception;
+	public void updatefireExStatus(String location) throws Exception;
 }

@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         INSERT INTO
 			tb_action
 		VALUES
-			(null, 2, #{url}, now());
+			(null, #{module_id}, #{url}, now());
     </insert>
 </mapper>
 

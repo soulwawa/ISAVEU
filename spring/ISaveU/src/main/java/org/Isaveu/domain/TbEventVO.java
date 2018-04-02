@@ -10,8 +10,16 @@ public class TbEventVO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int event_id;
 	private String module_id;
-	private String datetime;
+	private String time;
 	private float temp;
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
 	private float smoke;
 	private float gyro;
 	private float fire;
@@ -33,13 +41,6 @@ public class TbEventVO implements Serializable {
 		this.module_id = module_id;
 	}
 
-	public String getDatetime() {
-		return datetime;
-	}
-
-	public void setDatetime(String datetime) {
-		this.datetime = datetime;
-	}
 
 	public float getTemp() {
 		return temp;
@@ -83,9 +84,10 @@ public class TbEventVO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "TbEventVO [event_id=" + event_id + ", module_id=" + module_id + ", datetime=" + datetime + ", temp="
-				+ temp + ", smoke=" + smoke + ", gyro=" + gyro + ", fire=" + fire + ", issue=" + issue + "]";
+		return "TbEventVO [event_id=" + event_id + ", module_id=" + module_id + ", time=" + time + ", temp=" + temp
+				+ ", smoke=" + smoke + ", gyro=" + gyro + ", fire=" + fire + ", issue=" + issue + "]";
 	}
+
 	
 	
 }

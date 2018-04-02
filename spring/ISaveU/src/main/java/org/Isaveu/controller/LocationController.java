@@ -35,4 +35,19 @@ public class LocationController {
 		return map;
 
 	}
+	@ResponseBody
+	@RequestMapping(value = "/locationFireExDate.do")
+	public Map<String, String> locationFireExdate(@ModelAttribute LocationByFireExVO location, HttpServletResponse response) throws Exception{
+
+		response.setContentType("text/plain;charset=utf-8");
+		ArrayList<LocationByFireExVO> list = new ArrayList<LocationByFireExVO>();
+		list = lService.locationByFireEx();
+		Map<String, String> map = new HashMap<String, String>();
+
+		for (int i = 0 ; i < list.size() ; i++) {
+			map.put(list.get(i).getLocation(), list.get(i).getCheck_date().substring(0,10));
+		}
+		return map;
+
+	}
 }
