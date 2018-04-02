@@ -44,19 +44,19 @@ var layoutStr =
                       */
                       
                     
-                    	+'<Line2DSeries labelPosition="up" yField="fire" fill="#ffffff" radius="5" displayName="temp" itemRenderer="RectangleItemRenderer">'
+                    	+'<Line2DSeries labelPosition="up" yField="fire" fill="#ffffff" radius="5" displayName="fire" itemRenderer="RectangleItemRenderer">'
                            +'<showDataEffect>'
                            + '<' + effect + ' duration="1000"/>'
                            +'</showDataEffect>'
                         +'</Line2DSeries>'
                       
-                        +'<Line2DSeries labelPosition="up" yField="temp" fill="#ffffff" radius="5" displayName="smoke" itemRenderer="CircleItemRenderer">'
+                        +'<Line2DSeries labelPosition="up" yField="temp" fill="#ffffff" radius="5" displayName="temp" itemRenderer="CircleItemRenderer">'
                            +'<showDataEffect>'
                            + '<' + effect + ' duration="1000"/>'
                            +'</showDataEffect>'
                          +'</Line2DSeries>'
                          
-                        +'<Line2DSeries labelPosition="up" yField="smoke" fill="#ffffff" radius="6" displayName="fire" itemRenderer="TriangleItemRenderer">'
+                        +'<Line2DSeries labelPosition="up" yField="smoke" fill="#ffffff" radius="6" displayName="smoke" itemRenderer="TriangleItemRenderer">'
                          +'<showDataEffect>'
                          + '<' + effect + ' duration="1000"/>'
                            +'</showDataEffect>'

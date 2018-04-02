@@ -23,7 +23,7 @@
 	var data3;
 	var data4;
 	var data5;
-/*   var interval = setInterval(function () {
+   var interval = setInterval(function () {
     $.ajax({
       type: "GET",
       url: "http://192.168.0.35:9999/Dispatcher",
@@ -53,10 +53,10 @@
       }
     });
   }, 9900);
- */  var interval = setInterval(function () {
+  var interval = setInterval(function () {
 	    $.ajax({
 	      type: "GET",
-	      url: "http://192.168.0.35:9999/DispatcherRecent?num=12",
+	      url: "http://192.168.0.35:9999/DispatcherRecent?num=1200",
 	      dataType: "json",
 	      success: function(data2) {
 	        ob2 = data2;
