@@ -43,6 +43,18 @@
     });
   }, 9900);
   
+  var interval = setInterval(function () {
+	    $.ajax({
+	      type: "GET",
+	      url: "http://192.168.0.35:9999/DispatcherRecent",
+	      dataType: "json",
+	      success: function(data2) {
+	        ob2 = data2;
+	        console.log(ob2); 
+	      }
+	    });
+	  }, 9900);
+  
   $(window).on("unload", function(){
 	    alert("call");
 	    console.log("this will be triggered");
