@@ -56,7 +56,7 @@
   var interval = setInterval(function () {
 	    $.ajax({
 	      type: "GET",
-	      url: "http://192.168.0.35:9999/DispatcherRecent?num=1200",
+	      url: "http://192.168.0.35:9999/DispatcherRecent?num=12",
 	      dataType: "json",
 	      success: function(data2) {
 	        ob2 = data2;
