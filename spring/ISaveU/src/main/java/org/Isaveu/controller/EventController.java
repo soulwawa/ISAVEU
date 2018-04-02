@@ -84,12 +84,7 @@ public class EventController {
 		//if 모듈이 여러개일때 가정
 		String typeArduino = "arduino"; 
 		List<TbModuleVO> moduleList = mService.getModuleList(typeArduino);
-		int moduleRandom;
-		Random generator = new Random();
-		moduleRandom = generator.nextInt(moduleList.size() + 1);
-		event.setModule_id(String.valueOf(moduleRandom));
-		module_id = String.valueOf(moduleRandom);
-		//		model.addAllAttributes(hService.getHrAllList());
+		
 		switch (issue) {
 		case "1":
 			System.out.println("화재경보");
@@ -104,8 +99,15 @@ public class EventController {
 			imageGet(issue);
 			break;
 		default:
-			
-			eService.insertEvent(event);
+			for(int i =0 ; i < moduleList.size() ; i++) {
+				float ramdom = (float) Math.random();
+				event.setModule_id(String.valueOf(i));
+				event.setTemp(temp + ramdom);
+				event.setSmoke(smoke + ramdom);
+				event.setGyro(gyro + ramdom);
+				event.setFire(fire + ramdom);
+				eService.insertEvent(event);
+			}
 			RaspControl(issue);
 			System.out.println("InsertEvent Succes");
 			break;
@@ -256,7 +258,6 @@ public class EventController {
 
 		for(int i = 0 ; i < list.size() ; i++ ) {
 			map = new LinkedHashMap();
-			
 			map.put("time", list.get(i).getTime().substring(11,19));
 			map.put("temp", list.get(i).getTemp());
 			map.put("smoke", (list.get(i).getSmoke()/10f));

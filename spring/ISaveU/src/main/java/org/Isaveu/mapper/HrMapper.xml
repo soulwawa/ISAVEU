@@ -42,7 +42,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <insert id="hrInsert" parameterType="org.Isaveu.domain.TbHrVO" >
     	INSERT INTO
     	VALUES
-    	 ((SELECT MAX( #{hr_id}+1 FROM tb_hr as e), #{id}, #{pw}, #{name}, #{location_id}, #{email}, #{sex}, #{birthday}, #{level}, null, null)
+    	 ((SELECT MAX( #{hr_id}+1 FROM tb_hr as e), #{id}, #{pw}, #{name}, #{location_id}, #{tel}, #{email}, #{sex}, #{birthday}, #{level}, null, null)
     	 
     </insert>
     

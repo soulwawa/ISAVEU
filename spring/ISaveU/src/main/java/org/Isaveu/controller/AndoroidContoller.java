@@ -35,40 +35,48 @@ public class AndoroidContoller {
 		}else {
 			ArrayList<TbHrVO> list = new ArrayList<TbHrVO>();
 			list = hService.getHrListId(id);
-			hrvo = list.get(0);
-			
-			System.out.println("Android Login Query SUCCESS");
-//			System.out.println(fcm);
-			if(id.equals(hrvo.getId()) && pw.equals(hrvo.getPw())) {
-				if(fcm.equals(hrvo.getFcm())) {
-					System.out.println("FCM EQUALS");
-					map.put("access", "1");
-					map.put("name", hrvo.getName().toString());
-					map.put("profile", hrvo.getProfile().toString());
-					map.put("email", hrvo.getEmail().toString());
-					map.put("fcm", hrvo.getFcm().toString());
+			if(list.size() != 0) {
+				hrvo = list.get(0);
+				System.out.println("Android Login Query SUCCESS");
+//				System.out.println(fcm);
+				if(id.equals(hrvo.getId()) && pw.equals(hrvo.getPw())) {
+					if(fcm.equals(hrvo.getFcm())) {
+						System.out.println("FCM EQUALS");
+						map.put("access", "1");
+						map.put("name", hrvo.getName().toString());
+						map.put("profile", hrvo.getProfile().toString());
+						map.put("email", hrvo.getEmail().toString());
+						map.put("fcm", hrvo.getFcm().toString());
+						return map;
+					}else {
+						System.out.println("FCM UPDATE");
+//						System.out.println(hrvo.getFcm());
+						System.out.println(fcm);
+						hrvo.setFcm(fcm);
+						hService.fcmUpdate(hrvo);
+						map.put("access", "1");
+						map.put("name", hrvo.getName().toString());
+						map.put("profile", hrvo.getProfile().toString());
+						map.put("email", hrvo.getEmail().toString());
+						map.put("fcm", hrvo.getFcm().toString());
+						return map;
+					}
+				}else{
+					System.out.println("Login FAIL");
+					map.put("access", "0");
+					map.put("name", "0");
+					map.put("profile", "0");
+					map.put("email", "0");
 					return map;
-				}else {
-					System.out.println("FCM UPDATE");
-//					System.out.println(hrvo.getFcm());
-					System.out.println(fcm);
-					hrvo.setFcm(fcm);
-					hService.fcmUpdate(hrvo);
-					map.put("access", "1");
-					map.put("name", hrvo.getName().toString());
-					map.put("profile", hrvo.getProfile().toString());
-					map.put("email", hrvo.getEmail().toString());
-					map.put("fcm", hrvo.getFcm().toString());
-					return map;
-				}
-			}else{
+				}	
+			}else {
 				System.out.println("Login FAIL");
 				map.put("access", "0");
 				map.put("name", "0");
 				map.put("profile", "0");
 				map.put("email", "0");
 				return map;
-			}		
+			}
 		}
 	}	
 	@ResponseBody
