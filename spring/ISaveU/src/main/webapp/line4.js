@@ -34,7 +34,7 @@ var layoutStr =
                        +'<CategoryAxis categoryField="time" padding="0.2"/>'
                     +'</horizontalAxis>'
                   +'<verticalAxis>'
-                     +'<LinearAxis maximum="100"/>'
+                     +'<LinearAxis maximum="1200"/>'
                     +'</verticalAxis>'
                     +'<series>'
                        /* 
