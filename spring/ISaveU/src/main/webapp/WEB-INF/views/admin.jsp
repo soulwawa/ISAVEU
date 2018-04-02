@@ -51,7 +51,9 @@
 	      dataType: "json",
 	      success: function(data2) {
 	        ob2 = data2;
-	        console.log(ob2); 
+	        console.log(ob2);
+	        var result2 = document.getElementById("content3");
+	        result2.innerHTML = ob2;
 	      }
 	    });
 	  }, 9900);
