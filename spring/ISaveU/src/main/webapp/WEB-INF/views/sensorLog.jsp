@@ -17,48 +17,7 @@
 <script type="text/javascript" src="<%=root%>/charts.js"></script>
 <script language="javascript" type="text/javascript" src="<%=root%>/js1.js"></script>
 <script>
-  var interval = setInterval(function () {
-    $.ajax({
-      type: "GET",
-      url: "http://192.168.0.35:9999/Dispatcher",
-      dataType: "json",
-      success: function(data) {
-        ob = data;
-        
-        var result1 = document.getElementById("result1");
-        
-        
-        result1.innerHTML = "온도:"+ob.temp+",진동 "+ob.gyro+",CO "+ob.smoke+",불꽃 "+ob.fire+", "+ob.msg;
-        
-        document.getElementById("chart1").setData([parseInt(ob.temp)]);
-        document.getElementById("chart2").setData([parseInt(ob.gyro)]);
-        document.getElementById("chart3").setData([parseInt(ob.smoke)]);
-        document.getElementById("chart4").setData([parseInt(ob.fire)]);
-        console.log("온도:"+ob.temp+",진동 "+ob.gyro+",CO "+ob.smoke+",불꽃 "+ob.fire+", "+ob.msg);
-        if([parseInt(ob.temp)] > 40) {
-        	showAlert();
-        }
 
-      }
-    });
-  }, 9900);
-  
-  var interval = setInterval(function () {
-	    $.ajax({
-	      type: "GET",
-	      url: "http://192.168.0.35:9999/DispatcherRecent?num=12",
-	      dataType: "json",
-	      success: function(data2) {
-	        ob2 = data2;
-	        console.log(ob2); 
-	      }
-	    });
-	  }, 9900);
-  
-  $(window).on("unload", function(){
-	    alert("call");
-	    console.log("this will be triggered");
-	}); 
 </script>
 <style>
 .info {
@@ -172,12 +131,6 @@
 						<div id="chartHolder2" class="chartHolder" style="height: 100px;"></div>
 						<div id="chartHolder3" class="chartHolder" style="height: 100px;"></div>
 						<div id="chartHolder4" class="chartHolder" style="height: 100px;"></div>
-					</div>
-					<div class="info">
-						<div class="value">실시간 온도 센서값</div>
-						<div class="value">실시간 진동 센서값</div>
-						<div class="value">실시간 CO 센서값</div>
-						<div class="value">실시간 불꽃 센서값</div>
 					</div>
 				</div>
 				<div class="area" id="a2">
