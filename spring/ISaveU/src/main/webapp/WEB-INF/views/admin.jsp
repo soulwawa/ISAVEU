@@ -53,7 +53,8 @@
 	        ob2 = data2;
 	        console.log(ob2);
 	        var result2 = document.getElementById("content3");
-	        result2.innerHTML = ob2;
+	        result2.innerHTML = ob2.0.temp;
+	        
 	        
 	        document.getElementById("chart5").setData(ob2);
 	      }

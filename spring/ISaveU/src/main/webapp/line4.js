@@ -78,18 +78,18 @@ var layoutStr =
          +'</rMateChart>';
  
 //// 차트 데이터
-var chartData2 = [  {"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
-	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
-	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
-	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
-	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
-	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
-	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
-	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
-	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
-	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
-	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
-	{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0}];
+var chartData2 = [{"time":"0", "temp":0, "smoke":0, "fire":0, "gyro":0},
+	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
+	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
+	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
+	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
+	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
+	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
+	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
+	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
+	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
+	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590},
+	{"time":"0", "temp":100, "smoke":230, "fire":420, "gyro":590}];
 	
 
 //IE 판별
