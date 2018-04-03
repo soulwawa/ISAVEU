@@ -1,7 +1,21 @@
 from flask import Flask, Response
 import subprocess, time, threading, os
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BCM)
+siren = 13
+GPIO.setup(siren, GPIO.OUT)
+p = GPIO.PWM(siren, 440)
+GPIO.setwarnings(False)
 
 app = Flask(__name__)
+
+def siren():
+    p.start(50)
+    while True:
+        for hz in range(440, 1000, 25):
+            p.ChangeFrequency(hz)
+            time.sleep(0.005)
 
 # 스트리밍 서버를 불러오기 위한 함수
 def streaming():
@@ -49,8 +63,14 @@ def stream(state):
         time.sleep(0.01)
     return "streaming control"
 
-
-
+@app.route("/siren/<state>/")
+def sirenTest(state):
+    t =threading.Thread(target=siren)
+    if state == "0":
+        p.stop()
+    else:
+        t.start()
+    return "Siren Control..."
 
 
 # 포트 변경, 디버그 자동설정x 주의!!

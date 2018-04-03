@@ -1,6 +1,21 @@
 from flask import Flask
-import time, pexpect, threading, requests, os
+import time, pexpect, threading, requests
 import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BCM)
+led = 14
+siren = 13
+GPIO.setup(led, GPIO.OUT)
+GPIO.setup(siren, GPIO.OUT)
+p = GPIO.PWM(siren, 440)
+GPIO.setwarnings(False)
+
+def siren():
+    p.start(50)
+    while True:
+        for hz in range(440, 1000, 25):
+            p.ChangeFrequency(hz)
+            time.sleep(0.005)
 
 class Bluetoothctl:
 
@@ -51,29 +66,22 @@ def feScan():
 
 app = Flask(__name__)
 
-GPIO.setmode(GPIO.BCM)
-led = 14
-siren = 13
-GPIO.setup(led, GPIO.OUT)
-GPIO.setup(siren, GPIO.OUT)
-
 @app.route("/feRestart/")
 def feRestart():
     feScan()
     return "Scanning restart necessary..."
 
-
 @app.route("/siren/<state>/")
-def siren(state):
-    try:
-        if state == "0":
-            GPIO.output(led, False)
-        else:
-            GPIO.output(led, True)
-    except Exception as e:
-        print("siren error : " + str(e))
+def sirenTest(state):
+    t =threading.Thread(target=siren)
+    if state == "0":
+        p.stop()
+        GPIO.output(led, False)
+    else:
+        t.start()
+        GPIO.output(led, True)
 
-    return "Siren Control"
+    return "Siren Control..."
 
 
 if __name__ == "__main__":
