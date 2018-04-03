@@ -16,8 +16,6 @@
 <script type="text/javascript" src="<%=root%>/charts.js"></script>
 <script language="javascript" type="text/javascript" src="<%=root%>/js1.js"></script>
 <script type="text/javascript" src="<%=root%>/charts.js"></script>
-<script type="text/javascript" src="<%=root%>/jquery-ui.js"></script>
-<script type="text/javascript" src="<%=root%>/jquery-1.12.4.min.js"></script>
 
 <script>
 
@@ -54,6 +52,9 @@
 	padding:10px 30px;
 	text-decoration:none;
 	outline:none;
+}
+.area{
+	background:red;
 }
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
@@ -142,38 +143,21 @@
 		<div class="contents">
 			<div id="floor1">
 				<div class="area" id="a1">
-					<div id="content1"
-						style="height: 400px; width: 550; position: relative;">
-						<div id="content">
-							<div id="jqueryTabs">
-								<ul>
-									<li class="li_select"><a href="#chartHolder1">chart1</a></li>
-									<li><a href="#chartHolder2">chart2</a></li>
-									<li><a href="#chartHolder3">chart3</a></li>
-								</ul>
-								<!-- 차트가 삽입될 DIV -->
-								<div id="chartHolder1" style="width:850px;height:400px;"></div>
-								<div id="chartHolder2" style="width:850px;height:400px;"></div>
-								<div id="chartHolder3" style="width:850px;height:400px;"></div>
-							</div>
-						</div>
+					<div id="content1" style="height: 400px; width: 550; position: relative;">
 					</div>
 				</div>
 				<div class="area" id="a2">
-					<div id="content2"
-						style="height: 400px; width: 550; position: relative;">
+					<div id="content2" style="height: 400px; width: 550; position: relative;">
 					</div>
 				</div>
 			</div>
 			<div id="floor2">
 				<div class="area" id="a3">
-					<div id="content3"
-						style="height: 400px; width: 550; position: relative;">
+					<div id="content3" style="height: 400px; width: 550; position: relative;">
 					</div>
 				</div>
 				<div class="area" id="a4">
-					<div id="content4"
-						style="height: 400px; width: 550; position: relative;">
+					<div id="content4" style="height: 400px; width: 550; position: relative;">
 					</div>
 				</div>
 			</div>
