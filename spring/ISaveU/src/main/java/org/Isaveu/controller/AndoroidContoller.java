@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import org.Isaveu.domain.TbHrVO;
 import org.Isaveu.service.HrService;
+import org.Isaveu.service.LocationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,9 @@ public class AndoroidContoller {
 	@Resource (name = "org.Isaveu.service.HrService")
 	HrService hService;
 
+	@Resource(name = "org.Isaveu.service.LocationService")
+	LocationService lService;
+	
 	@ResponseBody
 	@RequestMapping(value = "/AndroidLogin.do")
 	public Map<String, String> androidLogin(@ModelAttribute TbHrVO hrvo, @RequestParam("u_id") String id, @RequestParam("u_pw") String pw, @RequestParam("u_instancekey") String fcm) throws Exception{
@@ -81,8 +85,8 @@ public class AndoroidContoller {
 	}	
 	@ResponseBody
 	@RequestMapping(value = "/AndroidStreaming.do")
-	public Map<String, String> AndroidStreming(HttpServletRequest request){
-		String act_st = request.getParameter("act_st");
+	public Map<String, String> AndroidStreming(@RequestParam("act_st") String act_st){
+//		act_st = request.getParameter("act_st");
 		Map<String, String> map = new HashMap<String, String>();
 
 		if (act_st.equals("1")) {
@@ -94,5 +98,25 @@ public class AndoroidContoller {
 		}
 		return map;
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/AndroidDisasterCheck.do")
+	public Map<String, String> AndroiDisasterCheck(@RequestParam("loc") String loc){
+		Map<String, String> map = new HashMap<String, String>();
+		System.out.println(loc);
+		try {
+			lService.locationCount(loc);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		map.put("floor", "6");
+		return map;
+		
+	}
+	
+	
+	
 }
 

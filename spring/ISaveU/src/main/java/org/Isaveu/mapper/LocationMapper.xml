@@ -23,5 +23,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	WHERE
 		module_id = #{value};
 	</select>
+	
+	<select id="AndroidDisasterCheck" parameterType="String" resultType="org.Isaveu.domain.LocationByIssueVO">
+	SELECT distinct
+ 	location.location, event.time, event.issue
+	FROM tb_location location, tb_module module, tb_event event
+	WHERE location.location_id = module.location_id and module.location_id = event.module_id
+	and event.time > DATE_ADD(NOW(), INTERVAL -2 hour)
+	limit #{value];
+	
+	</select>
+	
+	<select id="locationCount" parameterType="String" resultType="String">
+	SELECT count(*)
+	FROM tb_location
+	WHERE location LIKE CONCAT(#{value},'%');
+	</select>
 
 </mapper>

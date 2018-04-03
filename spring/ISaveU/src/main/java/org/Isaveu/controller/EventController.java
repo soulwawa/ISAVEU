@@ -57,6 +57,9 @@ public class EventController {
 	float gyro;
 	float fire;
 	String module_id;
+	Date date = new Date();
+	SimpleDateFormat transFomat = new SimpleDateFormat("yyyyMMdd_HHmmss");
+	String datenow = transFomat.format(date);
 	
 	@Resource( name = "org.Isaveu.service.EventService")
 	EventService eService;
@@ -80,6 +83,7 @@ public class EventController {
 		smoke = event.getSmoke();
 		gyro = event.getGyro();
 		fire = event.getFire();
+		module_id = event.getModule_id();
 		
 		//if 모듈이 여러개일때 가정
 		String typeArduino = "arduino"; 
@@ -87,18 +91,22 @@ public class EventController {
 		
 		switch (issue) {
 		case "1":
-			System.out.println("화재경보");
+			System.out.println("화재경보| " + datenow);
 			imageGet(issue);
+			eService.insertEvent(event);
 			break;
 		case "2":
-			System.out.println("지진경보");
+			System.out.println("지진경보: "  + datenow);
 			imageGet(issue);
+			eService.insertEvent(event);
 			break;
 		case "3":
-			System.out.println("지진 + 화재경보");
+			System.out.println("지진 + 화재경보| "  + datenow);
 			imageGet(issue);
+			eService.insertEvent(event);
 			break;
-		default:
+		case "0":
+			System.out.println("센서상태 양호| " + datenow);
 			for(int i =0 ; i < moduleList.size() ; i++) {
 				float ramdom = (float) Math.random();
 				event.setModule_id(String.valueOf(i));
@@ -106,8 +114,11 @@ public class EventController {
 				event.setSmoke(smoke + ramdom);
 				event.setGyro(gyro + ramdom);
 				event.setFire(fire + ramdom);
+				event.setIssue(issue);
 				eService.insertEvent(event);
 			}
+		default:
+//			eService.insertEvent(event);
 			RaspControl(issue);
 			System.out.println("InsertEvent Succes");
 			break;
@@ -120,13 +131,13 @@ public class EventController {
 		URI uri = UriComponentsBuilder.fromHttpUrl("http://192.168.0.13:5001/cam/" +issue).build().toUri();
 		byte[] response = new byte[8*1024];
 		response = restTemplate.getForObject(uri, byte[].class);
-		Date date = new Date();
-		SimpleDateFormat transFomat = new SimpleDateFormat("yyyyMMdd_HHmmss");
-		String fileName = transFomat.format(date);
+//		Date date = new Date();
+//		SimpleDateFormat transFomat = new SimpleDateFormat("yyyyMMdd_HHmmss");
+//		String fileName = transFomat.format(date);
 		String localName = "C:\\workspace\\SaveForYou\\spring\\ISaveU\\src\\main\\resources\\eventImage\\";
 		String fileExtension = ".png"; 
 		String androidPass = "http://192.168.0.35:9999/AndoridIamgeGet.do?imageID=";
-		String serverName = localName + fileName + fileExtension;
+		String serverName = localName + datenow + fileExtension;
 		//C:\workspace\SaveForYou\spring\ISaveU\src\main\resources\eventImage
 		File imageFile = new File(serverName);
 		try {
@@ -141,7 +152,7 @@ public class EventController {
 //			System.out.println(serverName);
 			action.setUrl(serverName);
 			action.setModule_id(module_id);
-			FcmSend(androidPass + fileName + fileExtension, issue);
+			FcmSend(androidPass + datenow + fileExtension, issue);
 			try {
 				aService.insertAction(action);
 				System.out.println("Rasp Send Succes");
@@ -230,9 +241,9 @@ public class EventController {
 		//JSON만들기
 //		JsonObject jsonObj = new JsonObject();
 //
-		Date date = new Date();
-		SimpleDateFormat transFomat2 = new SimpleDateFormat("yyyyMMdd_HHmmss");
-		String datenow = transFomat2.format(date);
+//		Date date = new Date();
+//		SimpleDateFormat transFomat2 = new SimpleDateFormat("yyyyMMdd_HHmmss");
+//		String datenow = transFomat2.format(date);
 //		jsonObj.addProperty("temp", temp);
 //		jsonObj.addProperty("smoke", smoke);
 //		jsonObj.addProperty("fire", fire);

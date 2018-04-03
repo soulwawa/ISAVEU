@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.annotation.Resource;
 
 import org.Isaveu.domain.LocationByFireExVO;
+import org.Isaveu.domain.LocationByIssueVO;
 import org.Isaveu.domain.ModuleByLocationVO;
 import org.Isaveu.mapper.LocationMapper;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,17 @@ public class LocationService implements LocationMapper{
 	@Override
 	public ArrayList<ModuleByLocationVO> moduleByLocation(String module_id) throws Exception {
 		return lMapper.moduleByLocation(module_id);
+	}
+
+	@Override
+	public ArrayList<LocationByIssueVO> AndroidDisasterCheck(String count) throws Exception {
+		return lMapper.AndroidDisasterCheck(count);
+	}
+
+	@Override
+	public String locationCount(String loc) throws Exception {
+		// TODO Auto-generated method stub
+		return lMapper.locationCount(loc);
 	}
 	
 }
