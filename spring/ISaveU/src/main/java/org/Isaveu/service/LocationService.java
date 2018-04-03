@@ -27,7 +27,7 @@ public class LocationService implements LocationMapper{
 	}
 
 	@Override
-	public ArrayList<LocationByIssueVO> AndroidDisasterCheck(String count) throws Exception {
+	public ArrayList<LocationByIssueVO> AndroidDisasterCheck(int count) throws Exception {
 		return lMapper.AndroidDisasterCheck(count);
 	}
 

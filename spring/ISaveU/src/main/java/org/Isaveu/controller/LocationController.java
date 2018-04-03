@@ -22,9 +22,8 @@ public class LocationController {
 
 	@ResponseBody
 	@RequestMapping(value = "/locationFireEx.do")
-	public Map<String, String> locationFireEx(@ModelAttribute LocationByFireExVO location, HttpServletResponse response) throws Exception{
+	public Map<String, String> locationFireEx(@ModelAttribute LocationByFireExVO location) throws Exception{
 
-		response.setContentType("text/plain;charset=utf-8");
 		ArrayList<LocationByFireExVO> list = new ArrayList<LocationByFireExVO>();
 		list = lService.locationByFireEx();
 		Map<String, String> map = new HashMap<String, String>();
@@ -37,9 +36,8 @@ public class LocationController {
 	}
 	@ResponseBody
 	@RequestMapping(value = "/locationFireExDate.do")
-	public Map<String, String> locationFireExdate(@ModelAttribute LocationByFireExVO location, HttpServletResponse response) throws Exception{
+	public Map<String, String> locationFireExdate(@ModelAttribute LocationByFireExVO location) throws Exception{
 
-		response.setContentType("text/plain;charset=utf-8");
 		ArrayList<LocationByFireExVO> list = new ArrayList<LocationByFireExVO>();
 		list = lService.locationByFireEx();
 		Map<String, String> map = new HashMap<String, String>();

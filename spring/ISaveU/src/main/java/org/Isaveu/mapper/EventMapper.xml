@@ -20,7 +20,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	ORDER BY
     	 event_id
      	DESC LIMIT ${value}
-    
+    </select>
+    <select id="dispatcherPart" parameterType= "String" resultType="org.Isaveu.domain.TbEventVO">
+	    SELECT
+	     * 
+	    FROM
+	     tb_event
+	    WHERE
+	     module_id= ${value}
+	    limit 12;
     </select>
 </mapper>
 

@@ -60,7 +60,7 @@ public class EventController {
 	Date date = new Date();
 	SimpleDateFormat transFomat = new SimpleDateFormat("yyyyMMdd_HHmmss");
 	String datenow = transFomat.format(date);
-	
+
 	@Resource( name = "org.Isaveu.service.EventService")
 	EventService eService;
 
@@ -69,13 +69,13 @@ public class EventController {
 
 	@Resource (name = "org.Isaveu.service.HrService")
 	HrService hService;
-	
+
 	@Resource (name = "org.Isaveu.service.LocationService")
 	LocationService lService;
-	
+
 	@Resource (name = "org.Isaveu.service.ModuleService")
 	ModuleMapper mService;
-	
+
 	@RequestMapping(value = "/eventIn.do", method = RequestMethod.GET)
 	private String eventIn(@ModelAttribute TbEventVO event) throws Exception{
 		issue = event.getIssue();
@@ -84,43 +84,50 @@ public class EventController {
 		gyro = event.getGyro();
 		fire = event.getFire();
 		module_id = event.getModule_id();
-		
+
 		//if 모듈이 여러개일때 가정
 		String typeArduino = "arduino"; 
 		List<TbModuleVO> moduleList = mService.getModuleList(typeArduino);
-		
+
 		switch (issue) {
 		case "1":
 			System.out.println("화재경보| " + datenow);
 			imageGet(issue);
 			eService.insertEvent(event);
+			System.out.println("InsertEvent Succes");
 			break;
 		case "2":
 			System.out.println("지진경보: "  + datenow);
 			imageGet(issue);
 			eService.insertEvent(event);
+			System.out.println("InsertEvent Succes");
 			break;
 		case "3":
 			System.out.println("지진 + 화재경보| "  + datenow);
 			imageGet(issue);
 			eService.insertEvent(event);
-			break;
-		case "0":
-			System.out.println("센서상태 양호| " + datenow);
-			for(int i =0 ; i < moduleList.size() ; i++) {
-				float ramdom = (float) Math.random();
-				event.setModule_id(String.valueOf(i));
-				event.setTemp(temp + ramdom);
-				event.setSmoke(smoke + ramdom);
-				event.setGyro(gyro + ramdom);
-				event.setFire(fire + ramdom);
-				event.setIssue(issue);
-				eService.insertEvent(event);
-			}
-		default:
-//			eService.insertEvent(event);
-			RaspControl(issue);
 			System.out.println("InsertEvent Succes");
+			break;
+		default:
+			System.out.println("module_id" + module_id);
+			System.out.println("issue" + issue);
+			System.out.println("센서상태 양호| " + datenow);
+			for(int i = 0 ; i < moduleList.size(); i++) {
+				if(i == Integer.parseInt(module_id)) {
+					continue;
+				}else {
+					float ramdom = (float) Math.random();
+					event.setModule_id(String.valueOf(i));
+					event.setTemp(temp + ramdom);
+					event.setSmoke(smoke + ramdom);
+					event.setGyro(gyro + ramdom);
+					event.setFire(fire + ramdom);
+					event.setIssue(issue);
+					eService.insertEvent(event);
+					System.out.println("InsertEvent Succes");
+				}
+			}
+			RaspControl(issue);
 			break;
 		}
 		return "200".toString();
@@ -131,9 +138,9 @@ public class EventController {
 		URI uri = UriComponentsBuilder.fromHttpUrl("http://192.168.0.13:5001/cam/" +issue).build().toUri();
 		byte[] response = new byte[8*1024];
 		response = restTemplate.getForObject(uri, byte[].class);
-//		Date date = new Date();
-//		SimpleDateFormat transFomat = new SimpleDateFormat("yyyyMMdd_HHmmss");
-//		String fileName = transFomat.format(date);
+		//		Date date = new Date();
+		//		SimpleDateFormat transFomat = new SimpleDateFormat("yyyyMMdd_HHmmss");
+		//		String fileName = transFomat.format(date);
 		String localName = "C:\\workspace\\SaveForYou\\spring\\ISaveU\\src\\main\\resources\\eventImage\\";
 		String fileExtension = ".png"; 
 		String androidPass = "http://192.168.0.35:9999/AndoridIamgeGet.do?imageID=";
@@ -149,7 +156,7 @@ public class EventController {
 			e.printStackTrace();
 		} finally {
 			TbActionVO action = new TbActionVO();
-//			System.out.println(serverName);
+			//			System.out.println(serverName);
 			action.setUrl(serverName);
 			action.setModule_id(module_id);
 			FcmSend(androidPass + datenow + fileExtension, issue);
@@ -175,7 +182,7 @@ public class EventController {
 		System.out.println(module_id);
 		ModuleByLocationVO location = localList.get(0);
 		String title = location.getLocation() + "/"+ location.getDept_name();
-		
+
 		//DATA
 		headers.add("Authorization", "key=AAAA91-0IQE:APA91bEvPIXCvITxVpcVaxysasJzU4wjuTNT29zkgmRv6ayxLe0U1iIgO0zIvImluA4_5AczoDfZrlFZluTuVBqFM_JBvyjqkH6R9k2bBoMSQaNOPlTOVnjHYTFwjSjMuVt0-nusaVRJ");
 		ArrayList<TbHrVO> hrList = new ArrayList<TbHrVO>();
@@ -194,7 +201,7 @@ public class EventController {
 		FCMData fcmData = new FCMData();
 		Data data = new Data();
 		// DB에서 호출 예정
-		
+
 		data.setTitle(title);
 		data.setContent_1(fileName); //사진
 		data.setContent_2(issue); //0 - 화재, 1 - 소화기
@@ -219,17 +226,22 @@ public class EventController {
 		default:
 			issue = "0";
 			break;
-		} 
-		String url = "http://192.168.0.61:5002/siren/" + issue;
-		RestTemplate restTemplate = new RestTemplate();
-		String result = restTemplate.getForObject(url, String.class);
-		System.out.println(result);
+		}
+		String urlArray[] = {"13:5001", "61:5002"};
+		for (int i = 0; i < urlArray.length; i++) {
+			String url = "http://192.168.0." + urlArray[i] + "/siren/" + issue;
+			RestTemplate restTemplate = new RestTemplate();
+			String result = restTemplate.getForObject(url, String.class);
+			System.out.println(result);
+		}
+		
 	}
+	
 
 
 	@RequestMapping("/Dispatcher")
 	private Map<String, Object> dispatcher(@ModelAttribute TbEventVO event) throws Exception{
-	
+
 		//이번에는 이전 예제와는 다르게 Ajax요청이 오면 응답해줄꺼다.
 		//이전에는 그냥 내가 원하는 페이지로 json을 가져가는 거였다면?
 		//지금은 요청한 놈한테 return만 해주면 되기 때문에
@@ -239,19 +251,19 @@ public class EventController {
 		//Get방식
 		//process()함수 호출
 		//JSON만들기
-//		JsonObject jsonObj = new JsonObject();
-//
-//		Date date = new Date();
-//		SimpleDateFormat transFomat2 = new SimpleDateFormat("yyyyMMdd_HHmmss");
-//		String datenow = transFomat2.format(date);
-//		jsonObj.addProperty("temp", temp);
-//		jsonObj.addProperty("smoke", smoke);
-//		jsonObj.addProperty("fire", fire);
-//		jsonObj.addProperty("gyro", gyro);
-//		jsonObj.addProperty("date", datenow);
-//		jsonObj.addProperty("msg", "success");
-//		PrintWriter out = resp.getWriter();
-//		out.print(jsonObj);
+		//		JsonObject jsonObj = new JsonObject();
+		//
+		//		Date date = new Date();
+		//		SimpleDateFormat transFomat2 = new SimpleDateFormat("yyyyMMdd_HHmmss");
+		//		String datenow = transFomat2.format(date);
+		//		jsonObj.addProperty("temp", temp);
+		//		jsonObj.addProperty("smoke", smoke);
+		//		jsonObj.addProperty("fire", fire);
+		//		jsonObj.addProperty("gyro", gyro);
+		//		jsonObj.addProperty("date", datenow);
+		//		jsonObj.addProperty("msg", "success");
+		//		PrintWriter out = resp.getWriter();
+		//		out.print(jsonObj);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("temp", temp);
 		map.put("smoke", (smoke/10f));
@@ -267,7 +279,7 @@ public class EventController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<Map<String, Object>> myList = new ArrayList<Map<String, Object>>();
 
-		for(int i = 0 ; i < list.size() ; i++ ) {
+		for(int i = list.size() ; i < list.size() ; i-- ) {
 			map = new LinkedHashMap();
 			map.put("time", list.get(i).getTime().substring(11,19));
 			map.put("temp", list.get(i).getTemp());
@@ -277,6 +289,13 @@ public class EventController {
 			myList.add(i, map);
 		}
 		return myList;
+	}
+	
+	
+	@RequestMapping("/DispatcherPart")
+	private Map<String, ArrayList<TbEventVO>> dispatcherPart(@ModelAttribute TbEventVO event, @RequestParam("value") String value) throws Exception{
+		
+		return null;
 	}
 
 }

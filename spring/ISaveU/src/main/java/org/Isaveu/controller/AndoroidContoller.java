@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import org.Isaveu.domain.LocationByIssueVO;
 import org.Isaveu.domain.TbHrVO;
 import org.Isaveu.service.HrService;
 import org.Isaveu.service.LocationService;
@@ -101,17 +101,27 @@ public class AndoroidContoller {
 	
 	@ResponseBody
 	@RequestMapping(value = "/AndroidDisasterCheck.do")
-	public Map<String, String> AndroiDisasterCheck(@RequestParam("loc") String loc){
-		Map<String, String> map = new HashMap<String, String>();
-		System.out.println(loc);
+	public Map<String, ArrayList<LocationByIssueVO>> AndroiDisasterCheck(@RequestParam("loc") String loc){
+		Map<String,  ArrayList<LocationByIssueVO>> map = new HashMap<String, ArrayList<LocationByIssueVO>>();
+//		System.out.println(loc);
+		String count = "";
 		try {
-			lService.locationCount(loc);
+			count = lService.locationCount(loc);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-		map.put("floor", "6");
+		ArrayList<LocationByIssueVO> list = new ArrayList<LocationByIssueVO>();
+		try {
+			list = lService.AndroidDisasterCheck(Integer.parseInt(count));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+//		ArrayList<LocationByIssueVO> listMap=  new ArrayList<LocationByIssueVO>();
+//		for(int i = 0 ; i < list.size() ; i++) {
+//			listMap.add(list.get(i));
+//		}
+		map.put("floor", list);
+		System.out.println(map);
 		return map;
 		
 	}
