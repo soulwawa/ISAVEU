@@ -5,22 +5,23 @@
 <head>
 <% String root = request.getContextPath(); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="<%=root%>/rMateChartH5.css" />
 <script language="javascript" type="text/javascript"
 	src="<%=root%>/rMateChartH5License.js"></script>
-<script language="javascript" type="text/javascript"
-	src="<%=root%>/rMateIntegrationH5.js"></script>
 <script type="text/javascript" src="<%=root%>/theme.js"></script>
 <script type="text/javascript" src="<%=root%>/rMateChartH5.js"></script>
-<script type="text/javascript" src="<%=root%>/charts.js"></script>
 <script language="javascript" type="text/javascript" src="<%=root%>/js1.js"></script>
-<script type="text/javascript" src="<%=root%>/charts.js"></script>
+<script language="javascript" type="text/javascript" src="<%=root%>/sensorlog1.js"></script>
 
 <script>
-
 </script>
 <style>
+.contents{
+	position:relative;
+}
 .ui-tabs-nav{
 	margin:0 0 10px 0;
 	padding:0;
@@ -55,6 +56,36 @@
 }
 .area{
 	background:red;
+}
+.chartHolder{
+}
+#chartHolder6{
+	position:relative;
+	top:25px;
+	left:20px;
+	width:820px !important;
+	height:380px !important;
+}
+#chartHolder7{
+	position:relative;
+	left:850px;
+	bottom:355px;
+	width:820px !important;
+	height:380px !important;
+}
+#chartHolder8{
+	position:relative;
+	left:20px;
+	bottom:345px;
+	width:820px !important;
+	height:380px !important;
+}
+#chartHolder9{
+	position:relative;
+	left:850px;
+	bottom:725px;
+	width:820px !important;
+	height:380px !important;
 }
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
@@ -141,26 +172,12 @@
 			<input type="button" value="불내기" onclick="showAlert()"/>
 		</div>
 		<div class="contents">
-			<div id="floor1">
-				<div class="area" id="a1">
-					<div id="content1" style="height: 400px; width: 550; position: relative;">
-					</div>
-				</div>
-				<div class="area" id="a2">
-					<div id="content2" style="height: 400px; width: 550; position: relative;">
-					</div>
-				</div>
-			</div>
-			<div id="floor2">
-				<div class="area" id="a3">
-					<div id="content3" style="height: 400px; width: 550; position: relative;">
-					</div>
-				</div>
-				<div class="area" id="a4">
-					<div id="content4" style="height: 400px; width: 550; position: relative;">
-					</div>
-				</div>
-			</div>
+			<div id="chartHolder6" class="chartHolder"></div>
+			<div id="chartHolder7" class="chartHolder"></div>
+			<div id="chartHolder8" class="chartHolder"></div>
+			<div id="chartHolder9" class="chartHolder"></div>
+		
+			
 		</div>
 		<div class="footer">
 			<div style="padding: 7px;">Copyright © 2018 HSB Inc.</div>

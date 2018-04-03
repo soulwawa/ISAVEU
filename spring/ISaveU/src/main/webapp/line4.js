@@ -24,8 +24,6 @@ var effect = compIE() ? "SeriesClip" : "SeriesInterpolate";
 var layoutStr = 
                 '<rMateChart  backgroundColor="#ffffff" borderStyle="none">'
               +'<Options>'
-                  +'<Caption text=""/>'
-                  +'<SubCaption text="실시간 측정값" />'
                    +'<Legend useVisibleCheck="true"/>'
                +'</Options>'
              +'<NumberFormatter id="numFmt" precision="0"/>'
@@ -34,7 +32,7 @@ var layoutStr =
                        +'<CategoryAxis categoryField="time" padding="0.2"/>'
                     +'</horizontalAxis>'
                   +'<verticalAxis>'
-                     +'<LinearAxis maximum="100"/>'
+                     +'<LinearAxis maximum="80"/>'
                     +'</verticalAxis>'
                     +'<series>'
                        /* 
@@ -78,7 +76,7 @@ var layoutStr =
          +'</rMateChart>';
  
 //// 차트 데이터
-var chartData2 = [{"time":"00:00:55", "temp":38.5, "smoke":20, "fire":50, "gyro":10},
+var chartData2 =[{"time":"00:00:55", "temp":38.5, "smoke":20, "fire":50, "gyro":10},
                   {"time":"00:00:50", "temp":56.57, "smoke":27.52, "fire":42, "gyro":11},
                   {"time":"00:00:45", "temp":58.57, "smoke":23.65, "fire":40, "gyro":12},
                   {"time":"00:00:40", "temp":41.13, "smoke":29.54, "fire":60, "gyro":13},
@@ -89,7 +87,8 @@ var chartData2 = [{"time":"00:00:55", "temp":38.5, "smoke":20, "fire":50, "gyro"
                   {"time":"00:00:15", "temp":65.21, "smoke":32.12, "fire":54.14, "gyro":12},
                   {"time":"00:00:10", "temp":75.15, "smoke":42.12, "fire":57.58, "gyro":11},
                   {"time":"00:00:05", "temp":69.12, "smoke":35.54, "fire":54.47, "gyro":10},
-                  {"time":"00:00:00", "temp":73.24, "smoke":40.45, "fire":62.47, "gyro":14}];
+                  {"time":"00:00:00", "temp":73.24, "smoke":40.45, "fire":62.47, "gyro":14}]
+                  ;
 
 //IE 판별
 function compIE(){
