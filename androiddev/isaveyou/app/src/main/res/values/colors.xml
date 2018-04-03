@@ -3,10 +3,10 @@
     <color name="colorPrimary">#00bcd4</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorMediumSpringGreen">#0ec67f</color>
+    <color name="colorMediumSpringGreen">#24df91</color>
     <color name="colorYellow">#f2d34b</color>
     <color name="black_overlay">#8dffffff</color>
-    <color name="colorWhite">#FFFF</color>
+    <color name="colorWhite">#ffffff</color>
     <color name="corBotaoFoto">#f52411</color>
     <color name="corPar">#8e8f93</color>
     <color name="corImpar">#494848</color>
@@ -33,6 +33,7 @@
     <color name="blue900">#0D47A1</color>
     <color name="lightbluea70">#0091EA</color>
     <color name="blue650">#0054FF</color>
+    <color name="dark_green">#11cc91</color>
 
 
 

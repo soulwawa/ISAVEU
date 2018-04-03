@@ -51,7 +51,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import kr.co.isaveyou.isaveyou.R;
-import kr.co.isaveyou.isaveyou.map.FloorMapActivity;
+import kr.co.isaveyou.isaveyou.issue.FloorMapActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().setStatusBarColor(Color.rgb(14, 198, 127));
+            getWindow().setStatusBarColor(Color.rgb(36, 223, 145));
         }
 
 
@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         tvEmail.setText(strEmail);
 
         //프로필 사진을 설정하게 하는 쓰레드 실행
-        profile = headerView.findViewById(R.id.profileimage);
+        profile = headerView.findViewById(R.id.profile_image);
         ProfilePicTask profilePicTask = new ProfilePicTask();
         profilePicTask.execute(strPicUrl);
 
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 menuItem.setChecked(true);
                 mDrawerLayout.closeDrawers();
-
+                menuMultipleActions.collapse();
                 int id = menuItem.getItemId();
                 switch (id){
                     case R.id.nav_camera:
@@ -166,9 +166,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_share:
                         Toast.makeText(MainActivity.this,menuItem.getTitle(),Toast.LENGTH_SHORT).show();
+                        menuItem.setChecked(false);
                         break;
                     case R.id.nav_send:
                         Toast.makeText(MainActivity.this,menuItem.getTitle(),Toast.LENGTH_SHORT).show();
+                        menuItem.setChecked(false);
                         break;
                 }
                 return true;
@@ -176,6 +178,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -2,6 +2,8 @@ package kr.co.isaveyou.isaveyou;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -21,6 +23,11 @@ public class SplashActivity extends Activity{
         }catch(InterruptedException e){
             e.printStackTrace();
         }
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            getWindow().setStatusBarColor(Color.rgb(14, 198, 127));
+        }
+
         startActivity(new Intent(this,LoginActivity.class));
         finish();
     }

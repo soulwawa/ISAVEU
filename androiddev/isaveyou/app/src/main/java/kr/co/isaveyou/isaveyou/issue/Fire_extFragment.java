@@ -1,22 +1,19 @@
-package kr.co.isaveyou.isaveyou.map;
+package kr.co.isaveyou.isaveyou.issue;
 
 
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
@@ -79,7 +76,7 @@ public class Fire_extFragment extends Fragment {
                     layout_fire_ext1.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
 
-                    checkDate_fire_ext checkDate_fire_ext1 = new checkDate_fire_ext();
+                    CheckDate_fire_ext checkDate_fire_ext1 = new CheckDate_fire_ext();
                     checkDate_fire_ext1.execute();
 
 
@@ -90,7 +87,7 @@ public class Fire_extFragment extends Fragment {
                     layout_fire_ext2.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
 
-                    checkDate_fire_ext checkDate_fire_ext2 = new checkDate_fire_ext();
+                    CheckDate_fire_ext checkDate_fire_ext2 = new CheckDate_fire_ext();
                     checkDate_fire_ext2.execute();
 
 
@@ -101,7 +98,7 @@ public class Fire_extFragment extends Fragment {
                     layout_fire_ext3.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
 
-                    checkDate_fire_ext checkDate_fire_ext3 = new checkDate_fire_ext();
+                    CheckDate_fire_ext checkDate_fire_ext3 = new CheckDate_fire_ext();
                     checkDate_fire_ext3.execute();
 
 
@@ -112,7 +109,7 @@ public class Fire_extFragment extends Fragment {
                     layout_fire_ext4.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
 
-                    checkDate_fire_ext checkDate_fire_ext4 = new checkDate_fire_ext();
+                    CheckDate_fire_ext checkDate_fire_ext4 = new CheckDate_fire_ext();
                     checkDate_fire_ext4.execute();
 
 
@@ -123,7 +120,7 @@ public class Fire_extFragment extends Fragment {
                     layout_fire_ext5.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
 
-                    checkDate_fire_ext checkDate_fire_ext5 = new checkDate_fire_ext();
+                    CheckDate_fire_ext checkDate_fire_ext5 = new CheckDate_fire_ext();
                     checkDate_fire_ext5.execute();
 
 
@@ -134,7 +131,7 @@ public class Fire_extFragment extends Fragment {
                     layout_fire_ext6.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
 
-                    checkDate_fire_ext checkDate_fire_ext6 = new checkDate_fire_ext();
+                    CheckDate_fire_ext checkDate_fire_ext6 = new CheckDate_fire_ext();
                     checkDate_fire_ext6.execute();
 
 
@@ -145,7 +142,7 @@ public class Fire_extFragment extends Fragment {
                     layout_fire_ext7.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
 
-                    checkDate_fire_ext checkDate_fire_ext7 = new checkDate_fire_ext();
+                    CheckDate_fire_ext checkDate_fire_ext7 = new CheckDate_fire_ext();
                     checkDate_fire_ext7.execute();
 
 
@@ -156,7 +153,7 @@ public class Fire_extFragment extends Fragment {
                     layout_fire_ext8.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
 
-                    checkDate_fire_ext checkDate_fire_ext8 = new checkDate_fire_ext();
+                    CheckDate_fire_ext checkDate_fire_ext8 = new CheckDate_fire_ext();
                     checkDate_fire_ext8.execute();
 
 
@@ -167,7 +164,7 @@ public class Fire_extFragment extends Fragment {
                     layout_fire_ext9.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
 
-                    checkDate_fire_ext checkDate_fire_ext9 = new checkDate_fire_ext();
+                    CheckDate_fire_ext checkDate_fire_ext9 = new CheckDate_fire_ext();
                     checkDate_fire_ext9.execute();
 
 
@@ -178,7 +175,7 @@ public class Fire_extFragment extends Fragment {
                     layout_fire_ext10.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
 
-                    checkDate_fire_ext checkDate_fire_ext10 = new checkDate_fire_ext();
+                    CheckDate_fire_ext checkDate_fire_ext10 = new CheckDate_fire_ext();
                     checkDate_fire_ext10.execute();
 
 
@@ -189,7 +186,7 @@ public class Fire_extFragment extends Fragment {
                     layout_fire_ext11.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
 
-                    checkDate_fire_ext checkDate_fire_ext11 = new checkDate_fire_ext();
+                    CheckDate_fire_ext checkDate_fire_ext11 = new CheckDate_fire_ext();
                     checkDate_fire_ext11.execute();
 
                     ImageThread.interrupted();
@@ -309,7 +306,6 @@ public class Fire_extFragment extends Fragment {
         for(int i = 0; i<switcherList.size();i++){
             switcher = switcherList.get(i);
             switcher.setVisibility(View.VISIBLE);
-
             thread = new ImageThread();
             thread.start();
         }
@@ -371,9 +367,7 @@ public class Fire_extFragment extends Fragment {
                 conn.connect();
 
                 if(conn.getResponseCode()!=HttpURLConnection.HTTP_OK){
-
                 } else {
-
                     BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                     String line;
                     StringBuffer buffer = new StringBuffer();
@@ -385,13 +379,9 @@ public class Fire_extFragment extends Fragment {
                     reader.close();
                 }
                 Log.v(TAG, "url : " + url );
-
-
             }catch (Exception e) {
                 e.printStackTrace();
             }
-
-
             return null;
         }
 
@@ -542,7 +532,7 @@ public class Fire_extFragment extends Fragment {
 
         }
     }
-    class checkDate_fire_ext extends AsyncTask<String, Void, String>{
+    class CheckDate_fire_ext extends AsyncTask<String, Void, String>{
         @Override
         protected String doInBackground(String... strings) {
             try{
@@ -701,23 +691,28 @@ public class Fire_extFragment extends Fragment {
                 e.printStackTrace();
             }
         }
+    }
 
-        public String doDateAdd(String start) {
-            try {
-                Calendar cal = new GregorianCalendar(Locale.KOREA);
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-                Date date = sdf.parse(start);
-                cal.setTime(date);
-                cal.add(Calendar.MONTH, 1); // 한달을 더한다.
-
-                String strDate = sdf.format(cal.getTime());
-                Log.v(TAG, "strDate" + strDate);
-            }catch(ParseException e){
-                e.printStackTrace();
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        CheckDate_fire_ext checkDateFireExt = new CheckDate_fire_ext();
+        Fire_ext_CheckTask fire_ext_checkTask = new Fire_ext_CheckTask();
+        try
+        {
+            if (checkDateFireExt.getStatus() == AsyncTask.Status.RUNNING )
+            {
+                checkDateFireExt.cancel(true);
             }
-            return strDate;
+            else if(fire_ext_checkTask.getStatus() == AsyncTask.Status.RUNNING)
+            {
+                fire_ext_checkTask.cancel(true);
+            }else{
+
+            }
         }
-
-
-    }}
+        catch (Exception e)
+        {
+        }
+    }
+}

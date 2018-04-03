@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:background="@color/colorMediumSpringGreen"
+    android:background="@color/dark_green"
     android:gravity="bottom"
     android:orientation="horizontal"
     android:padding="16dp"
@@ -12,7 +11,7 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:id="@+id/profileimage"
+        android:id="@+id/profile_image"
         android:layout_width="60dp"
         android:layout_height="54dp"
         android:layout_marginTop="18dp"
@@ -30,8 +29,8 @@
         android:layout_weight="1"
         android:hint="id"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintStart_toStartOf="@+id/profileimage"
-        app:layout_constraintTop_toBottomOf="@+id/profileimage" />
+        app:layout_constraintStart_toStartOf="@+id/profile_image"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
     <TextView
         android:id="@+id/drawer_text"

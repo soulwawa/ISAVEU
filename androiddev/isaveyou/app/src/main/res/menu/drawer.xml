@@ -20,9 +20,18 @@
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
             android:title="Tools" />
-    </group>
+        <item
+            android:id="@+id/nav_slidesshow"
+            android:icon="@drawable/ic_stat_warnig"
+            android:title="Check" />
+        <item
+            android:id="@+id/nav_voice_record"
+            android:icon="@drawable/pic_play"
+            android:title="Voice Record"/>
 
-    <item android:title="@string/nav_sub_menu">
+    </group>
+    <item android:title="@string/nav_sub_menu"
+        android:checkableBehavior="single">
         <menu>
             <item
                 android:id="@+id/nav_share"

@@ -17,7 +17,7 @@
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/app_logo"
         android:label="I Save U"
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -37,6 +37,7 @@
             android:name=".login.LoginActivity"
             android:configChanges="orientation|keyboardHidden" />
         <activity
+            android:launchMode="singleTop"
             android:name=".main.MainActivity"
             android:configChanges="orientation|keyboardHidden" />
 
@@ -77,7 +78,7 @@
             android:resource="@xml/automotive_app_desc" />
 
         <activity
-            android:name=".map.FloorMapActivity"
+            android:name=".issue.FloorMapActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
 

@@ -21,7 +21,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 
-import kr.co.isaveyou.isaveyou.map.FloorMapActivity;
+import kr.co.isaveyou.isaveyou.issue.FloorMapActivity;
 import kr.co.isaveyou.isaveyou.main.MainActivity;
 import kr.co.isaveyou.isaveyou.R;
 
@@ -96,29 +96,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         Log.v(TAG, "notification 생성");
 
 
-        int color = getResources().getColor(R.color.colorAccent);
 
-        //largeIcon에 이미지를 사용하기 위해서는 비트맵으로 바꿔줘야 함
-        Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(), R.drawable.pic_2nd);
-
-
-        //이미지 온라인 링크를 가져와 비트맵으로 바꿈
-        try {
-            URL url = new URL(messageBody);
-            URLConnection connection = url.openConnection();
-            connection.connect();
-            Log.v(TAG,"url");
-            BufferedInputStream bis = new BufferedInputStream(connection.getInputStream());
-
-            img = BitmapFactory.decodeStream(bis);
-            Log.v(TAG, "url : " + url + ", messagebody : " + messageBody + ", messagebody1 :" + messageBody1);
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
         //issue 구분을 위한 switch문
         String issue = "";
         switch (messageBody1){
@@ -153,10 +135,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Log.v(TAG,"title : "+ title);
         Log.v(TAG,"roomNum : "+ roomNum);
         Log.v(TAG,"roomName : "+ roomName);
-        actionCheckPlace.setData(Uri.parse("0" + "/" + roomNum));
+        actionCheckPlace.setData(Uri.parse("0" + "/" ));
         actionCheckFire_ext.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-        actionCheckFire_ext.setData(Uri.parse("1" + "/" + roomNum));
+        actionCheckFire_ext.setData(Uri.parse("1" + "/" ));
         actionCheckFire_ext.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 
 
@@ -170,6 +152,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         PendingIntent callPendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionCall,PendingIntent.FLAG_CANCEL_CURRENT);
         PendingIntent checkPlacePendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionCheckPlace,PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent checkFire_ext = PendingIntent.getActivity(getApplicationContext(),0,actionCheckFire_ext,PendingIntent.FLAG_UPDATE_CURRENT);
+        int color = getResources().getColor(R.color.colorAccent);
 
         if(issue == "소화기"){
             NotificationCompat.Builder nNotificationBuilder = new NotificationCompat.Builder(this, channelId) //4.1 아래 버전과의 호환성을 위해 notificationCompat을 사용
@@ -181,14 +164,31 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     .setPriority(NotificationCompat.PRIORITY_MAX)
                     .setSound(notificationSoundURI)
                     .setNumber(100)
+                    .setStyle(new NotificationCompat.BigTextStyle())
                     .setContentTitle(roomName + ", " + issue + " 문제 발생")
                     .setWhen(System.currentTimeMillis())
-                    .setContentText(roomName +"에 위치한 소화기에 문제가 생겼습니다. 확인해주세요.");
+                    .setContentText(roomName+"("+roomNum+")" +"에 위치한 소화기에 문제가 생겼습니다. 확인해주세요.");
 
             notificationManager.notify(0 /* ID of notification */, nNotificationBuilder.build());
 
         }else {
+            if(!messageBody.equals(null)){
+                //largeIcon에 이미지를 사용하기 위해서는 비트맵으로 바꿔줘야 함
+                Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(), R.drawable.pic_2nd);
 
+
+                //이미지 온라인 링크를 가져와 비트맵으로 바꿈
+                try {
+                    URL url = new URL(messageBody);
+                    URLConnection connection = url.openConnection();
+                    connection.connect();
+                    Log.v(TAG,"url");
+                    BufferedInputStream bis = new BufferedInputStream(connection.getInputStream());
+                    img = BitmapFactory.decodeStream(bis);
+                    Log.v(TAG, "url : " + url + ", messagebody : " + messageBody + ", messagebody1 :" + messageBody1);
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             NotificationCompat.Builder mNotificationBuilder = new NotificationCompat.Builder(this, channelId) //4.1 아래 버전과의 호환성을 위해 notificationCompat을 사용
                     .setSmallIcon(R.drawable.ic_stat_name) //작은 아이콘 세팅
                     .setLargeIcon(mLargeIconForNoti) //큰 아이콘 세팅 - 큰 아이콘 세팅을 위해서 위에 bitmap 이용
@@ -211,7 +211,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     .addAction(R.drawable.pic_fire_ext, getResources().getString(R.string.checkFire_ext), checkFire_ext);
 
             notificationManager.notify(0 /* ID of notification */, mNotificationBuilder.build());
-        }
+        }}
 
     }
 }
