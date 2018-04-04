@@ -43,74 +43,74 @@ var layoutStr6 = '<rMateChart backgroundColor="#FFFFFF"  borderStyle="none">'
 					+'</verticalAxis>'
 					+'<series>'
 					
-						+'<Line2DSeries labelPosition="up" yField="0" form="curve" displayName="0" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+						+'<Line2DSeries labelPosition="up" yField="0" form="curve" displayName="0" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 							+'<showDataEffect>'
 								+'<SeriesInterpolate duration="1000"/> '
 							+'</showDataEffect>'
 						+'</Line2DSeries>'
 
 						
-						+'<Line2DSeries labelPosition="up" yField="1" form="curve" displayName="1" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+						+'<Line2DSeries labelPosition="up" yField="1" form="curve" displayName="1" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 							+'<showDataEffect>'
 								+'<SeriesInterpolate duration="1000"/> '
 							+'</showDataEffect>'
 						+'</Line2DSeries>'
 					
 					
-						+'<Line2DSeries labelPosition="up" yField="2" form="curve" displayName="2" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+						+'<Line2DSeries labelPosition="up" yField="2" form="curve" displayName="2" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 							+'<showDataEffect>'
 								+'<SeriesInterpolate duration="1000"/> '
 							+'</showDataEffect>'
 						+'</Line2DSeries>'
 						
-						+'<Line2DSeries labelPosition="up" yField="3" form="curve" displayName="3" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+						+'<Line2DSeries labelPosition="up" yField="3" form="curve" displayName="3" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 							+'<showDataEffect>'
 								+'<SeriesInterpolate duration="1000"/> '
 							+'</showDataEffect>'
 						+'</Line2DSeries>'
 	
 						
-						+'<Line2DSeries labelPosition="up" yField="4" form="curve" displayName="4" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+						+'<Line2DSeries labelPosition="up" yField="4" form="curve" displayName="4" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 							+'<showDataEffect>'
 								+'<SeriesInterpolate duration="1000"/> '
 							+'</showDataEffect>'
 						+'</Line2DSeries>'
 					
 					
-						+'<Line2DSeries labelPosition="up" yField="5" form="curve" displayName="5" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+						+'<Line2DSeries labelPosition="up" yField="5" form="curve" displayName="5" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 							+'<showDataEffect>'
 								+'<SeriesInterpolate duration="1000"/> '
 							+'</showDataEffect>'
 						+'</Line2DSeries>'
 						
-						+'<Line2DSeries labelPosition="up" yField="6" form="curve" displayName="6" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+						+'<Line2DSeries labelPosition="up" yField="6" form="curve" displayName="6" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 							+'<showDataEffect>'
 								+'<SeriesInterpolate duration="1000"/> '
 							+'</showDataEffect>'
 						+'</Line2DSeries>'
 
 					
-						+'<Line2DSeries labelPosition="up" yField="7" form="curve" displayName="7" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+						+'<Line2DSeries labelPosition="up" yField="7" form="curve" displayName="7" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 							+'<showDataEffect>'
 								+'<SeriesInterpolate duration="1000"/> '
 							+'</showDataEffect>'
 						+'</Line2DSeries>'
 					
 					
-						+'<Line2DSeries labelPosition="up" yField="8" form="curve" displayName="8" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+						+'<Line2DSeries labelPosition="up" yField="8" form="curve" displayName="8" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 							+'<showDataEffect>'
 								+'<SeriesInterpolate duration="1000"/> '
 							+'</showDataEffect>'
 						+'</Line2DSeries>'
 						
-						+'<Line2DSeries labelPosition="up" yField="9" form="curve" displayName="9" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+						+'<Line2DSeries labelPosition="up" yField="9" form="curve" displayName="9" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 							+'<showDataEffect>'
 								+'<SeriesInterpolate duration="1000"/> '
 							+'</showDataEffect>'
 						+'</Line2DSeries>'
 	
 						
-						+'<Line2DSeries labelPosition="up" yField="10" form="curve" displayName="10" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+						+'<Line2DSeries labelPosition="up" yField="10" form="curve" displayName="10" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 							+'<showDataEffect>'
 								+'<SeriesInterpolate duration="1000"/> '
 							+'</showDataEffect>'
@@ -133,74 +133,74 @@ var layoutStr7 = '<rMateChart backgroundColor="#FFFFFF"  borderStyle="none">'
 		+'</verticalAxis>'
 		+'<series>'
 		
-			+'<Line2DSeries labelPosition="up" yField="0" form="curve" displayName="0" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="0" form="curve" displayName="0" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 
 			
-			+'<Line2DSeries labelPosition="up" yField="1" form="curve" displayName="1" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="1" form="curve" displayName="1" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 		
 		
-			+'<Line2DSeries labelPosition="up" yField="2" form="curve" displayName="2" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="2" form="curve" displayName="2" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 			
-			+'<Line2DSeries labelPosition="up" yField="3" form="curve" displayName="3" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="3" form="curve" displayName="3" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 
 			
-			+'<Line2DSeries labelPosition="up" yField="4" form="curve" displayName="4" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="4" form="curve" displayName="4" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 		
 		
-			+'<Line2DSeries labelPosition="up" yField="5" form="curve" displayName="5" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="5" form="curve" displayName="5" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 			
-			+'<Line2DSeries labelPosition="up" yField="6" form="curve" displayName="6" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="6" form="curve" displayName="6" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 
 		
-			+'<Line2DSeries labelPosition="up" yField="7" form="curve" displayName="7" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="7" form="curve" displayName="7" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 		
 		
-			+'<Line2DSeries labelPosition="up" yField="8" form="curve" displayName="8" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="8" form="curve" displayName="8" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 			
-			+'<Line2DSeries labelPosition="up" yField="9" form="curve" displayName="9" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="9" form="curve" displayName="9" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 
 			
-			+'<Line2DSeries labelPosition="up" yField="10" form="curve" displayName="10" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="10" form="curve" displayName="10" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
@@ -224,74 +224,74 @@ var layoutStr8 = '<rMateChart backgroundColor="#FFFFFF"  borderStyle="none">'
 		+'</verticalAxis>'
 		+'<series>'
 		
-			+'<Line2DSeries labelPosition="up" yField="0" form="curve" displayName="0" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="0" form="curve" displayName="0" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 
 			
-			+'<Line2DSeries labelPosition="up" yField="1" form="curve" displayName="1" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="1" form="curve" displayName="1" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 		
 		
-			+'<Line2DSeries labelPosition="up" yField="2" form="curve" displayName="2" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="2" form="curve" displayName="2" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 			
-			+'<Line2DSeries labelPosition="up" yField="3" form="curve" displayName="3" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="3" form="curve" displayName="3" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 
 			
-			+'<Line2DSeries labelPosition="up" yField="4" form="curve" displayName="4" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="4" form="curve" displayName="4" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 		
 		
-			+'<Line2DSeries labelPosition="up" yField="5" form="curve" displayName="5" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="5" form="curve" displayName="5" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 			
-			+'<Line2DSeries labelPosition="up" yField="6" form="curve" displayName="6" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="6" form="curve" displayName="6" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 
 		
-			+'<Line2DSeries labelPosition="up" yField="7" form="curve" displayName="7" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="7" form="curve" displayName="7" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 		
 		
-			+'<Line2DSeries labelPosition="up" yField="8" form="curve" displayName="8" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="8" form="curve" displayName="8" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 			
-			+'<Line2DSeries labelPosition="up" yField="9" form="curve" displayName="9" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="9" form="curve" displayName="9" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 
 			
-			+'<Line2DSeries labelPosition="up" yField="10" form="curve" displayName="10" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="10" form="curve" displayName="10" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
@@ -315,74 +315,74 @@ var layoutStr9 = '<rMateChart backgroundColor="#FFFFFF"  borderStyle="none">'
 		+'</verticalAxis>'
 		+'<series>'
 		
-			+'<Line2DSeries labelPosition="up" yField="0" form="curve" displayName="0" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="0" form="curve" displayName="0" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 
 			
-			+'<Line2DSeries labelPosition="up" yField="1" form="curve" displayName="1" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="1" form="curve" displayName="1" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 		
 		
-			+'<Line2DSeries labelPosition="up" yField="2" form="curve" displayName="2" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="2" form="curve" displayName="2" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 			
-			+'<Line2DSeries labelPosition="up" yField="3" form="curve" displayName="3" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="3" form="curve" displayName="3" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 
 			
-			+'<Line2DSeries labelPosition="up" yField="4" form="curve" displayName="4" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="4" form="curve" displayName="4" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 		
 		
-			+'<Line2DSeries labelPosition="up" yField="5" form="curve" displayName="5" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="5" form="curve" displayName="5" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 			
-			+'<Line2DSeries labelPosition="up" yField="6" form="curve" displayName="6" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="6" form="curve" displayName="6" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 
 		
-			+'<Line2DSeries labelPosition="up" yField="7" form="curve" displayName="7" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="7" form="curve" displayName="7" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 		
 		
-			+'<Line2DSeries labelPosition="up" yField="8" form="curve" displayName="8" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="8" form="curve" displayName="8" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 			
-			+'<Line2DSeries labelPosition="up" yField="9" form="curve" displayName="9" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="9" form="curve" displayName="9" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
 			+'</Line2DSeries>'
 
 			
-			+'<Line2DSeries labelPosition="up" yField="10" form="curve" displayName="10" itemRenderer="CircleItemRenderer" showValueLabels="false" >'
+			+'<Line2DSeries labelPosition="up" yField="10" form="curve" displayName="10" itemRenderer="CircleItemRenderer" showValueLabels="[13]">'
 				+'<showDataEffect>'
 					+'<SeriesInterpolate duration="1000"/> '
 				+'</showDataEffect>'
