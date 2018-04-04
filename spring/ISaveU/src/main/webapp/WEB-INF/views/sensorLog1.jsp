@@ -20,11 +20,47 @@
 var interval = setInterval(function () {
     $.ajax({
       type: "GET",
-      url: "http://192.168.0.35:9999/DispatcherPart",
+      url: "http://192.168.0.35:9999/DispatcherPart/temp",
       dataType: "json",
       success: function(data) {
         ob = data;
         document.getElementById("chart6").setData(ob);
+        console.log(ob);
+      }
+    });
+  }, 9900);
+var interval = setInterval(function () {
+    $.ajax({
+      type: "GET",
+      url: "http://192.168.0.35:9999/DispatcherPart/smoke",
+      dataType: "json",
+      success: function(data) {
+        ob = data;
+        document.getElementById("chart7").setData(ob);
+        console.log(ob);
+      }
+    });
+  }, 9900);
+var interval = setInterval(function () {
+    $.ajax({
+      type: "GET",
+      url: "http://192.168.0.35:9999/DispatcherPart/gyro",
+      dataType: "json",
+      success: function(data) {
+        ob = data;
+        document.getElementById("chart8").setData(ob);
+        console.log(ob);
+      }
+    });
+  }, 9900);
+var interval = setInterval(function () {
+    $.ajax({
+      type: "GET",
+      url: "http://192.168.0.35:9999/DispatcherPart/fire",
+      dataType: "json",
+      success: function(data) {
+        ob = data;
+        document.getElementById("chart9").setData(ob);
         console.log(ob);
       }
     });
