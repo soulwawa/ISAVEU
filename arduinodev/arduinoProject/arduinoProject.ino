@@ -1,57 +1,64 @@
+#include <Phpoc.h>
+#include <SPI.h>
 #include <Adafruit_MLX90614.h>
 #include <Wire.h>
-#include <SPI.h>
-#include <Phpoc.h>
 
-Adafruit_MLX90614 mlx = Adafruit_MLX90614();
-
-// 서버접속
-char server_name[] = "192.168.0.35";
-unsigned long lastConnectionTime = 0;               // last time you connected to the server, in milliseconds
-const unsigned long postingInterval = 10L * 1000L;  // delay milliseconds
 PhpocClient client;
+Adafruit_MLX90614 mlx = Adafruit_MLX90614();          // tempSensor
+
+// serverConnection
+char server_name[] = "192.168.0.35";
+unsigned long lastConnectionTime = 0;
+const unsigned long postingInterval = 10L * 1000L;    // delay milliseconds
 String url = "";
 
-// laser
+// module
 const int laserPin = 7;
-// led
 const int ledRedPin = 13;
 const int ledGreenPin = 12;
 const int ledYellowPin = 11;
 const int ledPin = 10;
-// temp
 float tempAmbient = 0;
 float tempObject = 0;
-const float tempHigh = 40.0;                        // 화재 발생 시 온도
-// smoke
+const float tempHigh = 60.0;                        // fire event
 const int smokeSensorPin = A15;
 int smokeVal;
-const int smokeHigh = 1000;                         // 화재 발생 시 가스농도
-// fire
+const int smokeHigh = 1000;                         // fire event
 const int fireSensorPin = A13;
 int fireVal;
-const int fireLow = 500;                            // 화재 발생 시 불꽃감지 값
-// gyro
+const int fireLow = 100;                             // fire event
 const int gyroSensorPin = A11;
 int gyroVal;
-const int gyroLow = 0;                           // 지진 발생 시 진동 값
-// issue
+const int gyroLow = 100;                            // earthquake event
+
 int issue = 0;
 
-void monitoring(){
-  Serial.print("AMBTEMP : "); Serial.print(tempAmbient);
-  Serial.print("*C\tOBJTEMP : "); Serial.print(tempObject);
-  Serial.println("*C");
+boolean flag = true;
+boolean flag1 = true;
+
+void fireMonitoring(){
+  Serial.print("TEMP : "); Serial.print(tempObject); Serial.println("*C");
+//  Serial.print("*C\tOBJTEMP : "); Serial.print(tempAmbient);
   Serial.print("SMOKE : ");
   Serial.println(smokeVal);
   Serial.print("GYRO : ");
   Serial.println(gyroVal);
   Serial.print("FIRE : ");
   Serial.println(fireVal);
+
+  Serial.println("STATE : FIRE");
+  Serial.println();
 }
+void earthquakeMonitoring(){
+  Serial.print("GYRO : ");
+  Serial.println(gyroVal);
+  Serial.println("STATE : EARTHQUAKE");
+  Serial.println();
+}
+
 void sensing(){
-  tempAmbient = mlx.readAmbientTempC();       // 주변온도 감지
-  tempObject = mlx.readObjectTempC();         // 대상온도 감지
+//  tempAmbient = mlx.readAmbientTempC();       // ambTemp
+  tempObject = mlx.readObjectTempC();         // objTemp
   smokeVal = analogRead(smokeSensorPin);
   gyroVal = analogRead(gyroSensorPin);
   fireVal = analogRead(fireSensorPin);
@@ -66,18 +73,17 @@ void event(){
         digitalWrite(ledRedPin, HIGH);
         digitalWrite(ledGreenPin, LOW);
         digitalWrite(ledYellowPin, HIGH);
-    
-        Serial.println("StATE : F/E");
-        Serial.println();
+        
+        fireMonitoring();
+        earthquakeMonitoring();
       }else{
         issue = 1;
         digitalWrite(laserPin, HIGH);
         digitalWrite(ledRedPin, HIGH);
         digitalWrite(ledGreenPin, LOW);
         digitalWrite(ledYellowPin, LOW);
-    
-        Serial.println("STATE : F");
-        Serial.println();
+
+        fireMonitoring();
       }
     }else{
       if(gyroVal <= gyroLow){
@@ -86,18 +92,14 @@ void event(){
         digitalWrite(ledRedPin, LOW);
         digitalWrite(ledGreenPin, LOW);
         digitalWrite(ledYellowPin, HIGH);
-    
-        Serial.println("STATE : E");
-        Serial.println();
+
+        earthquakeMonitoring();
       }else{
         issue = 0;
         digitalWrite(laserPin, LOW);
         digitalWrite(ledRedPin, LOW);
         digitalWrite(ledGreenPin, HIGH);
         digitalWrite(ledYellowPin, LOW);
-        
-        Serial.println("STATE : N");
-        Serial.println();
       }
     }
   }
@@ -106,24 +108,19 @@ void event(){
 void setup() {
   Serial.begin(9600);
 
-// laser
+// module
   pinMode(laserPin, OUTPUT);
-// temp
-  mlx.begin();
-// led
+  mlx.begin();                                          // temp
   pinMode(ledRedPin, OUTPUT);
   pinMode(ledGreenPin, OUTPUT);
   pinMode(ledYellowPin, OUTPUT);
   pinMode(ledPin, OUTPUT);
-// wifi
+
+  // connection
   Serial.println("Sending GET request to web server");    
   Phpoc.begin(PF_LOG_SPI | PF_LOG_NET);
 }
 
-boolean flag = true;          //send check boolean
-boolean flag1 = true;         //send check boolean
-
-// 서버 접속
 void httpRequest() {
   // close any connection before send a new request.
   // This will free the socket on the WiFi shield
@@ -133,13 +130,13 @@ void httpRequest() {
   // if there's a successful connection:
   if (client.connect(server_name, 9999)) {
     Serial.println("connecting...");      
-    client.println(url); // send the HTTP PUT request:
+    client.println(url);                                  // send the HTTP PUT request:
     client.println();
     // note the time that the connection was made:  
      flag = false;
      digitalWrite(ledPin, HIGH);
   } else {
-//     if you couldn't make a connection:
+    // if you couldn't make a connection:
     Serial.println("connection failed");
   }
 }
@@ -158,11 +155,10 @@ void loop() {
   }
   if(flag){
     sensing();
-    monitoring();
     event();
   }
 
-const int moduleId = 1;
+const int moduleId = 0;
 
 // 서버접속
   if ( ((millis() - lastConnectionTime > postingInterval) && flag ||( (issue == 1) || (issue == 2) || (issue == 3) ) ) ){
@@ -181,5 +177,5 @@ const int moduleId = 1;
   }
    digitalWrite(ledPin, LOW);
    issue = 0;
-   delay(500);
+   delay(1000);
 }
