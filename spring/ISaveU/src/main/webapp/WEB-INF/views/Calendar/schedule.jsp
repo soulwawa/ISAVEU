@@ -160,6 +160,7 @@ body {
 	padding: 0 10px;
 }
 </style>
+
 <!--  Fullcalendar 차트 -->
 <title>Schedule</title>
 </head>
@@ -260,6 +261,7 @@ body {
 		<div class="contents">
 		<div id='top'>
 <div id='calendar'></div>
+			<!-- 
 			<div class='left'>
 
 				<div id='theme-system-selector' class='selector'>
@@ -355,7 +357,7 @@ body {
 				<span id='loading' style='display: none'>loading theme...</span>
 
 			</div>
-
+ 			-->
 			<div class='right'>
 				<span class='credits' data-credit-id='bootstrap-standard'
 					style='display: none'> <a

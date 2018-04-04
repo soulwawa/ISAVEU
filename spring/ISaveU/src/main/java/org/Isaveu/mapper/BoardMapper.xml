@@ -4,8 +4,8 @@
 <mapper namespace="org.Isaveu.mapper.BoardMapper">
 
 <insert id="create">
-	INSERT INTO tb_board (title, content, writer)
-	VALUES (#{title}, #{content}, #{writer})
+	INSERT INTO tb_board (title, content, id)
+	VALUES (#{title}, #{content}, #{id})
 </insert>
 
 <select id="read" resultType="org.Isaveu.domain.TbBoardVO">

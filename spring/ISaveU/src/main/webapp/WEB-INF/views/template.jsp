@@ -14,7 +14,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<title>Schedule</title>
+<title>관리자페이지</title>
 </head>
 <body>
 	<div class="wrapper">
@@ -26,47 +26,47 @@
 			<div id="fire">
 				<div id="exts1">
 					<div class="shake-freeze" id="ex0">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="../img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex1">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="../img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex2">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="../img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex3">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="../img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex4">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="../img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex5">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="../img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex6">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="../img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex7">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="../img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex8">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="../img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex9">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="../img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex10">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="../img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 				</div>

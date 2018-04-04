@@ -19753,3 +19753,12 @@ FCM EQUALS
 2018-04-03 18:28:41.234  INFO 172388 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9999 (http) with context path ''
 2018-04-03 18:28:41.235  INFO 172388 --- [  restartedMain] org.Isaveu.ISaveUApplication             : Started ISaveUApplication in 0.663 seconds (JVM running for 13381.153)
 2018-04-03 18:28:41.238  INFO 172388 --- [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-04-03 18:31:19.726  INFO 172388 --- [nio-9999-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-03 18:31:19.726  INFO 172388 --- [nio-9999-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-03 18:31:19.730  INFO 172388 --- [nio-9999-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 4 ms
+/cal
+/hr
+2018-04-04 09:33:04.891  INFO 172388 --- [1246)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2018-04-04 09:33:04.891  INFO 172388 --- [1246)-127.0.0.1] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@442d4571: startup date [Tue Apr 03 18:28:40 KST 2018]; root of context hierarchy
+2018-04-04 09:33:04.892  INFO 172388 --- [1246)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-04-04 09:33:04.892  INFO 172388 --- [1246)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans

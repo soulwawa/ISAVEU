@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Resource;
+
+import org.Isaveu.domain.LocationByFireExVO;
 import org.Isaveu.domain.LocationByIssueVO;
 import org.Isaveu.domain.TbHrVO;
+import org.Isaveu.service.FireExService;
 import org.Isaveu.service.HrService;
 import org.Isaveu.service.LocationService;
 import org.springframework.stereotype.Controller;
@@ -13,9 +16,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.RestTemplate;
 
 
 @Controller
+@RequestMapping("/Android/*")
 public class AndoroidContoller {
 
 	@Resource (name = "org.Isaveu.service.HrService")
@@ -24,8 +29,11 @@ public class AndoroidContoller {
 	@Resource(name = "org.Isaveu.service.LocationService")
 	LocationService lService;
 	
+	@Resource(name = "org.Isave.service.FireExService")
+	FireExService fService;
+	
 	@ResponseBody
-	@RequestMapping(value = "/AndroidLogin.do")
+	@RequestMapping(value = "/Login.do")
 	public Map<String, String> androidLogin(@ModelAttribute TbHrVO hrvo, @RequestParam("u_id") String id, @RequestParam("u_pw") String pw, @RequestParam("u_instancekey") String fcm) throws Exception{
 		Map<String, String> map = new HashMap<String, String>();
 		
@@ -84,7 +92,7 @@ public class AndoroidContoller {
 		}
 	}	
 	@ResponseBody
-	@RequestMapping(value = "/AndroidStreaming.do")
+	@RequestMapping(value = "/Streaming.do")
 	public Map<String, String> AndroidStreming(@RequestParam("act_st") String act_st){
 //		act_st = request.getParameter("act_st");
 		Map<String, String> map = new HashMap<String, String>();
@@ -100,9 +108,9 @@ public class AndoroidContoller {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/AndroidDisasterCheck.do")
-	public Map<String, ArrayList<LocationByIssueVO>> AndroiDisasterCheck(@RequestParam("loc") String loc){
-		Map<String,  ArrayList<LocationByIssueVO>> map = new HashMap<String, ArrayList<LocationByIssueVO>>();
+	@RequestMapping(value = "/DisasterCheck.do")
+	public Map<String, Object> AndroiDisasterCheck(@RequestParam("loc") String loc){
+		Map<String, Object> map = new HashMap<String, Object>();
 //		System.out.println(loc);
 		String count = "";
 		try {
@@ -120,12 +128,31 @@ public class AndoroidContoller {
 //		for(int i = 0 ; i < list.size() ; i++) {
 //			listMap.add(list.get(i));
 //		}
-		map.put("floor", list);
+		map.put("floor", loc);
+		map.put("list", list);
 		System.out.println(map);
 		return map;
 		
 	}
-	
+	@ResponseBody
+	@RequestMapping(value = "/feRestart.do")
+	public Map<String, String> AndroidfeRestart(@RequestParam("loc") String loc){
+		Map<String, String> map = new HashMap<String, String>();
+		
+		System.out.println(loc);
+		String url = "http://192.168.0.61:5002/feRestart/";
+		RestTemplate restTemplate = new RestTemplate();
+		String result = restTemplate.getForObject(url, String.class);
+		System.out.println(result);
+		
+		try {
+			fService.updatefireExStatus(loc);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		map.put("access", "ok");
+		return map;
+	}
 	
 	
 }

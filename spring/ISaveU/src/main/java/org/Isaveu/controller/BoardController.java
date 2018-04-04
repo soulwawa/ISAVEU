@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 
@@ -27,13 +28,19 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerPOST(TbBoardVO board, Model model) throws Exception{
+	public String registerPOST(TbBoardVO board, RedirectAttributes rttr) throws Exception{
 		logger.info("register POST .....");
 		logger.info(board.toString());
 		
 		bService.create(board);
 		
-		model.addAttribute("result", "success");
-		return "/board/success";
+		rttr.addFlashAttribute("result", "success");
+		return "redirect:/board/listAll";
+	}
+	
+	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
+	public String listAll(Model model) throws Exception{
+		logger.info("show all List...");
+		return "board/listAll";
 	}
 }

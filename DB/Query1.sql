@@ -10,8 +10,9 @@ SELECT * FROM tb_module;
 
 select* from tb_event event
 inner join tb_module module on event.module_id = module.module_id
-inner join tb_location location on module.module_id = location.location_id
-order by event_id DESC limit 12;
+inner join tb_location location on module.location_id = location.location_id
+order by event_id desc limit 11;
+
 
 select * from tb_hr where id = '0000000000';
 
@@ -94,5 +95,22 @@ FROM tb_module module, tb_location location
 where module.location_id = location.location_id
 and module.type = 'arduino' and location LIKE '6%';
 
+select* from tb_action order by action_id DESC;
+select* from tb_event order by event_id DESC;
+select* from tb_fire_ex;
+select* from tb_hr;
+select* from tb_location;
+SELECT * FROM tb_module;
+SELECT * FROM tb_board;
+
+select* from tb_event WHERE module_id="10" limit 12;
+
+SELECT * FROM tb_event ORDER BY event_id DESC LIMIT 11;
+
+SELECT * FROM tb_event WHERE module_id ="1" order by time DESC limit 12; 
+
+SELECT * FROM tb_location
+INNER JOIN tb_fire_ex
+ON tb_location.location_id = tb_fire_ex.location_id and location='600';
 
 

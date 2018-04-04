@@ -10,4 +10,5 @@ import org.springframework.stereotype.Repository;
 public interface EventMapper {
 	public void insertEvent(TbEventVO event);
 	public ArrayList<TbEventVO> selectRecent(int num);
+	public ArrayList<TbEventVO> dispatcherPart(int num);
 }

@@ -24,5 +24,10 @@ public class EventService implements EventMapper{
 	public ArrayList<TbEventVO> selectRecent(int num) {
 		return eMapper.selectRecent(num);
 	}
+
+	@Override
+	public ArrayList<TbEventVO> dispatcherPart(int num) {
+		return eMapper.dispatcherPart(num);
+	}
 	
 }

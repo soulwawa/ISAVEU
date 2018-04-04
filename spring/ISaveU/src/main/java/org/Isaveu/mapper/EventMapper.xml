@@ -17,18 +17,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	 * 
     	FROM
     	 tb_event
+    	WHERE
+    		module_id = "0"
     	ORDER BY
     	 event_id
-     	DESC LIMIT ${value}
+     	DESC LIMIT ${value};
     </select>
-    <select id="dispatcherPart" parameterType= "String" resultType="org.Isaveu.domain.TbEventVO">
-	    SELECT
-	     * 
+    <select id="dispatcherPart" parameterType= "int" resultType="org.Isaveu.domain.TbEventVO">
+	    SELECT 
+	    	* 
 	    FROM
-	     tb_event
-	    WHERE
-	     module_id= ${value}
-	    limit 12;
+	    	tb_event
+	    order by time DESC limit ${value}; 
     </select>
 </mapper>
 
