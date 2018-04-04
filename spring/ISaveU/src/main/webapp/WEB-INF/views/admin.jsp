@@ -34,18 +34,14 @@
         var result1 = document.getElementById("result1");
         
         
-        result1.innerHTML = "온도:"+ob.temp+",진동 "+ob.gyro+",CO "+ob.smoke+",불꽃 "+ob.fire+", "+ob.msg;
+        result1.innerHTML = "온도:"+ob.temp+",진동 "+ob.gyro+",CO "+ob.smoke+",불꽃 "+ob.fire+", "+ob.date;
         
-        data1=[parseInt(ob.temp)];
-       data2=[parseInt(ob.gyro)];
-        data3=[parseInt(ob.smoke)];
-        data4=[parseInt(ob.fire)];
         
         document.getElementById("chart1").setData([parseInt(ob.temp)]);
         document.getElementById("chart2").setData([parseInt(ob.gyro)]);
         document.getElementById("chart3").setData([parseInt(ob.smoke)]);
         document.getElementById("chart4").setData([parseInt(ob.fire)]);
-        console.log("온도:"+ob.temp+",진동 "+ob.gyro+",CO "+ob.smoke+",불꽃 "+ob.fire+", "+ob.msg);
+        console.log("온도:"+ob.temp+",진동 "+ob.gyro+",CO "+ob.smoke+",불꽃 "+ob.fire+", "+ob.date);
         if([parseInt(ob.temp)] > 40) {
         	showAlert();
         }
@@ -150,8 +146,13 @@
 			</div>
 		</div>
 		<div class="sidebar">
-			<div class="menuBtn" >
-				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/sensor')">
+			<div class="menuBtn" id="btnSensor">
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/sensor1')">
+  					<span class="glyphicon glyphicon-tasks" ></span> Sensor Log
+				</button>
+			</div>
+			<div class="menuBtn" id="btnSensor">
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/sensor2')">
   					<span class="glyphicon glyphicon-tasks" ></span> Sensor Log
 				</button>
 			</div>

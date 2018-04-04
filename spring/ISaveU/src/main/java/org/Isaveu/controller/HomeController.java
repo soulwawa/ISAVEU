@@ -30,10 +30,20 @@ public class HomeController {
 		return "extinguisher";
 	}
 	
-	@RequestMapping("/sensor")
-	private String sstest() throws Exception{
+	@RequestMapping("/sensor1")
+	private String ss1test() throws Exception{
 //		System.out.println(hMapper.hrCount()); 
-		return "sensorLog";
+		return "sensorLog1";
+	}
+	@RequestMapping("/sensor2")
+	private String ss2test() throws Exception{
+//			System.out.println(hMapper.hrCount()); 
+			return "sensorLog2";
+	}
+	@RequestMapping("/sensor3")
+	private String ss3test() throws Exception{
+//			System.out.println(hMapper.hrCount()); 
+			return "sensorLog3";
 	}
 	@RequestMapping("/stream")
 	private String sttest() throws Exception{
