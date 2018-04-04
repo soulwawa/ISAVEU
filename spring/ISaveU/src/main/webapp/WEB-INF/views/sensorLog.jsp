@@ -17,6 +17,19 @@
 <script language="javascript" type="text/javascript" src="<%=root%>/sensorlog1.js"></script>
 
 <script>
+var interval = setInterval(function () {
+    $.ajax({
+      type: "GET",
+      url: "http://192.168.0.35:9999/DispatcherPart",
+      dataType: "json",
+      success: function(data) {
+        ob = data;
+        document.getElementById("chart6").setData(ob);
+        console.log(ob);
+        document.write(ob);
+      }
+    });
+  }, 9900);
 </script>
 <style>
 .contents{

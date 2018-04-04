@@ -98,9 +98,9 @@ var interval = setInterval(function () {
       dataType: "json",
       success: function(data) {
         live = data;
-        var result2 = document.getElementById("result2");
-        result2.innerHTML = "온도:"+live.temp+",진동 "+live.gyro+",CO "+live.smoke+",불꽃 "+live.fire+", "+live.msg;
-        console.log("온도:"+live.temp+",진동 "+live.gyro+",CO "+live.smoke+",불꽃 "+live.fire+", "+live.msg);
+        var result0 = document.getElementById("result0");
+        result0.innerHTML = "온도:"+live.temp+",진동 "+live.gyro+",CO "+live.smoke+",불꽃 "+live.fire+", "+live.date;
+        console.log("온도:"+live.temp+",진동 "+live.gyro+",CO "+live.smoke+",불꽃 "+live.fire+", "+live.date);
       }
     });
   }, 9900);
@@ -111,17 +111,15 @@ function checkex(){
 	      url: "http://192.168.0.35:9999/locationFireEx.do",
 	      dataType: "json",
 	      success: function(data2) {
-	        ob2 = data2;
-	        var state = new Array();
-
-	        for(var i = 0; i < 11; i++){
-	        	var j = 600 + i;
-	            var k = j.toString(); 
-	        	state[i] = ob2[k];
-	        	if(state[i] == 0){
+	        obj = data2;
+	        for (var i = 0; i < obj.list.length; i++){
+	        	var counter = obj.list[i];
+	        	console.log(counter.location);
+	        	console.log(counter.fire_ex_status);
+	        	if(counter.fire_ex_status == 0){
 	        		document.getElementById("ext"+i).style.display="none";
 	        	}
-	        	if(state[i] == 1){
+	        	if(counter.fire_ex_status == 1){
 	        		document.getElementById("ext"+i).style.display="block";
 	        	}
 	        	
