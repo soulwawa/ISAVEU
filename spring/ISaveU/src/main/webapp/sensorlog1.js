@@ -39,7 +39,7 @@ var layoutStr6 = '<rMateChart backgroundColor="#FFFFFF"  borderStyle="none">'
 						+'<CategoryAxis categoryField="time" padding="0.2"/> '
 					+'</horizontalAxis>'
 					+'<verticalAxis>'
-						+'<LinearAxis minimun="10" maximum="60" interval="5"/>'
+						+'<LinearAxis minimum="25" maximum="30" interval="0.5"/>'
 					+'</verticalAxis>'
 					+'<series>'
 					
