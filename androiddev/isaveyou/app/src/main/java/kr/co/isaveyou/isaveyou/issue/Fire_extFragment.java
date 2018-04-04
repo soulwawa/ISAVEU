@@ -19,12 +19,15 @@ import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
+import com.google.gson.JsonObject;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.ParseException;
@@ -54,9 +57,7 @@ public class Fire_extFragment extends Fragment {
     LinearLayout layout_fire_ext1,layout_fire_ext2,layout_fire_ext3,layout_fire_ext4,layout_fire_ext5,layout_fire_ext6,layout_fire_ext7,layout_fire_ext8,layout_fire_ext9,layout_fire_ext10,layout_fire_ext11;
     String result;
     HttpURLConnection conn;
-    ArrayList<String > roomNumList = new ArrayList<>();
 
-    String strDate;
 
 
     View.OnClickListener handler = new View.OnClickListener() {
@@ -76,119 +77,66 @@ public class Fire_extFragment extends Fragment {
                     layout_fire_ext1.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
 
-                    CheckDate_fire_ext checkDate_fire_ext1 = new CheckDate_fire_ext();
-                    checkDate_fire_ext1.execute();
-
-
                     ImageThread.interrupted();
                     break;
                 case R.id.room601_waitingRoom_Fire_ext:
                     Log.v(TAG, "room601_waitingRoom_Fire_ext");
                     layout_fire_ext2.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
-
-                    CheckDate_fire_ext checkDate_fire_ext2 = new CheckDate_fire_ext();
-                    checkDate_fire_ext2.execute();
-
-
                     ImageThread.interrupted();
                     break;
                 case R.id.room602_Fire_ext:
                     Log.v(TAG, "room602_Fire_ext");
                     layout_fire_ext3.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
-
-                    CheckDate_fire_ext checkDate_fire_ext3 = new CheckDate_fire_ext();
-                    checkDate_fire_ext3.execute();
-
-
                     ImageThread.interrupted();
                     break;
                 case R.id.room603_Fire_ext:
                     Log.v(TAG, "room603_Fire_ext 눌림");
                     layout_fire_ext4.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
-
-                    CheckDate_fire_ext checkDate_fire_ext4 = new CheckDate_fire_ext();
-                    checkDate_fire_ext4.execute();
-
-
                     ImageThread.interrupted();
                     break;
                 case R.id.room604_Fire_ext:
                     Log.v(TAG, "room604_Fire_ext 눌림");
                     layout_fire_ext5.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
-
-                    CheckDate_fire_ext checkDate_fire_ext5 = new CheckDate_fire_ext();
-                    checkDate_fire_ext5.execute();
-
-
                     ImageThread.interrupted();
                     break;
                 case R.id.room605_Fire_ext:
                     Log.v(TAG, "room605_Fire_ext");
                     layout_fire_ext6.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
-
-                    CheckDate_fire_ext checkDate_fire_ext6 = new CheckDate_fire_ext();
-                    checkDate_fire_ext6.execute();
-
-
                     ImageThread.interrupted();
                     break;
                 case R.id.room606_Fire_ext:
                     Log.v(TAG, "room606_Fire_ext");
                     layout_fire_ext7.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
-
-                    CheckDate_fire_ext checkDate_fire_ext7 = new CheckDate_fire_ext();
-                    checkDate_fire_ext7.execute();
-
-
                     ImageThread.interrupted();
                     break;
                 case R.id.room607_Fire_ext:
                     Log.v(TAG, "room607_Fire_ext 눌림");
                     layout_fire_ext8.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
-
-                    CheckDate_fire_ext checkDate_fire_ext8 = new CheckDate_fire_ext();
-                    checkDate_fire_ext8.execute();
-
-
                     ImageThread.interrupted();
                     break;
                 case R.id.room608_Fire_ext:
                     Log.v(TAG, "room608_Fire_ext 눌림");
                     layout_fire_ext9.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
-
-                    CheckDate_fire_ext checkDate_fire_ext9 = new CheckDate_fire_ext();
-                    checkDate_fire_ext9.execute();
-
-
                     ImageThread.interrupted();
                     break;
                 case R.id.room609_Fire_ext:
                     Log.v(TAG, "room609_Fire_ext 눌림");
                     layout_fire_ext10.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
-
-                    CheckDate_fire_ext checkDate_fire_ext10 = new CheckDate_fire_ext();
-                    checkDate_fire_ext10.execute();
-
-
                     ImageThread.interrupted();
                     break;
                 case R.id.restRoom610_Fire_ext:
                     Log.v(TAG, "restRoom610_Fire_ext 눌림");
                     layout_fire_ext11.setVisibility(View.VISIBLE);
                     stopCheckFire_ext_Animation();
-
-                    CheckDate_fire_ext checkDate_fire_ext11 = new CheckDate_fire_ext();
-                    checkDate_fire_ext11.execute();
-
                     ImageThread.interrupted();
                     break;
 
@@ -201,9 +149,7 @@ public class Fire_extFragment extends Fragment {
         super.onCreate(savedInstanceState);
         Bundle bundle = this.getArguments();
         Log.v(TAG,bundle+"");
-//        if(bundle != null) {
-//            place_fire_ext = bundle.getString("place");
-//        }
+
     }
 
     @Nullable
@@ -293,8 +239,7 @@ public class Fire_extFragment extends Fragment {
 
 
 
-//        checkDate_fire_ext checkDate_fire_ext = new checkDate_fire_ext();
-//        checkDate_fire_ext.execute();
+
 
 
         return view;
@@ -358,13 +303,21 @@ public class Fire_extFragment extends Fragment {
         protected String doInBackground(String... strings) {
             try {
                 //서버 접속
+                String loc = "6";
+                String param = "loc=" + loc;
 
                 URL url = new URL("http://192.168.0.35:9999/locationFireEx.do");
                 conn = (HttpURLConnection)url.openConnection();
-                conn.setRequestProperty("Content-type","application/xml");
-                conn.setRequestMethod("GET");
+                conn.setFixedLengthStreamingMode(param.length());
+                conn.setRequestProperty("Content-type","application/x-www-form-urlencoded");
+                conn.setRequestMethod("POST");
                 conn.setDoInput(true);
                 conn.connect();
+                OutputStream outs = conn.getOutputStream();
+                outs.write(param.getBytes("UTF-8"));
+                outs.flush();
+                outs.close();
+                Log.v(TAG, "서버 연결");
 
                 if(conn.getResponseCode()!=HttpURLConnection.HTTP_OK){
                 } else {
@@ -396,113 +349,189 @@ public class Fire_extFragment extends Fragment {
                     Toast.makeText(getContext(),"사용가능한 소화기가 존재하지 않습니다.",Toast.LENGTH_SHORT).show();
                 }
 
-                Iterator key = jsonObject.keys();
+                //현재 시간
+                long now = System.currentTimeMillis();
+                Date dateNow = new Date(now);
+                Log.v(TAG, "dateNow : " + dateNow);
+                //연,월,일을 따로 저장
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String today = sdf.format(dateNow);
+                Log.v(TAG, "today : " + today);
+                // 시간차이를 시간,분,초를 곱한 값으로 나누면 하루 단위가 나옴
 
-                while (key.hasNext()){
-                    String roomNum= key.next().toString();
-                    Log.v(TAG,"roonmNum" + roomNum);
-                    roomNumList.add(roomNum);
+                JSONArray jObj = jsonObject.getJSONArray("list");
 
+                for(int i= 0 ; i < jObj.length();i++) {
+                    try{
+                        JSONObject fire_extObj= jObj.getJSONObject(i);
+                        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+                        String location = fire_extObj.getString("location");
+                        String issue = fire_extObj.getString("fire_ex_status");
+                        String date = fire_extObj.getString("check_date");
+                        String str_date = date.substring(0,11);
+                        Log.v(TAG,"str_date : " + str_date);
+                        Log.v(TAG, "fire_ex_status :" + issue);
+                        Log.v(TAG, "date :" + date);
+                        Date beginDate = sdf1.parse(date);
+                        Date endDate = sdf1.parse(today);
+                        long diff = endDate.getTime() - beginDate.getTime();
+                        long diffDays = diff / (24 * 60 * 60 * 1000);
+                        Calendar cal = new GregorianCalendar(Locale.KOREA);
+                        cal.setTime(beginDate);
+                        cal.add(Calendar.MONTH,1);
+                        String checkDate = sdf.format(cal.getTime());
+                        Log.v(TAG, "diff : " + diff);
+                        Log.v(TAG, "diffDays : " + diffDays);
+                        Log.v(TAG, "checkDate : " + checkDate);
 
+                        switch (location) {
+                            case "600":
+                                if (issue.equals("1")) {
+                                    switcherList.add(fire_ext1);
+                                    Log.v(TAG, "600");
+                                    tv_startDate_600.setText(str_date);
+                                    tv_endDate_600.setText(checkDate);
+                                    pb_600.setProgress(diffDays);
 
-                }
-                Log.v(TAG, "roomNumListSize : " + roomNumList.size());
-
-                for(int i= 0 ; i<roomNumList.size();i++) {
-                    String roomNum = roomNumList.get(i);
-                    String event = jsonObject.getString(roomNumList.get(i));
-                    Log.v(TAG, "event :" + event);
-
-
-                    switch (roomNum) {
-                        case "600":
-                            if (event.equals("1")) {
-                                switcherList.add(fire_ext1);
-                                Log.v(TAG, "600");
-                            }else if(event.equals("0")){
-                                Toast.makeText(getContext(),"소화기가 해당 위치에 존재하지 않습니다.",Toast.LENGTH_SHORT).show();
-                            }
-                            break;
-                        case "601":
-                            if (event.equals("1")) {
-                                switcherList.add(fire_ext2);
-                                Log.v(TAG, "601");
-                            }else if(event.equals("0")){
-                                Toast.makeText(getContext(),"소화기가 해당 위치에 존재하지 않습니다.",Toast.LENGTH_SHORT).show();
-                            }
-                            break;
-                        case "602":
-                            if (event.equals("1")) {
-                                switcherList.add(fire_ext3);
-                                Log.v(TAG, "602");
-                            }else if(event.equals("0")){
-                                Toast.makeText(getContext(),"소화기가 해당 위치에 존재하지 않습니다.",Toast.LENGTH_SHORT).show();
-                            }
-                            break;
-                        case "603":
-                            if (event.equals("1")) {
-                                switcherList.add(fire_ext4);
-                                Log.v(TAG, "603");
-                            }else if(event.equals("0")){
-                                Toast.makeText(getContext(),"소화기가 해당 위치에 존재하지 않습니다.",Toast.LENGTH_SHORT).show();
-                            }
-                            break;
-                        case "604":
-                            if (event.equals("1")) {
-                                switcherList.add(fire_ext5);
-                                Log.v(TAG, "604");
-                            }else if(event.equals("0")){
-                                Toast.makeText(getContext(),"소화기가 해당 위치에 존재하지 않습니다.",Toast.LENGTH_SHORT).show();
-                            }
-                            break;
-                        case "605":
-                            if (event.equals("1")) {
-                                switcherList.add(fire_ext6);
-                                Log.v(TAG, "605");
-                            }else if(event.equals("0")){
-                                Toast.makeText(getContext(),"소화기가 해당 위치에 존재하지 않습니다.",Toast.LENGTH_SHORT).show();
-                            }
-                            break;
-                        case "606":
-                            if (event.equals("1")) {
-                                switcherList.add(fire_ext7);
-                                Log.v(TAG, "606");
-                            }else if(event.equals("0")){
-                                Toast.makeText(getContext(),"소화기가 해당 위치에 존재하지 않습니다.",Toast.LENGTH_SHORT).show();
-                            }
-                            break;
-                        case "607":
-                            if (event.equals("1")) {
-                                switcherList.add(fire_ext8);
-                                Log.v(TAG, "607");
-                            }else if(event.equals("0")){
-                                Toast.makeText(getContext(),"소화기가 해당 위치에 존재하지 않습니다.",Toast.LENGTH_SHORT).show();
-                            }
-                            break;
-                        case "608":
-                            if (event.equals("1")) {
-                                switcherList.add(fire_ext9);
-                                Log.v(TAG, "608");
-                            }else if(event.equals("0")){
-                                Toast.makeText(getContext(),"소화기가 해당 위치에 존재하지 않습니다.",Toast.LENGTH_SHORT).show();
-                            }
-                            break;
-                        case "609":
-                            if (event.equals("1")) {
-                                switcherList.add(fire_ext10);
-                                Log.v(TAG, "609");
-                            }else if(event.equals("0")){
-                                Toast.makeText(getContext(),"소화기가 해당 위치에 존재하지 않습니다.",Toast.LENGTH_SHORT).show();
-                            }
-                            break;
-                        case "610":
-                            if (event.equals("1")) {
-                                switcherList.add(fire_ext11);
-                                Log.v(TAG, "610");
-                            }else if(event.equals("0")){
-                                Toast.makeText(getContext(),"소화기가 해당 위치에 존재하지 않습니다.",Toast.LENGTH_SHORT).show();
-                            }
-                            break;
+                                }else if(issue.equals("0")){
+                                    tv_startDate_600.setText("소화기 없음");
+                                    tv_endDate_600.setVisibility(View.INVISIBLE);
+                                    pb_600.setVisibility(View.INVISIBLE);
+                                }
+                                break;
+                            case "601":
+                                if (issue.equals("1")) {
+                                    switcherList.add(fire_ext2);
+                                    Log.v(TAG, "601");
+                                    tv_startDate_601.setText(str_date);
+                                    tv_endDate_601.setText(checkDate);
+                                    pb_601.setProgress(diffDays);
+                                }else if(issue.equals("0")){
+                                    tv_startDate_601.setText("소화기 없음");
+                                    tv_endDate_601.setVisibility(View.INVISIBLE);
+                                    pb_601.setVisibility(View.INVISIBLE);
+                                }
+                                break;
+                            case "602":
+                                if (issue.equals("1")) {
+                                    switcherList.add(fire_ext3);
+                                    Log.v(TAG, "602");
+                                    tv_startDate_602.setText(str_date);
+                                    tv_endDate_602.setText(checkDate);
+                                    pb_602.setProgress(diffDays);
+                                }else if(issue.equals("0")){
+                                    tv_startDate_602.setText("소화기 없음");
+                                    tv_endDate_602.setVisibility(View.INVISIBLE);
+                                    pb_602.setVisibility(View.INVISIBLE);
+                                }
+                                break;
+                            case "603":
+                                if (issue.equals("1")) {
+                                    switcherList.add(fire_ext4);
+                                    Log.v(TAG, "603");
+                                    tv_startDate_603.setText(str_date);
+                                    tv_endDate_603.setText(checkDate);
+                                    pb_603.setProgress(diffDays);
+                                }else if(issue.equals("0")){
+                                    tv_startDate_603.setText("소화기 없음");
+                                    tv_endDate_603.setVisibility(View.INVISIBLE);
+                                    pb_603.setVisibility(View.INVISIBLE);
+                                }
+                                break;
+                            case "604":
+                                if (issue.equals("1")) {
+                                    switcherList.add(fire_ext5);
+                                    Log.v(TAG, "604");
+                                    tv_startDate_604.setText(str_date);
+                                    tv_endDate_604.setText(checkDate);
+                                    pb_604.setProgress(diffDays);
+                                }else if(issue.equals("0")){
+                                    tv_startDate_604.setText("소화기 없음");
+                                    tv_endDate_604.setVisibility(View.INVISIBLE);
+                                    pb_604.setVisibility(View.INVISIBLE);
+                                }
+                                break;
+                            case "605":
+                                if (issue.equals("1")) {
+                                    switcherList.add(fire_ext6);
+                                    Log.v(TAG, "605");
+                                    tv_startDate_605.setText(str_date);
+                                    tv_endDate_605.setText(checkDate);
+                                    pb_605.setProgress(diffDays);
+                                }else if(issue.equals("0")){
+                                    tv_startDate_605.setText("소화기 없음");
+                                    tv_endDate_605.setVisibility(View.INVISIBLE);
+                                    pb_605.setVisibility(View.INVISIBLE);
+                                }
+                                break;
+                            case "606":
+                                if (issue.equals("1")) {
+                                    switcherList.add(fire_ext7);
+                                    Log.v(TAG, "606");
+                                    tv_startDate_606.setText(str_date);
+                                    tv_endDate_606.setText(checkDate);
+                                    pb_606.setProgress(diffDays);
+                                }else if(issue.equals("0")){
+                                    tv_startDate_606.setText("소화기 없음");
+                                    tv_endDate_606.setVisibility(View.INVISIBLE);
+                                    pb_606.setVisibility(View.INVISIBLE);
+                                }
+                                break;
+                            case "607":
+                                if (issue.equals("1")) {
+                                    switcherList.add(fire_ext8);
+                                    Log.v(TAG, "607");
+                                    tv_startDate_607.setText(str_date);
+                                    tv_endDate_607.setText(checkDate);
+                                    pb_607.setProgress(diffDays);
+                                }else if(issue.equals("0")){
+                                    tv_startDate_607.setText("소화기 없음");
+                                    tv_endDate_607.setVisibility(View.INVISIBLE);
+                                    pb_607.setVisibility(View.INVISIBLE);
+                                }
+                                break;
+                            case "608":
+                                if (issue.equals("1")) {
+                                    switcherList.add(fire_ext9);
+                                    Log.v(TAG, "608");
+                                    tv_startDate_608.setText(str_date);
+                                    tv_endDate_608.setText(checkDate);
+                                    pb_608.setProgress(diffDays);
+                                }else if(issue.equals("0")){
+                                    tv_startDate_608.setText("소화기 없음");
+                                    tv_endDate_608.setVisibility(View.INVISIBLE);
+                                    pb_608.setVisibility(View.INVISIBLE);
+                                }
+                                break;
+                            case "609":
+                                if (issue.equals("1")) {
+                                    switcherList.add(fire_ext10);
+                                    Log.v(TAG, "609");
+                                    tv_startDate_609.setText(str_date);
+                                    tv_endDate_609.setText(checkDate);
+                                    pb_609.setProgress(diffDays);
+                                }else if(issue.equals("0")){
+                                    tv_startDate_609.setText("소화기 없음");
+                                    tv_endDate_609.setVisibility(View.INVISIBLE);
+                                    pb_609.setVisibility(View.INVISIBLE);
+                                }
+                                break;
+                            case "610":
+                                if (issue.equals("1")) {
+                                    switcherList.add(fire_ext11);
+                                    Log.v(TAG, "610");
+                                    tv_startDate_610.setText(str_date);
+                                    tv_endDate_610.setText(checkDate);
+                                    pb_610.setProgress(diffDays);
+                                }else if(issue.equals("0")){
+                                    tv_startDate_610.setText("소화기 없음");
+                                    tv_endDate_610.setVisibility(View.INVISIBLE);
+                                    pb_610.setVisibility(View.INVISIBLE);
+                                }
+                                break;
+                        }
+                    }catch (ParseException e){
+                        e.printStackTrace();
                     }
                 }
                 Log.v(TAG, "switcherList size : "+switcherList.size() );
@@ -532,179 +561,19 @@ public class Fire_extFragment extends Fragment {
 
         }
     }
-    class CheckDate_fire_ext extends AsyncTask<String, Void, String>{
-        @Override
-        protected String doInBackground(String... strings) {
-            try{
-                URL url = new URL("http://192.168.0.35:9999/locationFireExDate.do");
-                conn = (HttpURLConnection)url.openConnection();
-                conn.setRequestProperty("Content-type","application/xml");
-                conn.setRequestMethod("GET");
-                conn.setDoInput(true);
-                conn.connect();
-
-                if(conn.getResponseCode()!=HttpURLConnection.HTTP_OK){
-
-                } else {
-
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                    String line;
-                    StringBuffer buffer = new StringBuffer();
-                    while ((line = reader.readLine())!=null){
-                        buffer.append(line + "\n");
-                    }
-                    result = buffer.toString();
-                    Log.v(TAG, "buffer result : " + line );
-                    reader.close();
-                }
-                Log.v(TAG, "url : " + url );
-
-
-            }catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            Log.v(TAG, "result in onPostExecute(checkDate_fire_ext) : " + result);
-            try {
-                JSONObject jsonObject = new JSONObject(result);
-                if (jsonObject.equals(null)) {
-                    Toast.makeText(getContext(), "사용가능한 소화기가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
-                }
-                Iterator key = jsonObject.keys();
-                while (key.hasNext()) {
-                    String roomNum = key.next().toString();
-                    Log.v(TAG, "roonmNum" + roomNum);
-                    roomNumList.add(roomNum);
-                }
-                // 오늘에 날짜를 세팅 해준다.
-                long now = System.currentTimeMillis();
-                Date dateNow = new Date(now);
-                Log.v(TAG, "dateNow : " + dateNow);
-                //연,월,일을 따로 저장
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                String today = sdf.format(dateNow);
-                Log.v(TAG, "today : " + today);
-                // 시간차이를 시간,분,초를 곱한 값으로 나누면 하루 단위가 나옴
-
-                for (int i = 0; i < roomNumList.size(); i++) {
-                    try {
-                        String roomNum = roomNumList.get(i);
-                        String date = jsonObject.getString(roomNumList.get(i));
-                        Log.v(TAG, "date :" + date);
-                        Date beginDate = sdf.parse(date);
-                        Date endDate = sdf.parse(today);
-                        long diff = endDate.getTime() - beginDate.getTime();
-                        long diffDays = diff / (24 * 60 * 60 * 1000);
-                        Calendar cal = new GregorianCalendar(Locale.KOREA);
-                        cal.setTime(beginDate);
-                        cal.add(Calendar.MONTH,1);
-                        String checkDate = sdf.format(cal.getTime());
-                        Log.v(TAG, "diff : " + diff);
-                        Log.v(TAG, "diffDays : " + diffDays);
-                        Log.v(TAG, "checkDate : " + checkDate);
-                        switch (roomNum) {
-                            case "600":
-                                Log.v(TAG, "600");
-                                tv_startDate_600.setText(date);
-                                tv_endDate_600.setText(checkDate);
-                                pb_600.setProgress(diffDays);
-                            case "601":
-                                Log.v(TAG, "601");
-                                tv_startDate_601.setText(date);
-                                tv_endDate_601.setText(checkDate);
-                                pb_601.setProgress(diffDays);
-
-                                break;
-                            case "602":
-                                Log.v(TAG, "602");
-                                tv_startDate_602.setText(date);
-                                tv_endDate_602.setText(checkDate);
-                                pb_602.setProgress(diffDays);
-                                break;
-                            case "603":
-                                Log.v(TAG, "603");
-                                tv_startDate_603.setText(date);
-                                tv_endDate_603.setText(checkDate);
-                                pb_603.setProgress(diffDays);
-                                break;
-                            case "604":
-                                Log.v(TAG, "604");
-                                tv_startDate_604.setText(date);
-                                tv_endDate_604.setText(checkDate);
-                                pb_604.setProgress(diffDays);
-
-                                break;
-                            case "605":
-                                Log.v(TAG, "605");
-                                tv_startDate_605.setText(date);
-                                tv_endDate_605.setText(checkDate);
-                                pb_605.setProgress(diffDays);
-                                break;
-                            case "606":
-                                Log.v(TAG, "606");
-                                tv_startDate_606.setText(date);
-                                tv_endDate_606.setText(checkDate);
-                                pb_606.setProgress(diffDays);
-
-                                break;
-                            case "607":
-                                Log.v(TAG, "607");
-                                tv_startDate_607.setText(date);
-                                tv_endDate_607.setText(checkDate);
-                                pb_607.setProgress(diffDays);
-
-                                break;
-                            case "608":
-                                Log.v(TAG, "608");
-                                tv_startDate_608.setText(date);
-                                tv_endDate_608.setText(checkDate);
-                                pb_608.setProgress(diffDays);
-
-                                break;
-                            case "609":
-                                Log.v(TAG, "609");
-                                tv_startDate_609.setText(date);
-                                tv_endDate_609.setText(checkDate);
-                                pb_609.setProgress(diffDays);
-
-                                break;
-                            case "610":
-                                Log.v(TAG, "610");
-                                tv_startDate_610.setText(date);
-                                tv_endDate_610.setText(checkDate);
-                                pb_610.setProgress(diffDays);
-                                break;
-                        }
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        CheckDate_fire_ext checkDateFireExt = new CheckDate_fire_ext();
+//        CheckDate_fire_ext checkDateFireExt = new CheckDate_fire_ext();
         Fire_ext_CheckTask fire_ext_checkTask = new Fire_ext_CheckTask();
         try
         {
-            if (checkDateFireExt.getStatus() == AsyncTask.Status.RUNNING )
-            {
-                checkDateFireExt.cancel(true);
-            }
-            else if(fire_ext_checkTask.getStatus() == AsyncTask.Status.RUNNING)
+//            if (checkDateFireExt.getStatus() == AsyncTask.Status.RUNNING )
+//            {
+//                checkDateFireExt.cancel(true);
+//            }
+            if(fire_ext_checkTask.getStatus() == AsyncTask.Status.RUNNING)
             {
                 fire_ext_checkTask.cancel(true);
             }else{

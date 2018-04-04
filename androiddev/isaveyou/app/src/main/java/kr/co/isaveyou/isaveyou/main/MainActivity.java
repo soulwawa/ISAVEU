@@ -52,6 +52,7 @@ import java.net.URLConnection;
 
 import kr.co.isaveyou.isaveyou.R;
 import kr.co.isaveyou.isaveyou.issue.FloorMapActivity;
+import kr.co.isaveyou.isaveyou.voice.VoiceActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -143,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         profilePicTask.execute(strPicUrl);
 
 
-
+        //drawer에 있는 메뉴 관련 액션
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -172,6 +173,12 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this,menuItem.getTitle(),Toast.LENGTH_SHORT).show();
                         menuItem.setChecked(false);
                         break;
+                    case R.id.nav_voice_record:
+                        Toast.makeText(MainActivity.this,menuItem.getTitle(),Toast.LENGTH_SHORT).show();
+                        menuItem.setChecked(false);
+                        Intent it_voiceRecord = new Intent(getApplicationContext(),VoiceActivity.class);
+                        startActivity(it_voiceRecord);
+                        break;
                 }
                 return true;
             }
@@ -189,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu,menu);
         return true;
     }
-
+    //타이틀 바에 있는 버튼 클릭했을 때의 액션
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -251,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
             HttpURLConnection conn = null;
             try{
                 /*서버연결*/
-                URL url = new URL("http://192.168.0.35:9999/AndroidStreaming.do?");
+                URL url = new URL("http://192.168.0.35:9999/Android/Streaming.do?");
                 conn = (HttpURLConnection)url.openConnection();
 
                 conn.setFixedLengthStreamingMode(param.length());

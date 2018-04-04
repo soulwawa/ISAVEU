@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white_for_png"
     tools:context="kr.co.isaveyou.isaveyou.voice.VoiceActivity">
 
 </android.support.constraint.ConstraintLayout>

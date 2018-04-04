@@ -5,20 +5,26 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.speech.RecognitionListener;
-import android.speech.RecognizerIntent;
-import android.speech.SpeechRecognizer;
 import android.util.Log;
 import android.widget.RemoteViews;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import kr.co.isaveyou.isaveyou.R;
 import kr.co.isaveyou.isaveyou.issue.FloorMapActivity;
+import kr.co.isaveyou.isaveyou.voice.VoiceActivity;
 
 /**
  * Implementation of App Widget functionality.
@@ -27,26 +33,28 @@ public class NewAppWidget extends AppWidgetProvider {
     private static final String TAG = "ISaveUWidget";
     private static final String str_camera = "ACTION_CAMERA";
     private static final String str_voice_record = "ACTION_VOICE_RECORD";
+    private static final String str_ok = "ACTION_OK";
+    String result, issue;
+    HttpURLConnection conn;
 
-    private Intent i;
-    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
-                                int appWidgetId) {
-
-        CharSequence widgetText = context.getString(R.string.appwidget_text);
-        // Construct the RemoteViews object
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
-        views.setTextViewText(R.id.appwidget_text, widgetText);
-
-        // Instruct the widget manager to update the widget
-        appWidgetManager.updateAppWidget(appWidgetId, views);
-    }
+//    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
+//                                int appWidgetId) {
+//
+//        CharSequence widgetText = context.getString(R.string.appwidget_text);
+//        // Construct the RemoteViews object
+//        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
+//        views.setTextViewText(R.id.appwidget_text, widgetText);
+//
+//        // Instruct the widget manager to update the widget
+//        appWidgetManager.updateAppWidget(appWidgetId, views);
+//    }
 
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
         String action = intent.getAction();
         Log.v(TAG, "onReceive() action : " + action);
-
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
         if (AppWidgetManager.ACTION_APPWIDGET_UPDATE.equals(action)) {
             Bundle extras = intent.getExtras();
             if (extras != null) {
@@ -64,19 +72,19 @@ public class NewAppWidget extends AppWidgetProvider {
                 Log.v(TAG, "카메라 실행");
                 break;
             case "ACTION_VOICE_RECORD":
-                Intent it_checkVoiceRecord = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-                it_checkVoiceRecord.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_WEB_SEARCH);
-                it_checkVoiceRecord.putExtra(RecognizerIntent.EXTRA_LANGUAGE,"ko-KR");
-                it_checkVoiceRecord.putExtra(RecognizerIntent.EXTRA_PROMPT,"음성을 녹음해주세요.");
-                context.startActivity(it_checkVoiceRecord);
 
-
-
-                    Log.v(TAG, "녹음 시작");
-                    break;
-                }
-
+                Log.v(TAG, "녹음 시작");
+                break;
+            case "ACTION_OK":
+                WidgetUpdateTask widgetUpdateTask = new WidgetUpdateTask();
+                widgetUpdateTask.execute();
+                Log.v(TAG, "확인 버튼 누름");
+                views.setTextViewText(R.id.tv_issue_for_widget, "문제가 없습니다.");
+                views.setInt(R.id.layout_status,"setBackgroundResource",R.drawable.app_logo);
+                break;
         }
+
+    }
 
 
     @Override
@@ -88,25 +96,34 @@ public class NewAppWidget extends AppWidgetProvider {
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
 //            views.setTextViewText();
 
+
             // Create an Intent to launch FloorMapActivity
             Intent it_checkMap = new Intent(context, FloorMapActivity.class);
             it_checkMap.setData(Uri.parse("2/000"));
             PendingIntent pi_map = PendingIntent.getActivity(context, 0, it_checkMap, 0);
-
+            views.setOnClickPendingIntent(R.id.btn_check_map, pi_map);
 
             // Create an Intent to launch Camera
             views.setOnClickPendingIntent(R.id.btn_camera,getPendingSelfIntent(context, str_camera));
-            Log.v(TAG, "카메라 누름");
 
-            // Get the layout for the App Widget and attach an on-click listener
-            // to the button
+//            Intent it_
+//            Intent it_check = new Intent(context, WidgetUpdateTask.class);
+//            PendingIntent pi_ok = PendingIntent.getActivity(context,0,it_check,0);
+            views.setOnClickPendingIntent(R.id.btn_ok, getPendingSelfIntent(context,str_ok));
 
-            views.setOnClickPendingIntent(R.id.btn_check_map, pi_map);
+            Intent it_voiceRecord = new Intent(context,VoiceActivity.class);
+            PendingIntent pi_voiceRecord = PendingIntent.getActivity(context,0,it_voiceRecord,0);
+            views.setOnClickPendingIntent(R.id.btn_record,pi_voiceRecord);
 
-            Log.v(TAG, "맵보기 누름");
-            views.setOnClickPendingIntent(R.id.btn_record,getPendingSelfIntent(context,str_voice_record));
+
+
+            //위젯에 글자를 나타내기 위한 새로 고침 작업을 별도의 method로 빼기
+            this.refresh(context, views);
+
             // Tell the AppWidgetManager to perform an update on the current app widget
-            appWidgetManager.updateAppWidget(appWidgetId, views);}
+            appWidgetManager.updateAppWidget(appWidgetId, views);
+
+        }
     }
     protected PendingIntent getPendingSelfIntent(Context context, String action) {
         Intent intent = new Intent(context, getClass());
@@ -122,59 +139,99 @@ public class NewAppWidget extends AppWidgetProvider {
     public void onDisabled(Context context) {
         // Enter relevant functionality for when the last widget is disabled
     }
-    private RecognitionListener listener = new RecognitionListener() {
-        @Override
-        public void onReadyForSpeech(Bundle params) {
 
+    private void refresh(Context context, RemoteViews views) {
+        //noti 에서 보내온 내용을 받음
+        SharedPreferences sharedPreferences = context.getSharedPreferences("issue_type", Context.MODE_PRIVATE);
+        //issue 타입에 맞게 이미지 바꿔줌
+        List<String> keys = new ArrayList<>();
+        Map<String, ?> allEntries = sharedPreferences.getAll();
+        issue = "";
+        for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+            Log.v(TAG, entry.getKey() + ": " + entry.getValue().toString());
+//            if(entry.getKey().toString().contains("1")){
+//
+//            }
+            switch (entry.getKey().toString()) {
+                case "1":
+                    issue = sharedPreferences.getString("1", "");
+                    views.setTextViewText(R.id.tv_issue_for_widget, issue);
+                    views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.pic_disaster_flame);
+                    Log.v(TAG, "화재");
+                    break;
+                case "2":
+                    issue = sharedPreferences.getString("2", "");
+                    views.setTextViewText(R.id.tv_issue_for_widget, issue);
+                    Log.v(TAG, "지진");
+                    views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.pic_disaster_earthquake);
+                    break;
+                case "3":
+                    issue = sharedPreferences.getString("3", "");
+                    views.setTextViewText(R.id.tv_issue_for_widget, issue);
+                    views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.pic_disaster_fire_earthquake);
+                    Log.v(TAG, "화재/지진");
+                    break;
+                case "4":
+                    issue = sharedPreferences.getString("4", "");
+                    views.setTextViewText(R.id.tv_issue_for_widget, issue);
+                    views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.pic_miss_fire_ext);
+                    Log.v(TAG, "소화기");
+                    break;
+            }
+        }
+    }
+    class WidgetUpdateTask extends AsyncTask{
+        @Override
+        protected Object doInBackground(Object[] objects) {
+            try {
+                //서버 접속
+                String [] sArray = issue.split(",");
+                Log.v(TAG, "sArray" + sArray[1]);
+                String loc1 = sArray[1];
+                String [] ssArray = loc1.split("/");
+                String loc = ssArray[0];
+//                String loc = "600";
+                String param = "loc=" + loc;
+
+                URL url = new URL("http://192.168.0.35:9999/Android/feRestart.do?");
+                conn = (HttpURLConnection)url.openConnection();
+                conn.setFixedLengthStreamingMode(param.length());
+                conn.setRequestProperty("Content-type","application/x-www-form-urlencoded");
+                conn.setRequestMethod("POST");
+                conn.setDoInput(true);
+                conn.connect();
+                OutputStream outs = conn.getOutputStream();
+                outs.write(param.getBytes("UTF-8"));
+                outs.flush();
+                outs.close();
+                Log.v(TAG, "서버 연결");
+
+                if(conn.getResponseCode()!=HttpURLConnection.HTTP_OK){
+                } else {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    String line;
+                    StringBuffer buffer = new StringBuffer();
+                    while ((line = reader.readLine())!=null){
+                        buffer.append(line + "\n");
+                    }
+                    result = buffer.toString();
+                    Log.v(TAG, "buffer result : " + line );
+                    reader.close();
+                }
+                Log.v(TAG, "url : " + url );
+            }catch (Exception e) {
+                e.printStackTrace();
+            }return null;
         }
 
         @Override
-        public void onBeginningOfSpeech() {
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
 
         }
-
-        @Override
-        public void onRmsChanged(float rmsdB) {
-
-        }
-
-        @Override
-        public void onBufferReceived(byte[] buffer) {
-
-        }
-
-        @Override
-        public void onEndOfSpeech() {
-
-        }
-
-        @Override
-        public void onError(int error) {
-
-        }
-
-        @Override
-        public void onResults(Bundle results) {
-            String key = "";
-            key = SpeechRecognizer.RESULTS_RECOGNITION;
-            ArrayList<String> mResult = results.getStringArrayList(key);
-            String[] rs = new String[mResult.size()];
-
-            mResult.toArray(rs);
+    }
 
 
-        }
-
-        @Override
-        public void onPartialResults(Bundle partialResults) {
-
-        }
-
-        @Override
-        public void onEvent(int eventType, Bundle params) {
-
-        }
-    };
 
 }
 

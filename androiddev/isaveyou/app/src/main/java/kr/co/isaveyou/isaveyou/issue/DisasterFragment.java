@@ -1,6 +1,7 @@
 package kr.co.isaveyou.isaveyou.issue;
 
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -45,11 +46,7 @@ public class DisasterFragment extends android.support.v4.app.Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        Bundle bundle = this.getArguments();
-//        Log.v(TAG,bundle+"");
-//        if(bundle != null) {
-//            place = bundle.getString("place");
-//        }
+
     }
 
     @Nullable
@@ -72,6 +69,7 @@ public class DisasterFragment extends android.support.v4.app.Fragment {
         CheckDisasterTask checkDisasterTask = new CheckDisasterTask();
         checkDisasterTask.execute();
 
+        Toast.makeText(getContext(),"가장 최근 상황 입니다.",Toast.LENGTH_SHORT).show();
 
 
         return view;
@@ -124,7 +122,7 @@ public class DisasterFragment extends android.support.v4.app.Fragment {
                 String loc = "6";
                 String param = "loc=" + loc;
 
-                URL url = new URL("http://192.168.0.35:9999/AndroidDisasterCheck.do?");
+                URL url = new URL("http://192.168.0.35:9999/Android/DisasterCheck.do?");
                 conn = (HttpURLConnection)url.openConnection();
                 conn.setFixedLengthStreamingMode(param.length());
                 conn.setRequestProperty("Content-type","application/x-www-form-urlencoded");
@@ -163,7 +161,7 @@ public class DisasterFragment extends android.support.v4.app.Fragment {
                 JSONObject jsonObject = new JSONObject(result);
                 Log.v(TAG, "result : " + jsonObject);
 
-                JSONArray jObj = jsonObject.getJSONArray("floor");
+                JSONArray jObj = jsonObject.getJSONArray("list");
                 Log.v(TAG, "jObj : " + jObj);
                 for (int i = 0; i < jObj.length(); i++) {
                     JSONObject disasterObj = jObj.getJSONObject(i);

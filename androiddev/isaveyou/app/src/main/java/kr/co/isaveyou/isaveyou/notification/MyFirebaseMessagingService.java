@@ -3,8 +3,10 @@ package kr.co.isaveyou.isaveyou.notification;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
@@ -24,6 +26,7 @@ import java.net.URLConnection;
 import kr.co.isaveyou.isaveyou.issue.FloorMapActivity;
 import kr.co.isaveyou.isaveyou.main.MainActivity;
 import kr.co.isaveyou.isaveyou.R;
+import kr.co.isaveyou.isaveyou.widget.NewAppWidget;
 
 import static android.content.Intent.ACTION_DIAL;
 
@@ -83,10 +86,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             sCpuWakeLock.release();
             sCpuWakeLock = null;
         }
-
-
-
-
+        Intent it_widget = new Intent(getApplicationContext(), NewAppWidget.class);
+        it_widget.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        getApplicationContext().sendBroadcast(it_widget);
+        Log.d(TAG, "it_widget" + it_widget);
     }
 
 
@@ -99,24 +102,48 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         Log.v(TAG, "notification 생성");
 
-
-
+        //sharedPreferences 작성
+        SharedPreferences sharedPreferences = MyFirebaseMessagingService.this.getSharedPreferences("issue_type",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         //issue 구분을 위한 switch문
         String issue = "";
         switch (messageBody1){
             case "1" :
                 issue = "화재";
+                editor.putString("1", issue + "," + title);
+
+                Log.v(TAG,"sharedPreferences1 : " +issue + "/ " + title);
+
                 break;
             case "2" :
                 issue = "지진";
+                editor.putString("2", issue + ", " + title);
+                Log.v(TAG,"sharedPreferences2 : " +issue + ", " + title);
+
                 break;
             case "3" :
                 issue = "화재/지진";
+                editor.putString("3", issue + ", " + title);
+
+                Log.v(TAG,"sharedPreferences3 : " +issue + ", " + title);
+
                 break;
             case "4" :
                 issue = "소화기";
+                editor.putString("4", issue + "/ " + title);
+
+                Log.v(TAG,"sharedPreferences4 : " +issue + ", " + title);
+
                 break;
+
         }
+        editor.commit();
+        //widget에게 값이 변경되었으니 업데이트하라는 메시지 전달
+//        Intent it_widget = new Intent(getApplicationContext(), NewAppWidget.class);
+//        it_widget.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+//        getApplicationContext().sendBroadcast(it_widget);
+
+
         String channelId = getString(R.string.default_notification_channel_id);
 
 
