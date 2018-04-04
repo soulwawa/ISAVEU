@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+.chartHolder{
+	background:blue;
+	width:326px;
+	height:200px;
+	position:absolute;;
+}
+#chartHolder10{
+	left:545px;
+	bottom:430px;
+	width:600px;
+	height:380px;
+	background-color:green;	
+}
+#chartHolder11{
+	left:10px;
+	top:407px;
+}
+#chartHolder12{
+	left:346px;
+	top:407px;
+}
+#chartHolder13{
+	left:682px;
+	top:407px;
+}
+#chartHolder14{
+	left:1018px;
+	top:407px;
+}
+#chartHolder15{
+	left:1354px;
+	top:407px;
+}
+#chartHolder16{
+	left:10px;
+	top:617px;
+}
+#chartHolder17{
+	left:346px;
+	top:617px;
+}
+#chartHolder18{
+	left:682px;
+	top:617px;
+}
+#chartHolder19{
+	left:1018px;
+	top:617px;
+}
+#chartHolder20{
+	left:1354px;
+	top:617px;
+}
