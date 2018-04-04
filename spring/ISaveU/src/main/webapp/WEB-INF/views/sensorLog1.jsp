@@ -26,7 +26,6 @@ var interval = setInterval(function () {
         ob = data;
         document.getElementById("chart6").setData(ob);
         console.log(ob);
-        document.write(ob);
       }
     });
   }, 9900);
