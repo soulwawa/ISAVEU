@@ -146,10 +146,27 @@
 			</div>
 		</div>
 		<div class="sidebar">
-			<div class="menuBtn" >
-				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/sensor')">
+			<div class="menuBtn" id="btnSensor">
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="showBtn()">
   					<span class="glyphicon glyphicon-tasks" ></span> Sensor Log
 				</button>
+				<div class="submenu" id="views">
+					<div class="submenu-btn">
+						<button type="button" class="btn btn-default btn-block" onclick="goReplace('/sensor1')">
+  							<span class="glyphicon glyphicon-tasks" ></span> Sensor Log
+						</button>
+					</div>
+					<div class="submenu-btn">
+						<button type="button" class="btn btn-default btn-block" onclick="goReplace('/sensor2')">
+  							<span class="glyphicon glyphicon-tasks" ></span> Sensor Log
+						</button>
+					</div>
+					<div class="submenu-btn">
+						<button type="button" class="btn btn-default btn-block" onclick="goReplace('/sensor3')">
+  							<span class="glyphicon glyphicon-tasks" ></span> Sensor Log
+						</button>
+					</div>
+				</div>
 			</div>
 			<div class="menuBtn" >
 				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/event')">

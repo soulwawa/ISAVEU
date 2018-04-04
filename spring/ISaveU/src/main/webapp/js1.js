@@ -39,3 +39,25 @@
   function goReplace(str){
 	  location.replace(str); 
   }
+  var b = 0;
+  function showBtn(){
+	  if(b == 0){
+		  document.getElementById("views").style.display="display";
+	  }
+	  if(b == 1){
+		  document.getElementById("views").style.display="none";
+	  }
+  }
+var box1 = document.getElementById("btnSensor");
+
+if(box1){
+	box1.addEventListener('mouseover',function(){
+		box.setAttribute('class','hover');
+	});
+	}
+if(box1){
+	box1.addEventListener('mouseout',function(){
+		box.removeAttribute('class');
+	});
+	}
+
