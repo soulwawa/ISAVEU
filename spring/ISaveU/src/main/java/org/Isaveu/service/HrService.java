@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.annotation.Resource;
 
 import org.Isaveu.domain.TbHrVO;
+import org.Isaveu.dto.LoginDTO;
 import org.Isaveu.mapper.HrMapper;
 import org.springframework.stereotype.Service;
 
@@ -12,13 +13,13 @@ import org.springframework.stereotype.Service;
 public class HrService implements HrMapper{
 	@Resource(name = "org.Isaveu.mapper.HrMapper")
 	HrMapper hMapper;
-	
+
 
 	@Override
 	public ArrayList<TbHrVO> getHrAllList() throws Exception {
 		return hMapper.getHrAllList();
 	}
-	
+
 	@Override
 	public ArrayList<TbHrVO> getHrListId(String id) throws Exception {
 		return hMapper.getHrListId(id);
@@ -28,11 +29,11 @@ public class HrService implements HrMapper{
 	public ArrayList<TbHrVO> getHrListLevel(String level) throws Exception {
 		return hMapper.getHrListLevel(level);
 	}
-	
+
 	@Override
 	public void hrInsert(TbHrVO hrVo) throws Exception {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -40,5 +41,10 @@ public class HrService implements HrMapper{
 		hMapper.fcmUpdate(hrVo);
 	}
 
-	
+	@Override
+	public TbHrVO login(LoginDTO dto) throws Exception {
+		return hMapper.login(dto);
+	}
+
+
 }

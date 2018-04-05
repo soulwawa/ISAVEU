@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.Isaveu.domain.TbHrVO;
+import org.Isaveu.dto.LoginDTO;
 import org.springframework.stereotype.Repository;
 
 @Repository("org.Isaveu.mapper.HrMapper")
@@ -14,6 +15,8 @@ public interface HrMapper {
 	
 	public ArrayList<TbHrVO> getHrAllList() throws Exception;
 	// "select * from tb_hr;";
+	
+	public TbHrVO login(LoginDTO dto) throws Exception;
 	
 	public ArrayList<TbHrVO> getHrListId(String id) throws Exception;
 	//"select * from tb_hr where id = ?;";

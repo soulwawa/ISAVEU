@@ -38,6 +38,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     		level = #{level}
     </select>
     
+    <select id="login" resultType="org.Isaveu.domain.TbHrVO">
+   		SELECT
+   			id, pw, name
+   		FRO
+   			tb_hr
+   		WHERE
+   			id = #{id} and pw = #{pw}
+    </select>
+    
     
     <insert id="hrInsert" parameterType="org.Isaveu.domain.TbHrVO" >
     	INSERT INTO
