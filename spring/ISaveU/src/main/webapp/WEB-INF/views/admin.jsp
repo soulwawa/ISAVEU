@@ -16,6 +16,7 @@
 	src="<%=root%>/rMateIntegrationH5.js"></script>
 <script type="text/javascript" src="<%=root%>/theme.js"></script>
 <script language="javascript" type="text/javascript" src="<%=root%>/js1.js"></script>
+<script language="javascript" type="text/javascript" src="<%=root%>/admin.js"></script>
 <script>
    var interval = setInterval(function () {
     $.ajax({
@@ -137,23 +138,55 @@
 			<input type="button" value="불내기" onclick="showAlert()"/>
 		</div>
 		<div class="contents">
-			<div id="section1" style="height:400px; background-color:pink;">
+			<div id="section1" style="height:400px;">
 				<div id="con1">
-					
+					<div class="sensors" id="s0">
+						<button class="btn btn-default btn-block" onclick="ss0()">sensor0</button>
+					</div>
+					<div class="sensors" id="s1">
+						<button class="btn btn-default btn-block" onclick="ss1()">sensor1</button>
+					</div>
+					<div class="sensors" id="s2">
+						<button class="btn btn-default btn-block" onclick="ss2()">sensor2</button>
+					</div>
+					<div class="sensors" id="s3">
+						<button class="btn btn-default btn-block" onclick="ss3()">sensor3</button>
+					</div>
+					<div class="sensors" id="s4">
+						<button class="btn btn-default btn-block" onclick="ss4()">sensor4</button>
+					</div>
+					<div class="sensors" id="s5">
+						<button class="btn btn-default btn-block" onclick="ss5()">sensor5</button>
+					</div>
+					<div class="sensors" id="s6">
+						<button class="btn btn-default btn-block" onclick="ss6()">sensor6</button>
+					</div>
+					<div class="sensors" id="s7">
+						<button class="btn btn-default btn-block" onclick="ss7()">sensor7</button>
+					</div>
+					<div class="sensors" id="s8">
+						<button class="btn btn-default btn-block" onclick="ss8()">sensor8</button>
+					</div>
+					<div class="sensors" id="s9">
+						<button class="btn btn-default btn-block" onclick="ss9()">sensor9</button>
+					</div>
+					<div class="sensors" id="s10">
+						<button class="btn btn-default btn-block" onclick="ss10()">sensor10</button>
+					</div>
 				</div>
 			</div>
-			<div id="section2" style="height:424px; background-color:red;">
-				<div id="chartHolder10" class="chartHolder"></div>
-				<div id="chartHolder11" class="chartHolder"></div>
-				<div id="chartHolder12" class="chartHolder"></div>
-				<div id="chartHolder13" class="chartHolder"></div>
-				<div id="chartHolder14" class="chartHolder"></div>
-				<div id="chartHolder15" class="chartHolder"></div>
-				<div id="chartHolder16" class="chartHolder"></div>
-				<div id="chartHolder17" class="chartHolder"></div>
-				<div id="chartHolder18" class="chartHolder"></div>
-				<div id="chartHolder19" class="chartHolder"></div>
-				<div id="chartHolder20" class="chartHolder"></div>
+			<div id="section2" style="height:424px;">
+				<div id="chartHolder10" class="chartHolder" onclick="ss0()"></div>
+				<div id="chartHolder11" class="chartHolder" onclick="ss1()"></div>
+				<div id="chartHolder12" class="chartHolder" onclick="ss2()"></div>
+				<div id="chartHolder13" class="chartHolder" onclick="ss3()"></div>
+				<div id="chartHolder14" class="chartHolder" onclick="ss4()"></div>
+				<div id="chartHolder15" class="chartHolder" onclick="ss5()"></div>
+				<div id="chartHolder16" class="chartHolder" onclick="ss6()"></div>
+				<div id="chartHolder17" class="chartHolder" onclick="ss7()"></div>
+				<div id="chartHolder18" class="chartHolder" onclick="ss8()"></div>
+				<div id="chartHolder19" class="chartHolder" onclick="ss9()"></div>
+				<div id="chartHolder20" class="chartHolder" onclick="ss10()"></div>
 			</div>
 		</div>
 		<div class="footer">

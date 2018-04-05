@@ -281,5 +281,19 @@ btnSensor:child{
 #con1{
 	height:400px;
 	width:200px;
-	background:lightgreen;
+	padding-top:4px;
+	text-align: center !important;
+}
+.sensors{
+	width:150px;
+	height:36px;
+	margin:0 auto;
+	text-align: center !important;
+}
+#con1 button{
+	width:130px !important;
+	height:32px;
+	padding:0px;
+	margin:2 auto;
+	text-align: center !important;
 }

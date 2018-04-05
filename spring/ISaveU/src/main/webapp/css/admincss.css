@@ -1,17 +1,16 @@
 @charset "UTF-8";
 
 .chartHolder{
-	background:blue;
 	width:326px;
 	height:200px;
-	position:absolute;;
+	position:absolute;
+	transition:0.2s;
 }
 #chartHolder10{
-	left:545px;
-	bottom:430px;
-	width:600px;
-	height:380px;
-	background-color:green;	
+	left:200px;
+	top:5px;
+	width:1480px;
+	height:390px;
 }
 #chartHolder11{
 	left:10px;
