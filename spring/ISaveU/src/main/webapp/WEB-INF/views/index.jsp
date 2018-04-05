@@ -8,6 +8,11 @@
   
 <title>관리자 페이지 로그인</title>
 <link href="<%=root%>/css/style1.css" rel="stylesheet" type="text/css">
+ 
+<script type="text/javascript">
+	self.location = "/admin"
+</script>
+
 </head>
 <body>
 	<section id="loginFormArea">
@@ -18,10 +23,10 @@
 			<div id="loginBox">
 				<div class="box">
 					<div>
-						<input type="text" name="id" class="txtbox">
+						<input type="text" name="id" class="txtbox" placeholder="USER ID">
 					</div>
 					<div>
-						<input type="password" name="pw" class="txtbox">
+						<input type="password" name="pw" class="txtbox" placeholder="USER PASSWORD">
 					</div>
 				</div>
 				<div class="loginBtn">

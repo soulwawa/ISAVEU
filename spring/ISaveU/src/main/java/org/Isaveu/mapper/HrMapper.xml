@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="login" resultType="org.Isaveu.domain.TbHrVO">
    		SELECT
    			id, pw, name
-   		FRO
+   		FROM
    			tb_hr
    		WHERE
    			id = #{id} and pw = #{pw}

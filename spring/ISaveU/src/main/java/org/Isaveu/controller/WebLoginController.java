@@ -30,6 +30,7 @@ public class WebLoginController {
 		}
 		
 		model.addAttribute("tbHrVO", vo);
+		
 //		if("".equals(id) || "".equals(pw)){
 //			System.out.println("WebLogin Fail");
 //			return "redirect:/";
