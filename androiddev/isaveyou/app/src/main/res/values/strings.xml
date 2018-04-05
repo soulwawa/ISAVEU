@@ -43,4 +43,9 @@
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
     <string name="configure">Configure</string>
+    <string name="monitoring_short">모니터링</string>
+    <string name="voice_recorder">음성인식</string>
+    <string name="widget_map">비상대피도</string>
+
+
 </resources>

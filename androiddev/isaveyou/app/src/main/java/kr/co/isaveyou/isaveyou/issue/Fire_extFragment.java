@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
@@ -57,7 +59,8 @@ public class Fire_extFragment extends Fragment {
     LinearLayout layout_fire_ext1,layout_fire_ext2,layout_fire_ext3,layout_fire_ext4,layout_fire_ext5,layout_fire_ext6,layout_fire_ext7,layout_fire_ext8,layout_fire_ext9,layout_fire_ext10,layout_fire_ext11;
     String result;
     HttpURLConnection conn;
-
+    LinearLayout [] linearLayouts = new LinearLayout[11];
+    ImageSwitcher [] imageSwitchers = new ImageSwitcher[11];
 
 
     View.OnClickListener handler = new View.OnClickListener() {
@@ -70,79 +73,70 @@ public class Fire_extFragment extends Fragment {
                     Fire_ext_CheckTask fire_ext_checkTask = new Fire_ext_CheckTask();
                     fire_ext_checkTask.execute();
                     checkButton.setEnabled(false);
-
                     break;
                 case R.id.room600_hallWay01_Fire_ext:
                     Log.v(TAG, "hallWay01_Fire_ext 눌림");
                     layout_fire_ext1.setVisibility(View.VISIBLE);
-                    stopCheckFire_ext_Animation();
-
                     ImageThread.interrupted();
                     break;
                 case R.id.room601_waitingRoom_Fire_ext:
                     Log.v(TAG, "room601_waitingRoom_Fire_ext");
                     layout_fire_ext2.setVisibility(View.VISIBLE);
-                    stopCheckFire_ext_Animation();
                     ImageThread.interrupted();
                     break;
                 case R.id.room602_Fire_ext:
                     Log.v(TAG, "room602_Fire_ext");
                     layout_fire_ext3.setVisibility(View.VISIBLE);
-                    stopCheckFire_ext_Animation();
                     ImageThread.interrupted();
                     break;
                 case R.id.room603_Fire_ext:
                     Log.v(TAG, "room603_Fire_ext 눌림");
                     layout_fire_ext4.setVisibility(View.VISIBLE);
-                    stopCheckFire_ext_Animation();
                     ImageThread.interrupted();
                     break;
                 case R.id.room604_Fire_ext:
                     Log.v(TAG, "room604_Fire_ext 눌림");
                     layout_fire_ext5.setVisibility(View.VISIBLE);
-                    stopCheckFire_ext_Animation();
                     ImageThread.interrupted();
                     break;
                 case R.id.room605_Fire_ext:
                     Log.v(TAG, "room605_Fire_ext");
                     layout_fire_ext6.setVisibility(View.VISIBLE);
-                    stopCheckFire_ext_Animation();
+
                     ImageThread.interrupted();
                     break;
                 case R.id.room606_Fire_ext:
                     Log.v(TAG, "room606_Fire_ext");
                     layout_fire_ext7.setVisibility(View.VISIBLE);
-                    stopCheckFire_ext_Animation();
                     ImageThread.interrupted();
                     break;
                 case R.id.room607_Fire_ext:
                     Log.v(TAG, "room607_Fire_ext 눌림");
                     layout_fire_ext8.setVisibility(View.VISIBLE);
-                    stopCheckFire_ext_Animation();
                     ImageThread.interrupted();
                     break;
                 case R.id.room608_Fire_ext:
                     Log.v(TAG, "room608_Fire_ext 눌림");
                     layout_fire_ext9.setVisibility(View.VISIBLE);
-                    stopCheckFire_ext_Animation();
                     ImageThread.interrupted();
                     break;
                 case R.id.room609_Fire_ext:
                     Log.v(TAG, "room609_Fire_ext 눌림");
                     layout_fire_ext10.setVisibility(View.VISIBLE);
-                    stopCheckFire_ext_Animation();
                     ImageThread.interrupted();
                     break;
                 case R.id.restRoom610_Fire_ext:
                     Log.v(TAG, "restRoom610_Fire_ext 눌림");
                     layout_fire_ext11.setVisibility(View.VISIBLE);
-                    stopCheckFire_ext_Animation();
                     ImageThread.interrupted();
                     break;
+
 
             }
         }
     };
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -173,20 +167,22 @@ public class Fire_extFragment extends Fragment {
         fire_ext10 = view.findViewById(R.id.room609_Fire_ext);
         fire_ext11 = view.findViewById(R.id.restRoom610_Fire_ext);
 
-        fire_ext1.setOnClickListener(handler);
-        fire_ext2.setOnClickListener(handler);
-        fire_ext3.setOnClickListener(handler);
-        fire_ext4.setOnClickListener(handler);
-        fire_ext5.setOnClickListener(handler);
-        fire_ext6.setOnClickListener(handler);
-        fire_ext7.setOnClickListener(handler);
-        fire_ext8.setOnClickListener(handler);
-        fire_ext9.setOnClickListener(handler);
-        fire_ext10.setOnClickListener(handler);
-        fire_ext11.setOnClickListener(handler);
-
-
-
+        //이미지스위처 조작을 위해 imageSwitchers 안에 이미지스위처들 저장
+        imageSwitchers[0] = fire_ext1;
+        imageSwitchers[1] = fire_ext2;
+        imageSwitchers[2] = fire_ext3;
+        imageSwitchers[3] = fire_ext4;
+        imageSwitchers[4] = fire_ext5;
+        imageSwitchers[5] = fire_ext6;
+        imageSwitchers[6] = fire_ext7;
+        imageSwitchers[7] = fire_ext8;
+        imageSwitchers[8] = fire_ext9;
+        imageSwitchers[9] = fire_ext10;
+        imageSwitchers[10] = fire_ext11;
+        //이미지 스위처에 핸들러 달아줌
+        for(int i = 0 ; i<11 ; i++){
+            imageSwitchers[i].setOnClickListener(handler);
+        }
 
         pb_600 = view.findViewById(R.id.pb_hallway_600);
         pb_610 = view.findViewById(R.id.pb_restRoom_610);
@@ -213,6 +209,21 @@ public class Fire_extFragment extends Fragment {
         layout_fire_ext9 = view.findViewById(R.id.room608_Layout);
         layout_fire_ext10 = view.findViewById(R.id.room609_Layout);
         layout_fire_ext11 = view.findViewById(R.id.restRoom610_Layout);
+        //레이아웃 조작을 위해 linerLayouts 안에 레이아웃들 저장
+        linearLayouts[0] = layout_fire_ext1;
+        linearLayouts[1] = layout_fire_ext2;
+        linearLayouts[2] = layout_fire_ext3;
+        linearLayouts[3] = layout_fire_ext4;
+        linearLayouts[4] = layout_fire_ext5;
+        linearLayouts[5] = layout_fire_ext6 ;
+        linearLayouts[6] = layout_fire_ext7;
+        linearLayouts[7] = layout_fire_ext8;
+        linearLayouts[8] = layout_fire_ext9;
+        linearLayouts[9] = layout_fire_ext10;
+        linearLayouts[10] = layout_fire_ext11;
+
+
+
 
         tv_startDate_600 = view.findViewById(R.id.tv_startDate_600_hallway01);
         tv_endDate_600 = view.findViewById(R.id.tv_endDate_600_hallway01);
@@ -238,11 +249,24 @@ public class Fire_extFragment extends Fragment {
         tv_endDate_610 = view.findViewById(R.id.tv_endDate_610_restRoom);
 
 
-
-
-
-
         return view;
+    }
+
+    private void closeLayout(){
+        layout_fire_ext1 = linearLayouts[0];
+        layout_fire_ext2 = linearLayouts[1];
+        layout_fire_ext3 = linearLayouts[2];
+        layout_fire_ext4 = linearLayouts[3];
+        layout_fire_ext5 = linearLayouts[4];
+        layout_fire_ext6 = linearLayouts[5];
+        layout_fire_ext7 = linearLayouts[6];
+        layout_fire_ext8 = linearLayouts[7];
+        layout_fire_ext9 = linearLayouts[8];
+        layout_fire_ext10 = linearLayouts[9];
+        layout_fire_ext11 = linearLayouts[10];
+        for(int i = 0;i<linearLayouts.length;i++ ){
+
+        }
     }
 
 

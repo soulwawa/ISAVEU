@@ -3,6 +3,7 @@ package kr.co.isaveyou.isaveyou.widget;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -24,6 +25,7 @@ import java.util.Map;
 
 import kr.co.isaveyou.isaveyou.R;
 import kr.co.isaveyou.isaveyou.issue.FloorMapActivity;
+import kr.co.isaveyou.isaveyou.main.MainActivity;
 import kr.co.isaveyou.isaveyou.voice.VoiceActivity;
 
 /**
@@ -31,9 +33,10 @@ import kr.co.isaveyou.isaveyou.voice.VoiceActivity;
  */
 public class NewAppWidget extends AppWidgetProvider {
     private static final String TAG = "ISaveUWidget";
-    private static final String str_camera = "ACTION_CAMERA";
+    private static final String str_streaming = "ACTION_STREAMING";
     private static final String str_voice_record = "ACTION_VOICE_RECORD";
     private static final String str_ok = "ACTION_OK";
+    private static final String str_noti_update = "ACTION_NOTIFICATION_UPDATE";
     String result, issue;
     HttpURLConnection conn;
 
@@ -65,14 +68,14 @@ public class NewAppWidget extends AppWidgetProvider {
             }
         }
         switch (action){
-            case "ACTION_CAMERA" :
-                Intent it_go_camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                it_go_camera.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(it_go_camera);
-                Log.v(TAG, "카메라 실행");
+            case "ACTION_STREAMING" :
+                Intent it_go_streaming = new Intent(context, MainActivity.class);
+                it_go_streaming.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                it_go_streaming.setData(Uri.parse("1"));
+                context.startActivity(it_go_streaming);
+                Log.v(TAG, "스트리밍 실행");
                 break;
             case "ACTION_VOICE_RECORD":
-
                 Log.v(TAG, "녹음 시작");
                 break;
             case "ACTION_OK":
@@ -81,11 +84,30 @@ public class NewAppWidget extends AppWidgetProvider {
                 Log.v(TAG, "확인 버튼 누름");
                 views.setTextViewText(R.id.tv_issue_for_widget, "문제가 없습니다.");
                 views.setInt(R.id.layout_status,"setBackgroundResource",R.drawable.app_logo);
+                ComponentName newWidget0 = new ComponentName(context.getPackageName(), NewAppWidget.class.getName());
+                AppWidgetManager.getInstance(context).updateAppWidget(newWidget0,views);
+                break;
+            case "ACTION_NOTIFICATION_UPDATE":
+                Log.v(TAG, "업데이트");
+                //위젯에 글자를 나타내기 위한 새로 고침 작업을 별도의 method로 빼기
+                this.refresh(context, views);
+//                AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+                ComponentName newWidget1 = new ComponentName(context.getPackageName(), NewAppWidget.class.getName());
+                AppWidgetManager.getInstance(context).updateAppWidget(newWidget1,views);
                 break;
         }
 
     }
-
+//    public void onUpdate(Context context, AppWidgetManager appWidgetManager,
+//
+//                         int[] appWidgetIds) {
+//
+//        for (int i = 0; i < appWidgetIds.length; i++) {
+//
+//            위젯업데이트함수(context, appWidgetManager, appWidgetIds[i]);
+//        }
+//
+//    }
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
@@ -94,21 +116,20 @@ public class NewAppWidget extends AppWidgetProvider {
         for (int i=0; i<N; i++) {
             int appWidgetId = appWidgetIds[i];
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
-//            views.setTextViewText();
+
 
 
             // Create an Intent to launch FloorMapActivity
             Intent it_checkMap = new Intent(context, FloorMapActivity.class);
-            it_checkMap.setData(Uri.parse("2/000"));
+            it_checkMap.setData(Uri.parse("1"));
             PendingIntent pi_map = PendingIntent.getActivity(context, 0, it_checkMap, 0);
             views.setOnClickPendingIntent(R.id.btn_check_map, pi_map);
 
-            // Create an Intent to launch Camera
-            views.setOnClickPendingIntent(R.id.btn_camera,getPendingSelfIntent(context, str_camera));
 
-//            Intent it_
-//            Intent it_check = new Intent(context, WidgetUpdateTask.class);
-//            PendingIntent pi_ok = PendingIntent.getActivity(context,0,it_check,0);
+            // Create an Intent to launch Camera
+            views.setOnClickPendingIntent(R.id.btn_camera,getPendingSelfIntent(context, str_streaming));
+
+
             views.setOnClickPendingIntent(R.id.btn_ok, getPendingSelfIntent(context,str_ok));
 
             Intent it_voiceRecord = new Intent(context,VoiceActivity.class);
@@ -118,7 +139,7 @@ public class NewAppWidget extends AppWidgetProvider {
 
 
             //위젯에 글자를 나타내기 위한 새로 고침 작업을 별도의 method로 빼기
-            this.refresh(context, views);
+//            this.refresh(context,views);
 
             // Tell the AppWidgetManager to perform an update on the current app widget
             appWidgetManager.updateAppWidget(appWidgetId, views);
@@ -149,35 +170,41 @@ public class NewAppWidget extends AppWidgetProvider {
         issue = "";
         for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
             Log.v(TAG, entry.getKey() + ": " + entry.getValue().toString());
-//            if(entry.getKey().toString().contains("1")){
-//
-//            }
-            switch (entry.getKey().toString()) {
+            views.setTextViewText(R.id.tv_issue_for_widget, issue);
+            switch (entry.getKey()) {
                 case "1":
                     issue = sharedPreferences.getString("1", "");
                     views.setTextViewText(R.id.tv_issue_for_widget, issue);
                     views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.pic_disaster_flame);
                     Log.v(TAG, "화재");
+                    sharedPreferences.edit().remove("1").commit();
                     break;
                 case "2":
                     issue = sharedPreferences.getString("2", "");
                     views.setTextViewText(R.id.tv_issue_for_widget, issue);
                     Log.v(TAG, "지진");
                     views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.pic_disaster_earthquake);
+                    sharedPreferences.edit().remove("2").commit();
                     break;
                 case "3":
                     issue = sharedPreferences.getString("3", "");
                     views.setTextViewText(R.id.tv_issue_for_widget, issue);
                     views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.pic_disaster_fire_earthquake);
                     Log.v(TAG, "화재/지진");
+                    sharedPreferences.edit().remove("3").commit();
                     break;
                 case "4":
                     issue = sharedPreferences.getString("4", "");
                     views.setTextViewText(R.id.tv_issue_for_widget, issue);
                     views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.pic_miss_fire_ext);
                     Log.v(TAG, "소화기");
+                    sharedPreferences.edit().remove("4").commit();
+                    break;
+                default:
+                    issue = "";
                     break;
             }
+
         }
     }
     class WidgetUpdateTask extends AsyncTask{

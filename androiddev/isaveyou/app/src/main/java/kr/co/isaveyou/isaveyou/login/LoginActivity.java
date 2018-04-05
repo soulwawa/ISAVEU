@@ -3,6 +3,7 @@ package kr.co.isaveyou.isaveyou.login;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -244,7 +245,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(!code_access.equals("0")){
                     Toast.makeText(getApplicationContext(),"로그인 성공",Toast.LENGTH_SHORT).show();
                     Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
-
+                    intent_main.setData(Uri.parse("0"));
                     String strName = code_name;
                     String strEmail = code_email;
                     String strProfile = code_profile;

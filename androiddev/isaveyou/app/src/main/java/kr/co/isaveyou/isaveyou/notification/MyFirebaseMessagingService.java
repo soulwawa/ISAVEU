@@ -49,7 +49,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         // Check if message contains a data payload.
         // 포어그라운드에서도 알림받는 소스
-        if (remoteMessage.getData().size() > 0) {
+        if (remoteMessage.getData().size() > 0 || remoteMessage.getNotification()!=null) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
             sendNotification(
                     remoteMessage.getData().get("title"),
@@ -60,16 +60,16 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 
         // Check if message contains a notification payload.
-        if (remoteMessage.getNotification() != null) {
-            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());}
-
-        sendNotification(
-                //서버에서 보내오는 title, content를 인수로 지정
-                remoteMessage.getData().get("title"),
-                remoteMessage.getData().get("content_1"),
-                remoteMessage.getData().get("content_2")
-//                remoteMessage.getData().get("content_3")
-        );
+//        if (remoteMessage.getNotification() != null) {
+//            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());}
+//
+//        sendNotification(
+//                //서버에서 보내오는 title, content를 인수로 지정
+//                remoteMessage.getData().get("title"),
+//                remoteMessage.getData().get("content_1"),
+//                remoteMessage.getData().get("content_2")
+////                remoteMessage.getData().get("content_3")
+//        );
 
 
         // 안드로이드 폰깨우기
@@ -87,7 +87,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             sCpuWakeLock = null;
         }
         Intent it_widget = new Intent(getApplicationContext(), NewAppWidget.class);
-        it_widget.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        it_widget.setAction("ACTION_NOTIFICATION_UPDATE");
+
         getApplicationContext().sendBroadcast(it_widget);
         Log.d(TAG, "it_widget" + it_widget);
     }
@@ -117,20 +118,20 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 break;
             case "2" :
                 issue = "지진";
-                editor.putString("2", issue + ", " + title);
+                editor.putString("2", issue + "," + title);
                 Log.v(TAG,"sharedPreferences2 : " +issue + ", " + title);
 
                 break;
             case "3" :
                 issue = "화재/지진";
-                editor.putString("3", issue + ", " + title);
+                editor.putString("3", issue + "," + title);
 
                 Log.v(TAG,"sharedPreferences3 : " +issue + ", " + title);
 
                 break;
             case "4" :
                 issue = "소화기";
-                editor.putString("4", issue + "/ " + title);
+                editor.putString("4", issue + "," + title);
 
                 Log.v(TAG,"sharedPreferences4 : " +issue + ", " + title);
 
@@ -138,9 +139,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         }
         editor.commit();
-        //widget에게 값이 변경되었으니 업데이트하라는 메시지 전달
+//        widget에게 값이 변경되었으니 업데이트하라는 메시지 전달
 //        Intent it_widget = new Intent(getApplicationContext(), NewAppWidget.class);
-//        it_widget.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+//        it_widget.setAction("ACTION_NOTIFICATION_UPDATE");
 //        getApplicationContext().sendBroadcast(it_widget);
 
 
@@ -180,65 +181,66 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         PendingIntent checkPlacePendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionCheckPlace,PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent checkFire_ext = PendingIntent.getActivity(getApplicationContext(),0,actionCheckFire_ext,PendingIntent.FLAG_UPDATE_CURRENT);
         int color = getResources().getColor(R.color.colorAccent);
+        switch (issue){
+            case "소화기":
+                NotificationCompat.Builder nNotificationBuilder = new NotificationCompat.Builder(this, channelId) //4.1 아래 버전과의 호환성을 위해 notificationCompat을 사용
+                        .setSmallIcon(R.drawable.ic_stat_name)
+                        .setColor(color)
+                        .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
+                        .setAutoCancel(false)
+                        .setVibrate(pattern)
+                        .setPriority(NotificationCompat.PRIORITY_MAX)
+                        .setSound(notificationSoundURI)
+                        .setNumber(100)
+                        .setStyle(new NotificationCompat.BigTextStyle())
+                        .setContentTitle(roomName + ", " + issue + " 문제 발생")
+                        .setWhen(System.currentTimeMillis())
+                        .setContentText(roomName+"("+roomNum+")" +"에 위치한 소화기에 문제가 생겼습니다. 확인해주세요.");
 
-        if(issue == "소화기"){
-            NotificationCompat.Builder nNotificationBuilder = new NotificationCompat.Builder(this, channelId) //4.1 아래 버전과의 호환성을 위해 notificationCompat을 사용
-                    .setSmallIcon(R.drawable.ic_stat_name)
-                    .setColor(color)
-                    .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
-                    .setAutoCancel(false)
-                    .setVibrate(pattern)
-                    .setPriority(NotificationCompat.PRIORITY_MAX)
-                    .setSound(notificationSoundURI)
-                    .setNumber(100)
-                    .setStyle(new NotificationCompat.BigTextStyle())
-                    .setContentTitle(roomName + ", " + issue + " 문제 발생")
-                    .setWhen(System.currentTimeMillis())
-                    .setContentText(roomName+"("+roomNum+")" +"에 위치한 소화기에 문제가 생겼습니다. 확인해주세요.");
-
-            notificationManager.notify(0 /* ID of notification */, nNotificationBuilder.build());
-
-        }else {
-            if(!messageBody.equals(null)){
-                //largeIcon에 이미지를 사용하기 위해서는 비트맵으로 바꿔줘야 함
-                Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(), R.drawable.pic_2nd);
+                notificationManager.notify(0 /* ID of notification */, nNotificationBuilder.build());
+                break;
+            default:
+                if(!messageBody.equals(null)){
+                    //largeIcon에 이미지를 사용하기 위해서는 비트맵으로 바꿔줘야 함
+                    Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(), R.drawable.pic_2nd);
 
 
-                //이미지 온라인 링크를 가져와 비트맵으로 바꿈
-                try {
-                    URL url = new URL(messageBody);
-                    URLConnection connection = url.openConnection();
-                    connection.connect();
-                    Log.v(TAG,"url");
-                    BufferedInputStream bis = new BufferedInputStream(connection.getInputStream());
-                    img = BitmapFactory.decodeStream(bis);
-                    Log.v(TAG, "url : " + url + ", messagebody : " + messageBody + ", messagebody1 :" + messageBody1);
-                }catch (Exception e) {
-                    e.printStackTrace();
-                }
-            NotificationCompat.Builder mNotificationBuilder = new NotificationCompat.Builder(this, channelId) //4.1 아래 버전과의 호환성을 위해 notificationCompat을 사용
-                    .setSmallIcon(R.drawable.ic_stat_name) //작은 아이콘 세팅
-                    .setLargeIcon(mLargeIconForNoti) //큰 아이콘 세팅 - 큰 아이콘 세팅을 위해서 위에 bitmap 이용
-                    .setColor(color)
-                    .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
-                    .setAutoCancel(false) // notification을 클릭한 경우, notification을 사라지게 하려면 true 값을 줘야함
-                    .setVibrate(pattern) //진동 설정
-                    .setPriority(NotificationCompat.PRIORITY_MAX)
-                    .setSound(notificationSoundURI)
-                    .setNumber(100)
-                    .setContentTitle(roomName + ", " + issue + " 발생")
-                    .setWhen(System.currentTimeMillis())
-                    .setStyle(new NotificationCompat.BigPictureStyle() /*스타일 지정*/
-                            .bigPicture(mLargeIconForNoti)
-                            .bigPicture(img)
-                    )
-                    .setContentText("빠르게 대피해주세요!" + "\n 사진보기 ▼")
-                    .addAction(R.drawable.pic_fire_call, getResources().getString(R.string.call), callPendingIntent) //119신고 액션 추가
-                    .addAction(R.drawable.pic_checkplace, getResources().getString(R.string.checkPlace), checkPlacePendingIntent)
-                    .addAction(R.drawable.pic_fire_ext, getResources().getString(R.string.checkFire_ext), checkFire_ext);
+                    //이미지 온라인 링크를 가져와 비트맵으로 바꿈
+                    try {
+                        URL url = new URL(messageBody);
+                        URLConnection connection = url.openConnection();
+                        connection.connect();
+                        Log.v(TAG,"url");
+                        BufferedInputStream bis = new BufferedInputStream(connection.getInputStream());
+                        img = BitmapFactory.decodeStream(bis);
+                        Log.v(TAG, "url : " + url + ", messagebody : " + messageBody + ", messagebody1 :" + messageBody1);
+                    }catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    NotificationCompat.Builder mNotificationBuilder = new NotificationCompat.Builder(this, channelId) //4.1 아래 버전과의 호환성을 위해 notificationCompat을 사용
+                            .setSmallIcon(R.drawable.ic_stat_name) //작은 아이콘 세팅
+                            .setLargeIcon(mLargeIconForNoti) //큰 아이콘 세팅 - 큰 아이콘 세팅을 위해서 위에 bitmap 이용
+                            .setColor(color)
+                            .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
+                            .setAutoCancel(false) // notification을 클릭한 경우, notification을 사라지게 하려면 true 값을 줘야함
+                            .setVibrate(pattern) //진동 설정
+                            .setPriority(NotificationCompat.PRIORITY_MAX)
+                            .setSound(notificationSoundURI)
+                            .setNumber(100)
+                            .setContentTitle(roomName + ", " + issue + " 발생")
+                            .setWhen(System.currentTimeMillis())
+                            .setStyle(new NotificationCompat.BigPictureStyle() /*스타일 지정*/
+                                    .bigPicture(mLargeIconForNoti)
+                                    .bigPicture(img)
+                            )
+                            .setContentText("빠르게 대피해주세요!" + "\n 사진보기 ▼")
+                            .addAction(R.drawable.pic_fire_call, getResources().getString(R.string.call), callPendingIntent) //119신고 액션 추가
+                            .addAction(R.drawable.pic_checkplace, getResources().getString(R.string.checkPlace), checkPlacePendingIntent)
+                            .addAction(R.drawable.pic_fire_ext, getResources().getString(R.string.checkFire_ext), checkFire_ext);
 
-            notificationManager.notify(0 /* ID of notification */, mNotificationBuilder.build());
-        }}
+                    notificationManager.notify(0 /* ID of notification */, mNotificationBuilder.build());
+                    break;
+                }}
 
     }
 }

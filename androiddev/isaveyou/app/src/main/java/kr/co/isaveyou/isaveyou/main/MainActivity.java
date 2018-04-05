@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
@@ -27,7 +28,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TabHost;
+import android.widget.TabWidget;
 import android.widget.TextView;
 
 import android.support.v7.widget.Toolbar;
@@ -56,10 +60,11 @@ import kr.co.isaveyou.isaveyou.voice.VoiceActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    String strName, strPicUrl, strEmail, result, act_st, streamingServer_url, streamingServer_access ;
+    String strName, strPicUrl, strEmail, result, eventCheck, event, streamingServer_url, streamingServer_access ;
     TextView tvName, tvEmail;
     ImageView profile;
     Bitmap profileImg;
+
 
     private DrawerLayout mDrawerLayout;
 
@@ -70,8 +75,24 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().setStatusBarColor(Color.rgb(36, 223, 145));
         }
+        TabHost tabHost = (TabHost) findViewById(R.id.tabHost) ;
+        tabHost.setup() ;
 
-
+//        TabWidget tabs = (TabWidget) findViewById(R.id.tabs);
+//        FrameLayout tab_content_frameLayout = (FrameLayout)findViewById(R.id.tab_content_frameLayout);
+        TabHost.TabSpec ts1 = tabHost.newTabSpec("Tab Spec");
+        ts1.setContent(R.id.tab1);
+        TabHost.TabSpec ts2 = tabHost.newTabSpec("Tab Spec");
+        ts2.setContent(R.id.tab2);
+        TabHost.TabSpec ts3 = tabHost.newTabSpec("Tab Spec");
+        ts3.setContent(R.id.tab3);
+        ts1.setIndicator("뉴스");
+        ts2.setIndicator("정보");
+        ts3.setIndicator("통계");
+        //tab호스트에 탭 추가
+        tabHost.addTab(ts1);
+        tabHost.addTab(ts2);
+        tabHost.addTab(ts3);
         //floating action button 설정
         final FloatingActionsMenu menuMultipleActions = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
 //        FloatingActionsMenu.collapse(); // close the menu
@@ -104,17 +125,25 @@ public class MainActivity extends AppCompatActivity {
                 Log.v(TAG, "통계 버튼 클릭");
             }
         });
-
-
-        //Login intent에서 전달한 내용을 받음
         Intent intent = getIntent();
-        strName = intent.getStringExtra("이름");
-        strPicUrl = intent.getStringExtra("프로필사진");
-        strEmail = intent.getStringExtra("이메일");
+        eventCheck = intent.getDataString();
+        String [] sArray = eventCheck.split("/");
+        event = sArray[0];
+        if(event.equals("0")) {
+            //Login intent에서 전달한 내용을 받음
+            Intent it_login = getIntent();
+            strName = it_login.getStringExtra("이름");
+            strPicUrl = it_login.getStringExtra("프로필사진");
+            strEmail = it_login.getStringExtra("이메일");
 
-        Log.v(TAG, "이름 : " + strName);
-        Log.v(TAG, "프로필사진 : " + strPicUrl);
-        Log.v(TAG, "이메일 : " + strEmail);
+            Log.v(TAG, "이름 : " + strName);
+            Log.v(TAG, "프로필사진 : " + strPicUrl);
+            Log.v(TAG, "이메일 : " + strEmail);
+        }else if(event.equals("1")){
+            StreamingTask streamingtask = new StreamingTask();
+            streamingtask.execute();
+        }
+
 
 
         //toolbar 액션 설정
@@ -307,6 +336,7 @@ public class MainActivity extends AppCompatActivity {
 
             Log.v(TAG, "result in  : " + result);
             Log.v(TAG, "onPostExecute streamingServer_url :" + streamingServer_url + ",streamingServer_access :" + streamingServer_access);
+
             try{
                 String streamingServer_url = null;
                 String streamingServer_access = null;
@@ -346,6 +376,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.v(TAG, "스트리밍 서버 접속실패 : null");
 
                 }
+
 //
 
             }catch (JSONException e){

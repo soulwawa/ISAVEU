@@ -10,6 +10,7 @@
     android:fitsSystemWindows="true"
     tools:context="kr.co.isaveyou.isaveyou.main.MainActivity">
 
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -20,7 +21,7 @@
             android:layout_height="0dp"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="8dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="115dp"
             android:clickable="true"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
@@ -35,7 +36,8 @@
         <RelativeLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:visibility="visible">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -43,6 +45,78 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/colorMediumSpringGreen"
                 android:theme="@style/AppTheme" />
+
+            <TabHost
+                android:id="@+id/tabHost"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="56dp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <TabWidget
+                        android:id="@android:id/tabs"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:visibility="visible" />
+
+                    <FrameLayout
+                        android:id="@android:id/tabcontent"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/tab1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="#8BC34A"
+                                android:gravity="center"
+                                android:padding="8dp"
+                                android:text="TAB CONTENT 1" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/tab2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="#8BC34A"
+                                android:gravity="center"
+                                android:padding="8dp"
+                                android:text="TAB CONTENT 2" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/tab3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="#8BC34A"
+                                android:gravity="center"
+                                android:padding="8dp"
+                                android:text="TAB CONTENT 3" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+            </TabHost>
 
         </RelativeLayout>
 

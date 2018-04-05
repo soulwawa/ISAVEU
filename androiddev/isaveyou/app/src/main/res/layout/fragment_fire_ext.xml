@@ -55,9 +55,8 @@
                 android:layout_marginTop="4dp"
                 android:layout_weight="1"
                 app:rcBackgroundColor="#808080"
-                app:rcBackgroundPadding="5dp"
+                app:rcBackgroundPadding="3dp"
                 app:rcMax="30"
-                app:rcProgress="50"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
 
@@ -109,7 +108,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 app:rcBackgroundColor="#808080"
-                app:rcBackgroundPadding="5dp"
+                app:rcBackgroundPadding="3dp"
                 app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp">
@@ -160,7 +159,7 @@
                 android:layout_weight="1"
 
                 app:rcBackgroundColor="#808080"
-                app:rcBackgroundPadding="5dp"
+                app:rcBackgroundPadding="3dp"
                 app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
@@ -212,7 +211,7 @@
                 android:indeterminateOnly="false"
 
                 app:rcBackgroundColor="#808080"
-                app:rcBackgroundPadding="5dp"
+                app:rcBackgroundPadding="3dp"
                 app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
@@ -264,7 +263,7 @@
                 android:indeterminateOnly="false"
 
                 app:rcBackgroundColor="#808080"
-                app:rcBackgroundPadding="5dp"
+                app:rcBackgroundPadding="3dp"
                 app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
@@ -314,7 +313,7 @@
                 android:indeterminateOnly="false"
 
                 app:rcBackgroundColor="#808080"
-                app:rcBackgroundPadding="5dp"
+                app:rcBackgroundPadding="3dp"
                 app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
@@ -365,7 +364,7 @@
                 android:indeterminateOnly="false"
 
                 app:rcBackgroundColor="#808080"
-                app:rcBackgroundPadding="5dp"
+                app:rcBackgroundPadding="3dp"
                 app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
@@ -415,7 +414,7 @@
                 android:indeterminateOnly="false"
 
                 app:rcBackgroundColor="#808080"
-                app:rcBackgroundPadding="5dp"
+                app:rcBackgroundPadding="3dp"
                 app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
@@ -465,7 +464,7 @@
                 android:indeterminateOnly="false"
 
                 app:rcBackgroundColor="#808080"
-                app:rcBackgroundPadding="5dp"
+                app:rcBackgroundPadding="3dp"
                 app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
@@ -487,12 +486,11 @@
             android:id="@+id/room605_Layout"
             android:layout_width="223dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginBottom="4dp"
             android:background="@drawable/layout_for_progressbar"
             android:gravity="center"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/room605_Fire_ext"
+            app:layout_constraintBottom_toTopOf="@+id/room605_Fire_ext"
             app:layout_constraintStart_toEndOf="@+id/room605_Fire_ext">
 
             <TextView
@@ -502,9 +500,9 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:hint="2015.01.24"
-                android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
-                android:textSize="8sp" />
+                android:textSize="8sp"
+                android:textStyle="bold" />
 
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:id="@+id/pb_605"
@@ -517,7 +515,7 @@
                 android:indeterminateOnly="false"
 
                 app:rcBackgroundColor="#808080"
-                app:rcBackgroundPadding="5dp"
+                app:rcBackgroundPadding="3dp"
                 app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
@@ -529,9 +527,10 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:hint="2015.01.24"
-
                 android:textColor="@color/black_semi_transparent"
-                android:textSize="8sp" />
+
+                android:textSize="8sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -554,7 +553,8 @@
                 android:gravity="center"
                 android:hint="2015.01.24"
                 android:textColor="@color/black_semi_transparent"
-                android:textSize="8sp" />
+                android:textSize="8sp"
+                android:textStyle="bold" />
 
             <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                 android:id="@+id/pb_restRoom_610"
@@ -567,7 +567,7 @@
                 android:indeterminateOnly="false"
 
                 app:rcBackgroundColor="#808080"
-                app:rcBackgroundPadding="5dp"
+                app:rcBackgroundPadding="3dp"
                 app:rcMax="30"
                 app:rcProgressColor="#56d2c2"
                 app:rcRadius="3dp" />
@@ -581,7 +581,8 @@
                 android:gravity="center"
                 android:hint="2015.01.24"
                 android:textColor="@color/black_semi_transparent"
-                android:textSize="8sp" />
+                android:textSize="8sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

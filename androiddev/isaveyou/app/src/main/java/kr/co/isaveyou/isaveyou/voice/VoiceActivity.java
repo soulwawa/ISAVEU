@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import kr.co.isaveyou.isaveyou.Manifest;
 import kr.co.isaveyou.isaveyou.R;
 import kr.co.isaveyou.isaveyou.issue.FloorMapActivity;
+import kr.co.isaveyou.isaveyou.main.MainActivity;
 
 public class VoiceActivity extends AppCompatActivity {
     private static final String TAG = "VoiceActivity";
@@ -80,10 +81,15 @@ public class VoiceActivity extends AppCompatActivity {
                                     it_fire_ext.setData(Uri.parse("1/000"));
                                     startActivity(it_fire_ext);
                                     finish();
-                                }else if(mSelectedString.contains("화재")){
+                                }else if(mSelectedString.contains("화재")||mSelectedString.contains("현장")){
                                     Intent it_disaster = new Intent(getApplicationContext(), FloorMapActivity.class);
                                     it_disaster.setData(Uri.parse("0/000"));
                                     startActivity(it_disaster);
+                                    finish();
+                                }else if(mSelectedString.contains("모니터링")||mSelectedString.contains("스트리밍")||mSelectedString.contains("영상")){
+                                    Intent it_streaming = new Intent(getApplicationContext(), MainActivity.class);
+                                    it_streaming.setData(Uri.parse("1"));
+                                    startActivity(it_streaming);
                                     finish();
                                 }
                                        //결과 출력
