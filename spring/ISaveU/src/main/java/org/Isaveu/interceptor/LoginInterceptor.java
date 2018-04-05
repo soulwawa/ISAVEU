@@ -28,7 +28,9 @@ public class LoginInterceptor implements HandlerInterceptor {
 		if (tbHrVO != null) {
 			logger.info("WEB LOGIN SUCCSS");
 			session.setAttribute(LOGIN, tbHrVO);
-			response.sendRedirect("/");
+//			response.sendRedirect("/");
+			Object dest = session.getAttribute("dest");
+			response.sendRedirect(dest != null ? (String) dest:"/");
 		}
 	}
 

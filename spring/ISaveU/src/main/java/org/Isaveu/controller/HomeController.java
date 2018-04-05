@@ -16,6 +16,10 @@ public class HomeController {
 	private String index() {
 		return "index";
 	}
+	@RequestMapping("/accessDenied")
+	private String accessDenied() {
+		return "accessDenied";
+	}
 	
 	//추후 차단 예정
 	@RequestMapping("/admin")

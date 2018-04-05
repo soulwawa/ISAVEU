@@ -23,34 +23,35 @@ public class WebLoginController {
 	//	Session session;
 
 	@RequestMapping(value = "/weblogin", method = RequestMethod.POST)
-	private void webLogin(LoginDTO dto, HttpSession session, Model model) throws Exception{
-		TbHrVO vo = hrService.login(dto);
-		if(vo == null) {
-			return;
-		}
-		
-		model.addAttribute("tbHrVO", vo);
-		
-//		if("".equals(id) || "".equals(pw)){
-//			System.out.println("WebLogin Fail");
+	private String webLogin(LoginDTO dto, HttpSession session, Model model, @RequestParam("id") String id, @RequestParam("pw") String pw) throws Exception{
+//		TbHrVO vo = hrService.login(dto);
+//		if(vo == null) {
 //			return "redirect:/";
-//		}else {
-//			ArrayList<TbHrVO> list = new ArrayList<TbHrVO>(); 
-//			list = hrService.getHrListId(id);
-//			if(list.size() == 0) {
-//				return "redirect:/";
-//			}else {
-//				TbHrVO result = list.get(0);
-//				System.out.println("WebLogin Querry OK");
-//				if(id.equals(result.getId()) && pw.equals(result.getPw())){
-//					System.out.println("WebLogin Succes");
-//					return "admin";
-//				}else {
-//					System.out.println("WebLogin Fail");
-//					return "redirect:/";
-//				}
-//			}
-//		}	
+//		}
+//		
+//		model.addAttribute("tbHrVO", vo);
+//		return null;
+		
+		if("".equals(id) || "".equals(pw)){
+			System.out.println("WebLogin Fail");
+			return "redirect:/";
+		}else {
+			ArrayList<TbHrVO> list = new ArrayList<TbHrVO>(); 
+			list = hrService.getHrListId(id);
+			if(list.size() == 0) {
+				return "redirect:/";
+			}else {
+				TbHrVO result = list.get(0);
+				System.out.println("WebLogin Querry OK");
+				if(id.equals(result.getId()) && pw.equals(result.getPw())){
+					System.out.println("WebLogin Succes");
+					return "admin";
+				}else {
+					System.out.println("WebLogin Fail");
+					return "redirect:/";
+				}
+			}
+		}	
 	}
 }
 

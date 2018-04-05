@@ -43,14 +43,14 @@ public class ISaveUApplication {
 	}
 
 	// 필터 설정
-	@Bean
-	public FilterRegistrationBean<IsaveUFilter> someFilterRegistration() {
-		FilterRegistrationBean<IsaveUFilter> registration = new FilterRegistrationBean<IsaveUFilter>(
-				new IsaveUFilter());
-
-		registration.addUrlPatterns("/*");
-		registration.setName("IsaveUFilter");
-		return registration;
-	}
+//	@Bean
+//	public FilterRegistrationBean<IsaveUFilter> someFilterRegistration() {
+//		FilterRegistrationBean<IsaveUFilter> registration = new FilterRegistrationBean<IsaveUFilter>(
+//				new IsaveUFilter());
+//
+//		registration.addUrlPatterns("/*");
+//		registration.setName("IsaveUFilter");
+//		return registration;
+//	}
 
 }

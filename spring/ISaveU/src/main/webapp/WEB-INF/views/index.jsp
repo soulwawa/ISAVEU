@@ -8,13 +8,14 @@
   
 <title>관리자 페이지 로그인</title>
 <link href="<%=root%>/css/style1.css" rel="stylesheet" type="text/css">
- 
-<script type="text/javascript">
-	self.location = "/admin"
-</script>
 
 </head>
 <body>
+<!--  
+<script type="text/javascript">
+	self.location = "/admin"
+</script>
+-->
 	<section id="loginFormArea">
 		<form action="/weblogin" method="post">
 			<div class="imgBox">
