@@ -10,7 +10,7 @@
 var obj = {
 	    "floor": 6 
 	    ,
-	    "list": [
+	    "value": [
 	        {
 	            "location_id": 1,
 	            "location": "600",
@@ -169,10 +169,10 @@ var obj = {
 	};
 	
 
-document.write(obj.list.length);
+document.write(obj.value.length);
 
-for (var i = 0; i < obj.list.length; i++) {
-    var counter = obj.list[i];
+for (var i = 0; i < obj.value.length; i++) {
+    var counter = obj.value[i];
     console.log(counter.dept_name);
     document.write("<br></n> location_id : " + counter.location_id + "<br></n> location : " + counter.location + "<br></n> dept_name : " + counter.dept_name + "<br></n> manager : " + counter.manager + "<br></n> dept_tel : " + counter.dept_tel + "<br></n> fire_ex_id : " + counter.fire_ex_id + "<br></n> fire_ex_name : " + counter.fire_ex_name + "<br></n> fire_ex_mac : " + counter.fire_ex_mac + "<br></n> fire_ex_status : " + counter.fire_ex_status + "<br></n> fire_ex_make : " + counter.fire_ex_make + "<br></n> next_check : " + counter.next_check + "<br></n> check_date : " + counter.check_date);
     
