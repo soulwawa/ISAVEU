@@ -83,10 +83,9 @@ function rMateChartH5ChangeTheme(theme){
 }
  
 // -----------------------차트 설정 끝 -----------------------
-$(window).load(function(){
+$(document).ready(function() {
 	ss0();
-});
-
+	});
 
 function ss0(){
 	var a = 10;
