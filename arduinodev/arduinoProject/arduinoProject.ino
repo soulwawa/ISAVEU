@@ -1,5 +1,5 @@
-#include <Phpoc.h>
 #include <SPI.h>
+#include <Phpoc.h>
 #include <Adafruit_MLX90614.h>
 #include <Wire.h>
 
@@ -107,6 +107,7 @@ void event(){
 
 void setup() {
   Serial.begin(9600);
+  while(!Serial);
 
 // module
   pinMode(laserPin, OUTPUT);
@@ -132,8 +133,9 @@ void httpRequest() {
     Serial.println("connecting...");      
     client.println(url);                                  // send the HTTP PUT request:
     client.println();
-    // note the time that the connection was made:  
+    // note the time that the connection was made:
      flag = false;
+     Serial.println("check!");
      digitalWrite(ledPin, HIGH);
   } else {
     // if you couldn't make a connection:
@@ -162,7 +164,7 @@ const int moduleId = 0;
 
 // 서버접속
   if ( ((millis() - lastConnectionTime > postingInterval) && flag ||( (issue == 1) || (issue == 2) || (issue == 3) ) ) ){
-    url = "GET /eventIn.do?module_id=";
+    url = "GET /module/eventIn.do?module_id=";
     url += moduleId;
     url += "&temp=" + String(tempObject);
     url += "&smoke=" + String(smokeVal);
