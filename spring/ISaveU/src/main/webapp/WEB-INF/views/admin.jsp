@@ -18,7 +18,7 @@
 <script language="javascript" type="text/javascript" src="<%=root%>/js1.js"></script>
 <script language="javascript" type="text/javascript" src="<%=root%>/admin.js"></script>
 <script>
-   var interval = setInterval(function () {
+   var interval = setInterval1(function () {
     $.ajax({
       type: "GET",
       url: "http://192.168.0.35:9999/Dispatcher",
@@ -29,7 +29,7 @@
       }
     });
   }, 9900);
-  var interval = setInterval(function () {
+  var interval = setInterval2(function () {
 	    $.ajax({
 	      type: "GET",
 	      url: "http://192.168.0.35:9999/DispatcherRecent?num=12",
@@ -44,6 +44,8 @@
   $(window).on("unload", function(){
 	    alert("call");
 	    console.log("this will be triggered");
+	    clearInterval(interval1);
+	    clearInterval(interval2);
 	}); 
 </script>
 <style>
