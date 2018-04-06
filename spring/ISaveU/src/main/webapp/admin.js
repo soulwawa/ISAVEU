@@ -83,12 +83,15 @@ function rMateChartH5ChangeTheme(theme){
 }
  
 // -----------------------차트 설정 끝 -----------------------
-$(document).ready(function() {
+$(window).on("load", function(){
 	ss0();
-	});
+}); 
 
+var show = 10;	
 function ss0(){
 	var a = 10;
+	show = 10;
+	console.log(show);
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder10").style.width = 1480 + "px";
@@ -347,10 +350,76 @@ function ss0(){
 	setTimeout(function(){
 		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
 	},a+=20);
+	setTimeout(function(){
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 1480+"px";
+		document.getElementById("cover10").style.height = 390+"px";
+		document.getElementById("cover10").style.width = 1480+"px";
+		document.getElementById("cover10").style.height = 390+"px";
+		document.getElementById("cover10").style.width = 1480+"px";
+		document.getElementById("cover10").style.height = 390+"px";
+		document.getElementById("cover10").style.width = 1480+"px";
+		document.getElementById("cover10").style.height = 390+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 1480+"px";
+		document.getElementById("cover10").style.height = 390+"px";
+		document.getElementById("cover10").style.width = 1480+"px";
+		document.getElementById("cover10").style.height = 390+"px";
+		document.getElementById("cover10").style.width = 1480+"px";
+		document.getElementById("cover10").style.height = 390+"px";
+		document.getElementById("cover10").style.width = 1480+"px";
+		document.getElementById("cover10").style.height = 390+"px";
+	},a-50);
 }
 
 function ss1(){
 	var a = 10;
+	show = 11;
+	console.log(show);
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder11").style.width = 1480 + "px";
@@ -609,10 +678,75 @@ function ss1(){
 	setTimeout(function(){
 		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
 	},a+=20);
-
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover11").style.width = 1480+"px";
+		document.getElementById("cover11").style.height = 390+"px";
+		document.getElementById("cover11").style.width = 1480+"px";
+		document.getElementById("cover11").style.height = 390+"px";
+		document.getElementById("cover11").style.width = 1480+"px";
+		document.getElementById("cover11").style.height = 390+"px";
+		document.getElementById("cover11").style.width = 1480+"px";
+		document.getElementById("cover11").style.height = 390+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover11").style.width = 1480+"px";
+		document.getElementById("cover11").style.height = 390+"px";
+		document.getElementById("cover11").style.width = 1480+"px";
+		document.getElementById("cover11").style.height = 390+"px";
+		document.getElementById("cover11").style.width = 1480+"px";
+		document.getElementById("cover11").style.height = 390+"px";
+		document.getElementById("cover11").style.width = 1480+"px";
+		document.getElementById("cover11").style.height = 390+"px";
+	},a-50);
 }
 function ss2(){
 	var a = 10;
+	show = 12;
+	console.log(show);
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder12").style.width = 1480 + "px";
@@ -871,9 +1005,75 @@ function ss2(){
 	setTimeout(function(){
 		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
 	},a+=20);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover12").style.width = 1480+"px";
+		document.getElementById("cover12").style.height = 390+"px";
+		document.getElementById("cover12").style.width = 1480+"px";
+		document.getElementById("cover12").style.height = 390+"px";
+		document.getElementById("cover12").style.width = 1480+"px";
+		document.getElementById("cover12").style.height = 390+"px";
+		document.getElementById("cover12").style.width = 1480+"px";
+		document.getElementById("cover12").style.height = 390+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover12").style.width = 1480+"px";
+		document.getElementById("cover12").style.height = 390+"px";
+		document.getElementById("cover12").style.width = 1480+"px";
+		document.getElementById("cover12").style.height = 390+"px";
+		document.getElementById("cover12").style.width = 1480+"px";
+		document.getElementById("cover12").style.height = 390+"px";
+		document.getElementById("cover12").style.width = 1480+"px";
+		document.getElementById("cover12").style.height = 390+"px";
+	},a-50);
 }
 function ss3(){
 	var a = 10;
+	show = 13;
+	console.log(show);
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder13").style.width = 1480 + "px";
@@ -1132,9 +1332,75 @@ function ss3(){
 	setTimeout(function(){
 		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
 	},a+=20);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover13").style.width = 1480+"px";
+		document.getElementById("cover13").style.height = 390+"px";
+		document.getElementById("cover13").style.width = 1480+"px";
+		document.getElementById("cover13").style.height = 390+"px";
+		document.getElementById("cover13").style.width = 1480+"px";
+		document.getElementById("cover13").style.height = 390+"px";
+		document.getElementById("cover13").style.width = 1480+"px";
+		document.getElementById("cover13").style.height = 390+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover13").style.width = 1480+"px";
+		document.getElementById("cover13").style.height = 390+"px";
+		document.getElementById("cover13").style.width = 1480+"px";
+		document.getElementById("cover13").style.height = 390+"px";
+		document.getElementById("cover13").style.width = 1480+"px";
+		document.getElementById("cover13").style.height = 390+"px";
+		document.getElementById("cover13").style.width = 1480+"px";
+		document.getElementById("cover13").style.height = 390+"px";
+	},a-50);
 }
 function ss4(){
 	var a = 10;
+	show = 14;
+	console.log(show);
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder14").style.width = 1480 + "px";
@@ -1393,9 +1659,75 @@ function ss4(){
 	setTimeout(function(){
 		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
 	},a+=20);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover14").style.width = 1480+"px";
+		document.getElementById("cover14").style.height = 390+"px";
+		document.getElementById("cover14").style.width = 1480+"px";
+		document.getElementById("cover14").style.height = 390+"px";
+		document.getElementById("cover14").style.width = 1480+"px";
+		document.getElementById("cover14").style.height = 390+"px";
+		document.getElementById("cover14").style.width = 1480+"px";
+		document.getElementById("cover14").style.height = 390+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover14").style.width = 1480+"px";
+		document.getElementById("cover14").style.height = 390+"px";
+		document.getElementById("cover14").style.width = 1480+"px";
+		document.getElementById("cover14").style.height = 390+"px";
+		document.getElementById("cover14").style.width = 1480+"px";
+		document.getElementById("cover14").style.height = 390+"px";
+		document.getElementById("cover14").style.width = 1480+"px";
+		document.getElementById("cover14").style.height = 390+"px";
+	},a-50);
 }
 function ss5(){
 	var a = 10;
+	show = 15;
+	console.log(show);
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder15").style.width = 1480 + "px";
@@ -1654,9 +1986,75 @@ function ss5(){
 	setTimeout(function(){
 		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
 	},a+=20);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover15").style.width = 1480+"px";
+		document.getElementById("cover15").style.height = 390+"px";
+		document.getElementById("cover15").style.width = 1480+"px";
+		document.getElementById("cover15").style.height = 390+"px";
+		document.getElementById("cover15").style.width = 1480+"px";
+		document.getElementById("cover15").style.height = 390+"px";
+		document.getElementById("cover15").style.width = 1480+"px";
+		document.getElementById("cover15").style.height = 390+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover15").style.width = 1480+"px";
+		document.getElementById("cover15").style.height = 390+"px";
+		document.getElementById("cover15").style.width = 1480+"px";
+		document.getElementById("cover15").style.height = 390+"px";
+		document.getElementById("cover15").style.width = 1480+"px";
+		document.getElementById("cover15").style.height = 390+"px";
+		document.getElementById("cover15").style.width = 1480+"px";
+		document.getElementById("cover15").style.height = 390+"px";
+	},a-50);
 }
 function ss6(){
 	var a = 10;
+	show = 16;
+	console.log(show);
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder16").style.width = 1480 + "px";
@@ -1915,9 +2313,75 @@ function ss6(){
 	setTimeout(function(){
 		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
 	},a+=20);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover16").style.width = 1480+"px";
+		document.getElementById("cover16").style.height = 390+"px";
+		document.getElementById("cover16").style.width = 1480+"px";
+		document.getElementById("cover16").style.height = 390+"px";
+		document.getElementById("cover16").style.width = 1480+"px";
+		document.getElementById("cover16").style.height = 390+"px";
+		document.getElementById("cover16").style.width = 1480+"px";
+		document.getElementById("cover16").style.height = 390+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover16").style.width = 1480+"px";
+		document.getElementById("cover16").style.height = 390+"px";
+		document.getElementById("cover16").style.width = 1480+"px";
+		document.getElementById("cover16").style.height = 390+"px";
+		document.getElementById("cover16").style.width = 1480+"px";
+		document.getElementById("cover16").style.height = 390+"px";
+		document.getElementById("cover16").style.width = 1480+"px";
+		document.getElementById("cover16").style.height = 390+"px";
+	},a-50);
 }
 function ss7(){
 	var a = 10;
+	show = 17;
+	console.log(show);
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder17").style.width = 1480 + "px";
@@ -2176,9 +2640,75 @@ function ss7(){
 	setTimeout(function(){
 		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
 	},a+=20);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover17").style.width = 1480+"px";
+		document.getElementById("cover17").style.height = 390+"px";
+		document.getElementById("cover17").style.width = 1480+"px";
+		document.getElementById("cover17").style.height = 390+"px";
+		document.getElementById("cover17").style.width = 1480+"px";
+		document.getElementById("cover17").style.height = 390+"px";
+		document.getElementById("cover17").style.width = 1480+"px";
+		document.getElementById("cover17").style.height = 390+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover17").style.width = 1480+"px";
+		document.getElementById("cover17").style.height = 390+"px";
+		document.getElementById("cover17").style.width = 1480+"px";
+		document.getElementById("cover17").style.height = 390+"px";
+		document.getElementById("cover17").style.width = 1480+"px";
+		document.getElementById("cover17").style.height = 390+"px";
+		document.getElementById("cover17").style.width = 1480+"px";
+		document.getElementById("cover17").style.height = 390+"px";
+	},a-50);
 }
 function ss8(){
 	var a = 10;
+	show = 18;
+	console.log(show);
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder18").style.width = 1480 + "px";
@@ -2437,9 +2967,75 @@ function ss8(){
 	setTimeout(function(){
 		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
 	},a+=20);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover18").style.width = 1480+"px";
+		document.getElementById("cover18").style.height = 390+"px";
+		document.getElementById("cover18").style.width = 1480+"px";
+		document.getElementById("cover18").style.height = 390+"px";
+		document.getElementById("cover18").style.width = 1480+"px";
+		document.getElementById("cover18").style.height = 390+"px";
+		document.getElementById("cover18").style.width = 1480+"px";
+		document.getElementById("cover18").style.height = 390+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover18").style.width = 1480+"px";
+		document.getElementById("cover18").style.height = 390+"px";
+		document.getElementById("cover18").style.width = 1480+"px";
+		document.getElementById("cover18").style.height = 390+"px";
+		document.getElementById("cover18").style.width = 1480+"px";
+		document.getElementById("cover18").style.height = 390+"px";
+		document.getElementById("cover18").style.width = 1480+"px";
+		document.getElementById("cover18").style.height = 390+"px";
+	},a-50);
 }
 function ss9(){
 	var a = 10;
+	show = 19;
+	console.log(show);
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder19").style.width = 1480 + "px";
@@ -2698,9 +3294,75 @@ function ss9(){
 	setTimeout(function(){
 		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
 	},a+=20);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover19").style.width = 1480+"px";
+		document.getElementById("cover19").style.height = 390+"px";
+		document.getElementById("cover19").style.width = 1480+"px";
+		document.getElementById("cover19").style.height = 390+"px";
+		document.getElementById("cover19").style.width = 1480+"px";
+		document.getElementById("cover19").style.height = 390+"px";
+		document.getElementById("cover19").style.width = 1480+"px";
+		document.getElementById("cover19").style.height = 390+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover20").style.width = 326+"px";
+		document.getElementById("cover20").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover19").style.width = 1480+"px";
+		document.getElementById("cover19").style.height = 390+"px";
+		document.getElementById("cover19").style.width = 1480+"px";
+		document.getElementById("cover19").style.height = 390+"px";
+		document.getElementById("cover19").style.width = 1480+"px";
+		document.getElementById("cover19").style.height = 390+"px";
+		document.getElementById("cover19").style.width = 1480+"px";
+		document.getElementById("cover19").style.height = 390+"px";
+	},a-50);
 }
 function ss10(){
 	var a = 10;
+	show = 20;
+	console.log(show);
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder20").style.width = 1480 + "px";
@@ -2959,4 +3621,69 @@ function ss10(){
 	setTimeout(function(){
 		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
 	},a+=20);
+	
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover20").style.width = 1480+"px";
+		document.getElementById("cover20").style.height = 390+"px";
+		document.getElementById("cover20").style.width = 1480+"px";
+		document.getElementById("cover20").style.height = 390+"px";
+		document.getElementById("cover20").style.width = 1480+"px";
+		document.getElementById("cover20").style.height = 390+"px";
+		document.getElementById("cover20").style.width = 1480+"px";
+		document.getElementById("cover20").style.height = 390+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover10").style.width = 326+"px";
+		document.getElementById("cover10").style.height = 200+"px";
+		document.getElementById("cover11").style.width = 326+"px";
+		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.width = 326+"px";
+		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.width = 326+"px";
+		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.width = 326+"px";
+		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.width = 326+"px";
+		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.width = 326+"px";
+		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.width = 326+"px";
+		document.getElementById("cover17").style.height = 200+"px";
+		document.getElementById("cover18").style.width = 326+"px";
+		document.getElementById("cover18").style.height = 200+"px";
+		document.getElementById("cover19").style.width = 326+"px";
+		document.getElementById("cover19").style.height = 200+"px";
+	},a-50);
+	setTimeout(function(){
+		document.getElementById("cover20").style.width = 1480+"px";
+		document.getElementById("cover20").style.height = 390+"px";
+		document.getElementById("cover20").style.width = 1480+"px";
+		document.getElementById("cover20").style.height = 390+"px";
+		document.getElementById("cover20").style.width = 1480+"px";
+		document.getElementById("cover20").style.height = 390+"px";
+		document.getElementById("cover20").style.width = 1480+"px";
+		document.getElementById("cover20").style.height = 390+"px";
+	},a-50);
 }

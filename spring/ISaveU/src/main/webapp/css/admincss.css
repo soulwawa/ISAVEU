@@ -52,3 +52,11 @@
 	left:1354px;
 	top:617px;
 }
+.cover{
+	position: relative;
+	background: rgba(255,0,0,0);
+	width:326px;
+	height:200px;
+	float:left;
+	z-index:3000;
+}

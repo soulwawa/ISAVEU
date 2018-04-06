@@ -21,7 +21,7 @@
    var interval1 = setInterval(function () {
     $.ajax({
       type: "GET",
-      url: "http://192.168.0.35:9999/admin/Dispatcher",
+      url: "http://192.168.0.35:9999/admin/Dispatcher",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
       dataType: "json",
       success: function(data) {
         ob = data;
@@ -47,9 +47,16 @@
 	    clearInterval(interval1);
 	    clearInterval(interval2);
 	}); 
+//	var interval3 = setInterval(function () {
+//	  setTimeout(function(){
+//			document.getElementById("cover14").style.background="rgba(255,255,255,0)";
+//		},495);
+//		setTimeout(function(){
+//			document.getElementById("cover14").style.background="rgba(255,0,0,0.75)";
+//		},990);
+//  },1000);
 </script>
 <style>
-
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -178,17 +185,50 @@
 				</div>
 			</div>
 			<div id="section2" style="height:424px;">
-				<div id="chartHolder10" class="chartHolder" onclick="ss0()"></div>
-				<div id="chartHolder11" class="chartHolder" onclick="ss1()"></div>
-				<div id="chartHolder12" class="chartHolder" onclick="ss2()"></div>
-				<div id="chartHolder13" class="chartHolder" onclick="ss3()"></div>
-				<div id="chartHolder14" class="chartHolder" onclick="ss4()"></div>
-				<div id="chartHolder15" class="chartHolder" onclick="ss5()"></div>
-				<div id="chartHolder16" class="chartHolder" onclick="ss6()"></div>
-				<div id="chartHolder17" class="chartHolder" onclick="ss7()"></div>
-				<div id="chartHolder18" class="chartHolder" onclick="ss8()"></div>
-				<div id="chartHolder19" class="chartHolder" onclick="ss9()"></div>
-				<div id="chartHolder20" class="chartHolder" onclick="ss10()"></div>
+				<div id="chartHolder10" class="chartHolder">
+					<div id="cover10" class="cover" onclick="ss0()">
+					</div>
+				</div>
+				<div id="chartHolder11" class="chartHolder">
+					<div id="cover11" class="cover" onclick="ss1()">
+					</div>
+				</div>
+				<div id="chartHolder12" class="chartHolder">
+					<div id="cover12" class="cover" onclick="ss2()">
+					</div>
+				</div>
+				<div id="chartHolder13" class="chartHolder">
+					<div id="cover13" class="cover" onclick="ss3()">
+					</div>
+				</div>
+				<div id="chartHolder14" class="chartHolder">
+					<div id="cover14" class="cover" onclick="ss4()">
+					</div>
+				</div>
+				<div id="chartHolder15" class="chartHolder">
+					<div id="cover15" class="cover" onclick="ss5()">
+					</div>
+				</div>
+				<div id="chartHolder16" class="chartHolder">
+					<div id="cover16" class="cover" onclick="ss6()">
+					</div>
+				</div>
+				<div id="chartHolder17" class="chartHolder">
+					<div id="cover17" class="cover" onclick="ss7()">
+					</div>
+				</div>
+				<div id="chartHolder18" class="chartHolder">
+					<div id="cover18" class="cover" onclick="ss8()">
+					</div>
+				</div>
+				<div id="chartHolder19" class="chartHolder">
+					<div id="cover19" class="cover" onclick="ss9()">
+					</div>
+				</div>
+				<div id="chartHolder20" class="chartHolder">
+					<div id="cover20" class="cover" onclick="ss10()">
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="footer">

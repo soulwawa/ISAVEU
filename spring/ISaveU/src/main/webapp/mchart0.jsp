@@ -18,10 +18,10 @@
 <script language="javascript" type="text/javascript" src="<%=root%>/js1.js"></script>
 <script language="javascript" type="text/javascript" src="<%=root%>/mchart.js"></script>
 <script>
-   var interval = setInterval(function () {
+   var interval1 = setInterval(function () {
     $.ajax({
       type: "GET",
-      url: "http://192.168.0.35:9999/Dispatcher",
+      url: "http://192.168.0.35:9999/admin/Dispatcher",
       dataType: "json",
       success: function(data) {
         ob = data;
@@ -29,10 +29,10 @@
       }
     });
   }, 9900);
-  var interval = setInterval(function () {
+  var interval2 = setInterval(function () {
 	    $.ajax({
 	      type: "GET",
-	      url: "http://192.168.0.35:9999/DispatcherRecent?num=12",
+	      url: "http://192.168.0.35:9999/admin/DispatcherRecent?num=12",
 	      dataType: "json",
 	      success: function(data2) {
 	        ob2 = data2;
@@ -44,6 +44,8 @@
   $(window).on("unload", function(){
 	    alert("call");
 	    console.log("this will be triggered");
+	    clearInterval(interval1);
+	    clearInterval(interval2);
 	}); 
 </script>
 <style>
