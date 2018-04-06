@@ -61,18 +61,19 @@ var layoutStr10 = '<rMateChart backgroundColor="#FFFFFF"  borderStyle="none">'
               +'</Line2DChart>'
          +'</rMateChart>';
  
-var chartData10 = [{"time":"Mar","temp":10,"smoke":30,"gyro":20,"fire":20},
-    			 {"time":"Apr","temp":25,"smoke":38,"gyro":20,"fire":21},
-    			 {"time":"May","temp":10,"smoke":49,"gyro":25,"fire":22},
-    			 {"time":"Jun","temp":25,"smoke":60,"gyro":42,"fire":23},
-    			 {"time":"Jul","temp":10,"smoke":65,"gyro":45,"fire":24},
-    			 {"time":"Aug","temp":25,"smoke":60,"gyro":60,"fire":25},
-    			 {"time":"Sep","temp":10,"smoke":47,"gyro":37,"fire":26},
-    			 {"time":"Oct","temp":30,"smoke":40,"gyro":25,"fire":27},
-    			 {"time":"Nov","temp":10,"smoke":47,"gyro":20,"fire":28},
-    			 {"time":"Oct","temp":30,"smoke":55,"gyro":25,"fire":29},
-    			 {"time":"Nov","temp":10,"smoke":47,"gyro":20,"fire":30},
-    			 {"time":"Nov","temp":10,"smoke":37,"gyro":20,"fire":31}];
+var chartData10 = [{"time":"00:00:00","temp":10,"smoke":30,"gyro":20,"fire":20},
+	{"time":"00:00:05","temp":25,"smoke":38,"gyro":20,"fire":21},
+	{"time":"00:00:10","temp":10,"smoke":49,"gyro":25,"fire":22},
+	{"time":"00:00:15","temp":25,"smoke":60,"gyro":42,"fire":23},
+	{"time":"00:00:20","temp":10,"smoke":65,"gyro":45,"fire":24},
+	{"time":"00:00:25","temp":25,"smoke":60,"gyro":60,"fire":25},
+	{"time":"00:00:30","temp":10,"smoke":47,"gyro":37,"fire":26},
+	{"time":"00:00:35","temp":30,"smoke":40,"gyro":25,"fire":27},
+	{"time":"00:00:40","temp":10,"smoke":47,"gyro":20,"fire":28},
+	{"time":"00:00:45","temp":30,"smoke":55,"gyro":25,"fire":29},
+	{"time":"00:00:50","temp":10,"smoke":47,"gyro":20,"fire":30},
+	{"time":"00:00:55","temp":10,"smoke":37,"gyro":20,"fire":31}];
+
  
 
 rMateChartH5.registerTheme(rMateChartH5.themes);
