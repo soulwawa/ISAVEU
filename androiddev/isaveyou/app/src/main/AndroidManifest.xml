@@ -76,7 +76,9 @@
         <meta-data
             android:name="com.google.android.gms.car.application"
             android:resource="@xml/automotive_app_desc" />
-
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyALlmdBs3oMsyXho3sA-Jp0lMIchSvjO1o"/>
         <activity
             android:name=".issue.FloorMapActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
