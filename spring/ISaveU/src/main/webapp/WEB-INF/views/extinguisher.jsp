@@ -119,7 +119,7 @@ function checkex1(){
 	      dataType: "json",
 	      success: function(data2) {
 	        obj = data2.list;
-	        for (var i = 0; i < obj.list.length; i++){
+	        for (var i = 0; i < 11; i++){
 	        	var counter = obj.list[i];
 	        	console.log(counter.location);
 	        	console.log(counter.fire_ex_status);
