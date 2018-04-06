@@ -22,7 +22,7 @@ public class LocationController {
 	LocationService lService;
 
 	@ResponseBody
-	@RequestMapping(value = "/locationFireEx.do")
+	@RequestMapping(value = "/admin/locationFireEx.do")
 	public Map<String, Object> locationFireEx(@ModelAttribute LocationByFireExVO location, @RequestParam("loc") String loc) throws Exception{
 
 		ArrayList<LocationByFireExVO> list = new ArrayList<LocationByFireExVO>();

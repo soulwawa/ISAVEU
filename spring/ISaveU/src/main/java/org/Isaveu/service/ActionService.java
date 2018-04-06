@@ -1,5 +1,7 @@
 package org.Isaveu.service;
 
+import java.util.ArrayList;
+
 import javax.annotation.Resource;
 
 import org.Isaveu.domain.TbActionVO;
@@ -15,7 +17,11 @@ public class ActionService implements ActionMapper{
 	@Override
 	public void insertAction(TbActionVO action) throws Exception {
 		aMapper.insertAction(action);
-		
 	}
 
+	@Override
+	public ArrayList<TbActionVO> selectAllList() throws Exception {
+		return aMapper.selectAllList();
+	}
+	
 } 

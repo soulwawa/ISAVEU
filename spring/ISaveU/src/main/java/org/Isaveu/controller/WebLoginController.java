@@ -22,7 +22,7 @@ public class WebLoginController {
 	HrService hrService;
 	//	Session session;
 
-	@RequestMapping(value = "/weblogin", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/weblogin", method = RequestMethod.POST)
 	private String webLogin(LoginDTO dto, HttpSession session, Model model, @RequestParam("id") String id, @RequestParam("pw") String pw) throws Exception{
 //		TbHrVO vo = hrService.login(dto);
 //		if(vo == null) {

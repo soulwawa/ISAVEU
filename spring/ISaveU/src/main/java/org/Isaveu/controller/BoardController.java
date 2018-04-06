@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
-@RequestMapping("/board/*")
+@RequestMapping("/admin/board/*")
 public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
@@ -38,7 +38,7 @@ public class BoardController {
 		return "redirect:/board/listAll";
 	}
 	
-	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/listAll", method = RequestMethod.GET)
 	public String listAll(Model model) throws Exception{
 		logger.info("show all List...");
 		return "board/listAll";

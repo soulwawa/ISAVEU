@@ -11,6 +11,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES
 			(null, #{module_id}, #{url}, now());
     </insert>
+    <select id="selectAllList" resultType="org.Isaveu.domain.TbActionVO">
+    	SELECT
+    		*
+    	FROM
+    	 tb_action
+    	order by action_id DESC;
+    
+    </select>
 </mapper>
 
 

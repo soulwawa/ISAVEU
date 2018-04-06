@@ -1,9 +1,15 @@
 package org.Isaveu.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.Isaveu.domain.LocationByFireExVO;
 import org.Isaveu.domain.LocationByIssueVO;
@@ -14,6 +20,7 @@ import org.Isaveu.service.LocationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
@@ -153,6 +160,51 @@ public class AndoroidContoller {
 		map.put("access", "ok");
 		return map;
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/IamgeGet.do", method = RequestMethod.GET)
+	private void AndoridIamgeGet(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		String ImageId = request.getParameter("imageID");
+		String path = "C:\\workspace\\SaveForYou\\spring\\ISaveU\\src\\main\\resources\\eventImage\\" + ImageId;
+		System.out.println(path);
+		response.setContentType("image/png");
+		response.setHeader("Content-Transfer-Encoding", "binary");
+		
+		File file = new File(path);
+		FileInputStream input = new FileInputStream(file);
+		OutputStream output = response.getOutputStream();
+		byte[] buffer = new byte[8 * 1024];
+		try {
+			int bytesRead;
+			while ((bytesRead = input.read(buffer)) != -1) {
+				output.write(buffer, 0, bytesRead);
+			}
+			output.flush();
+			System.out.println("Response 완료!");
+			}catch (IOException e) {
+				e.printStackTrace();
+			}finally {
+				input.close();
+				output.close();
+			}
+		}
+	@ResponseBody
+	@RequestMapping(value = "/locationFireEx.do")
+	public Map<String, Object> locationFireEx(@ModelAttribute LocationByFireExVO location, @RequestParam("loc") String loc) throws Exception{
+
+		ArrayList<LocationByFireExVO> list = new ArrayList<LocationByFireExVO>();
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		list = lService.locationByFireEx();
+		map.put("floor", loc);
+		map.put("list", list);
+		
+//		for (int i = 0 ; i < list.size() ; i++) {
+//			map.put(list.get(i).getLocation(), list.get(i).getFire_ex_status());
+//		}
+		return map;
+	}
+	
 	
 	
 }

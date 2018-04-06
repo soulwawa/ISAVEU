@@ -32,6 +32,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
 @Controller
+@RequestMapping("/module/*")
 public class FireExController {
 	
 	@Resource(name = "org.Isave.service.FireExService")
