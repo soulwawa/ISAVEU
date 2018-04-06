@@ -118,9 +118,9 @@ function checkex1(){
 	      url: "http://192.168.0.35:9999/admin/locationFireEx.do?loc=6",
 	      dataType: "json",
 	      success: function(data2) {
-	        obj = data2.list;
+	        obj = data2.value;
 	        for (var i = 0; i < 11; i++){
-	        	var counter = obj.list[i];
+	        	var counter = obj.value[i];
 	        	console.log(counter.location);
 	        	console.log(counter.fire_ex_status);
 	        	if(counter.fire_ex_status == 0){
