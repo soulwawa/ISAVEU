@@ -21,21 +21,19 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.TabHost;
-import android.widget.TabWidget;
 import android.widget.TextView;
 
 import android.support.v7.widget.Toolbar;
@@ -61,7 +59,7 @@ import java.net.URLConnection;
 import kr.co.isaveyou.isaveyou.R;
 import kr.co.isaveyou.isaveyou.issue.FloorMapActivity;
 import kr.co.isaveyou.isaveyou.tab.InformationFragment;
-import kr.co.isaveyou.isaveyou.tab.MapFragment;
+import kr.co.isaveyou.isaveyou.tab.myMapFragment;
 import kr.co.isaveyou.isaveyou.tab.NewsFragment;
 import kr.co.isaveyou.isaveyou.voice.VoiceActivity;
 
@@ -71,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvName, tvEmail;
     ImageView profile;
     Bitmap profileImg;
-
+    FrameLayout fl_streaming;
 
     private DrawerLayout mDrawerLayout;
 
@@ -82,14 +80,17 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().setStatusBarColor(Color.rgb(36, 223, 145));
         }
-
+//        LayoutInflater inflater = getLayoutInflater();
+//        View layout = inflater.inflate(R.layout.fragment_monitoring, null);
+        fl_streaming = (FrameLayout)findViewById (R.id.streming_framelayout);
+        fl_streaming.bringToFront();
         //tab 레이아웃 설정, adapter 설정
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tl_tabs);
         ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);
         Fragment[] arrFragments = new Fragment[3];
         arrFragments[0] = new NewsFragment();
         arrFragments[1] = new InformationFragment();
-        arrFragments[2] = new MapFragment();
+        arrFragments[2] = new myMapFragment();
 
         MyPagerAdapter pagerAdapter = new MyPagerAdapter(getSupportFragmentManager(),arrFragments);
         viewPager.setAdapter(pagerAdapter);
@@ -106,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 StreamingTask streamingtask = new StreamingTask();
                 streamingtask.execute();
-
+                fl_streaming.setVisibility(View.VISIBLE);
                 menuMultipleActions.collapse();
 
                 Log.v(TAG, "스트리밍 버튼 클릭");
@@ -216,6 +217,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    //Streaming layout set invisible 하기
+   public  void Invisible_Streaming (){
+        fl_streaming.setVisibility(View.INVISIBLE);
+    }
+
     //탭 어댑터 설정
     private class MyPagerAdapter extends FragmentPagerAdapter {
         private Fragment[] arrFragments;

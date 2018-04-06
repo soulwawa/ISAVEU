@@ -1,6 +1,7 @@
 package kr.co.isaveyou.isaveyou.main;
 
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -19,6 +20,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 
@@ -38,7 +40,7 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
 
     String streamingServer_access, streamingServer_url;
     HttpURLConnection conn;
-    String myUrl;
+
 
     String result;
     View.OnClickListener handler = new View.OnClickListener() {
@@ -68,6 +70,9 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
                     Log.v(TAG,"멈춤 버튼 누름");
 
                     MonitoringFragment.this.getFragmentManager().beginTransaction().detach(   MonitoringFragment.this  ) ;
+
+                    ((MainActivity)getActivity()).Invisible_Streaming();
+
 
                     break;
             }
