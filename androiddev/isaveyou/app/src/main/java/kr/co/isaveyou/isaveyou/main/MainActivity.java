@@ -14,11 +14,15 @@ import android.support.annotation.NonNull;
 
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -56,6 +60,9 @@ import java.net.URLConnection;
 
 import kr.co.isaveyou.isaveyou.R;
 import kr.co.isaveyou.isaveyou.issue.FloorMapActivity;
+import kr.co.isaveyou.isaveyou.tab.InformationFragment;
+import kr.co.isaveyou.isaveyou.tab.MapFragment;
+import kr.co.isaveyou.isaveyou.tab.NewsFragment;
 import kr.co.isaveyou.isaveyou.voice.VoiceActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -75,24 +82,20 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().setStatusBarColor(Color.rgb(36, 223, 145));
         }
-        TabHost tabHost = (TabHost) findViewById(R.id.tabHost) ;
-        tabHost.setup() ;
 
-//        TabWidget tabs = (TabWidget) findViewById(R.id.tabs);
-//        FrameLayout tab_content_frameLayout = (FrameLayout)findViewById(R.id.tab_content_frameLayout);
-        TabHost.TabSpec ts1 = tabHost.newTabSpec("Tab Spec");
-        ts1.setContent(R.id.tab1);
-        TabHost.TabSpec ts2 = tabHost.newTabSpec("Tab Spec");
-        ts2.setContent(R.id.tab2);
-        TabHost.TabSpec ts3 = tabHost.newTabSpec("Tab Spec");
-        ts3.setContent(R.id.tab3);
-        ts1.setIndicator("뉴스");
-        ts2.setIndicator("정보");
-        ts3.setIndicator("통계");
-        //tab호스트에 탭 추가
-        tabHost.addTab(ts1);
-        tabHost.addTab(ts2);
-        tabHost.addTab(ts3);
+        //tab 레이아웃 설정, adapter 설정
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tl_tabs);
+        ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);
+        Fragment[] arrFragments = new Fragment[3];
+        arrFragments[0] = new NewsFragment();
+        arrFragments[1] = new InformationFragment();
+        arrFragments[2] = new MapFragment();
+
+        MyPagerAdapter pagerAdapter = new MyPagerAdapter(getSupportFragmentManager(),arrFragments);
+        viewPager.setAdapter(pagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+
+
         //floating action button 설정
         final FloatingActionsMenu menuMultipleActions = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
 //        FloatingActionsMenu.collapse(); // close the menu
@@ -213,7 +216,49 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    //탭 어댑터 설정
+    private class MyPagerAdapter extends FragmentPagerAdapter {
+        private Fragment[] arrFragments;
 
+        public MyPagerAdapter(FragmentManager fm, Fragment[] arrFragments) {
+            super(fm);
+            this.arrFragments = arrFragments;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return arrFragments[0];
+                case 1:
+                    return arrFragments[1];
+                case 2:
+                    return arrFragments[2];
+                default:
+                    return null;
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return arrFragments.length;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "뉴스";
+                case 1:
+                    return "정보";
+                case 2:
+                    return "지도";
+                default:
+                    return null;
+
+            }
+        }
+    }
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);

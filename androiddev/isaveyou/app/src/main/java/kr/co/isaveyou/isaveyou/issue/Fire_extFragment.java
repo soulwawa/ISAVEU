@@ -330,7 +330,7 @@ public class Fire_extFragment extends Fragment {
                 String loc = "6";
                 String param = "loc=" + loc;
 
-                URL url = new URL("http://192.168.0.35:9999/locationFireEx.do");
+                URL url = new URL("http://192.168.0.35:9999/android/locationFireEx.do");
                 conn = (HttpURLConnection)url.openConnection();
                 conn.setFixedLengthStreamingMode(param.length());
                 conn.setRequestProperty("Content-type","application/x-www-form-urlencoded");

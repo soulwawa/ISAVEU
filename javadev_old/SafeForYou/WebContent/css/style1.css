@@ -1,0 +1,92 @@
+html{
+	height: auto;
+    min-height: 100%;
+    display: block;
+}
+
+body{
+	height: auto;
+    min-height: 100%;
+    background: url(../img/boxed-bg.jpg) repeat fixed;
+}
+
+html, body{
+	margin:0;
+	padding:0;
+	
+}
+
+#loginFormArea {
+	margin-top: 150px;
+}
+
+input[type=text] {
+	background-color: transparent !important;
+	border: 1px solid #999;
+	width: 180px;
+	height: 30px;
+	margin: 5px;
+	padding: 3px 5px;
+	border-radius: 7px;
+	font-size: 1rem;
+}
+
+input[type=password] {
+	background-color: transparent !important;
+	border: 1px solid #999;
+	width: 180px;
+	height: 30px;
+	margin: 5px;
+	padding: 3px 5px;
+	border-radius: 7px;
+	font-size: 1rem;
+}
+
+#loginBox {
+	width: 333px;
+	margin: 20px auto 0 auto;
+	padding:15px 20px;
+	border-radius: 7px;
+	background-color:#343f47;
+	height: 128px;
+	font-size: 1.3rem;
+	border: 1px solid #999;
+	background: rgba(e, e, e, 1);
+}
+
+input[type=submit] {
+	color: #999;
+	background-color: transparent !important;
+	float: left;
+	height: 87px;
+	margin-top:20px;
+	margin-left:24px;
+	border: 1px solid #999;
+	border-radius: 7px;
+	width: 80px;
+	font-size: 1rem;
+}
+
+.box {
+	float: left;
+	margin-top:15px;
+	margin-left:10px;
+}
+
+.imgBox {
+	margin: auto;
+	width: 600px;
+	text-align: center;
+}
+
+footer {
+	color: #999;
+	height: 50px;
+	margin: 50px auto 0 auto;
+	text-align: center;
+}
+
+.mainImg {
+	width: 293px;
+	height: 220px;
+}
