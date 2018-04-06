@@ -32,7 +32,7 @@
   var interval2 = setInterval(function () {
 	    $.ajax({
 	      type: "GET",
-	      url: "http://192.168.0.35:9999//admin/DispatcherModuleRecent",
+	      url: "http://192.168.0.35:9999/admin/DispatcherModuleRecent",
 	      dataType: "json",
 	      success: function(data2) {
 	        ob2 = data2;

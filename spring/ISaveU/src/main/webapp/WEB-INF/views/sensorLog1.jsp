@@ -20,48 +20,48 @@
 var interval = setInterval(function () {
     $.ajax({
       type: "GET",
-      url: "http://192.168.0.35:9999/DispatcherPart/temp",
+      url: "http://192.168.0.35:9999/admin/DispatcherPart/temp",
       dataType: "json",
       success: function(data) {
-        ob = data;
-        document.getElementById("chart6").setData(ob);
-        console.log(ob);
+        obtemp = data;
+        document.getElementById("chart6").setData(obtemp);
+        console.log(obtemp);
       }
     });
   }, 9900);
 var interval = setInterval(function () {
     $.ajax({
       type: "GET",
-      url: "http://192.168.0.35:9999/DispatcherPart/smoke",
+      url: "http://192.168.0.35:9999/admin/DispatcherPart/smoke",
       dataType: "json",
       success: function(data) {
-        ob = data;
-        document.getElementById("chart7").setData(ob);
-        console.log(ob);
+        obsmoke = data;
+        document.getElementById("chart7").setData(obsmoke);
+        console.log(obsmoke);
       }
     });
   }, 9900);
 var interval = setInterval(function () {
     $.ajax({
       type: "GET",
-      url: "http://192.168.0.35:9999/DispatcherPart/gyro",
+      url: "http://192.168.0.35:9999/admin/DispatcherPart/gyro",
       dataType: "json",
       success: function(data) {
-        ob = data;
-        document.getElementById("chart8").setData(ob);
-        console.log(ob);
+        obgyro = data;
+        document.getElementById("chart8").setData(obgyro);
+        console.log(obgyro);
       }
     });
   }, 9900);
 var interval = setInterval(function () {
     $.ajax({
       type: "GET",
-      url: "http://192.168.0.35:9999/DispatcherPart/fire",
+      url: "http://192.168.0.35:9999/admin/DispatcherPart/fire",
       dataType: "json",
       success: function(data) {
-        ob = data;
-        document.getElementById("chart9").setData(ob);
-        console.log(ob);
+        obfire = data;
+        document.getElementById("chart9").setData(obfire);
+        console.log(obfire);
       }
     });
   }, 9900);
