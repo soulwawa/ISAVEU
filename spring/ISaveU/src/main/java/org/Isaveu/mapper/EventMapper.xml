@@ -23,6 +23,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	 event_id
      	DESC LIMIT ${value};
     </select>
+    
+    <select id="selectRecentToModule" parameterType="String" resultType="org.Isaveu.domain.TbEventVO">
+    	SELECT
+    	 event_id, module_id, time, temp, smoke, 80 - (gyro/13) as 'gyro', fire, issue
+    	FROM
+    	 tb_event
+    	WHERE
+    		module_id = #{value}
+    	ORDER BY
+    	 event_id
+     	DESC LIMIT 12
+    </select>
+    
     <select id="dispatcherPart" parameterType= "int" resultType="org.Isaveu.domain.TbEventVO">
 	    SELECT 
 	    	* 

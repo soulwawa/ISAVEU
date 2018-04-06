@@ -105,7 +105,7 @@ SELECT * FROM tb_board;
 
 select* from tb_event WHERE module_id="10" limit 12;
 
-SELECT * FROM tb_event ORDER BY event_id DESC LIMIT 11;
+SELECT * FROM tb_event ORDER BY event_id DESC LIMIT 121;
 
 SELECT * FROM tb_event WHERE module_id ="1" order by time DESC limit 12; 
 

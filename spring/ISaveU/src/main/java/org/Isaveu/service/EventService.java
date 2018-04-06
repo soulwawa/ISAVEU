@@ -1,6 +1,7 @@
 package org.Isaveu.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -28,6 +29,11 @@ public class EventService implements EventMapper{
 	@Override
 	public ArrayList<TbEventVO> dispatcherPart(int num) {
 		return eMapper.dispatcherPart(num);
+	}
+
+	@Override
+	public List<TbEventVO> selectRecentToModule(String module_id) {
+		return eMapper.selectRecentToModule(module_id);
 	}
 	
 }
