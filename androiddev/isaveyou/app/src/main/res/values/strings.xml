@@ -16,6 +16,8 @@
     <string name="forfloor">층 비상대피도</string>
     <string name="play">재생</string>
     <string name="stop">멈춤</string>
+    <string name="search">검색</string>
+    <string name="turnOffAnimation">애니메이션\n멈춤</string>
     <!--NavigationDraw-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

@@ -8,16 +8,19 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Layout;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 import android.widget.ViewSwitcher;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
@@ -55,7 +58,7 @@ public class Fire_extFragment extends Fragment {
     TextView tv_startDate_600, tv_endDate_600, tv_startDate_601, tv_endDate_601, tv_startDate_602, tv_endDate_602, tv_startDate_603, tv_endDate_603, tv_startDate_604, tv_endDate_604, tv_startDate_605, tv_endDate_605, tv_startDate_606, tv_endDate_606, tv_startDate_607, tv_endDate_607, tv_startDate_608, tv_endDate_608,tv_startDate_609, tv_endDate_609, tv_startDate_610, tv_endDate_610;
     boolean running;
     Thread thread;
-    Button checkButton;
+    ToggleButton checkButton;
     LinearLayout layout_fire_ext1,layout_fire_ext2,layout_fire_ext3,layout_fire_ext4,layout_fire_ext5,layout_fire_ext6,layout_fire_ext7,layout_fire_ext8,layout_fire_ext9,layout_fire_ext10,layout_fire_ext11;
     String result;
     HttpURLConnection conn;
@@ -67,13 +70,6 @@ public class Fire_extFragment extends Fragment {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.checkButton:
-                    Log.v(TAG, "소화기 보기 눌림");
-                    Toast.makeText(getContext(),"소화기를 누르시면 남은 점검 일자를 확인하실 수 있습니다.",Toast.LENGTH_SHORT).show();
-                    Fire_ext_CheckTask fire_ext_checkTask = new Fire_ext_CheckTask();
-                    fire_ext_checkTask.execute();
-                    checkButton.setEnabled(false);
-                    break;
                 case R.id.room600_hallWay01_Fire_ext:
                     Log.v(TAG, "hallWay01_Fire_ext 눌림");
                     layout_fire_ext1.setVisibility(View.VISIBLE);
@@ -261,9 +257,6 @@ public class Fire_extFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_fire_ext,null);
 
-        checkButton = view.findViewById(R.id.checkButton);
-
-        checkButton.setOnClickListener(handler);
 
         fire_ext1 = view.findViewById(R.id.room600_hallWay01_Fire_ext);
         fire_ext2 = view.findViewById(R.id.room601_waitingRoom_Fire_ext);
@@ -293,6 +286,29 @@ public class Fire_extFragment extends Fragment {
         for(int i = 0 ; i<11 ; i++){
             imageSwitchers[i].setOnClickListener(handler);
         }
+
+        //토글 버튼을 통해 이벤트 관리
+        checkButton = view.findViewById(R.id.checkButton);
+
+        checkButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == true){
+                    Log.v(TAG, "소화기 보기 눌림");
+                    Toast toast = Toast.makeText(getContext(),"소화기를 누르시면 남은 점검일자를 확인하실 수 있습니다.",Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER,0,0);
+                    toast.show();
+//                    Fire_ext_CheckTask fire_ext_checkTask = new Fire_ext_CheckTask();
+//                    fire_ext_checkTask.execute();
+                    startCheckFire_ext_Animation();
+                }else{
+                   Toast toast = Toast.makeText(getContext(),"버튼을 누르시면 사용가능한 소화기를 확인하실 수 있습니다.",Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER,0,0);
+                    toast.show();
+                    stopCheckFire_ext_Animation();
+                }
+            }
+        });
 
         pb_600 = view.findViewById(R.id.pb_hallway_600);
         pb_610 = view.findViewById(R.id.pb_restRoom_610);
@@ -357,27 +373,12 @@ public class Fire_extFragment extends Fragment {
         tv_endDate_609 = view.findViewById(R.id.tv_endDate_609);
         tv_startDate_610 = view.findViewById(R.id.tv_startDate_610_restRoom);
         tv_endDate_610 = view.findViewById(R.id.tv_endDate_610_restRoom);
-
+        Fire_ext_CheckTask fire_ext_checkTask = new Fire_ext_CheckTask();
+        fire_ext_checkTask.execute();
 
         return view;
     }
 
-    private void closeLayout(){
-        layout_fire_ext1 = linearLayouts[0];
-        layout_fire_ext2 = linearLayouts[1];
-        layout_fire_ext3 = linearLayouts[2];
-        layout_fire_ext4 = linearLayouts[3];
-        layout_fire_ext5 = linearLayouts[4];
-        layout_fire_ext6 = linearLayouts[5];
-        layout_fire_ext7 = linearLayouts[6];
-        layout_fire_ext8 = linearLayouts[7];
-        layout_fire_ext9 = linearLayouts[8];
-        layout_fire_ext10 = linearLayouts[9];
-        layout_fire_ext11 = linearLayouts[10];
-        for(int i = 0;i<linearLayouts.length;i++ ){
-
-        }
-    }
 
 
     //존재하는 소화기위치 표시하는 애니메이션
@@ -686,7 +687,7 @@ public class Fire_extFragment extends Fragment {
                         }
                     });
                 }
-                startCheckFire_ext_Animation();
+//                startCheckFire_ext_Animation();
 
             }catch (JSONException e){
                 e.printStackTrace();

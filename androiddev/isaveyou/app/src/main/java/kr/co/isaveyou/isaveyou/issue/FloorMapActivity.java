@@ -10,6 +10,8 @@ import kr.co.isaveyou.isaveyou.R;
 
 public class FloorMapActivity extends AppCompatActivity {
     private static final String TAG = "FloorMapActivity";
+    private static final String fragmentTag_fire_ext = "Fire_extFragment";
+    private static final String fragmentTag_disaster = "DisasterFragment";
     String event,issue, eventCheck,place;
 
     @Override
@@ -28,19 +30,27 @@ public class FloorMapActivity extends AppCompatActivity {
 
         if(event.equals("1")){
             FragmentManager fragmentManager = getSupportFragmentManager();
+            //
+            fragmentManager.popBackStack();
+            //
             android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             android.support.v4.app.Fragment fragment_fire_ext = new Fire_extFragment();
             fragmentTransaction.replace(R.id.fire_ext_map_layout,fragment_fire_ext);
+            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
             Log.v(TAG, "event-1 : " + event);
         }else if(event.equals("0")){
             FragmentManager fragmentManager = getSupportFragmentManager();
+            //
+            fragmentManager.popBackStack();
+            //
             android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 //            Bundle bundle = new Bundle();
 //            bundle.putString("place",place);
             android.support.v4.app.Fragment fragment_disaster = new DisasterFragment();
 //            fragment_disaster.setArguments(bundle);
             fragmentTransaction.replace(R.id.fire_ext_map_layout,fragment_disaster);
+            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
             Log.v(TAG, "event-0 : " +event);
 //            Log.v(TAG,"place0 : " + place);

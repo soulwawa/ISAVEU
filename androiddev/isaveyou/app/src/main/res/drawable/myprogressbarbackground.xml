@@ -11,6 +11,6 @@
         android:bottom="4dp"
         />
     <solid
-        android:color="@color/white_pressed"/>
+        android:color="@color/white"/>
 
 </shape>

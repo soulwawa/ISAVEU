@@ -7,7 +7,7 @@
     android:visibility="visible"
     tools:context="kr.co.isaveyou.isaveyou.issue.Fire_extFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,12 +16,6 @@
         android:visibility="visible"
         tools:context="kr.co.isaveyou.isaveyou.FullscreenFloorMapActivity">
 
-        <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. -->
-
-        <!-- This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows. -->
 
         <LinearLayout
             android:id="@+id/room600_hallway01_Layout"
@@ -41,7 +35,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp"
                 android:textStyle="bold" />
@@ -66,7 +60,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp"
                 android:textStyle="bold" />
@@ -91,7 +85,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textAllCaps="false"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp"
@@ -121,7 +115,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
@@ -144,7 +138,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
@@ -170,7 +164,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
@@ -196,7 +190,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
 
@@ -223,7 +217,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
 
@@ -247,7 +241,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
@@ -274,7 +268,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
@@ -298,7 +292,7 @@
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
 
@@ -324,7 +318,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
@@ -348,7 +342,7 @@
 
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
@@ -375,7 +369,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
@@ -398,7 +392,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
@@ -425,7 +419,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
@@ -448,7 +442,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
@@ -475,7 +469,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textStyle="bold"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp" />
@@ -499,7 +493,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp"
                 android:textStyle="bold" />
@@ -526,7 +520,7 @@
                 android:layout_height="14dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textColor="@color/black_semi_transparent"
 
                 android:textSize="8sp"
@@ -551,7 +545,7 @@
 
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp"
                 android:textStyle="bold" />
@@ -579,7 +573,7 @@
 
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="2015.01.24"
+                android:hint="0000.00.00"
                 android:textColor="@color/black_semi_transparent"
                 android:textSize="8sp"
                 android:textStyle="bold" />
@@ -713,7 +707,7 @@
 
         </ImageSwitcher>
 
-        <Button
+        <ToggleButton
             android:id="@+id/checkButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -722,7 +716,8 @@
             android:layout_marginStart="8dp"
             android:background="@drawable/mybutton"
             android:gravity="center_horizontal|center"
-            android:text="@string/possibleFire_ext"
+            android:textOff="@string/possibleFire_ext"
+            android:textOn = "@string/turnOffAnimation"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
