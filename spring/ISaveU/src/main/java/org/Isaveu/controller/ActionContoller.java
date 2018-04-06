@@ -17,17 +17,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class ActionContoller {
 
-	@Resource(name = "org.Isave.service.ActionService")
+	@Resource(name = "org.Isaveu.service.ActionService")
 	ActionService aService;
 	
 	@ResponseBody
-	@RequestMapping("/admin/event,do")
-	public List<Map<String, Object>> dispatcherEvent(@ModelAttribute TbActionVO action) throws Exception {
+	@RequestMapping("/admin/event.do")
+	public Map<String, Object>dispatcherEvent(@ModelAttribute TbActionVO action) throws Exception {
 		ArrayList<TbActionVO> list = new ArrayList<TbActionVO>();
 		list = aService.selectAllList();
 		Map<String, Object> map =  new HashMap<String, Object>();
+		map.put("list", list);
 		
-		return null;
+		return map;
 	}
 	
 	

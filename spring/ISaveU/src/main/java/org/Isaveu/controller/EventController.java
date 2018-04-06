@@ -56,6 +56,7 @@ import com.google.gson.JsonObject;
 @RestController
 public class EventController {
 	String issue;
+	String issueTemp = "0";
 	float temp;
 	float smoke;
 	float gyro;
@@ -88,6 +89,7 @@ public class EventController {
 		gyro = event.getGyro();
 		fire = event.getFire();
 		module_id = event.getModule_id();
+		
 
 		// if 모듈이 여러개일때 가정
 		String typeArduino = "arduino";
@@ -113,26 +115,13 @@ public class EventController {
 			System.out.println("InsertEvent Succes");
 			break;
 		default:
-			System.out.println("module_id" + module_id);
-			System.out.println("issue" + issue);
-			System.out.println("센서상태 양호| " + datenow);
-			if (module_id.equals("0")) {
-				for (int i = 0; i < moduleList.size(); i++) {
-					float ramdom = (float) Math.random();
-					event.setModule_id(String.valueOf(i));
-					event.setTemp(temp + ramdom);
-					event.setSmoke(smoke + ramdom);
-					event.setGyro(gyro + ramdom);
-					event.setFire(fire + ramdom);
-					event.setIssue(issue);
-					eService.insertEvent(event);
-					// System.out.println("InsertEvent Succes");
-				}
-			} else {
-				for (int i = 0; i < moduleList.size(); i++) {
-					if (i == Integer.parseInt(module_id)) {
-						continue;
-					} else {
+			if(issue.equals(issueTemp)) {
+				issueTemp = issue;
+				System.out.println("module_id: " + module_id);
+				System.out.println("issue: " + issue + "issueTemp" + issueTemp);
+				System.out.println("센서상태 양호| " + datenow);
+				if (module_id.equals("0")) {
+					for (int i = 0; i < moduleList.size(); i++) {
 						float ramdom = (float) Math.random();
 						event.setModule_id(String.valueOf(i));
 						event.setTemp(temp + ramdom);
@@ -143,8 +132,28 @@ public class EventController {
 						eService.insertEvent(event);
 						// System.out.println("InsertEvent Succes");
 					}
+				} else {
+					for (int i = 0; i < moduleList.size(); i++) {
+						if (i == Integer.parseInt(module_id)) {
+							continue;
+						} else {
+							float ramdom = (float) Math.random();
+							event.setModule_id(String.valueOf(i));
+							event.setTemp(temp + ramdom);
+							event.setSmoke(smoke + ramdom);
+							event.setGyro(gyro + ramdom);
+							event.setFire(fire + ramdom);
+							event.setIssue(issue);
+							eService.insertEvent(event);
+							// System.out.println("InsertEvent Succes");
+						}
+					}
 				}
+			}else {
+				System.out.println("센서 오류 감지 :" + module_id);
+				
 			}
+			
 			RaspControl(issue);
 			break;
 		}
