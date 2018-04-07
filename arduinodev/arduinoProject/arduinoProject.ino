@@ -127,6 +127,7 @@ void httpRequest() {
   // This will free the socket on the WiFi shield
   client.stop();
   lastConnectionTime = millis();
+  Serial.println(lastConnectionTime);
   
   // if there's a successful connection:
   if (client.connect(server_name, 9999)) {

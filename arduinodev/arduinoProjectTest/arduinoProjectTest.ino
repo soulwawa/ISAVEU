@@ -1,5 +1,5 @@
-#include <Phpoc.h>
 #include <SPI.h>
+#include <Phpoc.h>
 #include <Adafruit_MLX90614.h>
 #include <Wire.h>
 
@@ -9,7 +9,7 @@ Adafruit_MLX90614 mlx = Adafruit_MLX90614();          // tempSensor
 // serverConnection
 char server_name[] = "192.168.0.35";
 unsigned long lastConnectionTime = 0;
-const unsigned long postingInterval = 100000;    // delay milliseconds
+const unsigned long postingInterval = 10L * 1000L;    // delay milliseconds
 String url = "";
 
 // module
@@ -26,7 +26,7 @@ int smokeVal;
 const int smokeHigh = 1000;                         // fire event
 const int fireSensorPin = A13;
 int fireVal;
-const int fireLow = 100;                             // fire event
+const int fireLow = 100;                            // fire event
 const int gyroSensorPin = A11;
 int gyroVal;
 const int gyroLow = 100;                            // earthquake event
@@ -56,9 +56,24 @@ void earthquakeMonitoring(){
   Serial.println();
 }
 
+void monitoring(){
+  Serial.print("TEMP : "); Serial.print(tempObject); Serial.println("*C");
+//  Serial.print("*C\tOBJTEMP : "); Serial.print(tempAmbient);
+  Serial.print("SMOKE : ");
+  Serial.println(smokeVal);
+  Serial.print("GYRO : ");
+  Serial.println(gyroVal);
+  Serial.print("FIRE : ");
+  Serial.println(fireVal);
+  Serial.print("GYRO : ");
+  Serial.println(gyroVal);
+  Serial.println("STATE : NORMAL");
+  Serial.println();
+}
+
 void sensing(){
 //  tempAmbient = mlx.readAmbientTempC();       // ambTemp
-  tempObject = mlx.readObjectTempC();         // objTemp
+  tempObject = mlx.readObjectTempC();           // objTemp
   smokeVal = analogRead(smokeSensorPin);
   gyroVal = analogRead(gyroSensorPin);
   fireVal = analogRead(fireSensorPin);
@@ -107,8 +122,9 @@ void event(){
 
 void setup() {
   Serial.begin(9600);
-
-// module
+  while(!Serial);
+  
+  // module
   pinMode(laserPin, OUTPUT);
   mlx.begin();                                          // temp
   pinMode(ledRedPin, OUTPUT);
@@ -117,53 +133,16 @@ void setup() {
   pinMode(ledPin, OUTPUT);
 
   // connection
-  Serial.println("Sending GET request to web server");    
+  Serial.println("Sending GET request to web server");
   Phpoc.begin(PF_LOG_SPI | PF_LOG_NET);
 }
 
-void httpRequest() {
-  // close any connection before send a new request.
-  // This will free the socket on the WiFi shield
-  client.stop();
-  lastConnectionTime = millis();
-  
-  // if there's a successful connection:
-  if (client.connect(server_name, 9999)) {
-    Serial.println("connecting...");      
-    client.println(url);                                  // send the HTTP PUT request:
-    client.println();
-    // note the time that the connection was made:
-     flag = false;
-     Serial.println("check!");
-     digitalWrite(ledPin, HIGH);
-  } else {
-    // if you couldn't make a connection:
-    Serial.println("connection failed");
-  }
-}
-
-void loop() {
-  if( !flag ){
-    flag1 = false;
-    while ( client.available() ) {
-      flag1 = true;
-      char c = client.read();
-      Serial.write(c);
-    }
-    if(flag1){
-      flag = true;
-      }
-  }
-  if(flag){
-    sensing();
-    event();
-  }
-
 const int moduleId = 0;
 
-// 서버접속
-  if ( ((millis() - lastConnectionTime > postingInterval) && flag ||( (issue == 1) || (issue == 2) || (issue == 3) ) ) ){
-    url = "GET /eventIn.do?module_id=";
+void loop() {
+  Serial.println("routine start");
+  if ( ((millis() - lastConnectionTime > postingInterval) || ( (issue == 1) || (issue == 2) || (issue == 3) ) ) ){
+    url = "GET /module/eventIn.do?module_id=";
     url += moduleId;
     url += "&temp=" + String(tempObject);
     url += "&smoke=" + String(smokeVal);
@@ -171,12 +150,36 @@ const int moduleId = 0;
     url += "&fire=" + String(fireVal);
     url += "&issue=" + String(issue);
     url += " HTTP/1.0";
-    Serial.print("url: ");
-    Serial.println(url);
-    
-    httpRequest();
+
+    Serial.println("connecting...");
+    if(client.connect(server_name, 9999)) {
+      Serial.println("connection start");
+      digitalWrite(ledPin, HIGH);
+      Serial.println("connecting...");      
+      client.println(url);
+      client.println();
+      if(client.available()){
+        Serial.println("check1");
+        client.read();
+//        client.stop();
+        digitalWrite(ledPin, LOW);
+        lastConnectionTime = millis();
+        }
+        
+      if(!client.connected()){
+        Serial.println("check2");
+        Serial.println("disconnected");
+        client.stop();
+        digitalWrite(ledPin, LOW);
+        lastConnectionTime = millis();
+        }
+    }else{
+    sensing();
+    event();
+    monitoring();
+    issue = 0;
+
+    delay(1000);
+    }
   }
-   digitalWrite(ledPin, LOW);
-   issue = 0;
-   delay(1000);
 }
