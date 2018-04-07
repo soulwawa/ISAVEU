@@ -4,25 +4,18 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URI;
 import java.nio.charset.Charset;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
-
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
-
 import org.Isaveu.domain.ModuleByLocationVO;
 import org.Isaveu.domain.TbActionVO;
 import org.Isaveu.domain.TbEventVO;
@@ -41,20 +34,14 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import com.fasterxml.jackson.annotation.JacksonInject.Value;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-
-import ch.qos.logback.core.net.SyslogOutputStream;
 
 @RestController
 public class EventController {
@@ -94,7 +81,6 @@ public class EventController {
 		gyro = event.getGyro();
 		fire = event.getFire();
 		module_id = event.getModule_id();
-		
 
 		// if 모듈이 여러개일때 가정
 		List<TbModuleVO> moduleList = mService.getModuleList(typeArduino);
@@ -119,7 +105,7 @@ public class EventController {
 			System.out.println("InsertEvent Succes");
 			break;
 		default:
-			if(issue.equals(issueTemp)) {
+			if (issue.equals(issueTemp)) {
 				issueTemp = issue;
 				System.out.println("module_id: " + module_id);
 				System.out.println("issue: " + issue + "issueTemp" + issueTemp);
@@ -153,11 +139,11 @@ public class EventController {
 						}
 					}
 				}
-			}else {
+			} else {
 				System.out.println("센서 오류 감지 :" + module_id);
-				
+
 			}
-			
+
 			RaspControl(issue);
 			break;
 		}
@@ -274,29 +260,6 @@ public class EventController {
 
 	@RequestMapping("/admin/Dispatcher")
 	private Map<String, Object> dispatcher(@ModelAttribute TbEventVO event) throws Exception {
-
-		// 이번에는 이전 예제와는 다르게 Ajax요청이 오면 응답해줄꺼다.
-		// 이전에는 그냥 내가 원하는 페이지로 json을 가져가는 거였다면?
-		// 지금은 요청한 놈한테 return만 해주면 되기 때문에
-		// PrintWriter out = resp.getWriter();
-		// 이걸 사용하면 된다.
-		// 주소요청 http://localhost:8000/JsonAjax/Dispatcher
-		// Get방식
-		// process()함수 호출
-		// JSON만들기
-		// JsonObject jsonObj = new JsonObject();
-		//
-		// Date date = new Date();
-		// SimpleDateFormat transFomat2 = new SimpleDateFormat("yyyyMMdd_HHmmss");
-		// String datenow = transFomat2.format(date);
-		// jsonObj.addProperty("temp", temp);
-		// jsonObj.addProperty("smoke", smoke);
-		// jsonObj.addProperty("fire", fire);
-		// jsonObj.addProperty("gyro", gyro);
-		// jsonObj.addProperty("date", datenow);
-		// jsonObj.addProperty("msg", "success");
-		// PrintWriter out = resp.getWriter();
-		// out.print(jsonObj);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("temp", form.format(temp));
 		map.put("smoke", form.format((smoke / 20.0)));
@@ -313,16 +276,14 @@ public class EventController {
 		list = eService.selectRecent(num);
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<Map<String, Object>> myList = new ArrayList<Map<String, Object>>();
-		// System.out.println(list.size());
 		for (int i = 0; i < list.size(); i++) {
 			map = new LinkedHashMap<String, Object>();
 			map.put("time", list.get(i).getTime().substring(11, 19));
-			map.put("temp", form.format(list.get(i).getTemp()));
-			map.put("smoke", form.format((list.get(i).getSmoke() / 20.0)));
-			map.put("fire", form.format((80 - (list.get(i).getFire() / 13.0))));
-			map.put("gyro", form.format((80 - (list.get(i).getGyro() / 13.0))));
+			map.put("temp", list.get(i).getTemp());
+			map.put("smoke", list.get(i).getSmoke());
+			map.put("fire", list.get(i).getFire());
+			map.put("gyro", list.get(i).getGyro());
 			myList.add(i, map);
-			// System.out.println(myList.toString());
 		}
 		Collections.reverse(myList);
 		return myList;
@@ -337,29 +298,19 @@ public class EventController {
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		list = eService.dispatcherPart(moduleList.size() * moduleList.size());
-		// System.out.println(list.size());
-//		result = new ArrayList<Map<String, Object>>();
 
 		for (int i = 0; i < moduleList.size(); i++) {
-			// System.out.println(i);
 			map = new LinkedHashMap<String, Object>();
 			for (int j = i * moduleList.size(); j < (i + 1) * moduleList.size(); j++) {
 				TbEventVO listDetail = list.get(j);
-				// map = new LinkedHashMap<String, Object>();
-				// System.out.println(j);
 				if (j % moduleList.size() == 0) {
-					// System.out.println(j);
 					map.put("time", listDetail.getTime().substring(11, 19));
 					map.put(listDetail.getModule_id(), form.format(listDetail.getTemp()));
-					// System.out.println(map.toString());
 				} else {
-					// System.out.println(j);
 					map.put(listDetail.getModule_id(), form.format(listDetail.getTemp()));
-					// System.out.println(map.toString());
 				}
 			}
 			result.add(map);
-			// Collections.reverse(result);
 		}
 		Collections.reverse(result);
 		return result;
@@ -375,29 +326,19 @@ public class EventController {
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		list = eService.dispatcherPart(moduleList.size() * moduleList.size());
-		// System.out.println(list.size());
-//		result = new ArrayList<Map<String, Object>>();
 
 		for (int i = 0; i < moduleList.size(); i++) {
-			// System.out.println(i);
 			map = new LinkedHashMap<String, Object>();
 			for (int j = i * moduleList.size(); j < (i + 1) * moduleList.size(); j++) {
 				TbEventVO listDetail = list.get(j);
-				// map = new LinkedHashMap<String, Object>();
-				// System.out.println(j);
 				if (j % moduleList.size() == 0) {
-					// System.out.println(j);
 					map.put("time", listDetail.getTime().substring(11, 19));
-					map.put(listDetail.getModule_id(), form.format((listDetail.getSmoke() / 20.0)));
-					// System.out.println(map.toString());
+					map.put(listDetail.getModule_id(), listDetail.getSmoke());
 				} else {
-					// System.out.println(j);
-					map.put(listDetail.getModule_id(), form.format((listDetail.getSmoke() / 20.0)));
-					// System.out.println(map.toString());
+					map.put(listDetail.getModule_id(), listDetail.getSmoke());
 				}
 			}
 			result.add(map);
-			// Collections.reverse(result);
 		}
 		Collections.reverse(result);
 		return result;
@@ -413,29 +354,19 @@ public class EventController {
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		list = eService.dispatcherPart(moduleList.size() * moduleList.size());
-		// System.out.println(list.size());
-//		result = new ArrayList<Map<String, Object>>();
 
 		for (int i = 0; i < moduleList.size(); i++) {
-			// System.out.println(i);
 			map = new LinkedHashMap<String, Object>();
 			for (int j = i * moduleList.size(); j < (i + 1) * moduleList.size(); j++) {
 				TbEventVO listDetail = list.get(j);
-				// map = new LinkedHashMap<String, Object>();
-				// System.out.println(j);
 				if (j % moduleList.size() == 0) {
-					// System.out.println(j);
 					map.put("time", listDetail.getTime().substring(11, 19));
-					map.put(listDetail.getModule_id(), form.format(80 - (listDetail.getFire() / 13.0)));
-					// System.out.println(map.toString());
+					map.put(listDetail.getModule_id(),listDetail.getFire());
 				} else {
-					// System.out.println(j);
-					map.put(listDetail.getModule_id(), form.format(80 - (listDetail.getFire() / 13.0)));
-					// System.out.println(map.toString());
+					map.put(listDetail.getModule_id(), listDetail.getFire());
 				}
 			}
 			result.add(map);
-			// Collections.reverse(result);
 		}
 		Collections.reverse(result);
 		return result;
@@ -452,162 +383,124 @@ public class EventController {
 
 		list = eService.dispatcherPart(moduleList.size() * moduleList.size());
 		// System.out.println(list.size());
-//		result = new ArrayList<Map<String, Object>>();
+		// result = new ArrayList<Map<String, Object>>();
 
 		for (int i = 0; i < moduleList.size(); i++) {
 			// System.out.println(i);
 			map = new LinkedHashMap<String, Object>();
 			for (int j = i * moduleList.size(); j < (i + 1) * moduleList.size(); j++) {
 				TbEventVO listDetail = list.get(j);
-				// map = new LinkedHashMap<String, Object>();
-				// System.out.println(j);
 				if (j % moduleList.size() == 0) {
-					// System.out.println(j);
 					map.put("time", listDetail.getTime().substring(11, 19));
-					map.put(listDetail.getModule_id(), form.format(80 - (listDetail.getGyro() / 10.0)));
-					// System.out.println(map.toString());
+					map.put(listDetail.getModule_id(), listDetail.getGyro());
 				} else {
-					// System.out.println(j);
-					map.put(listDetail.getModule_id(), form.format(80 - (listDetail.getGyro() / 10.0)));
-					// System.out.println(map.toString());
+					map.put(listDetail.getModule_id(), listDetail.getGyro());
 				}
 			}
 			result.add(map);
-			// Collections.reverse(result);
 		}
 		Collections.reverse(result);
 		return result;
 	}
-	
+
 	@RequestMapping("/admin/DispatcherModuleRecent")
 	private List<Map<String, Object>> dispatcherModuleRecent(@ModelAttribute TbEventVO event) throws Exception {
-		
+
 		List<TbModuleVO> moduleList = mService.getModuleList(typeArduino);
 		List<TbEventVO> list = new ArrayList<TbEventVO>();
-		List<TbEventVO> innnerlist = new ArrayList<TbEventVO>();
 
-//		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
 		Map<String, Object> map = new HashMap<String, Object>();
-		Map<String, Object> innerMap = new HashMap<String, Object>();
-		List<Object> innerList = new ArrayList<Object>();
 		List<Map<String, Object>> listAll = new ArrayList<Map<String, Object>>();
-		
-//		for(int i = 0 ; i < moduleList.size() ; i ++) {
-//			map = new HashMap<String, Object>();
-//			map.put("module_id", String.valueOf(i));
-//			list = new ArrayList<TbEventVO>();
-//			list = eService.selectRecentToModule(String.valueOf(i));
-//			System.out.println("===================");
-//			System.out.println(list);
-//			System.out.println("===================");
-//			innnerlist = new ArrayList<TbEventVO>();
-//			for(int j = 0; j < list.size(); j ++) {				
-//				innerMap = new HashMap<String,Object>();
-//				innerMap.put("module_id",list.get(j).getModule_id());
-//				innerMap.put("time",list.get(j).getTime());
-//				innerMap.put("temp",list.get(j).getTemp());
-//				innerMap.put("smoke",list.get(j).getSmoke());
-//				innerMap.put("gyro",list.get(j).getGyro());
-//				innerList.add(innerMap);
-//			}
-//			
-//			map.put("value", innerList);
-//			
-//			listAll.add(map);
-//		}
-//		
-//		return listAll;
-//		}
-	
-	for(int i = 0 ; i < moduleList.size() ; i ++) {
-		map = new HashMap<String, Object>();
-		map.put("module_id", String.valueOf(i));
-		list = new ArrayList<TbEventVO>();
-		list = eService.selectRecentToModule(String.valueOf(i));
-		map.put("value", list);
-		
-		listAll.add(map);
+
+		for (int i = 0; i < moduleList.size(); i++) {
+			map = new HashMap<String, Object>();
+			map.put("module_id", String.valueOf(i));
+			list = new ArrayList<TbEventVO>();
+			list = eService.selectRecentToModule(String.valueOf(i));
+			map.put("value", list);
+
+			listAll.add(map);
+		}
+		return listAll;
 	}
-	return listAll;
-	}
-	
+
 }
-	
-	// @RequestMapping("/DispatcherPart/{path}")
-	// private List<Map<String,Object>> dispatcherPart(@PathVariable("path") String
-	// path, @ModelAttribute TbEventVO event) throws Exception{
-	// String typeArduino = "arduino";
-	// List<TbModuleVO> moduleList = mService.getModuleList(typeArduino);
-	// ArrayList<TbEventVO> list = new ArrayList<TbEventVO>();
-	//
-	// List<Map<String,Object>> result = new ArrayList<Map<String,Object>>();
-	// Map<String, Object> map = new HashMap<String, Object>();
-	//
-	// list = eService.dispatcherPart();
-	//// System.out.println(list.size());
-	// result = new ArrayList<Map<String,Object>>();
-	//
-	// for(int i = 0; i < moduleList.size(); i ++) {
-	//// System.out.println(i);
-	// map = new LinkedHashMap<String, Object>();
-	// for(int j = i * moduleList.size() ; j < (i+1) * moduleList.size() ; j++) {
-	// TbEventVO listDetail = list.get(j);
-	//// map = new LinkedHashMap<String, Object>();
-	//// System.out.println(j);
-	// switch (path) {
-	// case "temp":
-	// if( j % moduleList.size() == 0) {
-	//// System.out.println(j);
-	// map.put("time", listDetail.getTime().substring(11,19));
-	// map.put(listDetail.getModule_id(), listDetail.getTemp());
-	//// System.out.println(map.toString());
-	// }else {
-	//// System.out.println(j);
-	// map.put(listDetail.getModule_id(), listDetail.getTemp());
-	//// System.out.println(map.toString());
-	// }
-	// case "smoke":
-	// if( j % moduleList.size() == 0) {
-	//// System.out.println(j);
-	// map.put("time", listDetail.getTime().substring(11,19));
-	// map.put(listDetail.getModule_id(), listDetail.getSmoke());
-	//// System.out.println(map.toString());
-	// }else {
-	//// System.out.println(j);
-	// map.put(listDetail.getModule_id(), listDetail.getSmoke());
-	//// System.out.println(map.toString());
-	// }
-	// case "gyro":
-	// if( j % moduleList.size() == 0) {
-	//// System.out.println(j);
-	// map.put("time", listDetail.getTime().substring(11,19));
-	// map.put(listDetail.getModule_id(), listDetail.getGyro());
-	//// System.out.println(map.toString());
-	// }else {
-	//// System.out.println(j);
-	// map.put(listDetail.getModule_id(), listDetail.getGyro());
-	//// System.out.println(map.toString());
-	// }
-	// case "fire":
-	// if( j % moduleList.size() == 0) {
-	//// System.out.println(j);
-	// map.put("time", listDetail.getTime().substring(11,19));
-	// map.put(listDetail.getModule_id(), listDetail.getFire());
-	//// System.out.println(map.toString());
-	// }else {
-	//// System.out.println(j);
-	// map.put(listDetail.getModule_id(), listDetail.getFire());
-	//// System.out.println(map.toString());
-	// }
-	// default:
-	// break;
-	// }
-	// }
-	// result.add(map);
-	//// Collections.reverse(result);
-	// }
-	// Collections.reverse(result);
-	// return result;
-	//
-	// }
-	
+
+// swich case문
+// @RequestMapping("/DispatcherPart/{path}")
+// private List<Map<String,Object>> dispatcherPart(@PathVariable("path") String
+// path, @ModelAttribute TbEventVO event) throws Exception{
+// String typeArduino = "arduino";
+// List<TbModuleVO> moduleList = mService.getModuleList(typeArduino);
+// ArrayList<TbEventVO> list = new ArrayList<TbEventVO>();
+//
+// List<Map<String,Object>> result = new ArrayList<Map<String,Object>>();
+// Map<String, Object> map = new HashMap<String, Object>();
+//
+// list = eService.dispatcherPart();
+//// System.out.println(list.size());
+// result = new ArrayList<Map<String,Object>>();
+//
+// for(int i = 0; i < moduleList.size(); i ++) {
+//// System.out.println(i);
+// map = new LinkedHashMap<String, Object>();
+// for(int j = i * moduleList.size() ; j < (i+1) * moduleList.size() ; j++) {
+// TbEventVO listDetail = list.get(j);
+//// map = new LinkedHashMap<String, Object>();
+//// System.out.println(j);
+// switch (path) {
+// case "temp":
+// if( j % moduleList.size() == 0) {
+//// System.out.println(j);
+// map.put("time", listDetail.getTime().substring(11,19));
+// map.put(listDetail.getModule_id(), listDetail.getTemp());
+//// System.out.println(map.toString());
+// }else {
+//// System.out.println(j);
+// map.put(listDetail.getModule_id(), listDetail.getTemp());
+//// System.out.println(map.toString());
+// }
+// case "smoke":
+// if( j % moduleList.size() == 0) {
+//// System.out.println(j);
+// map.put("time", listDetail.getTime().substring(11,19));
+// map.put(listDetail.getModule_id(), listDetail.getSmoke());
+//// System.out.println(map.toString());
+// }else {
+//// System.out.println(j);
+// map.put(listDetail.getModule_id(), listDetail.getSmoke());
+//// System.out.println(map.toString());
+// }
+// case "gyro":
+// if( j % moduleList.size() == 0) {
+//// System.out.println(j);
+// map.put("time", listDetail.getTime().substring(11,19));
+// map.put(listDetail.getModule_id(), listDetail.getGyro());
+//// System.out.println(map.toString());
+// }else {
+//// System.out.println(j);
+// map.put(listDetail.getModule_id(), listDetail.getGyro());
+//// System.out.println(map.toString());
+// }
+// case "fire":
+// if( j % moduleList.size() == 0) {
+//// System.out.println(j);
+// map.put("time", listDetail.getTime().substring(11,19));
+// map.put(listDetail.getModule_id(), listDetail.getFire());
+//// System.out.println(map.toString());
+// }else {
+//// System.out.println(j);
+// map.put(listDetail.getModule_id(), listDetail.getFire());
+//// System.out.println(map.toString());
+// }
+// default:
+// break;
+// }
+// }
+// result.add(map);
+//// Collections.reverse(result);
+// }
+// Collections.reverse(result);
+// return result;
+//
+// }

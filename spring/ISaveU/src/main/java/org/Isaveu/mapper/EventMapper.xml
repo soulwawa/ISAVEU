@@ -14,7 +14,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
     <select id="selectRecent" parameterType="int" resultType="org.Isaveu.domain.TbEventVO">
     	SELECT
-    	 * 
+    	 event_id, module_id, time, truncate(temp, 2) as 'temp',  truncate(smoke/20,2) as 'smoke',
+    	 truncate(80 - (gyro/13),2) as 'gyro',  truncate(80 - (fire/13),2) as 'fire', issue 
     	FROM
     	 tb_event
     	WHERE
@@ -26,7 +27,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
     <select id="selectRecentToModule" parameterType="String" resultType="org.Isaveu.domain.TbEventVO">
     	SELECT
-    	 event_id, module_id, time, temp, smoke, 80 - (gyro/13) as 'gyro', fire, issue
+    	 event_id, module_id, time, truncate(temp, 2) as 'temp',  truncate(smoke/20,2) as 'smoke',
+    	 truncate(80 - (gyro/13),2) as 'gyro',  truncate(80 - (fire/13),2) as 'fire', issue
     	FROM
     	 tb_event
     	WHERE
@@ -38,7 +40,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
     <select id="dispatcherPart" parameterType= "int" resultType="org.Isaveu.domain.TbEventVO">
 	    SELECT 
-	    	* 
+	    	event_id, module_id, time, truncate(temp, 2) as 'temp',  truncate(smoke/20,2) as 'smoke',
+    	 truncate(80 - (gyro/13),2) as 'gyro',  truncate(80 - (fire/13),2) as 'fire', issue 
 	    FROM
 	    	tb_event
 	    order by time DESC limit ${value}; 
