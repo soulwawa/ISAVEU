@@ -112,17 +112,6 @@ public class FireExController {
 		return map;
 	}
 	
-	// 소화기 유효기간 확인
-//	@ResponseBody
-//	@RequestMapping(value = "/Android/Fire_extCheck.do")
-//	private Map<String, String>AndroidFire_extCheck(@ModelAttribute TbFireExVO fire, LocationByFireExVO location, @RequestParam("loc") String loc) throws Exception{
-//		fService.updatefireExStatus(loc);
-//		Map<String, String> map = new HashMap<String, String>();
-//		map.put(loc, "1");
-//		return map;
-//	}
-	
-	//AndroidFire_extCheck.do?loc=600?status=1
 	
 
 	

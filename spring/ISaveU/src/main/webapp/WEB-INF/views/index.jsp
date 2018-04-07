@@ -17,7 +17,7 @@
 </script>
 -->
 	<section id="loginFormArea">
-		<form action="/weblogin" method="post">
+		<form action="/admin/weblogin" method="post">
 			<div class="imgBox">
 				<img src="<%=root%>/img/main.png" alt="logo" class="mainImg">
 			</div>

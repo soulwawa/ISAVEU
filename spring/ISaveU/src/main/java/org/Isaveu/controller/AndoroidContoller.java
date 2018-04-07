@@ -146,7 +146,7 @@ public class AndoroidContoller {
 	public Map<String, String> AndroidfeRestart(@RequestParam("loc") String loc){
 		Map<String, String> map = new HashMap<String, String>();
 		
-		System.out.println(loc);
+//		System.out.println(loc);
 		String url = "http://192.168.0.61:5002/feRestart/";
 		RestTemplate restTemplate = new RestTemplate();
 		String result = restTemplate.getForObject(url, String.class);
