@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	tb_location
 		ON tb_module.location_id = tb_location.location_id
 	WHERE
-		module_id = ${value};
+		module_id = #{value};
 	</select>
 	
 	<select id="AndroidDisasterCheck" parameterType="int" resultType="org.Isaveu.domain.LocationByIssueVO">

@@ -28,6 +28,7 @@ import org.Isaveu.service.ActionService;
 import org.Isaveu.service.EventService;
 import org.Isaveu.service.HrService;
 import org.Isaveu.service.LocationService;
+import org.Isaveu.service.ModuleService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -71,85 +72,77 @@ public class EventController {
 	LocationService lService;
 
 	@Resource(name = "org.Isaveu.service.ModuleService")
-	ModuleMapper mService;
+	ModuleService mService;
 
 	@RequestMapping(value = "/module/eventIn.do", method = RequestMethod.GET)
-	private String eventIn(@ModelAttribute TbEventVO event) throws Exception {
+	private String eventIn(@ModelAttribute TbEventVO event, @RequestParam(value = "reset", defaultValue = "0") String reset) throws Exception {
 		issue = event.getIssue();
 		temp = event.getTemp();
 		smoke = event.getSmoke();
 		gyro = event.getGyro();
 		fire = event.getFire();
 		module_id = event.getModule_id();
-
+		
 		// if 모듈이 여러개일때 가정
 		List<TbModuleVO> moduleList = mService.getModuleList(typeArduino);
+		
+		//reset value "1" 이면 issueTemp 를 초기화
+		issueTemp = reset.equals("1") ? "0" : issueTemp;
+		
 
 		switch (issue) {
 		case "1":
-			System.out.println("화재경보| " + datenow);
+			System.out.println("화재경보 /  " + datenow);
 			imageGet(issue);
 			eService.insertEvent(event);
 			System.out.println("InsertEvent Succes");
+			issueTemp = issue;
+			RaspControl(issue);
 			break;
 		case "2":
-			System.out.println("지진경보: " + datenow);
+			System.out.println("지진경보 /  " + datenow);
 			imageGet(issue);
 			eService.insertEvent(event);
 			System.out.println("InsertEvent Succes");
+			issueTemp = issue;
+			RaspControl(issue);
 			break;
 		case "3":
-			System.out.println("지진 + 화재경보| " + datenow);
+			System.out.println("지진 + 화재경보 /  " + datenow);
 			imageGet(issue);
 			eService.insertEvent(event);
 			System.out.println("InsertEvent Succes");
+			issueTemp = issue;
+			RaspControl(issue);
 			break;
 		default:
+			RaspControl(issue);
 			if (issue.equals(issueTemp)) {
 				issueTemp = issue;
 				System.out.println("module_id: " + module_id);
-				System.out.println("issue: " + issue + "issueTemp" + issueTemp);
+				System.out.println("issue: " + issue + " / issueTemp: " + issueTemp);
 				System.out.println("센서상태 양호| " + datenow);
-				if (module_id.equals("0")) {
-					for (int i = 0; i < moduleList.size(); i++) {
-						float ramdom = (float) Math.random();
-						event.setModule_id(String.valueOf(i));
-						event.setTemp(temp + ramdom);
-						event.setSmoke(smoke + ramdom);
-						event.setGyro(gyro + ramdom);
-						event.setFire(fire + ramdom);
-						event.setIssue(issue);
-						eService.insertEvent(event);
-						// System.out.println("InsertEvent Succes");
-					}
-				} else {
-					for (int i = 0; i < moduleList.size(); i++) {
-						if (i == Integer.parseInt(module_id)) {
-							continue;
-						} else {
-							float ramdom = (float) Math.random();
-							event.setModule_id(String.valueOf(i));
-							event.setTemp(temp + ramdom);
-							event.setSmoke(smoke + ramdom);
-							event.setGyro(gyro + ramdom);
-							event.setFire(fire + ramdom);
-							event.setIssue(issue);
-							eService.insertEvent(event);
-							// System.out.println("InsertEvent Succes");
-						}
-					}
+				// if (module_id.equals("0")) {
+				for (int i = 0; i < moduleList.size(); i++) {
+					float ramdom = (float) Math.random();
+					event.setModule_id(String.valueOf(i));
+					event.setTemp(temp + ramdom);
+					event.setSmoke(smoke + ramdom);
+					event.setGyro(gyro + ramdom);
+					event.setFire(fire + ramdom);
+					event.setIssue(issue);
+					eService.insertEvent(event);
 				}
 			} else {
 				System.out.println("센서 오류 감지 :" + module_id);
-				
+				fCMSendToAdmin(module_id);
+				issueTemp = "4";
+				break;
 			}
-
-			RaspControl(issue);
-			break;
 		}
 		return "200".toString();
 	}
-
+	
 	public void imageGet(String issue) {
 		RestTemplate restTemplate = new RestTemplate();
 		URI uri = UriComponentsBuilder.fromHttpUrl("http://192.168.0.13:5001/cam/" + issue).build().toUri();
@@ -234,9 +227,61 @@ public class EventController {
 		request = new HttpEntity(params, headers);
 		ResponseEntity<String> result = restTemplate.exchange(url, HttpMethod.POST, request, String.class);
 		System.out.println(result.getBody());
-		RaspControl(issue);
+		// RaspControl(issue);
 	}
 
+	public void fCMSendToAdmin(String module_id) {
+
+		RestTemplate restTemplate = new RestTemplate();
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
+		// TITILE
+		ArrayList<ModuleByLocationVO> localList = new ArrayList<ModuleByLocationVO>();
+		try {
+			localList = lService.moduleByLocation(module_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		ModuleByLocationVO location = localList.get(0);
+		String title = location.getLocation() + "/" + location.getDept_name();
+
+		// DATA
+		headers.add("Authorization",
+				"key=AAAA91-0IQE:APA91bEvPIXCvITxVpcVaxysasJzU4wjuTNT29zkgmRv6ayxLe0U1iIgO0zIvImluA4_5AczoDfZrlFZluTuVBqFM_JBvyjqkH6R9k2bBoMSQaNOPlTOVnjHYTFwjSjMuVt0-nusaVRJ");
+		ArrayList<TbHrVO> hrList = new ArrayList<TbHrVO>();
+		try {
+			// 관리자 Level이 "0"인 사람만
+			hrList = hService.getHrListLevel("0");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		ArrayList<String> fcmList = new ArrayList<String>();
+
+		for (TbHrVO tbHrVO : hrList) {
+			fcmList.add(tbHrVO.getFcm());
+		}
+		Gson gson = new Gson();
+		JsonElement reglist = gson.toJsonTree(fcmList);
+		String url = "https://fcm.googleapis.com/fcm/send";
+		FCMData fcmData = new FCMData();
+		Data data = new Data();
+		// DB에서 호출 예정
+
+		data.setTitle(title);
+		data.setContent_1(module_id + " 장비 확인(센서값 오류 이상)");
+		// data.setContent_2("4"); //소화기 분실 임시지정
+		fcmData.setData(data);
+		fcmData.setRegistration_ids(reglist);
+
+		String params = gson.toJson(fcmData);
+		System.out.println(params);
+
+		HttpEntity request;
+		request = new HttpEntity(params, headers);
+		ResponseEntity<String> result = restTemplate.exchange(url, HttpMethod.POST, request, String.class);
+		System.out.println(result.getBody());
+	}
 	public void RaspControl(String issue) {
 		switch (issue) {
 		case "1":
@@ -361,7 +406,7 @@ public class EventController {
 				TbEventVO listDetail = list.get(j);
 				if (j % moduleList.size() == 0) {
 					map.put("time", listDetail.getTime().substring(11, 19));
-					map.put(listDetail.getModule_id(),listDetail.getFire());
+					map.put(listDetail.getModule_id(), listDetail.getFire());
 				} else {
 					map.put(listDetail.getModule_id(), listDetail.getFire());
 				}
