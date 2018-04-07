@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	FROM
 		tb_fire_ex
 	WHERE
-		fire_ex_name = #{fire_ex_name}
+		fire_ex_name = #{value}
 	</select>
 	
 	<select id="updatefireExStatus"

@@ -49,6 +49,7 @@ public class FireExController {
 	@RequestMapping(value = "/fe.do")
 	//라즈베리에서 INPUT
 	private Map<String, String> fireExStatusUpdate(@ModelAttribute TbFireExVO fire,  @RequestParam("missing") String fire_ex_name) throws Exception{
+		
 		fire.setFire_ex_name(fire_ex_name);
 		fire.setFire_ex_status("0");
 		
@@ -63,15 +64,12 @@ public class FireExController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
 		//TITILE
-		ArrayList<ModuleByLocationVO> localList = new ArrayList<ModuleByLocationVO>();
+		ArrayList<LocationByFireExVO> localList = new ArrayList<LocationByFireExVO>();
 		
-		String module_id = String.valueOf(fireVo.getLocation_id());
-		try {
-			localList = lService.moduleByLocation(module_id);
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-		ModuleByLocationVO location = localList.get(0);
+		
+		localList = lService.locationByFireExName(fire_ex_name);
+		
+		LocationByFireExVO location = localList.get(0);
 		String title = location.getLocation() + "/"+ location.getDept_name();
 		
 		//DATA

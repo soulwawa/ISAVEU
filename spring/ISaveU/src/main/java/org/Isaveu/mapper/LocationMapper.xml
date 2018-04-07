@@ -13,6 +13,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ON tb_location.location_id = tb_fire_ex.location_id;
 	</select>
 	
+	<select id="locationByFireExName" parameterType="String" resultType="org.Isaveu.domain.LocationByFireExVO" >
+	SELECT
+ 		*
+	FROM tb_location
+	INNER JOIN
+ 	tb_fire_ex
+		ON tb_location.location_id = tb_fire_ex.location_id
+	and
+		fire_ex_name= #{value}
+	</select>
+	
 	<select id="moduleByLocation" parameterType="String" resultType="org.Isaveu.domain.ModuleByLocationVO">
 	SELECT
 		* 

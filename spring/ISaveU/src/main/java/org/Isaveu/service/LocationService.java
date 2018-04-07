@@ -33,8 +33,12 @@ public class LocationService implements LocationMapper{
 
 	@Override
 	public String locationCount(String loc) throws Exception {
-		// TODO Auto-generated method stub
 		return lMapper.locationCount(loc);
+	}
+
+	@Override
+	public ArrayList<LocationByFireExVO> locationByFireExName(String fire_ex_name) throws Exception {
+		return lMapper.locationByFireExName(fire_ex_name);
 	}
 	
 }
