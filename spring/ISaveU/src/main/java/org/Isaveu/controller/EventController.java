@@ -21,13 +21,13 @@ import org.Isaveu.domain.TbActionVO;
 import org.Isaveu.domain.TbEventVO;
 import org.Isaveu.domain.TbHrVO;
 import org.Isaveu.domain.TbModuleVO;
+import org.Isaveu.fcm.Data;
+import org.Isaveu.fcm.FCMData;
 import org.Isaveu.mapper.ModuleMapper;
 import org.Isaveu.service.ActionService;
 import org.Isaveu.service.EventService;
 import org.Isaveu.service.HrService;
 import org.Isaveu.service.LocationService;
-import org.Isaveu.util.Data;
-import org.Isaveu.util.FCMData;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -141,7 +141,7 @@ public class EventController {
 				}
 			} else {
 				System.out.println("센서 오류 감지 :" + module_id);
-
+				
 			}
 
 			RaspControl(issue);

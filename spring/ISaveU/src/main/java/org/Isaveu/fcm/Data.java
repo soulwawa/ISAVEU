@@ -1,4 +1,4 @@
-package org.Isaveu.util;
+package org.Isaveu.fcm;
 
 public class Data {
 	String title;
