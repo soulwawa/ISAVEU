@@ -10,9 +10,8 @@
 
 </head>
 <body>
-
 	<section id="loginFormArea">
-		<form action="/admin/loginPost" method="post">
+		<form action="/user/loginPost" method="post">
 			<div class="imgBox">
 				<img src="/img/main.png" alt="logo" class="mainImg">
 			</div>

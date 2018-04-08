@@ -2,7 +2,7 @@ package org.Isaveu;
 
 import javax.sql.DataSource;
 
-import org.Isaveu.filter.IsaveUFilter;
+
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.filter.CommonsRequestLoggingFilter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.Isaveu.interceptor.LoginInterceptor;
 
@@ -41,16 +42,14 @@ public class ISaveUApplication {
 		sessionFactory.setDataSource(dataSource);
 		return sessionFactory.getObject();
 	}
-
-	// 필터 설정
-//	@Bean
-//	public FilterRegistrationBean<IsaveUFilter> someFilterRegistration() {
-//		FilterRegistrationBean<IsaveUFilter> registration = new FilterRegistrationBean<IsaveUFilter>(
-//				new IsaveUFilter());
-//
-//		registration.addUrlPatterns("/*");
-//		registration.setName("IsaveUFilter");
-//		return registration;
-//	}
+	
+	@Bean
+	public CommonsRequestLoggingFilter requestLoggingFilter() {
+	    CommonsRequestLoggingFilter loggingFilter = new CommonsRequestLoggingFilter();
+	    loggingFilter.setIncludeClientInfo(true);
+	    loggingFilter.setIncludeQueryString(true);
+	    loggingFilter.setIncludePayload(true);
+	    return loggingFilter;
+	}
 
 }

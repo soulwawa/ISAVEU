@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/user")
 public class WebLoginController {
 
 	@Resource(name = "org.Isaveu.service.HrService")
@@ -36,6 +36,7 @@ public class WebLoginController {
 		}
 
 		model.addAttribute("tbHrVO", vo);
+		
 
 		// if("".equals(id) || "".equals(pw)){
 		// System.out.println("WebLogin Fail");
