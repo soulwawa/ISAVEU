@@ -1,0 +1,5 @@
+package kpc.iot.smb.action;
+
+public interface Action {
+
+}

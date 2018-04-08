@@ -1,0 +1,9 @@
+package kpc.iot.smb.controller;
+
+import javax.servlet.http.*;
+
+import kpc.iot.smb.data.vo.ActionForward;
+
+public interface Action {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>rMate Chart for HTML5</title>
+<link rel="stylesheet" type="text/css" href="./rMateChartH5.css"/>
+<script language="javascript" type="text/javascript" src="./rMateChartH5License.js"></script>
+<script language="javascript" type="text/javascript" src="./rMateGaugeChartH5.js"></script>
+<script type="text/javascript" src="./theme.js"></script>
+<script language="javascript" type="text/javascript" src="./gauge.js"></script>
+<script type="text/javascript" src="./Web/JS/common.js"></script>
+<script type="text/javascript" src="./Web/JS/sample_util.js"></script>
+<link rel="stylesheet" type="text/css" href="./Web/sample.css"/>
+<script type="text/javascript" src="./shCore.js"></script>
+<script type="text/javascript" src="./shBrushJScript.js"></script>
+<link type="text/css" rel="stylesheet" href="./shCoreDefault.css"/>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="sampleButtons">
+			<div class="button" onclick="changeValue()">게이지 값 변경</div>
+			<div class="button" onclick="commitValue()">게이지 값 가져오기</div>
+		</div>
+		<div id="content" style="height:380px;">
+			<!-- 차트가 삽입될 DIV -->
+			<div id="chartHolder"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -25,7 +25,7 @@ public class HomeController {
 	@RequestMapping("/admin")
 	private String jsptest() throws Exception{
 //		System.out.println(hMapper.hrCount()); 
-		return "admin";
+		return "admin/admin";
 	}
 	
 	@RequestMapping("/ex")

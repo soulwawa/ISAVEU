@@ -10,6 +10,7 @@ import org.Isaveu.mapper.HrMapper;
 import org.springframework.stereotype.Service;
 
 @Service("org.Isaveu.service.HrService")
+
 public class HrService implements HrMapper{
 	@Resource(name = "org.Isaveu.mapper.HrMapper")
 	HrMapper hMapper;

@@ -3,23 +3,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<% String root = request.getContextPath(); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
 <title>관리자 페이지 로그인</title>
-<link href="<%=root%>/css/style1.css" rel="stylesheet" type="text/css">
+<link href="/css/style1.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
-<!--  
-<script type="text/javascript">
-	self.location = "/admin"
-</script>
--->
+
 	<section id="loginFormArea">
-		<form action="/admin/weblogin" method="post">
+		<form action="/admin/loginPost" method="post">
 			<div class="imgBox">
-				<img src="<%=root%>/img/main.png" alt="logo" class="mainImg">
+				<img src="/img/main.png" alt="logo" class="mainImg">
 			</div>
 			<div id="loginBox">
 				<div class="box">

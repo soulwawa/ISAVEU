@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="kpc.iot.smb.action.Action"/>
+<fullyQualifiedTypeName name="kpc.iot.smb.data.vo.ActionForward"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletException"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="kpc.iot.smb.controller.ActionForward"/>
+<fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+<fullyQualifiedTypeName name="org.apache.jasper.runtime.ProtectedFunctionMapper"/>
+<fullyQualifiedTypeName name="kpc.iot.smb.controller.Controller"/>
+<fullyQualifiedTypeName name="kpc.iot.smb.controller.Action"/>
+</qualifiedTypeNameHistroy>

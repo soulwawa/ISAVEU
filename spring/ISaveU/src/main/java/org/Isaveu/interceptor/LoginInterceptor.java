@@ -21,6 +21,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
+
 		HttpSession session = request.getSession();
 		ModelMap modelMap = modelAndView.getModelMap();
 		Object tbHrVO = modelMap.get("tbHrVO");
@@ -29,8 +30,8 @@ public class LoginInterceptor implements HandlerInterceptor {
 			logger.info("WEB LOGIN SUCCSS");
 			session.setAttribute(LOGIN, tbHrVO);
 //			response.sendRedirect("/");
-			Object dest = session.getAttribute("dest");
-			response.sendRedirect(dest != null ? (String) dest:"/");
+			 Object dest = session.getAttribute("dest");
+			 response.sendRedirect(dest != null ? (String) dest:"/");
 		}
 	}
 
@@ -44,6 +45,5 @@ public class LoginInterceptor implements HandlerInterceptor {
 		}
 
 		return true;
-
 	}
 }
