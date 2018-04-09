@@ -18,17 +18,6 @@
 <script language="javascript" type="text/javascript" src="<%=root%>/js1.js"></script>
 <script language="javascript" type="text/javascript" src="<%=root%>/mchart.js"></script>
 <script>
-   var interval1 = setInterval(function () {
-    $.ajax({
-      type: "GET",
-      url: "http://192.168.0.35:9999/admin/Dispatcher",
-      dataType: "json",
-      success: function(data) {
-        ob = data;
-        console.log("온도:"+ob.temp+",진동 "+ob.gyro+",CO "+ob.smoke+",불꽃 "+ob.fire+", "+ob.date);
-      }
-    });
-  }, 9900);
   var interval2 = setInterval(function () {
 	    $.ajax({
 	      type: "GET",
