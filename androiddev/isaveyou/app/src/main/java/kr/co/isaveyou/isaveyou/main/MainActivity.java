@@ -37,11 +37,12 @@ import android.view.View;
 
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.SearchView;
+import android.support.v7.widget.SearchView;
 import android.widget.TextView;
 
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
+import android.widget.SearchView.OnQueryTextListener;
 
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
@@ -62,6 +63,7 @@ import java.net.URLConnection;
 
 import kr.co.isaveyou.isaveyou.R;
 import kr.co.isaveyou.isaveyou.issue.FloorMapActivity;
+import kr.co.isaveyou.isaveyou.issue.Static_webViewFragment;
 import kr.co.isaveyou.isaveyou.tab.InformationFragment;
 import kr.co.isaveyou.isaveyou.tab.myMapFragment;
 import kr.co.isaveyou.isaveyou.tab.NewsFragment;
@@ -73,8 +75,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tvName, tvEmail;
     ImageView profile;
     Bitmap profileImg;
-    FrameLayout fl_streaming;
-
+    FrameLayout fl_streaming,fl_static_fire_ext;
+    SearchView searchView;
     private DrawerLayout mDrawerLayout;
 
     @Override
@@ -88,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
 //        View layout = inflater.inflate(R.layout.fragment_monitoring, null);
         fl_streaming = (FrameLayout)findViewById (R.id.streming_framelayout);
         fl_streaming.bringToFront();
+        fl_static_fire_ext = (FrameLayout)findViewById(R.id.static_framelayout);
+        fl_static_fire_ext.bringToFront();
         //tab 레이아웃 설정, adapter 설정
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tl_tabs);
         ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);
@@ -130,7 +134,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"static클릭",Toast.LENGTH_SHORT).show();
-                Log.v(TAG, "통계 버튼 클릭");
+                Static_webViewFragment static_webViewFragment = new Static_webViewFragment();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.replace(R.id.static_framelayout,static_webViewFragment);
+                fl_static_fire_ext.setVisibility(View.VISIBLE);
+                fragmentTransaction.commit();
+                menuMultipleActions.collapse();
+                Log.v(TAG, "static 버튼 클릭");
             }
         });
         Intent intent = getIntent();
@@ -222,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     //Streaming layout set invisible 하기
-   public  void Invisible_Streaming (){
+    public  void Invisible_Streaming (){
         fl_streaming.setVisibility(View.INVISIBLE);
     }
 
@@ -258,7 +270,7 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "뉴스";
+                    return "날씨";
                 case 1:
                     return "정보";
                 case 2:
@@ -279,10 +291,26 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu,menu);
         getMenuInflater().inflate(R.menu.search_view_menu, menu);
+
+        //searchview 정의
         MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         SearchManager searchManager = (SearchManager)getSystemService(Context.SEARCH_SERVICE);
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
+
+        //searchview 검색어 입력/검색 이벤트 처리
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
         return true;
     }
     //타이틀 바에 있는 버튼 클릭했을 때의 액션
@@ -295,10 +323,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.action_settings:
                 return true;
-            case R.id.action_search:
-
-        }
-        if (onOptionsItemSelected(item)==true){
 
         }
 
@@ -449,6 +473,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    }
+}
 
 

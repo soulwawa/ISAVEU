@@ -23,7 +23,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="drawer_header_welcome">님, 환영합니다.</string>
     <string name="nav_sub_menu">Sub Menu</string>
-
+    <string name="search_title">Search</string>
 
     <!--Monitoring-->
     <string name="monitoring_text">호, 영상</string>

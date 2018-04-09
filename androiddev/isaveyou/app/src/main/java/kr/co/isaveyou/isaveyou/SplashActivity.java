@@ -25,7 +25,7 @@ public class SplashActivity extends Activity{
         }
 
         if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().setStatusBarColor(Color.rgb(14, 198, 127));
+            getWindow().setStatusBarColor(Color.rgb(36, 223, 145));
         }
 
         startActivity(new Intent(this,LoginActivity.class));

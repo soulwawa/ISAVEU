@@ -37,7 +37,7 @@ public class NewAppWidget extends AppWidgetProvider {
     private static final String str_voice_record = "ACTION_VOICE_RECORD";
     private static final String str_ok = "ACTION_OK";
     private static final String str_noti_update = "ACTION_NOTIFICATION_UPDATE";
-    String result, issue;
+    String result, issue, tx_issue;
     HttpURLConnection conn;
 
 //    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
@@ -174,6 +174,7 @@ public class NewAppWidget extends AppWidgetProvider {
             switch (entry.getKey()) {
                 case "1":
                     issue = sharedPreferences.getString("1", "");
+                    tx_issue = sharedPreferences.getString("1", "");
                     views.setTextViewText(R.id.tv_issue_for_widget, issue);
                     views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.pic_disaster_flame);
                     Log.v(TAG, "화재");
@@ -181,6 +182,7 @@ public class NewAppWidget extends AppWidgetProvider {
                     break;
                 case "2":
                     issue = sharedPreferences.getString("2", "");
+                    tx_issue = sharedPreferences.getString("2", "");
                     views.setTextViewText(R.id.tv_issue_for_widget, issue);
                     Log.v(TAG, "지진");
                     views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.pic_disaster_earthquake);
@@ -188,6 +190,7 @@ public class NewAppWidget extends AppWidgetProvider {
                     break;
                 case "3":
                     issue = sharedPreferences.getString("3", "");
+                    tx_issue = sharedPreferences.getString("3", "");
                     views.setTextViewText(R.id.tv_issue_for_widget, issue);
                     views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.pic_disaster_fire_earthquake);
                     Log.v(TAG, "화재/지진");
@@ -195,6 +198,7 @@ public class NewAppWidget extends AppWidgetProvider {
                     break;
                 case "4":
                     issue = sharedPreferences.getString("4", "");
+                    tx_issue = sharedPreferences.getString("4", "");
                     views.setTextViewText(R.id.tv_issue_for_widget, issue);
                     views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.pic_miss_fire_ext);
                     Log.v(TAG, "소화기");
@@ -202,6 +206,7 @@ public class NewAppWidget extends AppWidgetProvider {
                     break;
                 default:
                     issue = "";
+                    tx_issue = "";
                     break;
             }
 
@@ -212,7 +217,8 @@ public class NewAppWidget extends AppWidgetProvider {
         protected Object doInBackground(Object[] objects) {
             try {
                 //서버 접속
-                String [] sArray = issue.split(",");
+                if (!tx_issue.equals(null)){
+                String [] sArray = tx_issue.split(",");
                 Log.v(TAG, "sArray" + sArray[1]);
                 String loc1 = sArray[1];
                 String [] ssArray = loc1.split("/");
@@ -245,7 +251,7 @@ public class NewAppWidget extends AppWidgetProvider {
                     Log.v(TAG, "buffer result : " + line );
                     reader.close();
                 }
-                Log.v(TAG, "url : " + url );
+                Log.v(TAG, "url : " + url );}else{}
             }catch (Exception e) {
                 e.printStackTrace();
             }return null;

@@ -71,4 +71,10 @@ public class FloorMapActivity extends AppCompatActivity {
         super.onStop();
         finish();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

@@ -54,6 +54,8 @@
 
 
     public class myMapFragment extends Fragment implements OnMapReadyCallback,GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener,LocationListener {
+
+
         private GoogleMap googleMap = null;
         private MapView mapView = null;
         private GoogleApiClient googleApiClient = null;

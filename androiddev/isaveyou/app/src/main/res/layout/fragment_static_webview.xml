@@ -2,10 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="kr.co.isaveyou.isaveyou.static_isssue.Fire_ext_staticFragment">
+    tools:context="kr.co.isaveyou.isaveyou.issue.Static_webViewFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <WebView
+        android:id="@+id/wv_fire_ext_static"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />

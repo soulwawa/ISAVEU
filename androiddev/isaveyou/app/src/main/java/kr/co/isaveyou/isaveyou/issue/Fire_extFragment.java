@@ -718,5 +718,6 @@ public class Fire_extFragment extends Fragment {
         catch (Exception e)
         {
         }
+
     }
 }
