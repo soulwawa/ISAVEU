@@ -74,7 +74,7 @@
 <body>
 	<div class="wrapper">
 		<div class="alert" id="art" >
-			화재 발생
+			
 			<div id="fireBtn" onclick="closeAlert()">위치확인</div>			
 		</div>
 		<div class="location" id="lct" onclick="closeLocation()">
