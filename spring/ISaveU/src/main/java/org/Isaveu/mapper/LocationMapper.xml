@@ -36,10 +36,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="AndroidDisasterCheck" parameterType="int" resultType="org.Isaveu.domain.LocationByIssueVO">
-	select* from tb_event event
-		inner join tb_module module on event.module_id = module.module_id
-		inner join tb_location location on module.location_id = location.location_id
-	order by event_id DESC limit ${value};
+	select event.time, event.issue, location.location
+		from tb_event event
+	inner join tb_module module on event.module_id = module.module_id
+	inner join tb_location location on module.location_id = location.location_id
+	where module.module_id = ${value} order by event_id desc limit 1;
 	</select>
 	
 	<select id="locationCount" parameterType="String" resultType="String">

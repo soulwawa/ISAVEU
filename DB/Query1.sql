@@ -103,14 +103,30 @@ select* from tb_location;
 SELECT * FROM tb_module;
 SELECT * FROM tb_board;
 
-select* from tb_event WHERE module_id="10" limit 12;
+select* from tb_event WHERE module_id="0" limit 12;
 
-SELECT * FROM tb_event ORDER BY event_id DESC LIMIT 121;
+SELECT * FROM tb_event WHERE module_id ="0" ORDER BY event_id DESC LIMIT 121;
 
-SELECT * FROM tb_event WHERE module_id ="1" order by time DESC limit 12; 
+SELECT * FROM tb_event WHERE module_id ="0" order by time DESC limit 12; 
 
 SELECT * FROM tb_location
 INNER JOIN tb_fire_ex
-ON tb_location.location_id = tb_fire_ex.location_id and location='600';
+ON tb_location.location_id = tb_fire_ex.location_id and fire_ex_name= 'fe-01';
+
+SELECT * FROM tb_event WHERE module_id = "0" ORDER BY event_id	DESC LIMIT 12;
+
+SELECT * FROM tb_fire_ex WHERE fire_ex_name = "fe-01";
+UPDATE tb_fire_ex
+	Inner join tb_location
+	ON tb_fire_ex.location_id = tb_location.location_id
+	set fire_ex_status = 1
+	WHERE location = '600';
+    
+    
+select event.event_id, event.time, event.issue, location.location, location.dept_name
+from tb_event event
+inner join tb_module module on event.module_id = module.module_id
+inner join tb_location location on module.location_id = location.location_id 
+having module.module_id order by event_id desc limit 1;
 
 

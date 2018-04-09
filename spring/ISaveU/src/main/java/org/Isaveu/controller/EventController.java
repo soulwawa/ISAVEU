@@ -318,6 +318,7 @@ public class EventController {
 		map.put("fire", form.format(80 - (fire / 13.0)));
 		map.put("gyro", form.format(80 - (gyro / 13.0)));
 		map.put("date", datenow);
+		map.put("issue", issue);
 		return map;
 	}
 
