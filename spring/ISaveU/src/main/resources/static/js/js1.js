@@ -5,6 +5,7 @@ var alwayscheck = setInterval(function () {
       dataType: "json",
       success: function(data) {
         live = data;
+        console.log(live.issue);
         var issuenow = live.issue;
         if(issuenow == 1) {
         	document.getElementById("art").style.background="rgba(255,0,0,0.8);";
