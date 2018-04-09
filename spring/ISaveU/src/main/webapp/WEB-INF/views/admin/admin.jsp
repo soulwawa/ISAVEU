@@ -3,13 +3,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
+<% String root = request.getContextPath(); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="/css/style2.css" rel="stylesheet" type="text/css" />
 <link href="/css/admincss.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="/css/rMateChartH5.css" />
+<link rel="stylesheet" type="text/css" href="/js/rMateChartH5.css" />
 <script language="javascript" type="text/javascript"
 	src="/js/rMateChartH5License.js"></script>
 <script language="javascript" type="text/javascript"
@@ -35,8 +35,16 @@
 	      url: "http://192.168.0.35:9999/admin/DispatcherModuleRecent",
 	      dataType: "json",
 	      success: function(data2) {
-	        ob2 = data2;
-	        console.log(ob2);
+	        obj = data2;
+	        for (var i = 0; i < obj.length; i++) {
+	    		var counter = obj[i];
+	    		var cv = obj[i].value;
+	    		var j = i + 10;
+	    		document.getElementById("chart"+j).setData(cv);
+	        }
+	      
+	      
+	      
 	      }
 	    });
 	  }, 9900);
@@ -73,37 +81,37 @@
 			<div id="fire">
 			<div id="exts1">
 				<div class="shake-freeze" id="ex0">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex1">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex2">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex3">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex4">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex5">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex6">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex7">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex8">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex9">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex10">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 			</div>
 			</div>

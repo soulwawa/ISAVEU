@@ -100,17 +100,22 @@
 $(window).on("load", function(){
 	checkex1();
 });
-var interval = setInterval(function () {
-    $.ajax({
-      type: "GET",
-      url: "http://192.168.0.35:9999/admin/Dispatcher",
-      dataType: "json",
-      success: function(data) {
-        live = data;
-        console.log("온도:"+live.temp+",진동 "+live.gyro+",CO "+live.smoke+",불꽃 "+live.fire+", "+live.date);
-      }
-    });
-  }, 9900);
+setTimeout(function(){
+	checkex1();
+},100);
+checkex1();
+
+//var interval = setInterval(function () {
+//    $.ajax({
+//      type: "GET",
+//      url: "http://192.168.0.35:9999/admin/Dispatcher",
+//     dataType: "json",
+//      success: function(data) {
+//        live = data;
+//        console.log("온도:"+live.temp+",진동 "+live.gyro+",CO "+live.smoke+",불꽃 "+live.fire+", "+live.date);
+//      }
+//    });
+//  }, 9900);
   
 function checkex1(){
 	$.ajax({
@@ -118,11 +123,15 @@ function checkex1(){
 	      url: "http://192.168.0.35:9999/admin/locationFireEx.do?loc=6",
 	      dataType: "json",
 	      success: function(data2) {
-	        obj = data2.value;
+	        obj = data2;
 	        for (var i = 0; i < 11; i++){
 	        	var counter = obj.value[i];
 	        	console.log(counter.location);
 	        	console.log(counter.fire_ex_status);
+	        	console.log(counter.dept_name);
+	        	console.log(counter.fire_ex_make);
+	        	console.log(counter.next_check);
+	        	console.log(counter.check_date);
 	        	if(counter.fire_ex_status == 0){
 	        		document.getElementById("ext"+i).style.display="none";
 	        		document.getElementById(i+"3").innerHTML="불가능";

@@ -75,20 +75,20 @@ public class EventController {
 	ModuleService mService;
 
 	@RequestMapping(value = "/module/eventIn.do", method = RequestMethod.GET)
-	private String eventIn(@ModelAttribute TbEventVO event, @RequestParam(value = "reset", defaultValue = "0") String reset) throws Exception {
+	private String eventIn(@ModelAttribute TbEventVO event,
+			@RequestParam(value = "reset", defaultValue = "0") String reset) throws Exception {
 		issue = event.getIssue();
 		temp = event.getTemp();
 		smoke = event.getSmoke();
 		gyro = event.getGyro();
 		fire = event.getFire();
 		module_id = event.getModule_id();
-		
+
 		// if 모듈이 여러개일때 가정
 		List<TbModuleVO> moduleList = mService.getModuleList(typeArduino);
-		
-		//reset value "1" 이면 issueTemp 를 초기화
+
+		// reset value "1" 이면 issueTemp 를 초기화
 		issueTemp = reset.equals("1") ? "0" : issueTemp;
-		
 
 		switch (issue) {
 		case "1":
@@ -117,32 +117,38 @@ public class EventController {
 			break;
 		default:
 			RaspControl(issue);
-			if (issue.equals(issueTemp)) {
-				issueTemp = issue;
-				System.out.println("module_id: " + module_id);
-				System.out.println("issue: " + issue + " / issueTemp: " + issueTemp);
-				System.out.println("센서상태 양호| " + datenow);
-				// if (module_id.equals("0")) {
-				for (int i = 0; i < moduleList.size(); i++) {
-					float ramdom = (float) Math.random();
-					event.setModule_id(String.valueOf(i));
-					event.setTemp(temp + ramdom);
-					event.setSmoke(smoke + ramdom);
-					event.setGyro(gyro + ramdom);
-					event.setFire(fire + ramdom);
-					event.setIssue(issue);
-					eService.insertEvent(event);
-				}
-			} else {
-				System.out.println("센서 오류 감지 :" + module_id);
-				fCMSendToAdmin(module_id);
-				issueTemp = "4";
+			if (issueTemp == "4") {
+				System.out.println(module_id + " : 문제 발생 / " + datenow);
 				break;
+			} else {
+				if (issue.equals(issueTemp)) {
+					issueTemp = issue;
+					System.out.println("module_id: " + module_id);
+					System.out.println("issue: " + issue + " / issueTemp: " + issueTemp);
+					System.out.println("센서상태 양호/ " + datenow);
+					// if (module_id.equals("0")) {
+					for (int i = 0; i < moduleList.size(); i++) {
+						float ramdom = (float) Math.random();
+						event.setModule_id(String.valueOf(i));
+						event.setTemp(temp + ramdom);
+						event.setSmoke(smoke + ramdom);
+						event.setGyro(gyro + ramdom);
+						event.setFire(fire + ramdom);
+						event.setIssue(issue);
+						eService.insertEvent(event);
+					}
+				} else {
+					System.out.println("센서 오류 감지 :" + module_id);
+					fCMSendToAdmin(module_id);
+					issueTemp = "4";
+					break;
+				}
+
 			}
 		}
 		return "200".toString();
 	}
-	
+
 	public void imageGet(String issue) {
 		RestTemplate restTemplate = new RestTemplate();
 		URI uri = UriComponentsBuilder.fromHttpUrl("http://192.168.0.13:5001/cam/" + issue).build().toUri();
@@ -282,6 +288,7 @@ public class EventController {
 		ResponseEntity<String> result = restTemplate.exchange(url, HttpMethod.POST, request, String.class);
 		System.out.println(result.getBody());
 	}
+
 	public void RaspControl(String issue) {
 		switch (issue) {
 		case "1":

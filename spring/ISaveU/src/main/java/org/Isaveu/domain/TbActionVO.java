@@ -9,7 +9,7 @@ public class TbActionVO implements Serializable {
 	private int action_id;
 	private String module_id;
 	private String url;
-	private String datetime;
+	private String time;
 
 	public int getAction_id() {
 		return action_id;
@@ -35,17 +35,17 @@ public class TbActionVO implements Serializable {
 		this.url = url;
 	}
 
-	public String getDatetime() {
-		return datetime;
+	public String gettime() {
+		return time;
 	}
 
-	public void setDatetime(String datetime) {
-		this.datetime = datetime;
+	public void settime(String time) {
+		this.time = time;
 	}
 	
 	@Override
 	public String toString() {
-		return "TbActionVO [action_id=" + action_id + ", module_id=" + module_id + ", url=" + url + ", datetime="
-				+ datetime + "]";
+		return "TbActionVO [action_id=" + action_id + ", module_id=" + module_id + ", url=" + url + ", time="
+				+ time + "]";
 	}
 }
