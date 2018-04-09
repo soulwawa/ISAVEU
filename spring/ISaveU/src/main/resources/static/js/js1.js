@@ -1,4 +1,9 @@
  function showAlert(){
+	 if(){
+		 
+	 }else{
+		 
+	 }
 	  document.getElementById("art").style.display="block";
 	  document.getElementById("fireBtn").style.display="block";
 	  $.ajax({
