@@ -39,7 +39,7 @@
 	        console.log(ob2);
 	      }
 	    });
-	  }, 9900);
+	  }, 300000);
   
   $(window).on("unload", function(){
 	    alert("call");
