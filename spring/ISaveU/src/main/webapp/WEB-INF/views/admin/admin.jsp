@@ -79,6 +79,9 @@
 		</div>
 		<div class="location" id="lct" onclick="closeLocation()">
 			<div id="fire">
+			<div id="firecase">
+			<img src="/img/fireloc.gif" id="fireloc"alt="fire"/>
+			</div>
 			<div id="exts1">
 				<div class="shake-freeze" id="ex0">
 					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>

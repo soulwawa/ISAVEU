@@ -40,11 +40,13 @@ label{
 <body>
 	<div class="wrapper">
 		<div class="alert" id="art">
-			화재 발생
 			<div id="fireBtn" onclick="closeAlert()">위치확인</div>
 		</div>
 		<div class="location" id="lct" onclick="closeLocation()">
 			<div id="fire">
+			<div id="firecase">
+			<img src="/img/fireloc.gif" id="fireloc"alt="fire"/>
+			</div>
 				<div id="exts1">
 					<div class="shake-freeze" id="ex0">
 						<img src="/img/extinguisher.png" alt="extinguisher"

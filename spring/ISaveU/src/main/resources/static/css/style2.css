@@ -297,3 +297,19 @@ btnSensor:child{
 	margin:2 auto;
 	text-align: center !important;
 }
+#fireloc{
+	position:relative !important;
+	left:127px !important;
+	top:230px !important;
+	z-index:3500;
+	width:50px !important;
+	height:50px !important;
+}
+#firecase{
+	position:relative !important;
+	left:127px !important;
+	top:230px !important;
+	z-index:3500;
+	width:50px !important;
+	height:50px !important;
+}
