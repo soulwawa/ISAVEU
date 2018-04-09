@@ -124,7 +124,7 @@
 			</div>
 		</div>
 		<div class="sidebar">
-			<div class="menuBtn" >
+			<div class="menuBtn" > 
 				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/sensor')">
   					<span class="glyphicon glyphicon-tasks" ></span> Sensor Log
 				</button>

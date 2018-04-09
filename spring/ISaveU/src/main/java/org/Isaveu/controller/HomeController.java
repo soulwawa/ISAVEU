@@ -28,46 +28,51 @@ public class HomeController {
 		return "admin/admin";
 	}
 	
-	@RequestMapping("/ex")
+	@RequestMapping("admin//ex")
 	private String extest() throws Exception{
 //		System.out.println(hMapper.hrCount()); 
-		return "extinguisher";
+		return "admin/extinguisher";
 	}
 	
-	@RequestMapping("/sensor1")
+	@RequestMapping("admin//sensor1")
 	private String ss1test() throws Exception{
 //		System.out.println(hMapper.hrCount()); 
-		return "sensorLog1";
+		return "admin/sensorLog1";
 	}
-	@RequestMapping("/sensor2")
+	@RequestMapping("admin//sensor2")
 	private String ss2test() throws Exception{
 //			System.out.println(hMapper.hrCount()); 
-			return "sensorLog2";
+			return "admin/sensorLog2";
 	}
-	@RequestMapping("/sensor3")
+	@RequestMapping("admin//sensor3")
 	private String ss3test() throws Exception{
 //			System.out.println(hMapper.hrCount()); 
-			return "sensorLog3";
+			return "admin/sensorLog3";
 	}
-	@RequestMapping("/event")
+	@RequestMapping("admin//event")
 	private String eventtest() throws Exception{
 //			System.out.println(hMapper.hrCount()); 
-			return "eventlog";
+			return "admin/eventlog";
 	}
-	@RequestMapping("/stream")
+	@RequestMapping("admin//stream")
 	private String sttest() throws Exception{
 //		System.out.println(hMapper.hrCount()); 
-		return "streaming";
+		return "admin/streaming";
 	}
-	@RequestMapping("/hr")
+	@RequestMapping("admin//hr")
 	private String hrtest() throws Exception{
 //		System.out.println(hMapper.hrCount()); 
-		return "registerhr";
+		return "admin/registerhr";
 	}
 	@RequestMapping("/cal")
 	private String calTest() throws Exception{
 //		System.out.println(hMapper.hrCount()); 
 		return "Calendar/schedule";
+	}
+	@RequestMapping("mobile/mchart1")
+	private String mchartTest() throws Exception{
+//		System.out.println(hMapper.hrCount()); 
+		return "mobile/mchart0";
 	}
 
 	

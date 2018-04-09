@@ -1,22 +1,20 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<% String root = request.getContextPath(); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="<%=root%>/rMateChartH5.css" />
+<link href="/css/style2.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/css/rMateChartH5.css" />
 <script language="javascript" type="text/javascript"
-	src="<%=root%>/rMateChartH5License.js"></script>
+	src="/js/rMateChartH5License.js"></script>
 <script language="javascript" type="text/javascript"
-	src="<%=root%>/rMateIntegrationH5.js"></script>
-<script type="text/javascript" src="<%=root%>/theme.js"></script>
-<script language="javascript" type="text/javascript" src="<%=root%>/js1.js"></script>
-<script language="javascript" type="text/javascript" src="<%=root%>/mchart.js"></script>
+	src="/js/rMateIntegrationH5.js"></script>
+<script type="text/javascript" src="/js/theme.js"></script>
+<script language="javascript" type="text/javascript" src="/js/js1.js"></script>
+<script language="javascript" type="text/javascript" src="/js/mchart.js"></script>
 <script>
    var interval1 = setInterval(function () {
     $.ajax({
