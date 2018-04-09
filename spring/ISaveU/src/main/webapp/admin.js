@@ -91,7 +91,7 @@ var show = 10;
 function ss0(){
 	var a = 10;
 	show = 10;
-	console.log(show);
+	 
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder10").style.width = 1480 + "px";
@@ -419,7 +419,7 @@ function ss0(){
 function ss1(){
 	var a = 10;
 	show = 11;
-	console.log(show);
+	 
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder11").style.width = 1480 + "px";
@@ -746,7 +746,6 @@ function ss1(){
 function ss2(){
 	var a = 10;
 	show = 12;
-	console.log(show);
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder12").style.width = 1480 + "px";
@@ -1073,7 +1072,7 @@ function ss2(){
 function ss3(){
 	var a = 10;
 	show = 13;
-	console.log(show);
+	 
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder13").style.width = 1480 + "px";
@@ -1400,7 +1399,7 @@ function ss3(){
 function ss4(){
 	var a = 10;
 	show = 14;
-	console.log(show);
+	 
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder14").style.width = 1480 + "px";
@@ -1727,7 +1726,7 @@ function ss4(){
 function ss5(){
 	var a = 10;
 	show = 15;
-	console.log(show);
+	 
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder15").style.width = 1480 + "px";
@@ -2054,7 +2053,7 @@ function ss5(){
 function ss6(){
 	var a = 10;
 	show = 16;
-	console.log(show);
+	 
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder16").style.width = 1480 + "px";
@@ -2381,7 +2380,7 @@ function ss6(){
 function ss7(){
 	var a = 10;
 	show = 17;
-	console.log(show);
+	 
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder17").style.width = 1480 + "px";
@@ -2708,7 +2707,7 @@ function ss7(){
 function ss8(){
 	var a = 10;
 	show = 18;
-	console.log(show);
+	 
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder18").style.width = 1480 + "px";
@@ -3035,7 +3034,7 @@ function ss8(){
 function ss9(){
 	var a = 10;
 	show = 19;
-	console.log(show);
+	 
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder19").style.width = 1480 + "px";
@@ -3362,7 +3361,7 @@ function ss9(){
 function ss10(){
 	var a = 10;
 	show = 20;
-	console.log(show);
+	 
 	
 	setTimeout(function(){
 		document.getElementById("chartHolder20").style.width = 1480 + "px";
