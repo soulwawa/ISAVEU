@@ -122,10 +122,12 @@ public class AndoroidContoller {
 		String count = "";
 		try {
 			count = lService.locationCount(loc);
+			System.out.println(count);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		ArrayList<LocationByIssueVO> list = new ArrayList<LocationByIssueVO>();
+		
 		try {
 			list = lService.AndroidDisasterCheck(Integer.parseInt(count));
 		} catch (Exception e) {
