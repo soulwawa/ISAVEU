@@ -156,7 +156,6 @@ function checkex1(){
 <body>
 	<div class="wrapper">
 		<div class="alert" id="art" >
-			<div id="fireBtn" onclick="closeAlert()">위치확인</div>			
 		</div>
 		<div class="location" id="lct" onclick="closeLocation()">
 			<div id="fire">

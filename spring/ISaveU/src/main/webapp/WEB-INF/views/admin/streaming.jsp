@@ -75,50 +75,59 @@
 </head>
 <body>
 	<div class="wrapper">
-		<div class="alert" id="art" >
-				<div id="fireBtn" onclick="closeAlert()">위치확인</div>			
-			</div>
-			<div class="location" id="lct" onclick="closeLocation()">
-				<div id="fire">
+		<div class="alert" id="art"></div>
+		<div class="location" id="lct" onclick="closeLocation()">
+			<div id="fire">
 				<div id="firecase">
-				<img src="/img/fireloc.gif" id="fireloc"alt="fire"/>
+					<img src="/img/fireloc.gif" id="fireloc" alt="fire" />
 				</div>
 				<div id="exts1">
 					<div class="shake-freeze" id="ex0">
-						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"
+							name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex1">
-						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"
+							name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex2">
-						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"
+							name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex3">
-						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"
+							name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex4">
-						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"
+							name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex5">
-						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"
+							name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex6">
-						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"
+							name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex7">
-						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"
+							name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex8">
-						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"
+							name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex9">
-						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"
+							name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex10">
-						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"
+							name="etgs1" />
 					</div>
 				</div>
-				</div>
+			</div>
 		</div>
 		<div class="header">
 			<div class="case" onclick="goReplace('/admin')">
