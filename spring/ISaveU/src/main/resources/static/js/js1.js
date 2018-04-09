@@ -6,7 +6,7 @@
 	      url: "http://192.168.0.35:9999/admin/locationFireEx.do?loc=6",
 	      dataType: "json",
 	      success: function(data2) {
-	        obj = data2.list;
+	        obj = data2;
 	        for (var i = 0; i < obj.list.length; i++){
 	        	var counter = obj.list[i];
 	        	console.log(counter.location);
