@@ -100,17 +100,18 @@
 $(window).on("load", function(){
 	checkex1();
 });
-var interval = setInterval(function () {
-    $.ajax({
-      type: "GET",
-      url: "http://192.168.0.35:9999/admin/Dispatcher",
-      dataType: "json",
-      success: function(data) {
-        live = data;
-        console.log("온도:"+live.temp+",진동 "+live.gyro+",CO "+live.smoke+",불꽃 "+live.fire+", "+live.date);
-      }
-    });
-  }, 9900);
+
+//var interval = setInterval(function () {
+//    $.ajax({
+//      type: "GET",
+//      url: "http://192.168.0.35:9999/admin/Dispatcher",
+//     dataType: "json",
+//      success: function(data) {
+//        live = data;
+//        console.log("온도:"+live.temp+",진동 "+live.gyro+",CO "+live.smoke+",불꽃 "+live.fire+", "+live.date);
+//      }
+//    });
+//  }, 9900);
   
 function checkex1(){
 	$.ajax({
@@ -123,19 +124,23 @@ function checkex1(){
 	        	var counter = obj.value[i];
 	        	console.log(counter.location);
 	        	console.log(counter.fire_ex_status);
-	        	if(counter.fire_ex_status == 0){
-	        		document.getElementById("ext"+i).style.display="none";
-	        		document.getElementById(i+"3").innerHTML="불가능";
-	        	}
-	        	if(counter.fire_ex_status == 1){
-	        		document.getElementById("ext"+i).style.display="block";
-	        		document.getElementById(i+"3").innerHTML="가능";
-	        	}
-	        	document.getElementById(i+"1").innerHTML=counter.location;
-	        	document.getElementById(i+"2").innerHTML=counter.dept_name;
-	        	document.getElementById(i+"4").innerHTML=counter.fire_ex_make;
-	        	document.getElementById(i+"5").innerHTML=counter.check_date;
-	        	document.getElementById(i+"6").innerHTML=counter.next_check;
+	        	console.log(counter.dept_name);
+	        	console.log(counter.fire_ex_make);
+	        	console.log(counter.next_check);
+	        	console.log(counter.check_date);
+	        	//if(counter.fire_ex_status == 0){
+	        	//	document.getElementById("ext"+i).style.display="none";
+	        	//	document.getElementById(i+"3").innerHTML="불가능";
+	        	//}
+	        	//if(counter.fire_ex_status == 1){
+	        	//	document.getElementById("ext"+i).style.display="block";
+	        	//	document.getElementById(i+"3").innerHTML="가능";
+	        	//}
+	        	//document.getElementById(i+"1").innerHTML=counter.location;
+	        	//document.getElementById(i+"2").innerHTML=counter.dept_name;
+	        	//document.getElementById(i+"4").innerHTML=counter.fire_ex_make;
+	        	//document.getElementById(i+"5").innerHTML=counter.check_date;
+	        	//document.getElementById(i+"6").innerHTML=counter.next_check;
 	        }
 	      }
 	    });
