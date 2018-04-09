@@ -3,14 +3,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<% String root = request.getContextPath(); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css" />
+<link href="/css/style2.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script language="javascript" type="text/javascript" src="<%=root%>/js1.js"></script>
+<script language="javascript" type="text/javascript" src="/js/js1.js"></script>
 <script>
   function play(){
 	  $.ajax({
@@ -60,12 +59,12 @@
 #playbtn{
 	width:27px;
 	height:27px;
-	background:url(./img/play.png);
+	background:url(/img/play.png);
 }
 #stopbtn{
 	width:27px;
 	height:27px;
-	background:url(./img/stop.png);
+	background:url(/img/stop.png);
 }
 #btn1{
 	margin-left:20px;
@@ -84,44 +83,44 @@
 				<div id="fire">
 				<div id="exts1">
 					<div class="shake-freeze" id="ex0">
-						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 					</div>
 					<div class="shake-freeze" id="ex1">
-						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 					</div>
 					<div class="shake-freeze" id="ex2">
-						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 					</div>
 					<div class="shake-freeze" id="ex3">
-						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 					</div>
 					<div class="shake-freeze" id="ex4">
-						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 					</div>
 					<div class="shake-freeze" id="ex5">
-						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 					</div>
 					<div class="shake-freeze" id="ex6">
-						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 					</div>
 					<div class="shake-freeze" id="ex7">
-						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 					</div>
 					<div class="shake-freeze" id="ex8">
-						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 					</div>
 					<div class="shake-freeze" id="ex9">
-						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 					</div>
 					<div class="shake-freeze" id="ex10">
-						<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+						<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 					</div>
 				</div>
 				</div>
 		</div>
 		<div class="header">
 			<div class="case" onclick="goReplace('/admin')">
-				<img src="<%=root%>/img/logo1.png" alt="logo" class="logo" />
+				<img src="/img/logo1.png" alt="logo" class="logo" />
 			</div>
 		</div>
 		<div class="sidebar">

@@ -81,44 +81,44 @@
 			<div id="fire">
 			<div id="exts1">
 				<div class="shake-freeze" id="ex0">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex1">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex2">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex3">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex4">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex5">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex6">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex7">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex8">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex9">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex10">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 			</div>
 			</div>
 		</div>
 		<div class="header">
 			<div class="case" onclick="goReplace('/admin')">
-				<img src="<%=root%>/img/logo1.png" alt="logo" class="logo" />
+				<img src="/img/logo1.png" alt="logo" class="logo" />
 			</div>
 		</div>
 		<div class="sidebar">

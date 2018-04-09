@@ -3,13 +3,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<%
-	String root = request.getContextPath();
-%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css" />
+<link href="/css/style2.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
 <script
@@ -50,47 +47,47 @@ label{
 			<div id="fire">
 				<div id="exts1">
 					<div class="shake-freeze" id="ex0">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="/img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex1">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="/img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex2">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="/img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex3">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="/img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex4">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="/img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex5">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="/img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex6">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="/img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex7">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="/img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex8">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="/img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex9">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="/img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 					<div class="shake-freeze" id="ex10">
-						<img src="./img/extinguisher.png" alt="extinguisher"
+						<img src="/img/extinguisher.png" alt="extinguisher"
 							class="imgEtg" name="etgs1" />
 					</div>
 				</div>
@@ -98,7 +95,7 @@ label{
 		</div>
 		<div class="header">
 			<div class="case" onclick="goReplace('/admin')">
-				<img src="<%=root%>/img/logo1.png" alt="logo" class="logo" />
+				<img src="/img/logo1.png" alt="logo" class="logo" />
 			</div>
 		</div>
 		<div class="sidebar">

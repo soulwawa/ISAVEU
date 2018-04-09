@@ -3,20 +3,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<% String root = request.getContextPath(); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="<%=root%>/rMateChartH5.css" />
+<link href="/css/style2.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/rMateChartH5.css" />
 <script language="javascript" type="text/javascript"
-	src="<%=root%>/rMateChartH5License.js"></script>
+	src="/js/rMateChartH5License.js"></script>
 <script language="javascript" type="text/javascript"
-	src="<%=root%>/rMateIntegrationH5.js"></script>
-<script type="text/javascript" src="<%=root%>/theme.js"></script>
-<script language="javascript" type="text/javascript" src="<%=root%>/cylinder.js"></script>
-<script language="javascript" type="text/javascript" src="<%=root%>/line4.js"></script>
-<script language="javascript" type="text/javascript" src="<%=root%>/js1.js"></script>
+	src="/js/rMateIntegrationH5.js"></script>
+<script type="text/javascript" src="/js/theme.js"></script>
+<script language="javascript" type="text/javascript" src="/js/cylinder.js"></script>
+<script language="javascript" type="text/javascript" src="/js/line4.js"></script>
+<script language="javascript" type="text/javascript" src="/js/js1.js"></script>
 <script>
 	var data1;
 	var data2;
@@ -105,44 +104,44 @@
 			<div id="fire">
 			<div id="exts1">
 				<div class="shake-freeze" id="ex0">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex1">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex2">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex3">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex4">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex5">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex6">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex7">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex8">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex9">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex10">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 			</div>
 			</div>
 		</div>
 		<div class="header">
 			<div class="case" onclick="goReplace('/admin')">
-				<img src="<%=root%>/img/logo1.png" alt="logo" class="logo" />
+				<img src="/img/logo1.png" alt="logo" class="logo" />
 			</div>
 		</div>
 		<div class="sidebar">
