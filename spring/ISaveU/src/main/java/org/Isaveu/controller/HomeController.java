@@ -16,6 +16,11 @@ public class HomeController {
 	private String index() {
 		return "index";
 	}
+	@RequestMapping("/test")
+	private String test() {
+		return "NewIndex";
+	}
+	
 	@RequestMapping("/accessDenied")
 	private String accessDenied() {
 		return "accessDenied";

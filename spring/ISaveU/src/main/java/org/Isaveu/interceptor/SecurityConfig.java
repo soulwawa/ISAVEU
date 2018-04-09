@@ -12,7 +12,7 @@ public class SecurityConfig implements WebMvcConfigurer{
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/user/loginPost");
-		registry.addInterceptor(new AuthInterceptor()).addPathPatterns("/**/*").excludePathPatterns("/admin/**", "/Android/**", "/module/**", "/css/**", "/img/**", "/js/**", "/user/**" ,"/mobile/**");
+		registry.addInterceptor(new AuthInterceptor()).addPathPatterns("/**/*").excludePathPatterns("/admin/**", "/Android/**", "/module/**", "/css/**", "/img/**", "/js/**", "/user/**" ,"/mobile/**","/test/**");
 //		registry.addInterceptor(new AuthInterceptor()).addPathPatterns("/admin/**");
 	}
 	
