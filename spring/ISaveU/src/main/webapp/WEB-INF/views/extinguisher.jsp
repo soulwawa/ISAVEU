@@ -100,6 +100,10 @@
 $(window).on("load", function(){
 	checkex1();
 });
+setTimeout(function(){
+	checkex1();
+},100);
+checkex1();
 
 //var interval = setInterval(function () {
 //    $.ajax({
