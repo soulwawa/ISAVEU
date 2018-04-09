@@ -60,7 +60,10 @@ def feScan():
             payload = {'missing': name}
             print(str(name) + " missing")
             print()
-            r = requests.get("http://192.168.0.35:9999/fe.do", params=payload)
+            r = requests.get("http://192.168.0.35:9999/module/fe.do", params=payload)
+            if(r.status_code == requests.codes.ok) :
+                print(r.status_code)
+                print(r.text)
             # print(r.url)
             break
 
@@ -68,8 +71,9 @@ app = Flask(__name__)
 
 @app.route("/feRestart/")
 def feRestart():
-    feScan()
-    return "Scanning restart necessary..."
+    t = threading.Thread(target=feScan)
+    t.start()
+    return "{'restart' : 'ok'}"
 
 @app.route("/siren/<state>/")
 def sirenTest(state):
