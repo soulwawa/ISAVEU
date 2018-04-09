@@ -7,8 +7,8 @@
 	      dataType: "json",
 	      success: function(data2) {
 	        obj = data2;
-	        for (var i = 0; i < obj.list.length; i++){
-	        	var counter = obj.list[i];
+	        for (var i = 0; i < obj.value.length; i++){
+	        	var counter = obj.value[i];
 	        	console.log(counter.location);
 	        	console.log(counter.fire_ex_status);
 	        	if(counter.fire_ex_status == 0){
