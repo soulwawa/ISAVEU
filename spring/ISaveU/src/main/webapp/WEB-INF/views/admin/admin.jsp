@@ -3,20 +3,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
+<% String root = request.getContextPath(); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="/css/style2.css" rel="stylesheet" type="text/css" />
-<link href="/css/admincss.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="/css/rMateChartH5.css" />
+<link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css" />
+<link href="<%=root%>/css/admincss.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="<%=root%>/rMateChartH5.css" />
 <script language="javascript" type="text/javascript"
-	src="/js/rMateChartH5License.js"></script>
+	src="<%=root%>/rMateChartH5License.js"></script>
 <script language="javascript" type="text/javascript"
-	src="/js/rMateIntegrationH5.js"></script>
-<script type="text/javascript" src="/js/theme.js"></script>
-<script language="javascript" type="text/javascript" src="/js/js1.js"></script>
-<script language="javascript" type="text/javascript" src="/js/admin.js"></script>
+	src="<%=root%>/rMateIntegrationH5.js"></script>
+<script type="text/javascript" src="<%=root%>/theme.js"></script>
+<script language="javascript" type="text/javascript" src="<%=root%>/js1.js"></script>
+<script language="javascript" type="text/javascript" src="<%=root%>/admin.js"></script>
 <script>
    var interval1 = setInterval(function () {
     $.ajax({
@@ -35,8 +35,16 @@
 	      url: "http://192.168.0.35:9999/admin/DispatcherModuleRecent",
 	      dataType: "json",
 	      success: function(data2) {
-	        ob2 = data2;
-	        console.log(ob2);
+	        obj = data2;
+	        for (var i = 0; i < obj.length; i++) {
+	    		var counter = obj[i];
+	    		var cv = obj[i].value;
+	    		var j = i + 10;
+	    		document.getElementById("chart"+j).setData(cv);
+	        }
+	      
+	      
+	      
 	      }
 	    });
 	  }, 9900);
@@ -110,7 +118,7 @@
 		</div>
 		<div class="header">
 			<div class="case" onclick="goReplace('/admin')">
-				<img src="/img/logo1.png" alt="logo" class="logo" />
+				<img src="<%=root%>/img/logo1.png" alt="logo" class="logo" />
 			</div>
 		</div>
 		<div class="sidebar">
