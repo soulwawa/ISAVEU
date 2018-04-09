@@ -49,6 +49,11 @@ public class HomeController {
 //			System.out.println(hMapper.hrCount()); 
 			return "sensorLog3";
 	}
+	@RequestMapping("/event")
+	private String eventtest() throws Exception{
+//			System.out.println(hMapper.hrCount()); 
+			return "eventlog";
+	}
 	@RequestMapping("/stream")
 	private String sttest() throws Exception{
 //		System.out.println(hMapper.hrCount()); 

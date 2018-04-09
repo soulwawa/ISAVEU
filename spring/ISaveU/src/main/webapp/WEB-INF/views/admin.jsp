@@ -35,8 +35,16 @@
 	      url: "http://192.168.0.35:9999/admin/DispatcherModuleRecent",
 	      dataType: "json",
 	      success: function(data2) {
-	        ob2 = data2;
-	        console.log(ob2);
+	        obj = data2;
+	        for (var i = 0; i < obj.length; i++) {
+	    		var counter = obj[i];
+	    		var cv = obj[i].value;
+	    		var j = i + 10;
+	    		document.getElementById("chart"+j).setData(cv);
+	        }
+	      
+	      
+	      
 	      }
 	    });
 	  }, 9900);
