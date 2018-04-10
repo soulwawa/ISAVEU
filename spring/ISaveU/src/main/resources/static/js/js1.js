@@ -18,7 +18,6 @@ function check() {
 	        	showAlert(2);
 	        }else if(issuenow == 3){
 	        	document.getElementById("art").innerHTML = "화재 / 지진 발생 </n><br/> <div id='fireBtn' onclick='closeAlert()'>위치확인</div>";
-	        	document.getElementById("art").style.background="rgba(0,255,255,0.8) !important";
 	        	showAlert(3);
 	        }else{
 	        }

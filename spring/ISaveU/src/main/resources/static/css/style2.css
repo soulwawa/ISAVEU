@@ -41,6 +41,7 @@ html, body{
 	transition:0.5s;
 	text-align:center;
 	font-size:40px;
+	background:rgba(0,0,0,0.8);
 }
 #lct{
 	display:none;
