@@ -36,6 +36,39 @@ function live1() {
 	        }
 	      }
 	    });
+	 $.ajax({
+	      type: "GET",
+	      url: "http://192.168.0.35:9999/admin/DisasterCheck.do?loc=6",
+	      dataType: "json",
+	      success: function(data3) {
+	        dis = data3.list;
+	        for (var i = 0; i < dis.length; i++) {
+	    		var counter = dis[i];
+	    		if(counter.issue != 0){
+					doalt(i);	    			
+	    		}else{
+	    			var j = i + 10;
+	    			document.getElementById("cover"+j).style.backgorund = "rgba(255,0,0,0)";
+	    		}
+	        }
+	      }
+	    });
+}
+function doalt(i) {
+	var count = 0;
+	var j = i + 10;
+	var interval3 = setInterval(function () {
+		setTimeout(function(){
+			document.getElementById("cover"+j).style.backgorund = "rgba(255,0,0,0.75)";
+		},300);
+		setTimeout(function(){
+			document.getElementById("cover"+j).style.backgorund = "rgba(255,0,0,0)";
+		},600);
+		count++;
+	  }, 620);
+	if(count==12){
+		clearInterval(interval3);
+	}
 }
   var interval2 = setInterval(function () {
 	    live1();
