@@ -10,6 +10,9 @@ GPIO.setup(siren, GPIO.OUT)
 p = GPIO.PWM(siren, 440)
 GPIO.setwarnings(False)
 
+name = "FE-01"
+mac = "18:93:D7:46:14:D6"
+
 def siren():
     p.start(50)
     while True:
@@ -85,7 +88,7 @@ def sirenTest(state):
         t.start()
         GPIO.output(led, True)
 
-    return "Siren Control..."
+    return name + " : Siren Control Response"
 
 
 if __name__ == "__main__":
