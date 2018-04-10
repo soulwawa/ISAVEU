@@ -2,50 +2,58 @@
 <!DOCTYPE mapper 
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
- 
+
 <mapper namespace="org.Isaveu.mapper.EventMapper">
- 
-    <insert id="insertEvent" parameterType="org.Isaveu.domain.TbEventVO">
-        INSERT INTO
-			tb_event (event_id, module_id, time, temp, smoke, gyro, fire, issue)
+
+	<insert id="insertEvent"
+		parameterType="org.Isaveu.domain.TbEventVO">
+		INSERT INTO
+		tb_event (event_id, module_id, time, temp, smoke, gyro, fire, issue)
 		VALUES
-			(null, #{module_id}, now(), #{temp}, #{smoke}, #{gyro}, #{fire}, #{issue});
-    </insert>
-    
-    <select id="selectRecent" parameterType="int" resultType="org.Isaveu.domain.TbEventVO">
-    	SELECT
-    	 event_id, module_id, time, truncate(temp, 2) as 'temp',  truncate(smoke/20,2) as 'smoke',
-    	 truncate(80 - (gyro/13),2) as 'gyro',  truncate(80 - (fire/13),2) as 'fire', issue 
-    	FROM
-    	 tb_event
-    	WHERE
-    		module_id = "0"
-    	ORDER BY
-    	 event_id
-     	DESC LIMIT ${value};
-    </select>
-    
-    <select id="selectRecentToModule" parameterType="String" resultType="org.Isaveu.domain.TbEventVO">
-    	SELECT
-    	 event_id, module_id, time_format(time, "%T") as 'time', truncate(temp, 2) as 'temp',  truncate(smoke/20,2) as 'smoke',
-    	 truncate(80 - (gyro/13),2) as 'gyro',  truncate(80 - (fire/13),2) as 'fire', issue
-    	FROM
-    	 tb_event
-    	WHERE
-    		module_id = #{value}
-    	ORDER BY
-    	 event_id
-     	DESC LIMIT 12
-    </select>
-    
-    <select id="dispatcherPart" parameterType= "int" resultType="org.Isaveu.domain.TbEventVO">
-	    SELECT 
-	    	event_id, module_id, time, truncate(temp, 2) as 'temp',  truncate(smoke/20,2) as 'smoke',
-    	 truncate(80 - (gyro/13),2) as 'gyro',  truncate(80 - (fire/13),2) as 'fire', issue 
-	    FROM
-	    	tb_event
-	    order by time DESC limit ${value}; 
-    </select>
+		(null, #{module_id}, now(), #{temp}, #{smoke}, #{gyro}, #{fire},
+		#{issue});
+	</insert>
+
+	<select id="selectRecent" parameterType="int"
+		resultType="org.Isaveu.domain.TbEventVO">
+		SELECT
+		event_id, module_id, time, truncate(temp, 2) as 'temp', truncate(60 - (60 - (60 - (smoke/20))),2) as
+		'smoke',
+		truncate(80 - (gyro/13),2) as 'gyro', truncate(80 - (fire/13),2) as 'fire', issue
+		FROM
+		tb_event
+		WHERE
+		module_id = "0"
+		ORDER BY
+		event_id
+		DESC LIMIT ${value};
+	</select>
+
+	<select id="selectRecentToModule" parameterType="String"
+		resultType="org.Isaveu.domain.TbEventVO">
+		SELECT
+		event_id, module_id, time_format(time, "%T") as 'time', truncate(temp, 2) as
+		'temp', truncate(60 - (60 - (60 - (smoke/20))),2) as 'smoke',
+		truncate(80 - (gyro/13),2) as 'gyro', truncate(80 - (fire/13),2) as 'fire', issue
+		FROM
+		tb_event
+		WHERE
+		module_id = #{value}
+		ORDER BY
+		event_id
+		DESC LIMIT 12
+	</select>
+
+	<select id="dispatcherPart" parameterType="int"
+		resultType="org.Isaveu.domain.TbEventVO">
+		SELECT
+		event_id, module_id, time, truncate(temp, 2) as 'temp', truncate(60 - (60 - (60 - (smoke/20))),2) as
+		'smoke',
+		truncate(80 - (gyro/13),2) as 'gyro', truncate(80 - (fire/13),2) as 'fire', issue
+		FROM
+		tb_event
+		order by time DESC limit ${value};
+	</select>
 </mapper>
 
 

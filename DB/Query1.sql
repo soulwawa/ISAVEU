@@ -135,11 +135,12 @@ SELECT
 	    FROM
 	    	tb_event
 	    order by event_id DESC limit 12; 
-SELECT 
-	    	event_id, module_id, time, truncate(temp, 2) as 'temp',  truncate(smoke/20,2) as 'smoke',
-    	 truncate(80 - (gyro/13),2) as 'gyro',  truncate(80 - (fire/13),2) as 'fire', issue 
-	    FROM
-	    	tb_event
-	    order by time DESC limit 12;        
-        
+
+select
+ action_id, module_id, url, time, issue
+from tb_action action
+inner join tb_event event on action.module_id = event.module_id
+order by action_id DESC;
+
+
         
