@@ -290,6 +290,8 @@ function ss0(){
 		document.getElementById("cover10").style.width = 1480+"px";
 		document.getElementById("cover10").style.height = 390+"px";
 		document.getElementById("cover10").style.display = "none";
+		document.getElementById("cover10").style.display = "none";
+		document.getElementById("cover10").style.display = "none";
 	},a-50);
 }
 
@@ -495,6 +497,8 @@ function ss1(){
 		document.getElementById("cover11").style.width = 1480+"px";
 		document.getElementById("cover11").style.height = 390+"px";
 		document.getElementById("cover11").style.display = "none";
+		document.getElementById("cover11").style.display = "none";
+		document.getElementById("cover11").style.display = "none";
 	},a-50);
 }
 function ss2(){
@@ -697,6 +701,8 @@ function ss2(){
 		document.getElementById("cover12").style.height = 390+"px";
 		document.getElementById("cover12").style.width = 1480+"px";
 		document.getElementById("cover12").style.height = 390+"px";
+		document.getElementById("cover12").style.display = "none";
+		document.getElementById("cover12").style.display = "none";
 		document.getElementById("cover12").style.display = "none";
 	},a-50);
 }
@@ -902,6 +908,8 @@ function ss3(){
 		document.getElementById("cover13").style.width = 1480+"px";
 		document.getElementById("cover13").style.height = 390+"px";
 		document.getElementById("cover13").style.display = "none";
+		document.getElementById("cover13").style.display = "none";
+		document.getElementById("cover13").style.display = "none";
 	},a-50);
 }
 function ss4(){
@@ -1105,6 +1113,8 @@ function ss4(){
 		document.getElementById("cover14").style.height = 390+"px";
 		document.getElementById("cover14").style.width = 1480+"px";
 		document.getElementById("cover14").style.height = 390+"px";
+		document.getElementById("cover14").style.display = "none";
+		document.getElementById("cover14").style.display = "none";
 		document.getElementById("cover14").style.display = "none";
 	},a-50);
 }
@@ -1310,6 +1320,8 @@ function ss5(){
 		document.getElementById("cover15").style.width = 1480+"px";
 		document.getElementById("cover15").style.height = 390+"px";
 		document.getElementById("cover15").style.display = "none";
+		document.getElementById("cover15").style.display = "none";
+		document.getElementById("cover15").style.display = "none";
 	},a-50);
 }
 function ss6(){
@@ -1513,6 +1525,8 @@ function ss6(){
 		document.getElementById("cover16").style.height = 390+"px";
 		document.getElementById("cover16").style.width = 1480+"px";
 		document.getElementById("cover16").style.height = 390+"px";
+		document.getElementById("cover16").style.display = "none";
+		document.getElementById("cover16").style.display = "none";
 		document.getElementById("cover16").style.display = "none";
 	},a-50);
 }
@@ -1718,6 +1732,8 @@ function ss7(){
 		document.getElementById("cover17").style.width = 1480+"px";
 		document.getElementById("cover17").style.height = 390+"px";
 		document.getElementById("cover17").style.display = "none";
+		document.getElementById("cover17").style.display = "none";
+		document.getElementById("cover17").style.display = "none";
 	},a-50);
 }
 function ss8(){
@@ -1921,6 +1937,8 @@ function ss8(){
 		document.getElementById("cover18").style.height = 390+"px";
 		document.getElementById("cover18").style.width = 1480+"px";
 		document.getElementById("cover18").style.height = 390+"px";
+		document.getElementById("cover18").style.display = "none";
+		document.getElementById("cover18").style.display = "none";
 		document.getElementById("cover18").style.display = "none";
 	},a-50);
 }
@@ -2126,6 +2144,8 @@ function ss9(){
 		document.getElementById("cover19").style.width = 1480+"px";
 		document.getElementById("cover19").style.height = 390+"px";
 		document.getElementById("cover19").style.display = "none";
+		document.getElementById("cover19").style.display = "none";
+		document.getElementById("cover19").style.display = "none";
 	},a-50);
 }
 function ss10(){
@@ -2329,6 +2349,8 @@ function ss10(){
 		document.getElementById("cover20").style.height = 390+"px";
 		document.getElementById("cover20").style.width = 1480+"px";
 		document.getElementById("cover20").style.height = 390+"px";
+		document.getElementById("cover20").style.display = "none";
+		document.getElementById("cover20").style.display = "none";
 		document.getElementById("cover20").style.display = "none";
 	},a-50);
 }
