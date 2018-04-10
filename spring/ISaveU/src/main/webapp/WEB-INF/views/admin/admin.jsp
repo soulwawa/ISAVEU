@@ -41,9 +41,6 @@ function live1() {
 	    		console.log(i+"번센서");
 	    		console.log(dis);
 	    		var k = i + 10;
-	    		document.getElementById("cover"+k).style.background = "rgba(255,0,0,0.75)";
-	    		document.getElementById("cover"+k).style.background = "rgba(255,0,0,0.75)";
-	    		document.getElementById("cover"+k).style.background = "rgba(255,0,0,0.75)";
 	    		doalt(k,dis);
 	        }
 	      }
