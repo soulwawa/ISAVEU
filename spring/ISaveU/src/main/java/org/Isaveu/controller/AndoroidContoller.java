@@ -118,7 +118,6 @@ public class AndoroidContoller {
 	@RequestMapping(value = "/DisasterCheck.do")
 	public Map<String, Object> AndroiDisasterCheck(@RequestParam("loc") String loc){
 		Map<String, Object> map = new HashMap<String, Object>();
-//		System.out.println(loc);
 		String count = "";
 		try {
 			count = lService.locationCount(loc);

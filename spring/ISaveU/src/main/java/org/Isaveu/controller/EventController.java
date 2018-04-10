@@ -23,7 +23,6 @@ import org.Isaveu.domain.TbHrVO;
 import org.Isaveu.domain.TbModuleVO;
 import org.Isaveu.fcm.Data;
 import org.Isaveu.fcm.FCMData;
-import org.Isaveu.mapper.ModuleMapper;
 import org.Isaveu.service.ActionService;
 import org.Isaveu.service.EventService;
 import org.Isaveu.service.HrService;
@@ -276,7 +275,7 @@ public class EventController {
 
 		data.setTitle(title);
 		data.setContent_1(module_id + " 장비 확인(센서값 오류 이상)");
-		// data.setContent_2("4"); //소화기 분실 임시지정
+		 data.setContent_2("5"); // 장비 확인 임시지정
 		fcmData.setData(data);
 		fcmData.setRegistration_ids(reglist);
 

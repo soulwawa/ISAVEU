@@ -8,7 +8,6 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.Isaveu.domain.LocationByFireExVO;
-import org.Isaveu.domain.ModuleByLocationVO;
 import org.Isaveu.domain.TbFireExVO;
 import org.Isaveu.domain.TbHrVO;
 import org.Isaveu.fcm.Data;
