@@ -38,7 +38,7 @@ function live1() {
 	    		document.getElementById("chart"+j).setData(cv);
 	    		
 	    		var dis = counter.value[11].issue;
-	    		conseol.log(i+"번센서");
+	    		console.log(i+"번센서");
 	    		console.log(dis);
 	        }
 	      }
