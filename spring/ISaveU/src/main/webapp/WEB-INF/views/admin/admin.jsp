@@ -160,7 +160,7 @@ function doalt(i,k,dis){
 			</div>
 		</div>
 		<div class="header">
-			<div class="case" onclick="goReplace('/admin')">
+			<div class="case" onclick="goReplace('/admin/admin')">
 				<img src="/img/logo1.png" alt="logo" class="logo" />
 			</div>
 		</div>

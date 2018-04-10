@@ -160,7 +160,7 @@ function doalt(i,k,dis){
 			</div>
 		</div>
 		<div class="header">
-			<div class="case" onclick="goReplace('/admin')">
+			<div class="case" onclick="goReplace('/admin/admin')">
 				<img src="/img/logo1.png" alt="logo" class="logo" />
 			</div>
 		</div>
@@ -192,90 +192,28 @@ function doalt(i,k,dis){
 			</div>
 		</div>
 		<div class="contents">
-			<div id="section1" style="height:400px;">
-				<div id="con1">
-					<div class="sensors" id="s0">
-						<button class="btn btn-default btn-block" onclick="ss0()">sensor0</button>
+	<section id="loginFormArea">
+		<form action="/user/loginPost" method="post">
+			<div class="imgBox">
+				<img src="/img/main.png" alt="logo" class="mainImg"/>
+			</div>
+			<div id="loginBox">
+				<div class="box">
+					<div>
+						<input type="text" name="id" class="txtbox" placeholder="USER ID"/>
 					</div>
-					<div class="sensors" id="s1">
-						<button class="btn btn-default btn-block" onclick="ss1()">sensor1</button>
+					<div>
+						<input type="password" name="pw" class="txtbox" placeholder="USER PASSWORD"/>
 					</div>
-					<div class="sensors" id="s2">
-						<button class="btn btn-default btn-block" onclick="ss2()">sensor2</button>
-					</div>
-					<div class="sensors" id="s3">
-						<button class="btn btn-default btn-block" onclick="ss3()">sensor3</button>
-					</div>
-					<div class="sensors" id="s4">
-						<button class="btn btn-default btn-block" onclick="ss4()">sensor4</button>
-					</div>
-					<div class="sensors" id="s5">
-						<button class="btn btn-default btn-block" onclick="ss5()">sensor5</button>
-					</div>
-					<div class="sensors" id="s6">
-						<button class="btn btn-default btn-block" onclick="ss6()">sensor6</button>
-					</div>
-					<div class="sensors" id="s7">
-						<button class="btn btn-default btn-block" onclick="ss7()">sensor7</button>
-					</div>
-					<div class="sensors" id="s8">
-						<button class="btn btn-default btn-block" onclick="ss8()">sensor8</button>
-					</div>
-					<div class="sensors" id="s9">
-						<button class="btn btn-default btn-block" onclick="ss9()">sensor9</button>
-					</div>
-					<div class="sensors" id="s10">
-						<button class="btn btn-default btn-block" onclick="ss10()">sensor10</button>
-					</div>
+				</div>
+				<div class="loginBtn">
+					<input type="submit" name="loginBtn" value="Login"/>
 				</div>
 			</div>
-			<div id="section2" style="height:424px;">
-				<div id="chartHolder10" class="chartHolder">
-					<div id="cover10" class="cover" onclick="ss0()">
-					</div>
-				</div>
-				<div id="chartHolder11" class="chartHolder">
-					<div id="cover11" class="cover" onclick="ss1()">
-					</div>
-				</div>
-				<div id="chartHolder12" class="chartHolder">
-					<div id="cover12" class="cover" onclick="ss2()">
-					</div>
-				</div>
-				<div id="chartHolder13" class="chartHolder">
-					<div id="cover13" class="cover" onclick="ss3()">
-					</div>
-				</div>
-				<div id="chartHolder14" class="chartHolder">
-					<div id="cover14" class="cover" onclick="ss4()">
-					</div>
-				</div>
-				<div id="chartHolder15" class="chartHolder">
-					<div id="cover15" class="cover" onclick="ss5()">
-					</div>
-				</div>
-				<div id="chartHolder16" class="chartHolder">
-					<div id="cover16" class="cover" onclick="ss6()">
-					</div>
-				</div>
-				<div id="chartHolder17" class="chartHolder">
-					<div id="cover17" class="cover" onclick="ss7()">
-					</div>
-				</div>
-				<div id="chartHolder18" class="chartHolder">
-					<div id="cover18" class="cover" onclick="ss8()">
-					</div>
-				</div>
-				<div id="chartHolder19" class="chartHolder">
-					<div id="cover19" class="cover" onclick="ss9()">
-					</div>
-				</div>
-				<div id="chartHolder20" class="chartHolder">
-					<div id="cover20" class="cover" onclick="ss10()">
-					</div>
-				</div>
-			</div>
-		</div>
+		</form>
+		<div> HSB </div>
+	</section>
+</div>
 		<div class="footer">
 			<div style="padding: 7px;">Copyright © 2018 HSB Inc.</div>
 			<div>
