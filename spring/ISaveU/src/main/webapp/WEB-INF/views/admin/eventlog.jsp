@@ -18,7 +18,21 @@ var ev = setInterval(function () {
       url: "http://192.168.0.35:9999/admin/event.do",
       dataType: "json",
       success: function(data) {
-        ob = data;
+        ob = data.list;
+        var pagenum = 0;
+	        for(var i = 0; i < 20; i++){
+	        	document.getElementById("t"+i+"0").innerHTML = ob[i].action_id;
+	        	document.getElementById("t"+i+"1").innerHTML = ob[i].time;
+	        	document.getElementById("t"+i+"2").innerHTML = ob[i].module_id;
+	        	document.getElementById("t"+i+"3").innerHTML = ob[i].복도;
+	        	if(ob[i].issue == 1){
+	        		document.getElementById("t"+i+"4").innerHTML = "화재";
+	        	}else if(ob[i].issue == 2){
+	        		document.getElementById("t"+i+"4").innerHTML = "지진";
+	        	}else if(ob[i].issue == 3){
+	        		document.getElementById("t"+i+"4").innerHTML = "화재, 지진";
+	        	}
+	        }
       }
     });
   }, 9900);
@@ -31,6 +45,22 @@ $(window).on("unload", function(){
     clearInterval(ev);
 }); 
 </script>
+<style>
+#tb1{
+	text-align:center;
+	margin:0 !important;
+}
+th{
+	text-align:center;
+	
+}
+#controler{
+	width:300px;
+	height:40px;
+	background:black;
+	z-index:1200;
+}
+</style>
 </head>
 <body>
 	<div class="wrapper">
@@ -114,118 +144,158 @@ $(window).on("unload", function(){
 			<table class="table" id="tb1">
 				<thead>
 					<tr>
-						<th scope="col">소화기</th>
-						<th scope="col">장소</th>
-						<th scope="col">부서</th>
-						<th scope="col">사용가능 여부</th>
-						<th scope="col">소화기 제조일</th>
-						<th scope="col">소화기 점검일</th>
-						<th scope="col">점검 예정일</th>
+						<th scope="col">.no</th>
+						<th scope="col">발생일시</th>
+						<th scope="col">module_id</th>
+						<th scope="col">부서명</th>
+						<th scope="col">발생 상황</th>
+						
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<th scope="row">FE-01</th>
-						<td id="01"></td>
-						<td id="02"></td>
-						<td id="03"></td>
-						<td id="04"></td>
-						<td id="05"></td>
-						<td id="06"></td>
+						<th scope="row" id="t00"></th>
+						<td id="t01"></td>
+						<td id="t02"></td>
+						<td id="t03"></td>
+						<td id="t04"></td>
 					</tr>
 					<tr>
-						<th scope="row">FE-02</th>
-						<td id="11"></td>
-						<td id="12"></td>
-						<td id="13"></td>
-						<td id="14"></td>
-						<td id="15"></td>
-						<td id="16"></td>
+						<th scope="row" id="t10"></th>
+						<td id="t11"></td>
+						<td id="t12"></td>
+						<td id="t13"></td>
+						<td id="t14"></td>
 					</tr>
 					<tr>
-						<th scope="row">FE-03</th>
-						<td id="21"></td>
-						<td id="22"></td>
-						<td id="23"></td>
-						<td id="24"></td>
-						<td id="25"></td>
-						<td id="26"></td>
+						<th scope="row" id="t20"></th>
+						<td id="t21"></td>
+						<td id="t22"></td>
+						<td id="t23"></td>
+						<td id="t24"></td>
 					</tr>
 					<tr>
-						<th scope="row">FE-04</th>
-						<td id="31"></td>
-						<td id="32"></td>
-						<td id="33"></td>
-						<td id="34"></td>
-						<td id="35"></td>
-						<td id="36"></td>
+						<th scope="row" id="t30"></th>
+						<td id="t31"></td>
+						<td id="t32"></td>
+						<td id="t33"></td>
+						<td id="t34"></td>
 					</tr>
 					<tr>
-						<th scope="row">FE-05</th>
-						<td id="41"></td>
-						<td id="42"></td>
-						<td id="43"></td>
-						<td id="44"></td>
-						<td id="45"></td>
-						<td id="46"></td>
+						<th scope="row" id="t40"></th>
+						<td id="t41"></td>
+						<td id="t42"></td>
+						<td id="t43"></td>
+						<td id="t44"></td>
 					</tr>
 					<tr>
-						<th scope="row">FE-06</th>
-						<td id="51"></td>
-						<td id="52"></td>
-						<td id="53"></td>
-						<td id="54"></td>
-						<td id="55"></td>
-						<td id="56"></td>
+						<th scope="row" id="50"></th>
+						<td id="t51"></td>
+						<td id="t52"></td>
+						<td id="t53"></td>
+						<td id="t54"></td>
 					</tr>
 					<tr>
-						<th scope="row">FE-07</th>
-						<td id="61"></td>
-						<td id="62"></td>
-						<td id="63"></td>
-						<td id="64"></td>
-						<td id="65"></td>
-						<td id="66"></td>
+						<th scope="row" id="60"></th>
+						<td id="t61"></td>
+						<td id="t62"></td>
+						<td id="t63"></td>
+						<td id="t64"></td>
 					</tr>
 					<tr>
-						<th scope="row">FE-08</th>
-						<td id="71"></td>
-						<td id="72"></td>
-						<td id="73"></td>
-						<td id="74"></td>
-						<td id="75"></td>
-						<td id="76"></td>
+						<th scope="row" id="70"></th>
+						<td id="t71"></td>
+						<td id="t72"></td>
+						<td id="t73"></td>
+						<td id="t74"></td>
 					</tr>
 					<tr>
-						<th scope="row">FE-09</th>
-						<td id="81"></td>
-						<td id="82"></td>
-						<td id="83"></td>
-						<td id="84"></td>
-						<td id="85"></td>
-						<td id="86"></td>
+						<th scope="row" id="80"></th>
+						<td id="t81"></td>
+						<td id="t82"></td>
+						<td id="t83"></td>
+						<td id="t84"></td>
 					</tr>
 					<tr>
-						<th scope="row">FE-10</th>
-						<td id="91"></td>
-						<td id="92"></td>
-						<td id="93"></td>
-						<td id="94"></td>
-						<td id="95"></td>
-						<td id="96"></td>
+						<th scope="row" id="90"></th>
+						<td id="t91"></td>
+						<td id="t92"></td>
+						<td id="t93"></td>
+						<td id="t94"></td>
 					</tr>
 					<tr>
-						<th scope="row">FE-11</th>
-						<td id="101"></td>
-						<td id="102"></td>
-						<td id="103"></td>
-						<td id="104"></td>
-						<td id="105"></td>
-						<td id="106"></td>
+						<th scope="row" id="100"></th>
+						<td id="t101"></td>
+						<td id="t102"></td>
+						<td id="t103"></td>
+						<td id="t104"></td>
 					</tr>
-					
+					<tr>
+						<th scope="row" id="110"></th>
+						<td id="t111"></td>
+						<td id="t112"></td>
+						<td id="t113"></td>
+						<td id="t114"></td>
+					</tr>
+					<tr>
+						<th scope="row" id="120"></th>
+						<td id="t121"></td>
+						<td id="t122"></td>
+						<td id="t123"></td>
+						<td id="t124"></td>
+					</tr>
+					<tr>
+						<th scope="row" id="130"></th>
+						<td id="t131"></td>
+						<td id="t132"></td>
+						<td id="t133"></td>
+						<td id="t134"></td>
+					</tr>
+					<tr>
+						<th scope="row" id="140"></th>
+						<td id="t141"></td>
+						<td id="t142"></td>
+						<td id="t143"></td>
+						<td id="t144"></td>
+					</tr>
+					<tr>
+						<th scope="row" id="150"></th>
+						<td id="t151"></td>
+						<td id="t152"></td>
+						<td id="t153"></td>
+						<td id="t154"></td>
+					</tr>
+					<tr>
+						<th scope="row" id="160"></th>
+						<td id="t161"></td>
+						<td id="t162"></td>
+						<td id="t163"></td>
+						<td id="t164"></td>
+					</tr>
+					<tr>
+						<th scope="row" id="170"></th>
+						<td id="t171"></td>
+						<td id="t172"></td>
+						<td id="t173"></td>
+						<td id="t174"></td>
+					</tr>
+					<tr>
+						<th scope="row" id="180"></th>
+						<td id="t181"></td>
+						<td id="t182"></td>
+						<td id="t183"></td>
+						<td id="t184"></td>
+					</tr>
+					<tr>
+						<th scope="row" id="190"></th>
+						<td id="t191"></td>
+						<td id="t192"></td>
+						<td id="t193"></td>
+						<td id="t194"></td>
+					</tr>
 				</tbody>
 			</table>
+			<div id="controler"></div>
 		</div>
 		<div class="footer">
 		</div>
