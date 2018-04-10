@@ -6,9 +6,6 @@
 <head>
 <% String root = request.getContextPath(); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 <link href="/css/style2.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="/css/rMateChartH5.css" />
 <script type="text/javascript" src="/js/rMateChartH5License.js"></script>
@@ -17,15 +14,15 @@
 <script type="text/javascript" src="/js/mchart.js"></script>
 
 <script>
-	    $.ajax({
-	      type: "GET",
-	      url: "http://192.168.0.35:9999/admin/DispatcherRecent?num=12",
-	      dataType: "json",
-	      success: function(data2) {
-	        ob2 = data2;
-	        console.log(ob2);
-	      }
-	    });  
+//	    $.ajax({
+	//      type: "GET",
+	 //     url: "http://192.168.0.35:9999/admin/DispatcherRecent?num=12",
+	 //     dataType: "json",
+	//      success: function(data2) {
+	//        ob2 = data2;
+	//        console.log(ob2);
+	//      }
+	//    });
 </script>
 <style>
 .chartHolder {
