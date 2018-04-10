@@ -40,7 +40,8 @@ function live1() {
 	    		var dis = counter.value[11].issue;
 	    		console.log(dis);
 	    		if(dis != 0){
-					doalt(i);	    			
+					doalt(i);	 
+					console.log("success" + i + "번 센서" + dis + " >> 1이면 불 2이면 지진 3이면 지진불 0은 정상");
 	    		}else{
 	    			document.getElementById("cover"+j).style.backgorund = "rgba(255,0,0,0)";
 	    		}
@@ -49,6 +50,7 @@ function live1() {
 	    });
 }
 function doalt(i) {
+	console.log( "success" + i);
 	var count = 0;
 	var j = i + 10;
 	var interval3 = setInterval(function () {
