@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="org.Isaveu.mapper.LocationMapper">
+	<select id="locationByFireEx" parameterType="org.Isaveu.domain.LocationByFireExVO" resultType="org.Isaveu.domain.LocationByFireExVO" >
+	SELECT
+ 		*
+	FROM tb_location
+	INNER JOIN
+ 	tb_fire_ex
+		ON tb_location.location_id = tb_fire_ex.location_id;
+	</select>
+	
+	<select id="locationByFireExName" parameterType="String" resultType="org.Isaveu.domain.LocationByFireExVO" >
+	SELECT
+ 		*
+	FROM tb_location
+	INNER JOIN
+ 	tb_fire_ex
+		ON tb_location.location_id = tb_fire_ex.location_id
+	and
+		fire_ex_name= #{value}
+	</select>
+	
+	<select id="moduleByLocation" parameterType="String" resultType="org.Isaveu.domain.ModuleByLocationVO">
+	SELECT
+		* 
+	FROM tb_module
+	INNER JOIN
+	tb_location
+		ON tb_module.location_id = tb_location.location_id
+	WHERE
+		module_id = #{value};
+	</select>
+	
+	<select id="AndroidDisasterCheck" parameterType="String" resultType="org.Isaveu.domain.LocationByIssueVO">
+	select event.time, event.issue, location.location
+		from tb_event event
+	inner join tb_module module on event.module_id = module.module_id
+	inner join tb_location location on module.location_id = location.location_id
+	where module.module_id = ${value} order by event_id desc limit 1;
+	</select>
+	
+	<select id="locationCount" parameterType="String" resultType="String">
+	SELECT
+		count(*)
+	FROM tb_module module, tb_location location
+		where module.location_id = location.location_id
+		and module.type = 'arduino' and location LIKE CONCAT(${value},'%');
+	</select>
+
+</mapper>

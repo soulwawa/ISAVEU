@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace = "org.Isaveu.mapper.FireExMapper">
+	
+	<select id="getFireEx" resultType="org.Isaveu.domain.TbFireExVO" parameterType="String">
+	SELECT
+		*
+	FROM
+		tb_fire_ex
+	WHERE
+		fire_ex_name = #{value}
+	</select>
+	
+	<select id="updatefireExStatus"
+	resultType="org.Isaveu.domain.TbFireExVO" parameterType="String">
+	UPDATE tb_fire_ex
+	Inner join tb_location
+	ON tb_fire_ex.location_id = tb_location.location_id
+	set fire_ex_status = 1
+	WHERE location = #{value}
+	</select>
+	
+	<update id="fireExStatusUpdate" parameterType="org.Isaveu.domain.TbFireExVO">
+	UPDATE tb_fire_ex
+		SET fire_ex_status = #{fire_ex_status}
+	WHERE
+		fire_ex_name = #{fire_ex_name}
+	</update>
+	
+	
+	
+</mapper>

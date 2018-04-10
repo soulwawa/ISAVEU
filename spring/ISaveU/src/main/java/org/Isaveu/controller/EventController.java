@@ -160,7 +160,7 @@ public class EventController {
 		URI uri = UriComponentsBuilder.fromHttpUrl("http://192.168.0.13:5001/cam/" + issue).build().toUri();
 		byte[] response = new byte[8 * 1024];
 		response = restTemplate.getForObject(uri, byte[].class);
-		String localName = "C:\\workspace\\SaveForYou\\spring\\ISaveU\\src\\main\\resources\\eventImage\\";
+		String localName = "C:\\Users\\user\\Documents\\ISAVEU\\spring\\ISaveU\\src\\main\\resources\\eventImage";
 		String fileExtension = ".png";
 		String androidPass = "http://192.168.0.35:9999/Android/IamgeGet.do?imageID=";
 		String serverName = localName + datenow + fileExtension;
