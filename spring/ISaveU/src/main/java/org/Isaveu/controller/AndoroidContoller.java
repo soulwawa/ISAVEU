@@ -201,9 +201,6 @@ public class AndoroidContoller {
 		map.put("floor", loc);
 		map.put("list", list);
 		
-//		for (int i = 0 ; i < list.size() ; i++) {
-//			map.put(list.get(i).getLocation(), list.get(i).getFire_ex_status());
-//		}
 		return map;
 	}
 	
