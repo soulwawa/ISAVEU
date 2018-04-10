@@ -364,7 +364,7 @@ public class EventController {
 			}
 			result.add(map);
 		}
-		Collections.reverse(result);
+//		Collections.reverse(result);
 		return result;
 
 	}
@@ -469,10 +469,12 @@ public class EventController {
 			map.put("module_id", String.valueOf(i));
 			list = new ArrayList<TbEventVO>();
 			list = eService.selectRecentToModule(String.valueOf(i));
+			Collections.reverse(list);
 			map.put("value", list);
 
 			listAll.add(map);
 		}
+//		Collections.reverse(listAll);
 		return listAll;
 	}
 

@@ -118,7 +118,7 @@ SELECT * FROM tb_event WHERE module_id = "0" ORDER BY event_id	DESC LIMIT 12;
 SELECT * FROM tb_fire_ex WHERE fire_ex_name = "fe-01";
 UPDATE tb_fire_ex
 	Inner join tb_location
-	ON tb_fire_ex.location_id = tb_location.location_id
+	ON tb_fire_ex.location_id = tb_location.location_id0
 	set fire_ex_status = 1
 	WHERE location = '600';
     
@@ -126,7 +126,20 @@ UPDATE tb_fire_ex
 select event.event_id, event.time, event.issue, location.location, location.dept_name
 from tb_event event
 inner join tb_module module on event.module_id = module.module_id
-inner join tb_location location on module.location_id = location.location_id 
-having module.module_id order by event_id desc limit 1;
+inner join tb_location location on module.location_id = location.location_id
+where module.module_id = '0' order by event_id desc limit 1;
 
-
+SELECT 
+	    	event_id, module_id, time_format(time, "%T") as 'time', truncate(temp, 2) as 'temp',  truncate(smoke/20,2) as 'smoke',
+    	 truncate(80 - (gyro/13),2) as 'gyro',  truncate(80 - (fire/13),2) as 'fire', issue 
+	    FROM
+	    	tb_event
+	    order by event_id DESC limit 12; 
+SELECT 
+	    	event_id, module_id, time, truncate(temp, 2) as 'temp',  truncate(smoke/20,2) as 'smoke',
+    	 truncate(80 - (gyro/13),2) as 'gyro',  truncate(80 - (fire/13),2) as 'fire', issue 
+	    FROM
+	    	tb_event
+	    order by time DESC limit 12;        
+        
+        
