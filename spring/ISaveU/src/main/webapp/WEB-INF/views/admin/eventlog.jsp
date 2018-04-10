@@ -86,12 +86,7 @@ $(window).on("unload", function(){
 		<div class="sidebar">
 			<div class="menuBtn" id="btnSensor">
 				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/sensor1')">
-  					<span class="glyphicon glyphicon-tasks" ></span> Sensor Log1
-				</button>
-			</div>
-			<div class="menuBtn" id="btnSensor">
-				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/sensor2')">
-  					<span class="glyphicon glyphicon-tasks" ></span> Sensor Log2
+  					<span class="glyphicon glyphicon-tasks" ></span> Sensor Log
 				</button>
 			</div>
 			<div class="menuBtn" >
@@ -105,7 +100,7 @@ $(window).on("unload", function(){
 				</button>
 			</div>
 			<div class="menuBtn" >
-				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/hr')">
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/index')">
   					<span class="glyphicon glyphicon-user" ></span> H.R
 				</button>
 			</div>
@@ -114,7 +109,6 @@ $(window).on("unload", function(){
   					<span class="glyphicon glyphicon-map-marker"></span> Map
 				</button>
 			</div>
-			<input type="button" value="불내기" onclick="showAlert()"/>
 		</div>
 		<div class="contents">
 			<table class="table" id="tb1">
