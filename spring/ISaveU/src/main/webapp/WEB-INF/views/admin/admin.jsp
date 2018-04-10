@@ -44,7 +44,7 @@ function live1() {
 	    		document.getElementById("cover"+k).style.background = "rgba(255,0,0,0.75)";
 	    		document.getElementById("cover"+k).style.background = "rgba(255,0,0,0.75)";
 	    		document.getElementById("cover"+k).style.background = "rgba(255,0,0,0.75)";
-	    		doalt(k);
+	    		doalt(k,dis);
 	        }
 	      }
 	    });
@@ -57,7 +57,7 @@ function live1() {
 	    clearInterval(alwayscheck);
 	}); 
   
-function doalt(k){
+function doalt(k,dis){
 	console.log("k 번 센서 깜빡깜빡하기");
 	if(dis == 0){
 		document.getElementById("cover"+k).style.background = "rgba(255,0,0,0)";
