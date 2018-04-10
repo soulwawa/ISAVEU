@@ -127,15 +127,16 @@ public class AndoroidContoller {
 		}
 		ArrayList<LocationByIssueVO> list = new ArrayList<LocationByIssueVO>();
 		
+		int countInt = Integer.parseInt(count);
 		try {
-			list = lService.AndroidDisasterCheck("0");
-		} catch (Exception e) {
+			list = new ArrayList<LocationByIssueVO>();
+			for (int i = 0; i < countInt; i++) {
+				list.addAll(lService.AndroidDisasterCheck(String.valueOf(i)));
+			}
+		}catch (Exception e) {
 			e.printStackTrace();
 		}
-//		ArrayList<LocationByIssueVO> listMap=  new ArrayList<LocationByIssueVO>();
-//		for(int i = 0 ; i < list.size() ; i++) {
-//			listMap.add(list.get(i));
-//		}
+		
 		map.put("floor", loc);
 		map.put("list", list);
 		System.out.println(map);

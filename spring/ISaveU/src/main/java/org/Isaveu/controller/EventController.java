@@ -16,6 +16,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
+
+import org.Isaveu.domain.LocationByIssueVO;
 import org.Isaveu.domain.ModuleByLocationVO;
 import org.Isaveu.domain.TbActionVO;
 import org.Isaveu.domain.TbEventVO;
@@ -37,6 +39,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -118,6 +121,7 @@ public class EventController {
 			RaspControl(issue);
 			if (issueTemp == "4") {
 				System.out.println(module_id + " : 문제 발생 / " + datenow);
+				fCMSendToAdmin(module_id);
 				break;
 			} else {
 				if (issue.equals(issueTemp)) {
@@ -476,6 +480,36 @@ public class EventController {
 		}
 //		Collections.reverse(listAll);
 		return listAll;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/admin/DisasterCheck.do")
+	public Map<String, Object> AndroiDisasterCheck(@RequestParam("loc") String loc){
+		Map<String, Object> map = new HashMap<String, Object>();
+		String count = "";
+		try {
+			count = lService.locationCount(loc);
+			System.out.println(count);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		ArrayList<LocationByIssueVO> list = new ArrayList<LocationByIssueVO>();
+		
+		int countInt = Integer.parseInt(count);
+		try {
+			list = new ArrayList<LocationByIssueVO>();
+			for (int i = 0; i < countInt; i++) {
+				list.addAll(lService.AndroidDisasterCheck(String.valueOf(i)));
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		map.put("floor", loc);
+		map.put("list", list);
+		System.out.println(map);
+		return map;
+		
 	}
 
 }
