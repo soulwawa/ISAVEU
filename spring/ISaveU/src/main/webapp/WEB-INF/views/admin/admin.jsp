@@ -41,22 +41,10 @@ function live1() {
 	    		console.log(i+"번센서");
 	    		console.log(dis);
 	    		var k = i + 10;
-	    		if(dis == 0){
-	    			document.getElementById("cover"+k).style.backgorund = "rgba(255,0,0,0)";
-	    		}else{
-	    			var interval3 = setInterval(function () {
-	    				setTimeout(function(){
-	    					document.getElementById("cover"+k).style.backgorund = "rgba(255,0,0,0.75)";
-	    				},300);
-	    				setTimeout(function(){
-	    					document.getElementById("cover"+k).style.backgorund = "rgba(255,0,0,0)";
-	    				},600);
-	    				count++;
-	    			  }, 620);
-	    			if(count==12){
-	    				clearInterval(interval3);
-	    			}
-	    		}
+	    		document.getElementById("cover"+k).style.background = "rgba(255,0,0,0.75)";
+	    		document.getElementById("cover"+k).style.background = "rgba(255,0,0,0.75)";
+	    		document.getElementById("cover"+k).style.background = "rgba(255,0,0,0.75)";
+	    		doalt(k);
 	        }
 	      }
 	    });
@@ -68,6 +56,27 @@ function live1() {
 	    clearInterval(interval2);
 	    clearInterval(alwayscheck);
 	}); 
+  
+function doalt(k){
+	console.log("k 번 센서 깜빡깜빡하기");
+	if(dis == 0){
+		document.getElementById("cover"+k).style.background = "rgba(255,0,0,0)";
+	}else{
+		console.log("k 번 센서 깜빡깜빡하기22222222");
+		var interval3 = setInterval(function () {
+			setTimeout(function(){
+				document.getElementById("cover"+k).style.background = "rgba(255,0,0,0.75)";
+			},300);
+			setTimeout(function(){
+				document.getElementById("cover"+k).style.background= "rgba(255,0,0,0)";
+			},600);
+			count++;
+		  }, 620);
+		if(count==12){
+			clearInterval(interval3);
+		}
+	}
+}
 //	var interval3 = setInterval(function () {
 //	  setTimeout(function(){
 //			document.getElementById("cover14").style.background="rgba(255,255,255,0)";
