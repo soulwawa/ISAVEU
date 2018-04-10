@@ -13,12 +13,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </insert>
     <select id="selectAllList" resultType="org.Isaveu.domain.ActionBoardVO">
     	SELECT
- 			action_id, action.module_id, action.time, action.url, event.issue, location.dept_name
+ 			action_id, action.module_id, action.time, replace(action.url,'C:\\Users\\user\\Documents\\ISAVEU\\spring\\ISaveU\\src\\main\\resources\\static\\eventImage\\',
+    'http://192.168.0.35:99/eventImage/'),
+    		 event.issue, location.dept_name
 		FROM tb_action action
 			inner join tb_event event on action.time = event.time
 			inner join tb_module module on event.module_id = module.module_id
 			inner join tb_location location on module.location_id = location.location_id
-		WHERE issue > "1"
+		WHERE issue >= "1"
 			order by event.time DESC;
     </select>
 </mapper>
