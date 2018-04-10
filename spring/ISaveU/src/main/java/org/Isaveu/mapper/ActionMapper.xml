@@ -11,16 +11,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES
 			(null, #{module_id}, #{url}, now());
     </insert>
-    <select id="selectAllList" resultType="org.Isaveu.domain.LocationByIssueVO">
+    <select id="selectAllList" resultType="org.Isaveu.domain.ActionBoardVO">
     	SELECT
- 			action_id, action.module_id, action.time, url, issue, dept_name
+ 			action_id, action.module_id, action.time, action.url, event.issue, location.dept_name
 		FROM tb_action action
 			inner join tb_event event on action.time = event.time
 			inner join tb_module module on event.module_id = module.module_id
 			inner join tb_location location on module.location_id = location.location_id
 		WHERE issue > "1"
 			order by event.time DESC;
-    
     </select>
 </mapper>
 

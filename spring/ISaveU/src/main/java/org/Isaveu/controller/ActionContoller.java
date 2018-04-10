@@ -2,12 +2,11 @@ package org.Isaveu.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.Isaveu.domain.LocationByIssueVO;
+import org.Isaveu.domain.ActionBoardVO;
 import org.Isaveu.service.ActionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +21,7 @@ public class ActionContoller {
 	@ResponseBody
 	@RequestMapping("/admin/event.do")
 	public Map<String, Object>dispatcherEvent() throws Exception {
-		ArrayList<LocationByIssueVO> list = new ArrayList<LocationByIssueVO>();
+		ArrayList<ActionBoardVO> list = new ArrayList<ActionBoardVO>();
 		list = aService.selectAllList();
 		Map<String, Object> map =  new HashMap<String, Object>();
 		map.put("list", list);
