@@ -17,7 +17,6 @@
 <script type="text/javascript" src="/js/mchart.js"></script>
 
 <script>
-
 	    $.ajax({
 	      type: "GET",
 	      url: "http://192.168.0.35:9999/admin/DispatcherRecent?num=12",
