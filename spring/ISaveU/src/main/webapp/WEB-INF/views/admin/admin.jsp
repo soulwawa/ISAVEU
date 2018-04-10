@@ -60,7 +60,17 @@ function live1() {
 function doalt(k,dis){
 	console.log("k 번 센서 깜빡깜빡하기");
 	if(dis == 0){
-		document.getElementById("cover"+k).style.background = "rgba(255,0,0,0)";
+		console.log("k 번 센서 깜빡깜빡하기111111111");
+		document.getElementById("cover"+k).style.background = "rgba(0,255,0,0.75)";
+		var interval4 = setInterval(function () {
+			setTimeout(function(){
+				document.getElementById("cover"+k).style.background = "rgba(0,255,255,0.75)";
+			},300);
+			setTimeout(function(){
+				document.getElementById("cover"+k).style.background= "rgba(255,0,0,0)";
+			},600);
+			count++;
+		  }, 620);
 	}else{
 		console.log("k 번 센서 깜빡깜빡하기22222222");
 		var interval3 = setInterval(function () {
@@ -74,6 +84,7 @@ function doalt(k,dis){
 		  }, 620);
 		if(count==12){
 			clearInterval(interval3);
+			clearInterval(interval4);
 		}
 	}
 }
