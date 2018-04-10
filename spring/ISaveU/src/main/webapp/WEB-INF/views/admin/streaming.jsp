@@ -135,9 +135,14 @@
 			</div>
 		</div>
 		<div class="sidebar">
-			<div class="menuBtn" > 
-				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/sensor')">
-  					<span class="glyphicon glyphicon-tasks" ></span> Sensor Log
+			<div class="menuBtn" id="btnSensor">
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/sensor1')">
+  					<span class="glyphicon glyphicon-tasks" ></span> Sensor Log1
+				</button>
+			</div>
+			<div class="menuBtn" id="btnSensor">
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/sensor2')">
+  					<span class="glyphicon glyphicon-tasks" ></span> Sensor Log2
 				</button>
 			</div>
 			<div class="menuBtn" >

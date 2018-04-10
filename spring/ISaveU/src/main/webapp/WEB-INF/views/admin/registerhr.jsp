@@ -100,37 +100,37 @@ label{
 			</div>
 		</div>
 		<div class="sidebar">
-			<div class="menuBtn">
-				<button type="button" class="btn btn-default btn-lg btn-block"
-					onclick="goReplace('/sensor')">
-					<span class="glyphicon glyphicon-tasks"></span> Sensor Log
+			<div class="menuBtn" id="btnSensor">
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/sensor1')">
+  					<span class="glyphicon glyphicon-tasks" ></span> Sensor Log1
 				</button>
 			</div>
-			<div class="menuBtn">
-				<button type="button" class="btn btn-default btn-lg btn-block"
-					onclick="goReplace('/event')">
-					<span class="glyphicon glyphicon-alert"></span> Envent Log
+			<div class="menuBtn" id="btnSensor">
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/sensor2')">
+  					<span class="glyphicon glyphicon-tasks" ></span> Sensor Log2
 				</button>
 			</div>
-			<div class="menuBtn">
-				<button type="button" class="btn btn-default btn-lg btn-block"
-					onclick="goReplace('/stream')">
-					<span class="glyphicon glyphicon-play-circle"></span> Striming
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/event')">
+  					<span class="glyphicon glyphicon-alert" ></span> Envent Log
 				</button>
 			</div>
-			<div class="menuBtn">
-				<button type="button" class="btn btn-default btn-lg btn-block"
-					onclick="goReplace('/hr')">
-					<span class="glyphicon glyphicon-user"></span> H.R
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/stream')">
+  					<span class="glyphicon glyphicon-play-circle" ></span> Striming
 				</button>
 			</div>
-			<div class="menuBtn">
-				<button type="button" class="btn btn-default btn-lg btn-block"
-					onclick="goReplace('/ex')">
-					<span class="glyphicon glyphicon-map-marker"></span> Map
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/hr')">
+  					<span class="glyphicon glyphicon-user" ></span> H.R
 				</button>
 			</div>
-			<input type="button" value="불내기" onclick="showAlert()" />
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/ex')">
+  					<span class="glyphicon glyphicon-map-marker"></span> Map
+				</button>
+			</div>
+			<input type="button" value="불내기" onclick="showAlert()"/>
 		</div>
 		<div class="contents">
 			<form class="form-horizontal" action=" " method="post" id="reg_form">
