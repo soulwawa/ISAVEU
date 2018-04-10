@@ -18,8 +18,6 @@ import kr.co.isaveyou.isaveyou.R;
 
 public class Static_webViewFragment extends android.support.v4.app.Fragment {
     WebView wv_fire_ext_static;
-    HttpURLConnection conn;
-    WebView contentWebView;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,17 +30,14 @@ public class Static_webViewFragment extends android.support.v4.app.Fragment {
         View view = inflater.inflate(R.layout.fragment_static_webview,null);
 
         wv_fire_ext_static = (WebView)view.findViewById(R.id.wv_fire_ext_static);
-//        WebSettings webSettings = contentWebView.getSettings();
         wv_fire_ext_static.getSettings().setJavaScriptEnabled(true);
         wv_fire_ext_static.setWebChromeClient(new WebChromeClient());
         wv_fire_ext_static.setWebViewClient(new WebViewClient());
         wv_fire_ext_static.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-//        if(Build.VERSION.SDK_INT>=21){
-//            webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-//        }
 
 
-        String url = "http://192.168.0.35:9999/mobile/mchart1";
+
+        String url = "http://192.168.0.11/serial_monitor.php";
         loadUrl(url);
         return view;
     }
