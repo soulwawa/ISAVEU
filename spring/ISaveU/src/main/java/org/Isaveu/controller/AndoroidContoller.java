@@ -166,7 +166,7 @@ public class AndoroidContoller {
 	@RequestMapping(value = "/IamgeGet.do", method = RequestMethod.GET)
 	private void AndoridIamgeGet(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		String ImageId = request.getParameter("imageID");
-		String path = "C:\\Users\\user\\Documents\\ISAVEU\\spring\\ISaveU\\src\\main\\resources\\eventImage\\" + ImageId;
+		String path = "C:\\Users\\user\\Documents\\ISAVEU\\spring\\ISaveU\\src\\main\\resources\\static\\eventImage\\" + ImageId;
 		System.out.println(path);
 		response.setContentType("image/png");
 		response.setHeader("Content-Transfer-Encoding", "binary");
