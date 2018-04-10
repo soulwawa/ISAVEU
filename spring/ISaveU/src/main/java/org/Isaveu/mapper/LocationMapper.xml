@@ -35,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		module_id = #{value};
 	</select>
 	
-	<select id="AndroidDisasterCheck" parameterType="int" resultType="org.Isaveu.domain.LocationByIssueVO">
+	<select id="AndroidDisasterCheck" parameterType="String" resultType="org.Isaveu.domain.LocationByIssueVO">
 	select event.time, event.issue, location.location
 		from tb_event event
 	inner join tb_module module on event.module_id = module.module_id

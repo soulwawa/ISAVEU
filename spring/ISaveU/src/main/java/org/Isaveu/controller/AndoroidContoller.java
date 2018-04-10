@@ -128,7 +128,7 @@ public class AndoroidContoller {
 		ArrayList<LocationByIssueVO> list = new ArrayList<LocationByIssueVO>();
 		
 		try {
-			list = lService.AndroidDisasterCheck(Integer.parseInt(count));
+			list = lService.AndroidDisasterCheck("0");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

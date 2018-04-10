@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
     <select id="selectRecentToModule" parameterType="String" resultType="org.Isaveu.domain.TbEventVO">
     	SELECT
-    	 event_id, module_id, time, truncate(temp, 2) as 'temp',  truncate(smoke/20,2) as 'smoke',
+    	 event_id, module_id, time_format(time, "%T") as 'time', truncate(temp, 2) as 'temp',  truncate(smoke/20,2) as 'smoke',
     	 truncate(80 - (gyro/13),2) as 'gyro',  truncate(80 - (fire/13),2) as 'fire', issue
     	FROM
     	 tb_event
