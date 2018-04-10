@@ -40,26 +40,26 @@ function live1() {
 	    		var dis = counter.value[11].issue;
 	    		console.log(i+"번센서");
 	    		console.log(dis);
+	    		var k = i + 10;
+	    		if(dis == 0){
+	    			document.getElementById("cover"+k).style.backgorund = "rgba(255,0,0,0)";
+	    		}else{
+	    			var interval3 = setInterval(function () {
+	    				setTimeout(function(){
+	    					document.getElementById("cover"+k).style.backgorund = "rgba(255,0,0,0.75)";
+	    				},300);
+	    				setTimeout(function(){
+	    					document.getElementById("cover"+k).style.backgorund = "rgba(255,0,0,0)";
+	    				},600);
+	    				count++;
+	    			  }, 620);
+	    			if(count==12){
+	    				clearInterval(interval3);
+	    			}
+	    		}
 	        }
 	      }
 	    });
-}
-function doalt(i) {
-	console.log( "success" + i);
-	var count = 0;
-	var j = i + 10;
-	var interval3 = setInterval(function () {
-		setTimeout(function(){
-			document.getElementById("cover"+j).style.backgorund = "rgba(255,0,0,0.75)";
-		},300);
-		setTimeout(function(){
-			document.getElementById("cover"+j).style.backgorund = "rgba(255,0,0,0)";
-		},600);
-		count++;
-	  }, 620);
-	if(count==12){
-		clearInterval(interval3);
-	}
 }
   $(window).on("unload", function(){
 	    alert("call");
