@@ -38,13 +38,8 @@ function live1() {
 	    		document.getElementById("chart"+j).setData(cv);
 	    		
 	    		var dis = counter.value[11].issue;
+	    		conseol.log(i+"번센서");
 	    		console.log(dis);
-	    		if(dis != 0){
-					doalt(i);	 
-					console.log("success" + i + "번 센서" + dis + " >> 1이면 불 2이면 지진 3이면 지진불 0은 정상");
-	    		}else{
-	    			document.getElementById("cover"+j).style.backgorund = "rgba(255,0,0,0)";
-	    		}
 	        }
 	      }
 	    });
