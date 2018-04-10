@@ -250,163 +250,37 @@ function ss0(){
 	setTimeout(function(){
 		document.getElementById("chartHolder20").style.top = 617 + "px";
 	},a+=2);
-	
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-		
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("cover11").style.display = "block";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.display = "block";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.display = "block";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.display = "block";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.display = "block";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.display = "block";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.display = "block";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
 	},a-50);
 	setTimeout(function(){
-		document.getElementById("cover10").style.display = "none";
-		document.getElementById("cover10").style.display = "none";
-		document.getElementById("cover10").style.display = "none";
-		document.getElementById("cover10").style.display = "none";
-		document.getElementById("cover10").style.display = "none";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
 	},a-50);
 	setTimeout(function(){
 		document.getElementById("cover10").style.width = 1480+"px";
@@ -415,8 +289,7 @@ function ss0(){
 		document.getElementById("cover10").style.height = 390+"px";
 		document.getElementById("cover10").style.width = 1480+"px";
 		document.getElementById("cover10").style.height = 390+"px";
-		document.getElementById("cover10").style.width = 1480+"px";
-		document.getElementById("cover10").style.height = 390+"px";
+		document.getElementById("cover10").style.display = "none";
 	},a-50);
 }
 
@@ -582,127 +455,37 @@ function ss1(){
 	setTimeout(function(){
 		document.getElementById("chartHolder20").style.top = 617 + "px";
 	},a+=2);
-	
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-		
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
+	},a-50);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
 	},a-50);
 	setTimeout(function(){
 		document.getElementById("cover11").style.width = 1480+"px";
@@ -711,40 +494,7 @@ function ss1(){
 		document.getElementById("cover11").style.height = 390+"px";
 		document.getElementById("cover11").style.width = 1480+"px";
 		document.getElementById("cover11").style.height = 390+"px";
-		document.getElementById("cover11").style.width = 1480+"px";
-		document.getElementById("cover11").style.height = 390+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover11").style.width = 1480+"px";
-		document.getElementById("cover11").style.height = 390+"px";
-		document.getElementById("cover11").style.width = 1480+"px";
-		document.getElementById("cover11").style.height = 390+"px";
-		document.getElementById("cover11").style.width = 1480+"px";
-		document.getElementById("cover11").style.height = 390+"px";
-		document.getElementById("cover11").style.width = 1480+"px";
-		document.getElementById("cover11").style.height = 390+"px";
+		document.getElementById("cover11").style.display = "none";
 	},a-50);
 }
 function ss2(){
@@ -908,118 +658,36 @@ function ss2(){
 	setTimeout(function(){
 		document.getElementById("chartHolder20").style.top = 617 + "px";
 	},a+=2);
-	
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-		
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
 		for(var i = 10; i < 21; i ++ ){
 			document.getElementById("cover"+i).style.width = 326+"px";
 			document.getElementById("cover"+i).style.height = 200+"px";
-			document.getElementById("cover"+i).style.display = "none";
+			document.getElementById("cover"+i).style.display = "block";
 		}
 	},a-50);
 	setTimeout(function(){
 		for(var i = 10; i < 21; i ++ ){
 			document.getElementById("cover"+i).style.width = 326+"px";
 			document.getElementById("cover"+i).style.height = 200+"px";
-			document.getElementById("cover"+i).style.display = "none";
+			document.getElementById("cover"+i).style.display = "block";
 		}
 	},a-50);
 	setTimeout(function(){
@@ -1194,127 +862,37 @@ function ss3(){
 	setTimeout(function(){
 		document.getElementById("chartHolder20").style.top = 617 + "px";
 	},a+=2);
-	
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-		
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
+	},a-50);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
 	},a-50);
 	setTimeout(function(){
 		document.getElementById("cover13").style.width = 1480+"px";
@@ -1323,40 +901,7 @@ function ss3(){
 		document.getElementById("cover13").style.height = 390+"px";
 		document.getElementById("cover13").style.width = 1480+"px";
 		document.getElementById("cover13").style.height = 390+"px";
-		document.getElementById("cover13").style.width = 1480+"px";
-		document.getElementById("cover13").style.height = 390+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover13").style.width = 1480+"px";
-		document.getElementById("cover13").style.height = 390+"px";
-		document.getElementById("cover13").style.width = 1480+"px";
-		document.getElementById("cover13").style.height = 390+"px";
-		document.getElementById("cover13").style.width = 1480+"px";
-		document.getElementById("cover13").style.height = 390+"px";
-		document.getElementById("cover13").style.width = 1480+"px";
-		document.getElementById("cover13").style.height = 390+"px";
+		document.getElementById("cover13").style.display = "none";
 	},a-50);
 }
 function ss4(){
@@ -1521,127 +1066,37 @@ function ss4(){
 	setTimeout(function(){
 		document.getElementById("chartHolder20").style.top = 617 + "px";
 	},a+=2);
-	
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-		
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
+	},a-50);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
 	},a-50);
 	setTimeout(function(){
 		document.getElementById("cover14").style.width = 1480+"px";
@@ -1650,40 +1105,7 @@ function ss4(){
 		document.getElementById("cover14").style.height = 390+"px";
 		document.getElementById("cover14").style.width = 1480+"px";
 		document.getElementById("cover14").style.height = 390+"px";
-		document.getElementById("cover14").style.width = 1480+"px";
-		document.getElementById("cover14").style.height = 390+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover14").style.width = 1480+"px";
-		document.getElementById("cover14").style.height = 390+"px";
-		document.getElementById("cover14").style.width = 1480+"px";
-		document.getElementById("cover14").style.height = 390+"px";
-		document.getElementById("cover14").style.width = 1480+"px";
-		document.getElementById("cover14").style.height = 390+"px";
-		document.getElementById("cover14").style.width = 1480+"px";
-		document.getElementById("cover14").style.height = 390+"px";
+		document.getElementById("cover14").style.display = "none";
 	},a-50);
 }
 function ss5(){
@@ -1848,127 +1270,37 @@ function ss5(){
 	setTimeout(function(){
 		document.getElementById("chartHolder20").style.top = 617 + "px";
 	},a+=2);
-	
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-		
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
+	},a-50);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
 	},a-50);
 	setTimeout(function(){
 		document.getElementById("cover15").style.width = 1480+"px";
@@ -1977,40 +1309,7 @@ function ss5(){
 		document.getElementById("cover15").style.height = 390+"px";
 		document.getElementById("cover15").style.width = 1480+"px";
 		document.getElementById("cover15").style.height = 390+"px";
-		document.getElementById("cover15").style.width = 1480+"px";
-		document.getElementById("cover15").style.height = 390+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover15").style.width = 1480+"px";
-		document.getElementById("cover15").style.height = 390+"px";
-		document.getElementById("cover15").style.width = 1480+"px";
-		document.getElementById("cover15").style.height = 390+"px";
-		document.getElementById("cover15").style.width = 1480+"px";
-		document.getElementById("cover15").style.height = 390+"px";
-		document.getElementById("cover15").style.width = 1480+"px";
-		document.getElementById("cover15").style.height = 390+"px";
+		document.getElementById("cover15").style.display = "none";
 	},a-50);
 }
 function ss6(){
@@ -2175,127 +1474,37 @@ function ss6(){
 	setTimeout(function(){
 		document.getElementById("chartHolder20").style.top = 617 + "px";
 	},a+=2);
-	
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-		
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
+	},a-50);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
 	},a-50);
 	setTimeout(function(){
 		document.getElementById("cover16").style.width = 1480+"px";
@@ -2304,40 +1513,7 @@ function ss6(){
 		document.getElementById("cover16").style.height = 390+"px";
 		document.getElementById("cover16").style.width = 1480+"px";
 		document.getElementById("cover16").style.height = 390+"px";
-		document.getElementById("cover16").style.width = 1480+"px";
-		document.getElementById("cover16").style.height = 390+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover16").style.width = 1480+"px";
-		document.getElementById("cover16").style.height = 390+"px";
-		document.getElementById("cover16").style.width = 1480+"px";
-		document.getElementById("cover16").style.height = 390+"px";
-		document.getElementById("cover16").style.width = 1480+"px";
-		document.getElementById("cover16").style.height = 390+"px";
-		document.getElementById("cover16").style.width = 1480+"px";
-		document.getElementById("cover16").style.height = 390+"px";
+		document.getElementById("cover16").style.display = "none";
 	},a-50);
 }
 function ss7(){
@@ -2502,127 +1678,37 @@ function ss7(){
 	setTimeout(function(){
 		document.getElementById("chartHolder20").style.top = 617 + "px";
 	},a+=2);
-	
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-		
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
+	},a-50);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
 	},a-50);
 	setTimeout(function(){
 		document.getElementById("cover17").style.width = 1480+"px";
@@ -2631,40 +1717,7 @@ function ss7(){
 		document.getElementById("cover17").style.height = 390+"px";
 		document.getElementById("cover17").style.width = 1480+"px";
 		document.getElementById("cover17").style.height = 390+"px";
-		document.getElementById("cover17").style.width = 1480+"px";
-		document.getElementById("cover17").style.height = 390+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover17").style.width = 1480+"px";
-		document.getElementById("cover17").style.height = 390+"px";
-		document.getElementById("cover17").style.width = 1480+"px";
-		document.getElementById("cover17").style.height = 390+"px";
-		document.getElementById("cover17").style.width = 1480+"px";
-		document.getElementById("cover17").style.height = 390+"px";
-		document.getElementById("cover17").style.width = 1480+"px";
-		document.getElementById("cover17").style.height = 390+"px";
+		document.getElementById("cover17").style.display = "none";
 	},a-50);
 }
 function ss8(){
@@ -2829,127 +1882,37 @@ function ss8(){
 	setTimeout(function(){
 		document.getElementById("chartHolder20").style.top = 617 + "px";
 	},a+=2);
-	
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-		
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
+	},a-50);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
 	},a-50);
 	setTimeout(function(){
 		document.getElementById("cover18").style.width = 1480+"px";
@@ -2958,40 +1921,7 @@ function ss8(){
 		document.getElementById("cover18").style.height = 390+"px";
 		document.getElementById("cover18").style.width = 1480+"px";
 		document.getElementById("cover18").style.height = 390+"px";
-		document.getElementById("cover18").style.width = 1480+"px";
-		document.getElementById("cover18").style.height = 390+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover18").style.width = 1480+"px";
-		document.getElementById("cover18").style.height = 390+"px";
-		document.getElementById("cover18").style.width = 1480+"px";
-		document.getElementById("cover18").style.height = 390+"px";
-		document.getElementById("cover18").style.width = 1480+"px";
-		document.getElementById("cover18").style.height = 390+"px";
-		document.getElementById("cover18").style.width = 1480+"px";
-		document.getElementById("cover18").style.height = 390+"px";
+		document.getElementById("cover18").style.display = "none";
 	},a-50);
 }
 function ss9(){
@@ -3156,127 +2086,37 @@ function ss9(){
 	setTimeout(function(){
 		document.getElementById("chartHolder20").style.top = 617 + "px";
 	},a+=2);
-	
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-		
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
+	},a-50);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
 	},a-50);
 	setTimeout(function(){
 		document.getElementById("cover19").style.width = 1480+"px";
@@ -3285,40 +2125,7 @@ function ss9(){
 		document.getElementById("cover19").style.height = 390+"px";
 		document.getElementById("cover19").style.width = 1480+"px";
 		document.getElementById("cover19").style.height = 390+"px";
-		document.getElementById("cover19").style.width = 1480+"px";
-		document.getElementById("cover19").style.height = 390+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover19").style.width = 1480+"px";
-		document.getElementById("cover19").style.height = 390+"px";
-		document.getElementById("cover19").style.width = 1480+"px";
-		document.getElementById("cover19").style.height = 390+"px";
-		document.getElementById("cover19").style.width = 1480+"px";
-		document.getElementById("cover19").style.height = 390+"px";
-		document.getElementById("cover19").style.width = 1480+"px";
-		document.getElementById("cover19").style.height = 390+"px";
+		document.getElementById("cover19").style.display = "none";
 	},a-50);
 }
 function ss10(){
@@ -3483,128 +2290,37 @@ function ss10(){
 	setTimeout(function(){
 		document.getElementById("chartHolder19").style.top = 617 + "px";
 	},a+=2);
-	
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-		
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
+		for(var j = 0; j < 10; j++){
+			for(var i = 10; i < 20; i++){
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+				document.getElementById("chart"+i).resize();
+			}
+		}
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
+	},a-50);
 	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart10").resize();document.getElementById("chart10").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart11").resize();document.getElementById("chart11").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart12").resize();document.getElementById("chart12").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart13").resize();document.getElementById("chart13").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart14").resize();document.getElementById("chart14").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart15").resize();document.getElementById("chart15").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart16").resize();document.getElementById("chart16").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart17").resize();document.getElementById("chart17").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart18").resize();document.getElementById("chart18").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart19").resize();document.getElementById("chart19").resize();
-	},a+=20);
-	setTimeout(function(){
-		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
-	},a+=20);
-	
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "block";
+		}
 	},a-50);
 	setTimeout(function(){
 		document.getElementById("cover20").style.width = 1480+"px";
@@ -3613,39 +2329,6 @@ function ss10(){
 		document.getElementById("cover20").style.height = 390+"px";
 		document.getElementById("cover20").style.width = 1480+"px";
 		document.getElementById("cover20").style.height = 390+"px";
-		document.getElementById("cover20").style.width = 1480+"px";
-		document.getElementById("cover20").style.height = 390+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover12").style.width = 326+"px";
-		document.getElementById("cover12").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover20").style.width = 1480+"px";
-		document.getElementById("cover20").style.height = 390+"px";
-		document.getElementById("cover20").style.width = 1480+"px";
-		document.getElementById("cover20").style.height = 390+"px";
-		document.getElementById("cover20").style.width = 1480+"px";
-		document.getElementById("cover20").style.height = 390+"px";
-		document.getElementById("cover20").style.width = 1480+"px";
-		document.getElementById("cover20").style.height = 390+"px";
+		document.getElementById("cover20").style.display = "none";
 	},a-50);
 }
