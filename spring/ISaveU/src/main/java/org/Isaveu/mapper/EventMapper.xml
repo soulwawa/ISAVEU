@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectRecent" parameterType="int"
 		resultType="org.Isaveu.domain.TbEventVO">
 		SELECT
-		event_id, module_id, time, truncate(temp, 2) as 'temp', truncate(60 - (60 - (60 - (smoke/20))),2) as
+		event_id, module_id, time, truncate(temp, 2) as 'temp', truncate(60 - (smoke/20),2) as
 		'smoke',
 		truncate(80 - (gyro/13),2) as 'gyro', truncate(80 - (fire/13),2) as 'fire', issue
 		FROM
@@ -33,7 +33,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		resultType="org.Isaveu.domain.TbEventVO">
 		SELECT
 		event_id, module_id, time_format(time, "%T") as 'time', truncate(temp, 2) as
-		'temp', truncate(60 - (60 - (60 - (smoke/20))),2) as 'smoke',
+		'temp', truncate(60 - (smoke/20),2) as 'smoke',
 		truncate(80 - (gyro/13),2) as 'gyro', truncate(80 - (fire/13),2) as 'fire', issue
 		FROM
 		tb_event
@@ -47,7 +47,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="dispatcherPart" parameterType="int"
 		resultType="org.Isaveu.domain.TbEventVO">
 		SELECT
-		event_id, module_id, time, truncate(temp, 2) as 'temp', truncate(60 - (60 - (60 - (smoke/20))),2) as
+		event_id, module_id, time, truncate(temp, 2) as 'temp', truncate(60 - (smoke/20),2) as
 		'smoke',
 		truncate(80 - (gyro/13),2) as 'gyro', truncate(80 - (fire/13),2) as 'fire', issue
 		FROM
