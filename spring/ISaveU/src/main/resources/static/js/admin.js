@@ -2353,4 +2353,6 @@ function ss10(){
 		document.getElementById("cover20").style.display = "none";
 		document.getElementById("cover20").style.display = "none";
 	},a-50);
+	document.getElementById("chart20").resize();
+	document.getElementById("chart20").resize();
 }
