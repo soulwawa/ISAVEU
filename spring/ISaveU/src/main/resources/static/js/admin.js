@@ -305,7 +305,7 @@ function ss0(){
 	},a-50);
 	setTimeout(function(){
 		refresh();
-	},a-45);
+	},300);
 }
 
 function ss1(){
@@ -515,7 +515,7 @@ function ss1(){
 	},a-50);
 	setTimeout(function(){
 		refresh();
-	},a-45);
+	},300);
 }
 function ss2(){
 	var a = 10;
@@ -723,7 +723,7 @@ function ss2(){
 	},a-50);
 	setTimeout(function(){
 		refresh();
-	},a-45);
+	},300);
 }
 function ss3(){
 	var a = 10;
@@ -932,7 +932,7 @@ function ss3(){
 	},a-50);
 	setTimeout(function(){
 		refresh();
-	},a-45);
+	},300);
 }
 function ss4(){
 	var a = 10;
@@ -1141,7 +1141,7 @@ function ss4(){
 	},a-50);
 	setTimeout(function(){
 		refresh();
-	},a-45);
+	},300);
 }
 function ss5(){
 	var a = 10;
@@ -1350,7 +1350,7 @@ function ss5(){
 	},a-50);
 	setTimeout(function(){
 		refresh();
-	},a-45);
+	},300);
 }
 function ss6(){
 	var a = 10;
@@ -1559,7 +1559,7 @@ function ss6(){
 	},a-50);
 	setTimeout(function(){
 		refresh();
-	},a-45);
+	},300);
 }
 function ss7(){
 	var a = 10;
@@ -1768,7 +1768,7 @@ function ss7(){
 	},a-50);
 	setTimeout(function(){
 		refresh();
-	},a-45);
+	},300);
 }
 function ss8(){
 	var a = 10;
@@ -1977,7 +1977,7 @@ function ss8(){
 	},a-50);
 	setTimeout(function(){
 		refresh();
-	},a-45);
+	},300);
 }
 function ss9(){
 	var a = 10;
@@ -2186,7 +2186,7 @@ function ss9(){
 	},a-50);
 	setTimeout(function(){
 		refresh();
-	},a-45);
+	},300);
 }
 function ss10(){
 	var a = 10;
@@ -2397,5 +2397,5 @@ function ss10(){
 		refresh();
 		document.getElementById("chart20").resize();
 		document.getElementById("chart20").resize();
-	},a-45);
+	},300);
 }
