@@ -21,6 +21,9 @@
 $(window).on("load", function(){
 	live1();
 });
+var interval1 = setInterval(function () {
+    live1();
+  }, 9900);
 function live1() {
 	 $.ajax({
 	      type: "GET",
@@ -33,6 +36,7 @@ function live1() {
 	    		var cv = obj[i].value;
 	    		var j = i + 10;
 	    		document.getElementById("chart"+j).setData(cv);
+	    		
 	    		var dis = counter.value[11].issue;
 	    		console.log(dis);
 	    		if(dis != 0){
