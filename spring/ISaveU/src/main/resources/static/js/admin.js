@@ -252,7 +252,7 @@ function ss0(){
 	},a+=2);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -261,7 +261,7 @@ function ss0(){
 	},a+=20);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -459,7 +459,7 @@ function ss1(){
 	},a+=2);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -468,7 +468,7 @@ function ss1(){
 	},a+=20);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -664,7 +664,7 @@ function ss2(){
 	},a+=2);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -673,7 +673,7 @@ function ss2(){
 	},a+=20);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -870,7 +870,7 @@ function ss3(){
 	},a+=2);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -879,7 +879,7 @@ function ss3(){
 	},a+=20);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -1076,7 +1076,7 @@ function ss4(){
 	},a+=2);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -1085,7 +1085,7 @@ function ss4(){
 	},a+=20);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -1282,7 +1282,7 @@ function ss5(){
 	},a+=2);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -1291,7 +1291,7 @@ function ss5(){
 	},a+=20);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -1488,7 +1488,7 @@ function ss6(){
 	},a+=2);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -1497,7 +1497,7 @@ function ss6(){
 	},a+=20);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -1694,7 +1694,7 @@ function ss7(){
 	},a+=2);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -1703,7 +1703,7 @@ function ss7(){
 	},a+=20);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -1900,7 +1900,7 @@ function ss8(){
 	},a+=2);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -1909,7 +1909,7 @@ function ss8(){
 	},a+=20);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -2106,7 +2106,7 @@ function ss9(){
 	},a+=2);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -2115,7 +2115,7 @@ function ss9(){
 	},a+=20);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -2312,7 +2312,7 @@ function ss10(){
 	},a+=2);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
@@ -2321,7 +2321,7 @@ function ss10(){
 	},a+=20);
 	setTimeout(function(){
 		for(var j = 0; j < 10; j++){
-			for(var i = 10; i < 20; i++){
+			for(var i = 10; i < 21; i++){
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
 				document.getElementById("chart"+i).resize();
