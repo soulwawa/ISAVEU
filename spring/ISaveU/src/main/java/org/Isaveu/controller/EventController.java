@@ -55,12 +55,9 @@ public class EventController {
 	float gyro;
 	float fire;
 	String module_id;
-	Date date = new Date();
-	SimpleDateFormat transFomat = new SimpleDateFormat("yyyyMMdd_HHmmss");
-	String datenow = transFomat.format(date);
 	String typeArduino = "arduino";
 	DecimalFormat form = new DecimalFormat("#.##");
-
+	
 	@Resource(name = "org.Isaveu.service.EventService")
 	EventService eService;
 
@@ -91,13 +88,16 @@ public class EventController {
 
 		// reset value "1" 이면 issueTemp 를 초기화
 		issueTemp = reset.equals("1") ? "0" : issueTemp;
-
+		Date date = new Date();
+		SimpleDateFormat transFomat = new SimpleDateFormat("yyyyMMdd_HHmmss");
+		String datenow = transFomat.format(date);
+		
 		switch (issue) {
 		case "1":
 			System.out.println("화재경보 < " + datenow + " >" );
 			imageGet(issue);
 			eService.insertEvent(event);
-			System.out.println("DB : Insert Event Succes");
+			System.out.println("DB : Insert Sensing Succes");
 			issueTemp = issue;
 			RaspControl(issue);
 			break;
@@ -105,7 +105,7 @@ public class EventController {
 			System.out.println("지진경보 < " + datenow + " >" );
 			imageGet(issue);
 			eService.insertEvent(event);
-			System.out.println("DB : Insert Event Succes");
+			System.out.println("DB : Insert Sensing Succes");
 			issueTemp = issue;
 			RaspControl(issue);
 			break;
@@ -113,7 +113,7 @@ public class EventController {
 			System.out.println("지진 + 화재경보 < " + datenow + " >" );
 			imageGet(issue);
 			eService.insertEvent(event);
-			System.out.println("DB : Insert Event Succes");
+			System.out.println("DB : Insert Sensing Succes");
 			issueTemp = issue;
 			RaspControl(issue);
 			break;
@@ -128,8 +128,6 @@ public class EventController {
 					issueTemp = issue;
 //					System.out.println("module_id: " + module_id);
 //					System.out.println("issue: " + issue + " / issueTemp: " + issueTemp);
-					System.out.println("Sensor Status Check : " + datenow);
-					// if (module_id.equals("0")) {
 					for (int i = 0; i < moduleList.size(); i++) {
 						float ramdom = (float) Math.random();
 						event.setModule_id(String.valueOf(i));
@@ -139,6 +137,8 @@ public class EventController {
 						event.setFire(fire + ramdom);
 						event.setIssue(issue);
 						eService.insertEvent(event);
+						System.out.println("Sensor Status Check : " + event.getModule_id() + " : " + datenow);
+						System.out.println("DB : Insert Sensing Succes");
 					}
 				} else {
 					System.out.println("Sensor ERROR :" + module_id);
@@ -153,6 +153,9 @@ public class EventController {
 	}
 
 	public void imageGet(String issue) {
+		Date date = new Date();
+		SimpleDateFormat transFomat = new SimpleDateFormat("yyyyMMdd_HHmmss");
+		String datenow = transFomat.format(date);
 		RestTemplate restTemplate = new RestTemplate();
 		URI uri = UriComponentsBuilder.fromHttpUrl("http://192.168.0.13:5001/cam/" + issue).build().toUri();
 		byte[] response = new byte[8 * 1024];
@@ -176,7 +179,7 @@ public class EventController {
 			FcmSend(androidPass + datenow + fileExtension, issue);
 			try {
 				aService.insertAction(action);
-				System.out.println("Rasp Send Succes");
+				System.out.println("SERVER - > Raspberry Request");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -273,7 +276,7 @@ public class EventController {
 		// DB에서 호출 예정
 
 		data.setTitle(title);
-		data.setContent_1(module_id + " 장비 확인(센서값 오류 이상)");
+		data.setContent_1("module_id: " + module_id + " 장비 확인(센서값 오류 이상)");
 		 data.setContent_2("5"); // 장비 확인 임시지정
 		fcmData.setData(data);
 		fcmData.setRegistration_ids(reglist);
@@ -310,6 +313,9 @@ public class EventController {
 
 	@RequestMapping("/admin/Dispatcher")
 	private Map<String, Object> dispatcher(@ModelAttribute TbEventVO event) throws Exception {
+		Date date = new Date();
+		SimpleDateFormat transFomat = new SimpleDateFormat("yyyyMMdd_HHmmss");
+		String datenow = transFomat.format(date);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("temp", form.format(temp));
 		map.put("smoke", form.format((smoke / 20.0)));
