@@ -92,11 +92,11 @@ public class NewsFragment extends Fragment {
         class GetDataJSON extends AsyncTask<String,Void,String>{
             @Override
             protected String doInBackground(String... strings) {
-                String param = "&city:서울&country:종로구&village:적선동";
+                String param = "?lat=37.575071&lon=126.973378&appKey=98759e5d-e689-4da4-91d4-f6d0cedb89f9";
                 Log.v(TAG, "param : " + param);
                 try {
                     //서버 접속
-                    URL url = new URL("https://api2.sktelecom.com/weather/current/minutely?version=1");
+                    URL url = new URL("https://api2.sktelecom.com/weather/current/minutely?" + param);
                     conn = (HttpURLConnection)url.openConnection();
                     conn.setRequestProperty("Content-type","application/json");
                     conn.setRequestMethod("GET");
@@ -133,7 +133,7 @@ public class NewsFragment extends Fragment {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-//                JsonReader jsonReader = new JsonReader();
+                Log.v(TAG, result);
             }
         }
 
