@@ -33,38 +33,38 @@ public class HomeController {
 		return "admin/admin";
 	}
 	
-	@RequestMapping("admin//ex")
+	@RequestMapping("admin/ex")
 	private String extest() throws Exception{
 //		System.out.println(hMapper.hrCount()); 
 		return "admin/extinguisher";
 	}
 	
-	@RequestMapping("admin//sensor1")
+	@RequestMapping("admin/sensor1")
 	private String ss1test() throws Exception{
 //		System.out.println(hMapper.hrCount()); 
 		return "admin/sensorLog1";
 	}
-	@RequestMapping("admin//sensor2")
+	@RequestMapping("admin/sensor2")
 	private String ss2test() throws Exception{
 //			System.out.println(hMapper.hrCount()); 
 			return "admin/sensorLog2";
 	}
-	@RequestMapping("admin//sensor3")
+	@RequestMapping("admin/sensor3")
 	private String ss3test() throws Exception{
 //			System.out.println(hMapper.hrCount()); 
 			return "admin/sensorLog3";
 	}
-	@RequestMapping("admin//event")
+	@RequestMapping("admin/event")
 	private String eventtest() throws Exception{
 //			System.out.println(hMapper.hrCount()); 
 			return "admin/eventlog";
 	}
-	@RequestMapping("admin//stream")
+	@RequestMapping("admin/stream")
 	private String sttest() throws Exception{
 //		System.out.println(hMapper.hrCount()); 
 		return "admin/streaming";
 	}
-	@RequestMapping("admin//hr")
+	@RequestMapping("admin/hr")
 	private String hrtest() throws Exception{
 //		System.out.println(hMapper.hrCount()); 
 		return "admin/registerhr";

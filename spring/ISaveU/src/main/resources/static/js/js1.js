@@ -11,17 +11,19 @@ function check() {
 	        live = data;
 	        var issuenow = live.issue;
 	        if(issuenow == 1) {
-	        	document.getElementById("art").style.background="rgba(255,0,0,0.8);";
+	        	document.getElementById("art").style.background="rgba(255,0,0,0.8) !important;";
 	        	document.getElementById("art").innerHTML = "화재발생 </n><br/> <div id='fireBtn' onclick='closeAlert()'>위치확인</div>" ;
 	        	showAlert()
 	        }else if(issuenow == 2){
-	        	document.getElementById("art").style.background="rgba(255,255,0,0.8);";
-	        	document.getElementById("art").innerHTML = "지진발생";
+	        	document.getElementById("art").style.background="rgba(255,255,0,0.8) !important;";
+	        	document.getElementById("art").innerHTML = "지진발생 </n><br/> <div id='fireBtn' onclick='closeAlert2()'>확인</div>";
 	        	showAlert()
 	        }else if(issuenow == 3){
-	        	document.getElementById("art").style.background="rgba(255,255,0,0.8);";
+	        	document.getElementById("art").style.background="rgba(0,255,255,0.8) !important;";
 	        	document.getElementById("art").innerHTML = "화재 / 지진 발생 </n><br/> <div id='fireBtn' onclick='closeAlert()'>위치확인</div>";
 	        	showAlert()
+	        }else{
+	        	document.getElementById("art").innerHTML = "이상 없음 </n><br/> <div id='fireBtn' onclick='closeAlert2()'>확인</div>";
 	        }
 	        //아래에 경고 발동조건이 위치하고 조건이 성립하면  showAlert() 실행
 	      }
@@ -53,6 +55,10 @@ function showAlert(){
   }
   function closeAlert(){
 	  showLocation();
+	  document.getElementById("art").style.display="none";
+	  document.getElementById("fireBtn").style.display="none";
+  }
+  function closeAlert2(){
 	  document.getElementById("art").style.display="none";
 	  document.getElementById("fireBtn").style.display="none";
   }

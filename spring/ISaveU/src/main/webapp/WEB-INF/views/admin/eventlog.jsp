@@ -30,7 +30,6 @@ $(window).on("unload", function(){
     clearInterval(alwayscheck);
     clearInterval(ev);
 }); 
-//var i
 </script>
 </head>
 <body>
