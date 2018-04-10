@@ -54,7 +54,6 @@ function live1() {
 	}); 
   
 function doalt(i,k,dis){
-	var count = 0;
 	if(dis == 0){
 		console.log(i+"번 센서 이상없음");
 	}else if(dis == 2){
@@ -66,8 +65,6 @@ function doalt(i,k,dis){
 			setTimeout(function(){
 				document.getElementById("cover"+k).style.background= "rgba(255,255,0,0)";
 			},600);
-			count++;
-			console.log(count + "번 깜빡임");
 		  }, 620);
 		
 	}else if(dis == 1){
@@ -79,8 +76,6 @@ function doalt(i,k,dis){
 			setTimeout(function(){
 				document.getElementById("cover"+k).style.background= "rgba(255,0,0,0)";
 			},600);
-			count++;
-			console.log(count + "번 깜빡임");
 		  }, 620);
 	}else{
 		console.log(i+"번 센서 화재 지진 동시 발생");
@@ -91,15 +86,13 @@ function doalt(i,k,dis){
 			setTimeout(function(){
 				document.getElementById("cover"+k).style.background= "rgba(255,0,255,0)";
 			},600);
-			count++;
-			console.log(count + "번 깜빡임");
 		  }, 620);
 	}
-	if(count == 14){
+	setTimeout(function(){
 		clearInterval(interval3);
 		clearInterval(interval4);
 		clearInterval(interval5);
-	}
+	},6200);
 }
 //	var interval3 = setInterval(function () {
 //	  setTimeout(function(){
