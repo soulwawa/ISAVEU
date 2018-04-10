@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.annotation.Resource;
 
+import org.Isaveu.domain.LocationByIssueVO;
 import org.Isaveu.domain.TbActionVO;
 import org.Isaveu.mapper.ActionMapper;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class ActionService implements ActionMapper{
 	}
 
 	@Override
-	public ArrayList<TbActionVO> selectAllList() throws Exception {
+	public ArrayList<LocationByIssueVO> selectAllList() throws Exception {
 		return aMapper.selectAllList();
 	}
 	

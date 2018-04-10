@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.Isaveu.domain.LocationByIssueVO;
 import org.Isaveu.domain.TbActionVO;
 import org.Isaveu.service.ActionService;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,7 @@ public class ActionContoller {
 	@ResponseBody
 	@RequestMapping("/admin/event.do")
 	public Map<String, Object>dispatcherEvent(@ModelAttribute TbActionVO action) throws Exception {
-		ArrayList<TbActionVO> list = new ArrayList<TbActionVO>();
+		ArrayList<LocationByIssueVO> list = new ArrayList<LocationByIssueVO>();
 		list = aService.selectAllList();
 		Map<String, Object> map =  new HashMap<String, Object>();
 		map.put("list", list);

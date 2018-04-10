@@ -137,10 +137,14 @@ SELECT
 	    order by event_id DESC limit 12; 
 
 select
- action_id, module_id, url, time, issue
+ action_id, action.module_id, action.time, url, issue, dept_name
 from tb_action action
-inner join tb_event event on action.module_id = event.module_id
-order by action_id DESC;
+inner join tb_event event on action.time = event.time
+inner join tb_module module on event.module_id = module.module_id
+inner join tb_location location on module.location_id = location.location_id
+where issue > "1"
+order by event.time DESC;
 
+select* from tb_action order by action_id DESC;
 
         
