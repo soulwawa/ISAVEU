@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">I Save You</string>
+    <string name="app_name">I Save U</string>
     <string name="login_num">사번을 입력해주세요.(10자)</string>
     <string name="login_pw">비밀번호를 입력해주세요.</string>
     <string name="login_btn">로그인</string>
