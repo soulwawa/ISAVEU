@@ -200,7 +200,7 @@ function checkex1(){
 			</div>
 		</div>
 		<div class="header">
-			<div class="case" onclick="goReplace('/admin')">
+			<div class="case" onclick="goReplace('/admin/admin')">
 				<img src="<%=root%>/img/logo1.png" alt="logo" class="logo"/>
 			</div>
 		</div>

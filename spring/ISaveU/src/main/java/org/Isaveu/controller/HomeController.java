@@ -23,7 +23,7 @@ public class HomeController {
 	}
 	
 	//추후 차단 예정
-	@RequestMapping("/admin")
+	@RequestMapping("/admin/admin")
 	private String jsptest() throws Exception{
 //		System.out.println(hMapper.hrCount()); 
 		return "admin/admin";
