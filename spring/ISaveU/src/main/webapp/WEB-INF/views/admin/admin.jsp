@@ -59,21 +59,10 @@ function live1() {
   
 function doalt(k,dis){
 	var count = 0;
-	console.log("k 번 센서 깜빡깜빡하기");
 	if(dis == 0){
-		console.log("k 번 센서 깜빡깜빡하기111111111");
-		document.getElementById("cover"+k).style.background = "rgba(0,255,0,0.75)";
-		var interval4 = setInterval(function () {
-			setTimeout(function(){
-				document.getElementById("cover"+k).style.background = "rgba(0,255,255,0.75)";
-			},300);
-			setTimeout(function(){
-				document.getElementById("cover"+k).style.background= "rgba(255,0,0,0)";
-			},600);
-			count++;
-		  }, 620);
+		console.log(k+"번 센서 이상없음");
 	}else if(dis == 2){
-		console.log("k 번 센서 깜빡깜빡하기22222222");
+		console.log(k+"번 센서 지진감지");
 		var interval3 = setInterval(function () {
 			setTimeout(function(){
 				document.getElementById("cover"+k).style.background = "rgba(255,255,0,0.75)";
@@ -82,10 +71,11 @@ function doalt(k,dis){
 				document.getElementById("cover"+k).style.background= "rgba(255,255,0,0)";
 			},600);
 			count++;
+			console.log(count + "번 깜빡임");
 		  }, 620);
 		
-		}else{
-		console.log("k 번 센서 깜빡깜빡하기22222222");
+	}else if(dis == 1){
+		console.log(k+"번 센서 화재감지");
 		var interval5 = setInterval(function () {
 			setTimeout(function(){
 				document.getElementById("cover"+k).style.background = "rgba(255,0,0,0.75)";
@@ -94,9 +84,22 @@ function doalt(k,dis){
 				document.getElementById("cover"+k).style.background= "rgba(255,0,0,0)";
 			},600);
 			count++;
+			console.log(count + "번 깜빡임");
+		  }, 620);
+	}else{
+		console.log(k+"번 센서 화재 지진 동시 발생");
+		var interval4 = setInterval(function () {
+			setTimeout(function(){
+				document.getElementById("cover"+k).style.background = "rgba(255,0,255,0.75)";
+			},300);
+			setTimeout(function(){
+				document.getElementById("cover"+k).style.background= "rgba(255,0,255,0)";
+			},600);
+			count++;
+			console.log(count + "번 깜빡임");
 		  }, 620);
 	}
-	if(count==12){
+	if(count == 14){
 		clearInterval(interval3);
 		clearInterval(interval4);
 		clearInterval(interval5);
