@@ -312,7 +312,8 @@ public class EventController {
 	}
 
 	@RequestMapping("/admin/Dispatcher")
-	private Map<String, Object> dispatcher(@ModelAttribute TbEventVO event) throws Exception {
+	private Map<String, Object> dispatcher(@ModelAttribute TbEventVO event) throws Exception {	
+		System.out.println("Request /admin/Dispatcher");
 		Date date = new Date();
 		SimpleDateFormat transFomat = new SimpleDateFormat("yyyyMMdd_HHmmss");
 		String datenow = transFomat.format(date);
@@ -329,6 +330,7 @@ public class EventController {
 	@RequestMapping("/admin/DispatcherRecent")
 	private List<Map<String, Object>> dispatcherRecent(@ModelAttribute TbEventVO event, @RequestParam("num") int num)
 			throws Exception {
+		System.out.println("Request /admin/DispatcherRecent");
 		ArrayList<TbEventVO> list = new ArrayList<TbEventVO>();
 		list = eService.selectRecent(num);
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -348,6 +350,7 @@ public class EventController {
 
 	@RequestMapping("/admin/DispatcherPart/temp")
 	private List<Map<String, Object>> dispatcherPartTemp(@ModelAttribute TbEventVO event) throws Exception {
+		System.out.println("Request /admin/DispatcherPart/temp");
 		List<TbModuleVO> moduleList = mService.getModuleList(typeArduino);
 		ArrayList<TbEventVO> list = new ArrayList<TbEventVO>();
 
@@ -376,6 +379,7 @@ public class EventController {
 
 	@RequestMapping("/admin/DispatcherPart/smoke")
 	private List<Map<String, Object>> dispatcherPartSmoke(@ModelAttribute TbEventVO event) throws Exception {
+		System.out.println("Request /admin/DispatcherPart/smoke");
 		List<TbModuleVO> moduleList = mService.getModuleList(typeArduino);
 		ArrayList<TbEventVO> list = new ArrayList<TbEventVO>();
 
@@ -404,6 +408,7 @@ public class EventController {
 
 	@RequestMapping("/admin/DispatcherPart/fire")
 	private List<Map<String, Object>> dispatcherPartFire(@ModelAttribute TbEventVO event) throws Exception {
+		System.out.println("Request /admin/DispatcherPart/fire");
 		List<TbModuleVO> moduleList = mService.getModuleList(typeArduino);
 		ArrayList<TbEventVO> list = new ArrayList<TbEventVO>();
 
@@ -432,6 +437,7 @@ public class EventController {
 
 	@RequestMapping("/admin/DispatcherPart/gyro")
 	private List<Map<String, Object>> dispatcherPartGyro(@ModelAttribute TbEventVO event) throws Exception {
+		System.out.println("Request /admin/DispatcherPart/gyro");
 		List<TbModuleVO> moduleList = mService.getModuleList(typeArduino);
 		ArrayList<TbEventVO> list = new ArrayList<TbEventVO>();
 
@@ -462,7 +468,7 @@ public class EventController {
 
 	@RequestMapping("/admin/DispatcherModuleRecent")
 	private List<Map<String, Object>> dispatcherModuleRecent(@ModelAttribute TbEventVO event) throws Exception {
-
+		System.out.println("Request /admin/DispatcherModuleRecent");
 		List<TbModuleVO> moduleList = mService.getModuleList(typeArduino);
 		List<TbEventVO> list = new ArrayList<TbEventVO>();
 
@@ -486,6 +492,7 @@ public class EventController {
 	@ResponseBody
 	@RequestMapping(value = "/admin/DisasterCheck.do")
 	public Map<String, Object> AndroiDisasterCheck(@RequestParam("loc") String loc){
+		System.out.println("Request /admin/DisasterCheck.do");
 		Map<String, Object> map = new HashMap<String, Object>();
 		String count = "";
 		try {
