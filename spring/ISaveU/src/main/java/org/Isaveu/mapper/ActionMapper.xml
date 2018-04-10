@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="selectAllList" resultType="org.Isaveu.domain.ActionBoardVO">
     	SELECT
  			action_id, action.module_id, action.time, replace(action.url,'C:\\Users\\user\\Documents\\ISAVEU\\spring\\ISaveU\\src\\main\\resources\\static\\eventImage\\',
-    'http://192.168.0.35:99/eventImage/'),
+    'http://192.168.0.35:9999/eventImage/') as url,
     		 event.issue, location.dept_name
 		FROM tb_action action
 			inner join tb_event event on action.time = event.time
