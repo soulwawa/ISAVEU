@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES
 			(null, #{module_id}, #{url}, now());
     </insert>
-    <select id="selectAllList" resultType="org.Isaveu.domain.TbActionVO">
+    <select id="selectAllList" resultType="org.Isaveu.domain.LocationByIssueVO">
     	SELECT
  			action_id, action.module_id, action.time, url, issue, dept_name
 		FROM tb_action action
