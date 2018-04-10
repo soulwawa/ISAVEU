@@ -55,11 +55,11 @@ public class AndoroidContoller {
 			list = hService.getHrListId(id);
 			if(list.size() != 0) {
 				hrvo = list.get(0);
-				System.out.println("Android Login Query SUCCESS");
+				System.out.println("Android Login: " + id + " : SUCCESS");
 //				System.out.println(fcm);
 				if(id.equals(hrvo.getId()) && pw.equals(hrvo.getPw())) {
 					if(fcm.equals(hrvo.getFcm())) {
-						System.out.println("FCM EQUALS");
+						System.out.println(id + " :  FCM EQUALS");
 						map.put("access", "1");
 						map.put("name", hrvo.getName().toString());
 						map.put("profile", hrvo.getProfile().toString());
@@ -67,7 +67,7 @@ public class AndoroidContoller {
 						map.put("fcm", hrvo.getFcm().toString());
 						return map;
 					}else {
-						System.out.println("FCM UPDATE");
+						System.out.println(id + " : FCM UPDATE");
 //						System.out.println(hrvo.getFcm());
 						System.out.println(fcm);
 						hrvo.setFcm(fcm);
@@ -80,7 +80,7 @@ public class AndoroidContoller {
 						return map;
 					}
 				}else{
-					System.out.println("Login FAIL");
+					System.out.println(id + " : Login FAIL");
 					map.put("access", "0");
 					map.put("name", "0");
 					map.put("profile", "0");
@@ -88,7 +88,7 @@ public class AndoroidContoller {
 					return map;
 				}	
 			}else {
-				System.out.println("Login FAIL");
+				System.out.println(id + " : Login FAIL");
 				map.put("access", "0");
 				map.put("name", "0");
 				map.put("profile", "0");

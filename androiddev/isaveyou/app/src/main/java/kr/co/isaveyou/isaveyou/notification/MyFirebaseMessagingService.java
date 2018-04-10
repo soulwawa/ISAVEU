@@ -45,8 +45,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Log.v(TAG, "receive");
         Log.d(TAG, "From" + remoteMessage.getFrom());
 
-
-
         // Check if message contains a data payload.
         // 포어그라운드에서도 알림받는 소스
         if (remoteMessage.getData().size() > 0 || remoteMessage.getNotification()!=null) {
@@ -55,21 +53,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     remoteMessage.getData().get("title"),
                     remoteMessage.getData().get("content_1"),
                     remoteMessage.getData().get("content_2"));
-//                    remoteMessage.getData().get("content_3"));
         }
-
-
-        // Check if message contains a notification payload.
-//        if (remoteMessage.getNotification() != null) {
-//            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());}
-//
-//        sendNotification(
-//                //서버에서 보내오는 title, content를 인수로 지정
-//                remoteMessage.getData().get("title"),
-//                remoteMessage.getData().get("content_1"),
-//                remoteMessage.getData().get("content_2")
-////                remoteMessage.getData().get("content_3")
-//        );
 
 
         // 안드로이드 폰깨우기
@@ -106,45 +90,50 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         //sharedPreferences 작성
         SharedPreferences sharedPreferences = MyFirebaseMessagingService.this.getSharedPreferences("issue_type",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
+        SharedPreferences sharedPreferences1 = MyFirebaseMessagingService.this.getSharedPreferences("check_type",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor1 = sharedPreferences1.edit();
         //issue 구분을 위한 switch문
         String issue = "";
         switch (messageBody1){
             case "1" :
                 issue = "화재";
                 editor.putString("1", issue + "," + title);
-
+                editor1.putString("1", issue + "," + title);
                 Log.v(TAG,"sharedPreferences1 : " +issue + "/ " + title);
 
                 break;
             case "2" :
                 issue = "지진";
                 editor.putString("2", issue + "," + title);
+                editor1.putString("2", issue + "," + title);
                 Log.v(TAG,"sharedPreferences2 : " +issue + ", " + title);
 
                 break;
             case "3" :
                 issue = "화재/지진";
                 editor.putString("3", issue + "," + title);
-
+                editor1.putString("3", issue + "," + title);
                 Log.v(TAG,"sharedPreferences3 : " +issue + ", " + title);
 
                 break;
             case "4" :
                 issue = "소화기";
                 editor.putString("4", issue + "," + title);
-
+                editor1.putString("4", issue + "," + title);
                 Log.v(TAG,"sharedPreferences4 : " +issue + ", " + title);
-
+                break;
+            case "5" :
+                issue = "기계이상";
+                editor.putString("5", issue + "," + title);
+                editor1.putString("5", issue + "," + title);
+                Log.v(TAG,"sharedPreferences5 : " +issue + ", " + title);
                 break;
 
         }
         editor.commit();
-//        widget에게 값이 변경되었으니 업데이트하라는 메시지 전달
-//        Intent it_widget = new Intent(getApplicationContext(), NewAppWidget.class);
-//        it_widget.setAction("ACTION_NOTIFICATION_UPDATE");
-//        getApplicationContext().sendBroadcast(it_widget);
-
-
+        editor1.commit();
+        Log.v(TAG,"sharedPreferences : "+ sharedPreferences);
+        Log.v(TAG,"sharedPreferences1 : "+ sharedPreferences1);
         String channelId = getString(R.string.default_notification_channel_id);
 
 
@@ -199,6 +188,25 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
                 notificationManager.notify(0 /* ID of notification */, nNotificationBuilder.build());
                 break;
+            case "기계이상":
+                NotificationCompat.Builder iNotificationBuilder = new NotificationCompat.Builder(this, channelId) //4.1 아래 버전과의 호환성을 위해 notificationCompat을 사용
+                        .setSmallIcon(R.drawable.ic_stat_name)
+                        .setColor(color)
+                        .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
+                        .setAutoCancel(false)
+                        .setVibrate(pattern)
+                        .setPriority(NotificationCompat.PRIORITY_MAX)
+                        .setSound(notificationSoundURI)
+                        .setNumber(100)
+                        .setStyle(new NotificationCompat.BigTextStyle())
+                        .setContentTitle(roomName + ", " + issue + " 문제 발생")
+                        .setWhen(System.currentTimeMillis())
+                        .setContentText(roomName+"("+roomNum+")" +"에 위치한 장비에 문제가 생겼습니다. 확인해주세요.");
+
+                notificationManager.notify(0 /* ID of notification */, iNotificationBuilder.build());
+
+                break;
+
             default:
                 if(!messageBody.equals(null)){
                     //largeIcon에 이미지를 사용하기 위해서는 비트맵으로 바꿔줘야 함

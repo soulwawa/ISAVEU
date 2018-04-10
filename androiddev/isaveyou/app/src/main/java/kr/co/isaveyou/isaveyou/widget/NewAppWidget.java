@@ -37,20 +37,10 @@ public class NewAppWidget extends AppWidgetProvider {
     private static final String str_voice_record = "ACTION_VOICE_RECORD";
     private static final String str_ok = "ACTION_OK";
     private static final String str_noti_update = "ACTION_NOTIFICATION_UPDATE";
-    String result, issue, tx_issue;
+    String result, issue, loc, loc1;
     HttpURLConnection conn;
-
-//    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
-//                                int appWidgetId) {
-//
-//        CharSequence widgetText = context.getString(R.string.appwidget_text);
-//        // Construct the RemoteViews object
-//        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
-//        views.setTextViewText(R.id.appwidget_text, widgetText);
-//
-//        // Instruct the widget manager to update the widget
-//        appWidgetManager.updateAppWidget(appWidgetId, views);
-//    }
+    SharedPreferences sharedPreferences1;
+    String [] sArray, ssArray;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -79,13 +69,24 @@ public class NewAppWidget extends AppWidgetProvider {
                 Log.v(TAG, "녹음 시작");
                 break;
             case "ACTION_OK":
-                WidgetUpdateTask widgetUpdateTask = new WidgetUpdateTask();
-                widgetUpdateTask.execute();
-                Log.v(TAG, "확인 버튼 누름");
-                views.setTextViewText(R.id.tv_issue_for_widget, "문제가 없습니다.");
-                views.setInt(R.id.layout_status,"setBackgroundResource",R.drawable.app_logo);
-                ComponentName newWidget0 = new ComponentName(context.getPackageName(), NewAppWidget.class.getName());
-                AppWidgetManager.getInstance(context).updateAppWidget(newWidget0,views);
+                try{
+                    if(sharedPreferences1!=null) {
+                    WidgetUpdateTask widgetUpdateTask = new WidgetUpdateTask();
+                    widgetUpdateTask.execute();
+                    Log.v(TAG, "확인 버튼 누름1");
+                    views.setTextViewText(R.id.tv_issue_for_widget, "문제가 없습니다.");
+                    views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.app_logo);
+                    ComponentName newWidget0 = new ComponentName(context.getPackageName(), NewAppWidget.class.getName());
+                    AppWidgetManager.getInstance(context).updateAppWidget(newWidget0, views);
+                }else{
+                    Log.v(TAG, "확인 버튼 누름2");
+                    views.setTextViewText(R.id.tv_issue_for_widget, "문제가 없습니다.");
+                    views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.app_logo);
+                    ComponentName newWidget0 = new ComponentName(context.getPackageName(), NewAppWidget.class.getName());
+                    AppWidgetManager.getInstance(context).updateAppWidget(newWidget0, views);
+                }}catch (NullPointerException e){
+                    e.printStackTrace();
+                }
                 break;
             case "ACTION_NOTIFICATION_UPDATE":
                 Log.v(TAG, "업데이트");
@@ -98,16 +99,7 @@ public class NewAppWidget extends AppWidgetProvider {
         }
 
     }
-//    public void onUpdate(Context context, AppWidgetManager appWidgetManager,
-//
-//                         int[] appWidgetIds) {
-//
-//        for (int i = 0; i < appWidgetIds.length; i++) {
-//
-//            위젯업데이트함수(context, appWidgetManager, appWidgetIds[i]);
-//        }
-//
-//    }
+
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
@@ -136,7 +128,7 @@ public class NewAppWidget extends AppWidgetProvider {
             PendingIntent pi_voiceRecord = PendingIntent.getActivity(context,0,it_voiceRecord,0);
             views.setOnClickPendingIntent(R.id.btn_record,pi_voiceRecord);
 
-
+//            sharedPreferences1 = context.getSharedPreferences("check_type",Context.MODE_PRIVATE);
 
             //위젯에 글자를 나타내기 위한 새로 고침 작업을 별도의 method로 빼기
 //            this.refresh(context,views);
@@ -164,17 +156,19 @@ public class NewAppWidget extends AppWidgetProvider {
     private void refresh(Context context, RemoteViews views) {
         //noti 에서 보내온 내용을 받음
         SharedPreferences sharedPreferences = context.getSharedPreferences("issue_type", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences2 = context.getSharedPreferences("check_type",Context.MODE_PRIVATE);
+        sharedPreferences1 = sharedPreferences2;
         //issue 타입에 맞게 이미지 바꿔줌
-        List<String> keys = new ArrayList<>();
+//        List<String> keys = new ArrayList<>();
         Map<String, ?> allEntries = sharedPreferences.getAll();
         issue = "";
+
         for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
             Log.v(TAG, entry.getKey() + ": " + entry.getValue().toString());
             views.setTextViewText(R.id.tv_issue_for_widget, issue);
             switch (entry.getKey()) {
                 case "1":
                     issue = sharedPreferences.getString("1", "");
-                    tx_issue = sharedPreferences.getString("1", "");
                     views.setTextViewText(R.id.tv_issue_for_widget, issue);
                     views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.pic_disaster_flame);
                     Log.v(TAG, "화재");
@@ -182,7 +176,6 @@ public class NewAppWidget extends AppWidgetProvider {
                     break;
                 case "2":
                     issue = sharedPreferences.getString("2", "");
-                    tx_issue = sharedPreferences.getString("2", "");
                     views.setTextViewText(R.id.tv_issue_for_widget, issue);
                     Log.v(TAG, "지진");
                     views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.pic_disaster_earthquake);
@@ -190,7 +183,6 @@ public class NewAppWidget extends AppWidgetProvider {
                     break;
                 case "3":
                     issue = sharedPreferences.getString("3", "");
-                    tx_issue = sharedPreferences.getString("3", "");
                     views.setTextViewText(R.id.tv_issue_for_widget, issue);
                     views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.pic_disaster_fire_earthquake);
                     Log.v(TAG, "화재/지진");
@@ -198,47 +190,98 @@ public class NewAppWidget extends AppWidgetProvider {
                     break;
                 case "4":
                     issue = sharedPreferences.getString("4", "");
-                    tx_issue = sharedPreferences.getString("4", "");
                     views.setTextViewText(R.id.tv_issue_for_widget, issue);
                     views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.pic_miss_fire_ext);
                     Log.v(TAG, "소화기");
                     sharedPreferences.edit().remove("4").commit();
                     break;
+                case "5":
+                    issue = sharedPreferences.getString("5", "");
+                    views.setTextViewText(R.id.tv_issue_for_widget, issue);
+                    views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.pic_machine_question);
+                    Log.v(TAG, "기계이상");
+                    sharedPreferences.edit().remove("5").commit();
+                    break;
                 default:
                     issue = "";
-                    tx_issue = "";
                     break;
             }
 
         }
     }
+    //상태 완료 확인 -> 서버로 확인 완료 보냄
     class WidgetUpdateTask extends AsyncTask{
         @Override
         protected Object doInBackground(Object[] objects) {
+            //            List<String> keys = new ArrayList<>();
+            Map<String, ?> allEntries = sharedPreferences1.getAll();
+            String issue2 = "";
+            for(Map.Entry<String, ?> entry : allEntries.entrySet()){
+                switch (entry.getKey()){
+                        case "1":
+                            issue2 = sharedPreferences1.getString("1", "");
+
+                            Log.v(TAG, "화재");
+                            sharedPreferences1.edit().remove("1").commit();
+                            break;
+                        case "2":
+                            issue = sharedPreferences1.getString("2", "");
+                            Log.v(TAG, "지진");
+                            sharedPreferences1.edit().remove("2").commit();
+                            break;
+                        case "3":
+                            issue = sharedPreferences1.getString("3", "");
+                            Log.v(TAG, "화재/지진");
+                            sharedPreferences1.edit().remove("3").commit();
+                            break;
+                        case "4":
+                            issue = sharedPreferences1.getString("4", "");
+                            Log.v(TAG, "소화기");
+                            sharedPreferences1.edit().remove("4").commit();
+                            break;
+                        case "5":
+                            issue = sharedPreferences1.getString("5", "");
+                            Log.v(TAG, "기계이상");
+                            sharedPreferences1.edit().remove("5").commit();
+                            break;
+                        default:
+                            issue = "";
+                            break;
+                }
+            }
             try {
                 //서버 접속
-                if (!tx_issue.equals(null)){
-                String [] sArray = tx_issue.split(",");
+                sArray = issue2.split(",");
                 Log.v(TAG, "sArray" + sArray[1]);
-                String loc1 = sArray[1];
-                String [] ssArray = loc1.split("/");
-                String loc = ssArray[0];
-//                String loc = "600";
-                String param = "loc=" + loc;
+                loc1 = sArray[1];
+                ssArray = loc1.split("/");
+                loc = ssArray[0];
+                if (loc1.equals("기계이상")){
+                    URL url1 = new URL("http://localhost:9999/module/eventIn.do?module_id=0&temp=0&smoke=0&gyro=0&fire=0&issue=0&reset=1");
+                    conn = (HttpURLConnection)url1.openConnection();
+                    conn.setDoInput(true);
+                    conn.setRequestProperty("Content-type","application/json");
+                    conn.setRequestMethod("GET");
+                    conn.connect();
+                    sharedPreferences1.edit().remove("device_error").commit();
+                }else if(loc1.equals("소화기")){
+                    String param = "loc=" + loc;
+                    URL url = new URL("http://192.168.0.35:9999/Android/feRestart.do?");
+                    conn = (HttpURLConnection)url.openConnection();
+                    conn.setFixedLengthStreamingMode(param.length());
+                    conn.setRequestProperty("Content-type","application/x-www-form-urlencoded");
+                    conn.setRequestMethod("POST");
+                    conn.setDoInput(true);
+                    conn.connect();
+                    OutputStream outs = conn.getOutputStream();
+                    outs.write(param.getBytes("UTF-8"));
+                    outs.flush();
+                    outs.close();
+                    Log.v(TAG, "서버 연결");
+                    sharedPreferences1.edit().remove("fire_ext_error").commit();
+                }else{
 
-                URL url = new URL("http://192.168.0.35:9999/Android/feRestart.do?");
-                conn = (HttpURLConnection)url.openConnection();
-                conn.setFixedLengthStreamingMode(param.length());
-                conn.setRequestProperty("Content-type","application/x-www-form-urlencoded");
-                conn.setRequestMethod("POST");
-                conn.setDoInput(true);
-                conn.connect();
-                OutputStream outs = conn.getOutputStream();
-                outs.write(param.getBytes("UTF-8"));
-                outs.flush();
-                outs.close();
-                Log.v(TAG, "서버 연결");
-
+                }
                 if(conn.getResponseCode()!=HttpURLConnection.HTTP_OK){
                 } else {
                     BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -251,10 +294,9 @@ public class NewAppWidget extends AppWidgetProvider {
                     Log.v(TAG, "buffer result : " + line );
                     reader.close();
                 }
-                Log.v(TAG, "url : " + url );}else{}
             }catch (Exception e) {
                 e.printStackTrace();
-            }return null;
+            } return null;
         }
 
         @Override
@@ -263,8 +305,5 @@ public class NewAppWidget extends AppWidgetProvider {
 
         }
     }
-
-
-
 }
 

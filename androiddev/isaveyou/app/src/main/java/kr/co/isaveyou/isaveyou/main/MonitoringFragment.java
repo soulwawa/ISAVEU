@@ -52,11 +52,8 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
                         Toast.makeText(getContext(),"로딩 중, 잠시만 기다려주세요.",Toast.LENGTH_SHORT).show();
                         wv_monitoring.loadUrl(streamingServer_url);
 
-
-
                         Log.v(TAG,"영상 재생 시작");
                         Log.v(TAG,"재생 버튼 누름");
-
 
                     }catch (Exception e) {
                         e.printStackTrace();
@@ -101,9 +98,6 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
         btn_start = view.findViewById(R.id.btn_start);
         btn_stop = view.findViewById(R.id.btn_stop);
 
-
-
-
         btn_start.bringToFront();
         btn_stop.bringToFront();
 
@@ -133,16 +127,10 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
         btn_stop.setOnClickListener(handler);
         btn_start.setOnClickListener(handler);
 
-
-
-
-
         Log.v(TAG,"영상 준비 작업 시작");
         Log.v(TAG, getArguments()+"");
 
         Log.v(TAG, "bundle 값 : streamingSever_access :"+ streamingServer_access + ", streamingServer_url :" + streamingServer_url);
-
-
 
         StartTask starttask = new StartTask();
         starttask.execute();
@@ -206,7 +194,7 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
         protected String doInBackground(String... strings) {
 
             try {
-                //서버 접속
+                //스트리밍 서버 허가를 주는 주소에 접속하여 허가 얻음
 
                 URL url = new URL(streamingServer_access);
                 conn = (HttpURLConnection)url.openConnection();
