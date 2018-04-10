@@ -42,9 +42,6 @@
 	    		var j = i + 10;
 	    		document.getElementById("chart"+j).setData(cv);
 	        }
-	      
-	      
-	      
 	      }
 	    });
 	  }, 9900);

@@ -14,11 +14,10 @@
 <script type="text/javascript" src="/js/rMateChartH5License.js"></script>
 <script type="text/javascript" src="/js/rMateIntegrationH5.js"></script>
 <script type="text/javascript" src="/js/theme.js"></script>
-<script type="text/javascript" src="/js/js1.js"></script>
 <script type="text/javascript" src="/js/mchart.js"></script>
 
 <script>
-  var interval2 = setInterval(function () {
+
 	    $.ajax({
 	      type: "GET",
 	      url: "http://192.168.0.35:9999/admin/DispatcherRecent?num=12",
@@ -27,15 +26,7 @@
 	        ob2 = data2;
 	        console.log(ob2);
 	      }
-	    });
-	  }, 300000);
-  
-  $(window).on("unload", function(){
-	    alert("call");
-	    console.log("this will be triggered");
-	    clearInterval(interval1);
-	    clearInterval(interval2);
-	}); 
+	    });  
 </script>
 <style>
 .chartHolder {

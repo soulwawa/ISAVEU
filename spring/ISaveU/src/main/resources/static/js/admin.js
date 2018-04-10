@@ -351,18 +351,25 @@ function ss0(){
 		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
 	},a+=20);
 	setTimeout(function(){
+		document.getElementById("cover11").style.display = "block";
 		document.getElementById("cover11").style.width = 326+"px";
 		document.getElementById("cover11").style.height = 200+"px";
+		document.getElementById("cover12").style.display = "block";
 		document.getElementById("cover12").style.width = 326+"px";
 		document.getElementById("cover12").style.height = 200+"px";
+		document.getElementById("cover13").style.display = "block";
 		document.getElementById("cover13").style.width = 326+"px";
 		document.getElementById("cover13").style.height = 200+"px";
+		document.getElementById("cover14").style.display = "block";
 		document.getElementById("cover14").style.width = 326+"px";
 		document.getElementById("cover14").style.height = 200+"px";
+		document.getElementById("cover15").style.display = "block";
 		document.getElementById("cover15").style.width = 326+"px";
 		document.getElementById("cover15").style.height = 200+"px";
+		document.getElementById("cover16").style.display = "block";
 		document.getElementById("cover16").style.width = 326+"px";
 		document.getElementById("cover16").style.height = 200+"px";
+		document.getElementById("cover17").style.display = "block";
 		document.getElementById("cover17").style.width = 326+"px";
 		document.getElementById("cover17").style.height = 200+"px";
 		document.getElementById("cover18").style.width = 326+"px";
@@ -373,14 +380,11 @@ function ss0(){
 		document.getElementById("cover20").style.height = 200+"px";
 	},a-50);
 	setTimeout(function(){
-		document.getElementById("cover10").style.width = 1480+"px";
-		document.getElementById("cover10").style.height = 390+"px";
-		document.getElementById("cover10").style.width = 1480+"px";
-		document.getElementById("cover10").style.height = 390+"px";
-		document.getElementById("cover10").style.width = 1480+"px";
-		document.getElementById("cover10").style.height = 390+"px";
-		document.getElementById("cover10").style.width = 1480+"px";
-		document.getElementById("cover10").style.height = 390+"px";
+		document.getElementById("cover10").style.display = "none";
+		document.getElementById("cover10").style.display = "none";
+		document.getElementById("cover10").style.display = "none";
+		document.getElementById("cover10").style.display = "none";
+		document.getElementById("cover10").style.display = "none";
 	},a-50);
 	setTimeout(function(){
 		document.getElementById("cover11").style.width = 326+"px";
@@ -1005,26 +1009,18 @@ function ss2(){
 		document.getElementById("chart20").resize();document.getElementById("chart20").resize();
 	},a+=20);
 	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "none";
+		}
+	},a-50);
+	setTimeout(function(){
+		for(var i = 10; i < 21; i ++ ){
+			document.getElementById("cover"+i).style.width = 326+"px";
+			document.getElementById("cover"+i).style.height = 200+"px";
+			document.getElementById("cover"+i).style.display = "none";
+		}
 	},a-50);
 	setTimeout(function(){
 		document.getElementById("cover12").style.width = 1480+"px";
@@ -1033,40 +1029,7 @@ function ss2(){
 		document.getElementById("cover12").style.height = 390+"px";
 		document.getElementById("cover12").style.width = 1480+"px";
 		document.getElementById("cover12").style.height = 390+"px";
-		document.getElementById("cover12").style.width = 1480+"px";
-		document.getElementById("cover12").style.height = 390+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover10").style.width = 326+"px";
-		document.getElementById("cover10").style.height = 200+"px";
-		document.getElementById("cover11").style.width = 326+"px";
-		document.getElementById("cover11").style.height = 200+"px";
-		document.getElementById("cover13").style.width = 326+"px";
-		document.getElementById("cover13").style.height = 200+"px";
-		document.getElementById("cover14").style.width = 326+"px";
-		document.getElementById("cover14").style.height = 200+"px";
-		document.getElementById("cover15").style.width = 326+"px";
-		document.getElementById("cover15").style.height = 200+"px";
-		document.getElementById("cover16").style.width = 326+"px";
-		document.getElementById("cover16").style.height = 200+"px";
-		document.getElementById("cover17").style.width = 326+"px";
-		document.getElementById("cover17").style.height = 200+"px";
-		document.getElementById("cover18").style.width = 326+"px";
-		document.getElementById("cover18").style.height = 200+"px";
-		document.getElementById("cover19").style.width = 326+"px";
-		document.getElementById("cover19").style.height = 200+"px";
-		document.getElementById("cover20").style.width = 326+"px";
-		document.getElementById("cover20").style.height = 200+"px";
-	},a-50);
-	setTimeout(function(){
-		document.getElementById("cover12").style.width = 1480+"px";
-		document.getElementById("cover12").style.height = 390+"px";
-		document.getElementById("cover12").style.width = 1480+"px";
-		document.getElementById("cover12").style.height = 390+"px";
-		document.getElementById("cover12").style.width = 1480+"px";
-		document.getElementById("cover12").style.height = 390+"px";
-		document.getElementById("cover12").style.width = 1480+"px";
-		document.getElementById("cover12").style.height = 390+"px";
+		document.getElementById("cover12").style.display = "none";
 	},a-50);
 }
 function ss3(){
