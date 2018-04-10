@@ -303,8 +303,9 @@ function ss0(){
 		document.getElementById("cover10").style.display = "none";
 		document.getElementById("cover10").style.display = "none";
 	},a-50);
-	
-	refresh();
+	setTimeout(function(){
+		refresh();
+	},a-45);
 }
 
 function ss1(){
@@ -512,7 +513,9 @@ function ss1(){
 		document.getElementById("cover11").style.display = "none";
 		document.getElementById("cover11").style.display = "none";
 	},a-50);
-	refresh();
+	setTimeout(function(){
+		refresh();
+	},a-45);
 }
 function ss2(){
 	var a = 10;
@@ -718,7 +721,9 @@ function ss2(){
 		document.getElementById("cover12").style.display = "none";
 		document.getElementById("cover12").style.display = "none";
 	},a-50);
-	refresh();
+	setTimeout(function(){
+		refresh();
+	},a-45);
 }
 function ss3(){
 	var a = 10;
@@ -925,7 +930,9 @@ function ss3(){
 		document.getElementById("cover13").style.display = "none";
 		document.getElementById("cover13").style.display = "none";
 	},a-50);
-	refresh();
+	setTimeout(function(){
+		refresh();
+	},a-45);
 }
 function ss4(){
 	var a = 10;
@@ -1132,7 +1139,9 @@ function ss4(){
 		document.getElementById("cover14").style.display = "none";
 		document.getElementById("cover14").style.display = "none";
 	},a-50);
-	refresh();
+	setTimeout(function(){
+		refresh();
+	},a-45);
 }
 function ss5(){
 	var a = 10;
@@ -1339,7 +1348,9 @@ function ss5(){
 		document.getElementById("cover15").style.display = "none";
 		document.getElementById("cover15").style.display = "none";
 	},a-50);
-	refresh();
+	setTimeout(function(){
+		refresh();
+	},a-45);
 }
 function ss6(){
 	var a = 10;
@@ -1546,7 +1557,9 @@ function ss6(){
 		document.getElementById("cover16").style.display = "none";
 		document.getElementById("cover16").style.display = "none";
 	},a-50);
-	refresh();
+	setTimeout(function(){
+		refresh();
+	},a-45);
 }
 function ss7(){
 	var a = 10;
@@ -1753,7 +1766,9 @@ function ss7(){
 		document.getElementById("cover17").style.display = "none";
 		document.getElementById("cover17").style.display = "none";
 	},a-50);
-	refresh();
+	setTimeout(function(){
+		refresh();
+	},a-45);
 }
 function ss8(){
 	var a = 10;
@@ -1960,7 +1975,9 @@ function ss8(){
 		document.getElementById("cover18").style.display = "none";
 		document.getElementById("cover18").style.display = "none";
 	},a-50);
-	refresh();
+	setTimeout(function(){
+		refresh();
+	},a-45);
 }
 function ss9(){
 	var a = 10;
@@ -2167,7 +2184,9 @@ function ss9(){
 		document.getElementById("cover19").style.display = "none";
 		document.getElementById("cover19").style.display = "none";
 	},a-50);
-	refresh();
+	setTimeout(function(){
+		refresh();
+	},a-45);
 }
 function ss10(){
 	var a = 10;
@@ -2374,7 +2393,9 @@ function ss10(){
 		document.getElementById("cover20").style.display = "none";
 		document.getElementById("cover20").style.display = "none";
 	},a-50);
-	refresh();
-	document.getElementById("chart20").resize();
-	document.getElementById("chart20").resize();
+	setTimeout(function(){
+		refresh();
+		document.getElementById("chart20").resize();
+		document.getElementById("chart20").resize();
+	},a-45);
 }
