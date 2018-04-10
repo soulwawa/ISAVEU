@@ -94,41 +94,41 @@ public class EventController {
 
 		switch (issue) {
 		case "1":
-			System.out.println("화재경보 /  " + datenow);
+			System.out.println("화재경보 < " + datenow + " >" );
 			imageGet(issue);
 			eService.insertEvent(event);
-			System.out.println("InsertEvent Succes");
+			System.out.println("DB : Insert Event Succes");
 			issueTemp = issue;
 			RaspControl(issue);
 			break;
 		case "2":
-			System.out.println("지진경보 /  " + datenow);
+			System.out.println("지진경보 < " + datenow + " >" );
 			imageGet(issue);
 			eService.insertEvent(event);
-			System.out.println("InsertEvent Succes");
+			System.out.println("DB : Insert Event Succes");
 			issueTemp = issue;
 			RaspControl(issue);
 			break;
 		case "3":
-			System.out.println("지진 + 화재경보 /  " + datenow);
+			System.out.println("지진 + 화재경보 < " + datenow + " >" );
 			imageGet(issue);
 			eService.insertEvent(event);
-			System.out.println("InsertEvent Succes");
+			System.out.println("DB : Insert Event Succes");
 			issueTemp = issue;
 			RaspControl(issue);
 			break;
 		default:
 			RaspControl(issue);
 			if (issueTemp == "4") {
-				System.out.println(module_id + " : 문제 발생 / " + datenow);
+				System.out.println("module : " + module_id + " 번 문제 발생 < " + datenow + " >" );
 				fCMSendToAdmin(module_id);
 				break;
 			} else {
 				if (issue.equals(issueTemp)) {
 					issueTemp = issue;
-					System.out.println("module_id: " + module_id);
-					System.out.println("issue: " + issue + " / issueTemp: " + issueTemp);
-					System.out.println("센서상태 양호/ " + datenow);
+//					System.out.println("module_id: " + module_id);
+//					System.out.println("issue: " + issue + " / issueTemp: " + issueTemp);
+					System.out.println("Sensor Status Check : " + datenow);
 					// if (module_id.equals("0")) {
 					for (int i = 0; i < moduleList.size(); i++) {
 						float ramdom = (float) Math.random();
@@ -141,7 +141,7 @@ public class EventController {
 						eService.insertEvent(event);
 					}
 				} else {
-					System.out.println("센서 오류 감지 :" + module_id);
+					System.out.println("Sensor ERROR :" + module_id);
 					fCMSendToAdmin(module_id);
 					issueTemp = "4";
 					break;
@@ -157,14 +157,10 @@ public class EventController {
 		URI uri = UriComponentsBuilder.fromHttpUrl("http://192.168.0.13:5001/cam/" + issue).build().toUri();
 		byte[] response = new byte[8 * 1024];
 		response = restTemplate.getForObject(uri, byte[].class);
-		// Date date = new Date();
-		// SimpleDateFormat transFomat = new SimpleDateFormat("yyyyMMdd_HHmmss");
-		// String fileName = transFomat.format(date);
 		String localName = "C:\\workspace\\SaveForYou\\spring\\ISaveU\\src\\main\\resources\\eventImage\\";
 		String fileExtension = ".png";
 		String androidPass = "http://192.168.0.35:9999/Android/IamgeGet.do?imageID=";
 		String serverName = localName + datenow + fileExtension;
-		// C:\workspace\SaveForYou\spring\ISaveU\src\main\resources\eventImage
 		File imageFile = new File(serverName);
 		try {
 			BufferedOutputStream os = new BufferedOutputStream(new FileOutputStream(imageFile));
@@ -175,7 +171,6 @@ public class EventController {
 			e.printStackTrace();
 		} finally {
 			TbActionVO action = new TbActionVO();
-			// System.out.println(serverName);
 			action.setUrl(serverName);
 			action.setModule_id(module_id);
 			FcmSend(androidPass + datenow + fileExtension, issue);
