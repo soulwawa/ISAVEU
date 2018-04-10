@@ -38,10 +38,9 @@ function live1() {
 	    		document.getElementById("chart"+j).setData(cv);
 	    		
 	    		var dis = counter.value[11].issue;
-	    		console.log(i+"번센서");
-	    		console.log(dis);
+	    		console.log(i+"번센서 상황번호"+dis);
 	    		var k = i + 10;
-	    		doalt(k,dis);
+	    		doalt(i,k,dis);
 	        }
 	      }
 	    });
@@ -54,12 +53,12 @@ function live1() {
 	    clearInterval(alwayscheck);
 	}); 
   
-function doalt(k,dis){
+function doalt(i,k,dis){
 	var count = 0;
 	if(dis == 0){
-		console.log(k+"번 센서 이상없음");
+		console.log(i+"번 센서 이상없음");
 	}else if(dis == 2){
-		console.log(k+"번 센서 지진감지");
+		console.log(i+"번 센서 지진감지");
 		var interval3 = setInterval(function () {
 			setTimeout(function(){
 				document.getElementById("cover"+k).style.background = "rgba(255,255,0,0.75)";
@@ -72,7 +71,7 @@ function doalt(k,dis){
 		  }, 620);
 		
 	}else if(dis == 1){
-		console.log(k+"번 센서 화재감지");
+		console.log(i+"번 센서 화재감지");
 		var interval5 = setInterval(function () {
 			setTimeout(function(){
 				document.getElementById("cover"+k).style.background = "rgba(255,0,0,0.75)";
@@ -84,7 +83,7 @@ function doalt(k,dis){
 			console.log(count + "번 깜빡임");
 		  }, 620);
 	}else{
-		console.log(k+"번 센서 화재 지진 동시 발생");
+		console.log(i+"번 센서 화재 지진 동시 발생");
 		var interval4 = setInterval(function () {
 			setTimeout(function(){
 				document.getElementById("cover"+k).style.background = "rgba(255,0,255,0.75)";

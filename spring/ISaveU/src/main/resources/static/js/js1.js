@@ -40,8 +40,6 @@ function showAlert(){
 	        obj = data2;
 	        for (var i = 0; i < obj.value.length; i++){
 	        	var counter = obj.value[i];
-	        	console.log(counter.location);
-	        	console.log(counter.fire_ex_status);
 	        	if(counter.fire_ex_status == 0){
 	        		document.getElementById("ex"+i).style.display="none";
 	        	}
