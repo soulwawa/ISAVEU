@@ -11,26 +11,15 @@ function check() {
 	        live = data;
 	        var issuenow = live.issue;
 	        if(issuenow == 1) {
-	        	document.getElementById("art").style.background="rgba(255,0,0,0.8) !important;";
 	        	document.getElementById("art").innerHTML = "화재발생 </n><br/> <div id='fireBtn' onclick='closeAlert()'>위치확인</div>" ;
-	        	document.getElementById("art").style.background="rgba(255,0,0,0.8) !important;";
-	        	document.getElementById("art").style.background="rgba(255,0,0,0.8) !important;";
-	        	document.getElementById("art").style.background="rgba(255,0,0,0.8) !important;";
-	        	showAlert()
+	        	showAlert(1);
 	        }else if(issuenow == 2){
-	        	document.getElementById("art").style.background="rgba(255,255,0,0.8) !important;";
 	        	document.getElementById("art").innerHTML = "지진발생 </n><br/> <div id='fireBtn' onclick='closeAlert2()'>확인</div>";
-	        	document.getElementById("art").style.background="rgba(255,255,0,0.8) !important;";
-	        	document.getElementById("art").style.background="rgba(255,255,0,0.8) !important;";
-	        	document.getElementById("art").style.background="rgba(255,255,0,0.8) !important;";
-	        	showAlert()
+	        	showAlert(2);
 	        }else if(issuenow == 3){
-	        	document.getElementById("art").style.background="rgba(0,255,255,0.8) !important;";
 	        	document.getElementById("art").innerHTML = "화재 / 지진 발생 </n><br/> <div id='fireBtn' onclick='closeAlert()'>위치확인</div>";
-	        	document.getElementById("art").style.background="rgba(0,255,255,0.8) !important;";
-	        	document.getElementById("art").style.background="rgba(0,255,255,0.8) !important;";
-	        	document.getElementById("art").style.background="rgba(0,255,255,0.8) !important;";
-	        	showAlert()
+	        	document.getElementById("art").style.background="rgba(0,255,255,0.8) !important";
+	        	showAlert(3);
 	        }else{
 	        }
 	        //아래에 경고 발동조건이 위치하고 조건이 성립하면  showAlert() 실행
@@ -39,9 +28,19 @@ function check() {
 }
 
 
-function showAlert(){
+function showAlert(issuess){
 	  document.getElementById("art").style.display="block";
 	  document.getElementById("fireBtn").style.display="block";
+	  if(issuess == 1){
+		  document.getElementById("art").style.background="rgba(255,0,0,0.8) !important";
+		  document.getElementById("art").style.background="rgba(255,0,0,0.8)";
+	  }else if(issuess == 2){
+		  document.getElementById("art").style.background="rgba(255,255,0,0.8) !important";
+		  document.getElementById("art").style.background="rgba(255,255,0,0.8)";
+	  }else if(issuess == 3){
+		  document.getElementById("art").style.background="rgba(0,255,255,0.8) !important";
+		  document.getElementById("art").style.background="rgba(0,255,255,0.8)";
+	  }
 	  $.ajax({
 	      type: "GET",
 	      url: "http://192.168.0.35:9999/admin/locationFireEx.do?loc=6",
