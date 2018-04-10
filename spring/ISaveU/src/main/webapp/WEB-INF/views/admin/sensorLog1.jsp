@@ -193,27 +193,27 @@ var interval = setInterval(function () {
 		</div>
 		<div class="sidebar">
 			<div class="menuBtn" id="btnSensor">
-				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/sensor1')">
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/admin/sensor1')">
   					<span class="glyphicon glyphicon-tasks" ></span> Sensor Log
 				</button>
 			</div>
 			<div class="menuBtn" >
-				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/event')">
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/admin/event')">
   					<span class="glyphicon glyphicon-alert" ></span> Envent Log
 				</button>
 			</div>
 			<div class="menuBtn" >
-				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/stream')">
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/admin/stream')">
   					<span class="glyphicon glyphicon-play-circle" ></span> Striming
 				</button>
 			</div>
 			<div class="menuBtn" >
-				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/index')">
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/admin/index')">
   					<span class="glyphicon glyphicon-user" ></span> H.R
 				</button>
 			</div>
 			<div class="menuBtn" >
-				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/ex')">
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/admin/ex')">
   					<span class="glyphicon glyphicon-map-marker"></span> Map
 				</button>
 			</div>
