@@ -22,6 +22,15 @@ var ev = setInterval(function () {
       }
     });
   }, 9900);
+$(window).on("unload", function(){
+    alert("call");
+    console.log("this will be triggered");
+    clearInterval(interval1);
+    clearInterval(interval2);
+    clearInterval(alwayscheck);
+    clearInterval(ev);
+}); 
+//var i
 </script>
 </head>
 <body>
