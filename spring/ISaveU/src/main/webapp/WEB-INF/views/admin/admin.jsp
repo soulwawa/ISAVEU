@@ -58,6 +58,7 @@ function live1() {
 	}); 
   
 function doalt(k,dis){
+	var count = 0;
 	console.log("k 번 센서 깜빡깜빡하기");
 	if(dis == 0){
 		console.log("k 번 센서 깜빡깜빡하기111111111");
@@ -71,9 +72,21 @@ function doalt(k,dis){
 			},600);
 			count++;
 		  }, 620);
-	}else{
+	}else if(dis == 2){
 		console.log("k 번 센서 깜빡깜빡하기22222222");
 		var interval3 = setInterval(function () {
+			setTimeout(function(){
+				document.getElementById("cover"+k).style.background = "rgba(255,255,0,0.75)";
+			},300);
+			setTimeout(function(){
+				document.getElementById("cover"+k).style.background= "rgba(255,255,0,0)";
+			},600);
+			count++;
+		  }, 620);
+		
+		}else{
+		console.log("k 번 센서 깜빡깜빡하기22222222");
+		var interval5 = setInterval(function () {
 			setTimeout(function(){
 				document.getElementById("cover"+k).style.background = "rgba(255,0,0,0.75)";
 			},300);
@@ -82,10 +95,11 @@ function doalt(k,dis){
 			},600);
 			count++;
 		  }, 620);
-		if(count==12){
-			clearInterval(interval3);
-			clearInterval(interval4);
-		}
+	}
+	if(count==12){
+		clearInterval(interval3);
+		clearInterval(interval4);
+		clearInterval(interval5);
 	}
 }
 //	var interval3 = setInterval(function () {
