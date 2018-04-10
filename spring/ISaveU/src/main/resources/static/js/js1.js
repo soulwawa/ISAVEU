@@ -86,14 +86,3 @@ if(box1){
 		box.removeAttribute('class');
 	});
 	}
-var alwayscheck = setInterval(function () {
-    $.ajax({
-      type: "GET",
-      url: "http://192.168.0.35:9999/admin/Dispatcher",
-      dataType: "json",
-      success: function(data) {
-        live = data;
-        //아래에 경고 발동조건이 위치하고 조건이 성립하면  showAlert() 실행
-      }
-    });
-  }, 9900);
