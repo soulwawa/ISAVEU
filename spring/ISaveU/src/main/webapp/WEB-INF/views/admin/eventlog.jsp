@@ -22,7 +22,7 @@ var iss;
 var img;
 setTimeout(function(){
 	winload();
-},1000);
+},200);
 
 function winload(){
     $.ajax({
@@ -269,7 +269,7 @@ th{
 						<td id="t45"></td>
 					</tr>
 					<tr>
-						<th scope="row" id="50"></th>
+						<th scope="row" id="t50"></th>
 						<td id="t51"></td>
 						<td id="t52"></td>
 						<td id="t53"></td>
@@ -277,7 +277,7 @@ th{
 						<td id="t55"></td>
 					</tr>
 					<tr>
-						<th scope="row" id="60"></th>
+						<th scope="row" id="t60"></th>
 						<td id="t61"></td>
 						<td id="t62"></td>
 						<td id="t63"></td>
@@ -285,7 +285,7 @@ th{
 						<td id="t65"></td>
 					</tr>
 					<tr>
-						<th scope="row" id="70"></th>
+						<th scope="row" id="t70"></th>
 						<td id="t71"></td>
 						<td id="t72"></td>
 						<td id="t73"></td>
@@ -293,7 +293,7 @@ th{
 						<td id="t75"></td>
 					</tr>
 					<tr>
-						<th scope="row" id="80"></th>
+						<th scope="row" id="t80"></th>
 						<td id="t81"></td>
 						<td id="t82"></td>
 						<td id="t83"></td>
@@ -301,7 +301,7 @@ th{
 						<td id="t85"></td>
 					</tr>
 					<tr>
-						<th scope="row" id="90"></th>
+						<th scope="row" id="t90"></th>
 						<td id="t91"></td>
 						<td id="t92"></td>
 						<td id="t93"></td>
@@ -309,7 +309,7 @@ th{
 						<td id="t95"></td>
 					</tr>
 					<tr>
-						<th scope="row" id="100"></th>
+						<th scope="row" id="t100"></th>
 						<td id="t101"></td>
 						<td id="t102"></td>
 						<td id="t103"></td>
@@ -317,7 +317,7 @@ th{
 						<td id="t105"></td>
 					</tr>
 					<tr>
-						<th scope="row" id="110"></th>
+						<th scope="row" id="t110"></th>
 						<td id="t111"></td>
 						<td id="t112"></td>
 						<td id="t113"></td>
@@ -325,7 +325,7 @@ th{
 						<td id="t115"></td>
 					</tr>
 					<tr>
-						<th scope="row" id="120"></th>
+						<th scope="row" id="t120"></th>
 						<td id="t121"></td>
 						<td id="t122"></td>
 						<td id="t123"></td>
@@ -333,7 +333,7 @@ th{
 						<td id="t125"></td>
 					</tr>
 					<tr>
-						<th scope="row" id="130"></th>
+						<th scope="row" id="t130"></th>
 						<td id="t131"></td>
 						<td id="t132"></td>
 						<td id="t133"></td>
@@ -341,7 +341,7 @@ th{
 						<td id="t135"></td>
 					</tr>
 					<tr>
-						<th scope="row" id="140"></th>
+						<th scope="row" id="t140"></th>
 						<td id="t141"></td>
 						<td id="t142"></td>
 						<td id="t143"></td>
@@ -349,7 +349,7 @@ th{
 						<td id="t145"></td>
 					</tr>
 					<tr>
-						<th scope="row" id="150"></th>
+						<th scope="row" id="t150"></th>
 						<td id="t151"></td>
 						<td id="t152"></td>
 						<td id="t153"></td>
@@ -357,7 +357,7 @@ th{
 						<td id="t155"></td>
 					</tr>
 					<tr>
-						<th scope="row" id="160"></th>
+						<th scope="row" id="t160"></th>
 						<td id="t161"></td>
 						<td id="t162"></td>
 						<td id="t163"></td>
@@ -365,7 +365,7 @@ th{
 						<td id="t165"></td>
 					</tr>
 					<tr>
-						<th scope="row" id="170"></th>
+						<th scope="row" id="t170"></th>
 						<td id="t171"></td>
 						<td id="t172"></td>
 						<td id="t173"></td>
@@ -373,7 +373,7 @@ th{
 						<td id="t175"></td>
 					</tr>
 					<tr>
-						<th scope="row" id="180"></th>
+						<th scope="row" id="t180"></th>
 						<td id="t181"></td>
 						<td id="t182"></td>
 						<td id="t183"></td>
@@ -381,7 +381,7 @@ th{
 						<td id="t185"></td>
 					</tr>
 					<tr>
-						<th scope="row" id="190"></th>
+						<th scope="row" id="t190"></th>
 						<td id="t191"></td>
 						<td id="t192"></td>
 						<td id="t193"></td>
