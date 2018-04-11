@@ -102,7 +102,7 @@ function winload(){
 function nextpage() {
 	if(pagenum < pagesize){
 		pagenum = pagenum + 1;
-		document.getElementById("page").innerHTML = "1";
+		document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize")";
 			for(var i = 0; i < 20; i++){
 				
 				var k = (pagenum*19) + i;
@@ -169,7 +169,7 @@ function nextpage() {
 function lastpage() {
 	if(pagenum > 1){
 		pagenum = pagenum - 1;
-		document.getElementById("page").innerHTML = "1";
+		document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize")";
 			for(var i = 0; i < 20; i++){
 				
 				var k = (pagenum*19) + i;
@@ -362,7 +362,7 @@ th{
 			<table class="table" id="tb1">
 				<thead>
 					<tr>
-						<th scope="col">.no</th>
+						<th scope="col">no</th>
 						<th scope="col">발생일시</th>
 						<th scope="col">module_id</th>
 						<th scope="col">부서명</th>
