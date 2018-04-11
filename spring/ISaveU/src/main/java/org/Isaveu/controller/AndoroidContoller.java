@@ -42,7 +42,7 @@ public class AndoroidContoller {
 	@RequestMapping(value = "/Login.do")
 	public Map<String, String> androidLogin(@ModelAttribute TbHrVO hrvo, @RequestParam("u_id") String id, @RequestParam("u_pw") String pw, @RequestParam("u_instancekey") String fcm) throws Exception{
 		Map<String, String> map = new HashMap<String, String>();
-		
+		System.out.println("Request /Android/Login.do");
 		if("".equals(id) || "".equals(pw)){
 			System.out.println("Android Login: " + id + " : Fail");
 			map.put("access", "0");
@@ -56,7 +56,6 @@ public class AndoroidContoller {
 			if(list.size() != 0) {
 				hrvo = list.get(0);
 				System.out.println("Android Login: " + id + " : SUCCESS");
-//				System.out.println(fcm);
 				if(id.equals(hrvo.getId()) && pw.equals(hrvo.getPw())) {
 					if(fcm.equals(hrvo.getFcm())) {
 						System.out.println(id + " :  FCM EQUALS");
@@ -68,7 +67,6 @@ public class AndoroidContoller {
 						return map;
 					}else {
 						System.out.println(id + " : FCM UPDATE");
-//						System.out.println(hrvo.getFcm());
 						System.out.println(fcm);
 						hrvo.setFcm(fcm);
 						hService.fcmUpdate(hrvo);
@@ -100,7 +98,7 @@ public class AndoroidContoller {
 	@ResponseBody
 	@RequestMapping(value = "/Streaming.do")
 	public Map<String, String> AndroidStreming(@RequestParam("act_st") String act_st){
-//		act_st = request.getParameter("act_st");
+		System.out.println("Request /Android/Streaming.do");
 		Map<String, String> map = new HashMap<String, String>();
 
 		if (act_st.equals("1")) {
@@ -116,6 +114,7 @@ public class AndoroidContoller {
 	@ResponseBody
 	@RequestMapping(value = "/DisasterCheck.do")
 	public Map<String, Object> AndroiDisasterCheck(@RequestParam("loc") String loc){
+		System.out.println("Request /Android//DisasterCheck.do");
 		Map<String, Object> map = new HashMap<String, Object>();
 		String count = "";
 		try {
@@ -146,8 +145,7 @@ public class AndoroidContoller {
 	@RequestMapping(value = "/feRestart.do")
 	public Map<String, String> AndroidfeRestart(@RequestParam("loc") String loc){
 		Map<String, String> map = new HashMap<String, String>();
-		
-//		System.out.println(loc);
+		System.out.println("Request /Android/feRestart.do");
 		String url = "http://192.168.0.61:5002/feRestart/";
 		RestTemplate restTemplate = new RestTemplate();
 		String result = restTemplate.getForObject(url, String.class);
@@ -165,6 +163,7 @@ public class AndoroidContoller {
 	@ResponseBody
 	@RequestMapping(value = "/IamgeGet.do", method = RequestMethod.GET)
 	private void AndoridIamgeGet(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		System.out.println("Request /Android/IamgeGet.do");
 		String ImageId = request.getParameter("imageID");
 		String path = "C:\\Users\\user\\Documents\\ISAVEU\\spring\\ISaveU\\src\\main\\resources\\static\\eventImage\\" + ImageId;
 		System.out.println(path);
@@ -181,7 +180,7 @@ public class AndoroidContoller {
 				output.write(buffer, 0, bytesRead);
 			}
 			output.flush();
-			System.out.println("Response 완료!");
+//			System.out.println("Response 완료!");
 			}catch (IOException e) {
 				e.printStackTrace();
 			}finally {
@@ -192,7 +191,7 @@ public class AndoroidContoller {
 	@ResponseBody
 	@RequestMapping(value = "/locationFireEx.do")
 	public Map<String, Object> locationFireEx(@ModelAttribute LocationByFireExVO location, @RequestParam("loc") String loc) throws Exception{
-
+		System.out.println("Request /Android/locationFireEx.do");
 		ArrayList<LocationByFireExVO> list = new ArrayList<LocationByFireExVO>();
 		Map<String, Object> map = new HashMap<String, Object>();
 		

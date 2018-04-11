@@ -23,7 +23,7 @@ public class LocationController {
 	@RequestMapping(value = "/admin/locationFireEx.do")
 	public Map<String, Object> locationFireEx(@ModelAttribute LocationByFireExVO location,
 			@RequestParam("loc") String loc) throws Exception {
-
+		System.out.println("/admin/locationFireEx.do");
 		ArrayList<LocationByFireExVO> list = new ArrayList<LocationByFireExVO>();
 		Map<String, Object> map = new HashMap<String, Object>();
 

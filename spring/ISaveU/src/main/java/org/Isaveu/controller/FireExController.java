@@ -48,7 +48,7 @@ public class FireExController {
 	@RequestMapping(value = "/fe.do")
 	//라즈베리에서 INPUT
 	private Map<String, String> fireExStatusUpdate(@ModelAttribute TbFireExVO fire,  @RequestParam("missing") String fire_ex_name) throws Exception{
-		
+		System.out.println("Request /module/fe.do");
 		fire.setFire_ex_name(fire_ex_name);
 		fire.setFire_ex_status("0");
 		

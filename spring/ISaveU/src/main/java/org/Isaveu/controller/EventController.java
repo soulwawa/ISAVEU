@@ -76,6 +76,7 @@ public class EventController {
 	@RequestMapping(value = "/module/eventIn.do", method = RequestMethod.GET)
 	private String eventIn(@ModelAttribute TbEventVO event,
 			@RequestParam(value = "reset", defaultValue = "0") String reset) throws Exception {
+		System.out.println("Request /module/eventIn.do");
 		issue = event.getIssue();
 		temp = event.getTemp();
 		smoke = event.getSmoke();

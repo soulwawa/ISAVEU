@@ -14,55 +14,57 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	private String index() {
+		System.out.println("/");
 		return "index";
 	}
 	
 	@RequestMapping("/accessDenied")
 	private String accessDenied() {
+		System.out.println("/");
 		return "accessDenied";
 	}
 	
 	//추후 차단 예정
 	@RequestMapping("/admin/admin")
 	private String jsptest() throws Exception{
-//		System.out.println(hMapper.hrCount()); 
+		System.out.println("/admin/admin");
 		return "admin/admin";
 	}
 	
 	@RequestMapping("/admin/ex")
 	private String extest() throws Exception{
-//		System.out.println(hMapper.hrCount()); 
+		System.out.println("/admin/extinguisher");
 		return "admin/extinguisher";
 	}
 	
 	@RequestMapping("/admin/sensor1")
 	private String ss1test() throws Exception{
-//		System.out.println(hMapper.hrCount()); 
+		System.out.println("/admin/sensor1");
 		return "admin/sensorLog1";
 	}
 	@RequestMapping("/admin/event")
 	private String eventtest() throws Exception{
-//			System.out.println(hMapper.hrCount()); 
+		System.out.println("/admin/event");
 			return "admin/eventlog";
 	}
 	@RequestMapping("/admin/stream")
 	private String sttest() throws Exception{
-//		System.out.println(hMapper.hrCount()); 
+		System.out.println("/admin/stream");
 		return "admin/streaming";
 	}
-	@RequestMapping("/admin/hr")
+	@RequestMapping("/admin/index")
 	private String hrtest() throws Exception{
-//		System.out.println(hMapper.hrCount()); 
-		return "admin/registerhr";
+		System.out.println("/admin/index");
+		return "admin/index";
 	}
 	@RequestMapping("/admin/cal")
 	private String calTest() throws Exception{
-//		System.out.println(hMapper.hrCount()); 
+		System.out.println("/admin/cal");
 		return "Calendar/schedule";
 	}
-	@RequestMapping("/mobile/mchart1")
+	@RequestMapping("/admin/cal")
 	private String mchartTest() throws Exception{
-//		System.out.println(hMapper.hrCount()); 
+		System.out.println("/admin/cal");
 		return "mobile/mchart0";
 	}
 

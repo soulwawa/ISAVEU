@@ -21,6 +21,7 @@ public class ActionContoller {
 	@ResponseBody
 	@RequestMapping("/admin/event.do")
 	public Map<String, Object>dispatcherEvent() throws Exception {
+		System.out.println("Request /admin/event.do");
 		ArrayList<ActionBoardVO> list = new ArrayList<ActionBoardVO>();
 		list = aService.selectAllList();
 		Map<String, Object> map =  new HashMap<String, Object>();
