@@ -37,11 +37,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
-            android:text="0000000000"
             android:hint="@string/login_num"
             android:inputType="number"
             android:maxLines="1"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:text="2018031700" />
 
         <EditText
             android:id="@+id/login_pw"

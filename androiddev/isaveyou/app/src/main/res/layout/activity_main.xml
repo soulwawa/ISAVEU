@@ -33,14 +33,17 @@
         <FrameLayout
             android:id="@+id/streming_framelayout"
             android:layout_width="370dp"
-            android:layout_height="375dp"
+            android:layout_height="530dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="48dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="94dp"
             android:clickable="true"
             android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/map_frameLayout">
+            app:layout_constraintTop_toTopOf="@+id/map_frameLayout"
+            app:layout_constraintVertical_bias="0.0">
 
         </FrameLayout>
 
@@ -126,14 +129,14 @@
                 fab:fab_title="@string/monitoring" />
 
             <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab_static"
+                android:id="@+id/fab_voice_recognition"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:fab_icon="@drawable/pic_chart"
+                app:fab_icon="@drawable/pic_voice_recoginition"
                 app:fab_size="mini"
                 fab:fab_colorNormal="@color/white"
                 fab:fab_colorPressed="@color/white_pressed"
-                fab:fab_title="@string/stat" />
+                fab:fab_title="@string/voice_recorder" />
 
             <com.getbase.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_map"

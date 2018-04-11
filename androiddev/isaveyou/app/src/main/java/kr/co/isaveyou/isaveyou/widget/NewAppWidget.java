@@ -39,7 +39,7 @@ public class NewAppWidget extends AppWidgetProvider {
     private static final String str_noti_update = "ACTION_NOTIFICATION_UPDATE";
     String result, issue, loc, loc1;
     HttpURLConnection conn;
-    SharedPreferences sharedPreferences1;
+    SharedPreferences sharedPreferences1, sharedPreferences2;
     String [] sArray, ssArray;
 
     @Override
@@ -71,20 +71,21 @@ public class NewAppWidget extends AppWidgetProvider {
             case "ACTION_OK":
                 try{
                     if(sharedPreferences1!=null) {
-                    WidgetUpdateTask widgetUpdateTask = new WidgetUpdateTask();
-                    widgetUpdateTask.execute();
-                    Log.v(TAG, "확인 버튼 누름1");
-                    views.setTextViewText(R.id.tv_issue_for_widget, "문제가 없습니다.");
-                    views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.app_logo);
-                    ComponentName newWidget0 = new ComponentName(context.getPackageName(), NewAppWidget.class.getName());
-                    AppWidgetManager.getInstance(context).updateAppWidget(newWidget0, views);
-                }else{
-                    Log.v(TAG, "확인 버튼 누름2");
-                    views.setTextViewText(R.id.tv_issue_for_widget, "문제가 없습니다.");
-                    views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.app_logo);
-                    ComponentName newWidget0 = new ComponentName(context.getPackageName(), NewAppWidget.class.getName());
-                    AppWidgetManager.getInstance(context).updateAppWidget(newWidget0, views);
-                }}catch (NullPointerException e){
+                        WidgetUpdateTask widgetUpdateTask = new WidgetUpdateTask();
+                        widgetUpdateTask.execute();
+                        Log.v(TAG, "확인 버튼 누름1");
+                        views.setTextViewText(R.id.tv_issue_for_widget, "문제가 없습니다.");
+                        views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.app_logo);
+                        ComponentName newWidget0 = new ComponentName(context.getPackageName(), NewAppWidget.class.getName());
+                        AppWidgetManager.getInstance(context).updateAppWidget(newWidget0, views);
+                    }else{
+                        Log.v(TAG, "확인 버튼 누름2");
+                        views.setTextViewText(R.id.tv_issue_for_widget, "문제가 없습니다.");
+                        views.setInt(R.id.layout_status, "setBackgroundResource", R.drawable.app_logo);
+                        ComponentName newWidget0 = new ComponentName(context.getPackageName(), NewAppWidget.class.getName());
+                        AppWidgetManager.getInstance(context).updateAppWidget(newWidget0, views);
+                    }
+                }catch (NullPointerException e){
                     e.printStackTrace();
                 }
                 break;
@@ -95,6 +96,7 @@ public class NewAppWidget extends AppWidgetProvider {
 //                AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
                 ComponentName newWidget1 = new ComponentName(context.getPackageName(), NewAppWidget.class.getName());
                 AppWidgetManager.getInstance(context).updateAppWidget(newWidget1,views);
+                sharedPreferences1 = context.getSharedPreferences("check_type",Context.MODE_PRIVATE);
                 break;
         }
 
@@ -128,7 +130,7 @@ public class NewAppWidget extends AppWidgetProvider {
             PendingIntent pi_voiceRecord = PendingIntent.getActivity(context,0,it_voiceRecord,0);
             views.setOnClickPendingIntent(R.id.btn_record,pi_voiceRecord);
 
-//            sharedPreferences1 = context.getSharedPreferences("check_type",Context.MODE_PRIVATE);
+
 
             //위젯에 글자를 나타내기 위한 새로 고침 작업을 별도의 method로 빼기
 //            this.refresh(context,views);
@@ -218,35 +220,34 @@ public class NewAppWidget extends AppWidgetProvider {
             String issue2 = "";
             for(Map.Entry<String, ?> entry : allEntries.entrySet()){
                 switch (entry.getKey()){
-                        case "1":
-                            issue2 = sharedPreferences1.getString("1", "");
-
-                            Log.v(TAG, "화재");
-                            sharedPreferences1.edit().remove("1").commit();
-                            break;
-                        case "2":
-                            issue = sharedPreferences1.getString("2", "");
-                            Log.v(TAG, "지진");
-                            sharedPreferences1.edit().remove("2").commit();
-                            break;
-                        case "3":
-                            issue = sharedPreferences1.getString("3", "");
-                            Log.v(TAG, "화재/지진");
-                            sharedPreferences1.edit().remove("3").commit();
-                            break;
-                        case "4":
-                            issue = sharedPreferences1.getString("4", "");
-                            Log.v(TAG, "소화기");
-                            sharedPreferences1.edit().remove("4").commit();
-                            break;
-                        case "5":
-                            issue = sharedPreferences1.getString("5", "");
-                            Log.v(TAG, "기계이상");
-                            sharedPreferences1.edit().remove("5").commit();
-                            break;
-                        default:
-                            issue = "";
-                            break;
+                    case "1":
+                        issue2 = sharedPreferences1.getString("1", "");
+                        Log.v(TAG, "화재");
+                        sharedPreferences1.edit().remove("1").commit();
+                        break;
+                    case "2":
+                        issue = sharedPreferences1.getString("2", "");
+                        Log.v(TAG, "지진");
+                        sharedPreferences1.edit().remove("2").commit();
+                        break;
+                    case "3":
+                        issue = sharedPreferences1.getString("3", "");
+                        Log.v(TAG, "화재/지진");
+                        sharedPreferences1.edit().remove("3").commit();
+                        break;
+                    case "4":
+                        issue = sharedPreferences1.getString("4", "");
+                        Log.v(TAG, "소화기");
+                        sharedPreferences1.edit().remove("4").commit();
+                        break;
+                    case "5":
+                        issue = sharedPreferences1.getString("5", "");
+                        Log.v(TAG, "기계이상");
+                        sharedPreferences1.edit().remove("5").commit();
+                        break;
+                    default:
+                        issue = "";
+                        break;
                 }
             }
             try {

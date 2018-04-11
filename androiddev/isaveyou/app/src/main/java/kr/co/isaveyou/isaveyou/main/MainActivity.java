@@ -1,6 +1,7 @@
 package kr.co.isaveyou.isaveyou.main;
 
 
+import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -45,6 +46,7 @@ import android.widget.Toast;
 import android.widget.SearchView.OnQueryTextListener;
 
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
+import com.squareup.otto.Bus;
 
 
 import org.json.JSONException;
@@ -79,30 +81,38 @@ public class MainActivity extends AppCompatActivity {
     SearchView searchView;
     private DrawerLayout mDrawerLayout;
 
+//    private RequestQueue mRequestQueue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //
+
+        //상태바 바꾸기
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().setStatusBarColor(Color.rgb(36, 223, 145));
         }
 //        LayoutInflater inflater = getLayoutInflater();
 //        View layout = inflater.inflate(R.layout.fragment_monitoring, null);
+
         fl_streaming = (FrameLayout)findViewById (R.id.streming_framelayout);
-        fl_streaming.bringToFront();
+//        fl_streaming.bringToFront();
         fl_static_fire_ext = (FrameLayout)findViewById(R.id.static_framelayout);
         fl_static_fire_ext.bringToFront();
         //tab 레이아웃 설정, adapter 설정
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tl_tabs);
         ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);
         Fragment[] arrFragments = new Fragment[3];
-        arrFragments[0] = new NewsFragment();
-        arrFragments[1] = new InformationFragment();
-        arrFragments[2] = new myMapFragment();
+        arrFragments[0] = new myMapFragment();
+        arrFragments[1] = new NewsFragment();
+        arrFragments[2] = new InformationFragment();
 
         MyPagerAdapter pagerAdapter = new MyPagerAdapter(getSupportFragmentManager(),arrFragments);
         viewPager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
+
+        Fragment NewsFragment = new NewsFragment();
 
 
         //floating action button 설정
@@ -117,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                 streamingtask.execute();
                 fl_streaming.setVisibility(View.VISIBLE);
                 menuMultipleActions.collapse();
-
+                fl_streaming.bringToFront();
                 Log.v(TAG, "스트리밍 버튼 클릭");
             }
         });
@@ -127,22 +137,19 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), FloorMapActivity.class);
                 intent.setData(Uri.parse("1/000"));
                 startActivity(intent);
+
                 Log.v(TAG, "맵 버튼 클릭");
             }
         });
-        findViewById(R.id.fab_static).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.fab_voice_recognition).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"static클릭",Toast.LENGTH_SHORT).show();
-                Static_webViewFragment static_webViewFragment = new Static_webViewFragment();
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.replace(R.id.static_framelayout,static_webViewFragment);
-                fl_static_fire_ext.setVisibility(View.VISIBLE);
-                fragmentTransaction.commit();
+                Toast.makeText(getApplicationContext(),"음성인식 클릭",Toast.LENGTH_SHORT).show();
+                Intent it_voiceRecord = new Intent(getApplicationContext(),VoiceActivity.class);
+                startActivity(it_voiceRecord);
                 menuMultipleActions.collapse();
-                Log.v(TAG, "static 버튼 클릭");
+                Log.v(TAG, "음성인식 버튼 클릭");
+
             }
         });
         Intent intent = getIntent();
@@ -236,6 +243,7 @@ public class MainActivity extends AppCompatActivity {
     //Streaming layout set invisible 하기
     public  void Invisible_Streaming (){
         fl_streaming.setVisibility(View.INVISIBLE);
+       mDrawerLayout.bringToFront();
     }
 
     //탭 어댑터 설정
@@ -251,10 +259,13 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
+                    fl_streaming.setVisibility(View.INVISIBLE);
                     return arrFragments[0];
                 case 1:
+                    fl_streaming.setVisibility(View.INVISIBLE);
                     return arrFragments[1];
                 case 2:
+                    fl_streaming.setVisibility(View.INVISIBLE);
                     return arrFragments[2];
                 default:
                     return null;
@@ -270,11 +281,11 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "날씨";
+                    return "주변 지도";
                 case 1:
-                    return "정보";
+                    return "날씨";
                 case 2:
-                    return "지도";
+                    return "주소록";
                 default:
                     return null;
 
@@ -473,6 +484,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        fl_streaming.setVisibility(View.INVISIBLE);
+    }
 }
 
 

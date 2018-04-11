@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -91,6 +92,12 @@ public class VoiceActivity extends AppCompatActivity {
                                     it_streaming.setData(Uri.parse("1"));
                                     startActivity(it_streaming);
                                     finish();
+                                }else if(mSelectedString.contains("소화기")){
+                                    Intent it_fire_ext = new Intent(getApplicationContext(), FloorMapActivity.class);
+                                    it_fire_ext.setData(Uri.parse("1/000"));
+                                    startActivity(it_fire_ext);
+                                }else{
+                                    Toast.makeText(getApplicationContext(),"현재 말씀하신 내용과 관련된 기능이 없습니다.\n비상, 대피, 화재, 현장, 모니터링, 스트리밍, 영상, 소화기 중 하나를 포함하여 말씀해주세요.",Toast.LENGTH_LONG).show();
                                 }
                                        //결과 출력
 
@@ -112,6 +119,9 @@ public class VoiceActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+
+        Intent it_main = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(it_main);
         finish();
     }
 }

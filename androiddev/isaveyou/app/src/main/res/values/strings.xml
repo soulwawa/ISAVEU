@@ -3,7 +3,7 @@
     <string name="login_num">사번을 입력해주세요.(10자)</string>
     <string name="login_pw">비밀번호를 입력해주세요.</string>
     <string name="login_btn">로그인</string>
-    <string name="check_save">자동 로그인</string>
+    <string name="check_save">아이디 저장</string>
     <string name="default_notification_channel_id">FCMID</string>
     <string name="call">119</string>
     <string name="checkPlace">발생위치보기</string>
@@ -48,6 +48,9 @@
     <string name="monitoring_short">모니터링</string>
     <string name="voice_recorder">음성인식</string>
     <string name="widget_map">비상대피도</string>
-
-
+    <!-- weather-->
+    <string name="temperature"> °C</string>
+    <string name="sunny">맑음</string>
+    <string name="rain_status">mm</string>
+    <string name="humidity_sign">%</string>
 </resources>

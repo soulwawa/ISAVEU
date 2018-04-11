@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
 
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
@@ -40,6 +41,7 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
 
     String streamingServer_access, streamingServer_url;
     HttpURLConnection conn;
+    ConstraintLayout streaming_ConstraintLayout;
 
 
     String result;
@@ -94,6 +96,7 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_monitoring,null);
 
+        streaming_ConstraintLayout = (ConstraintLayout)view.findViewById(R.id.streaming_ConstraintLayout);
         wv_monitoring = (WebView)view.findViewById(R.id.wv_monitoring);
         btn_start = view.findViewById(R.id.btn_start);
         btn_stop = view.findViewById(R.id.btn_stop);
@@ -243,5 +246,8 @@ public class MonitoringFragment extends android.support.v4.app.Fragment {
     public void onStop() {
         super.onStop();
 
+    }
+    public void destroyStremingFragment(){
+        streaming_ConstraintLayout.setVisibility(View.INVISIBLE);
     }
 }
