@@ -85,7 +85,7 @@
 	display:none;
 	position:relative;
 	left:395px;
-	top:390px;
+	top:410px;
 }
 #tb1{
 	top:120px;
