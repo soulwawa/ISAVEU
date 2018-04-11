@@ -253,21 +253,21 @@ th{
 	margin:0 auto;
 }
 #nextbtn{
-	width:100px;
+	width:80px;
 	height:40px;
 	margin:0;
 	padding:0;
 	z-index:1300;
 }
 #lastbtn{
-	width:100px;
+	width:80px;
 	height:40px;
 	margin:0;
 	padding:0;
 	z-index:1300;
 }
 #page{
-	width:100px;
+	width:140px;
 	height:40px;
 	margin:0;
 	padding:0;
