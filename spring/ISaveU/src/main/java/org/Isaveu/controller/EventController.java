@@ -498,7 +498,7 @@ public class EventController {
 		String count = "";
 		try {
 			count = lService.locationCount(loc);
-			System.out.println(count);
+//			System.out.println(count);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

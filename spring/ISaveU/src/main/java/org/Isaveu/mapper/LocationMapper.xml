@@ -6,11 +6,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="org.Isaveu.mapper.LocationMapper">
 	<select id="locationByFireEx" parameterType="org.Isaveu.domain.LocationByFireExVO" resultType="org.Isaveu.domain.LocationByFireExVO" >
 	SELECT
- 		*
+		*
 	FROM tb_location
-	INNER JOIN
- 	tb_fire_ex
-		ON tb_location.location_id = tb_fire_ex.location_id;
+	INNER JOIN tb_fire_ex
+	ON tb_location.location_id = tb_fire_ex.location_id;
 	</select>
 	
 	<select id="locationByFireExName" parameterType="String" resultType="org.Isaveu.domain.LocationByFireExVO" >
