@@ -105,7 +105,7 @@ function nextpage() {
 		document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
 			for(var i = 0; i < 20; i++){
 				
-				var k = ((pagenum-1)*19) + i;
+				var k = ((pagenum-1)*19) + i + 1;
 		     	var counter = obj.list[k];
 	         	
 	         	if(counter.action_id != null){
@@ -172,7 +172,7 @@ function lastpage() {
 		document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
 			for(var i = 0; i < 20; i++){
 				
-				var k = ((pagenum-1)*19) + i;
+				var k = ((pagenum-1)*19) + i + 1;
 		     	var counter = obj.list[k];
 	         	
 	         	if(counter.action_id != null){
