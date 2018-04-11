@@ -133,6 +133,7 @@ th{
 	height:40px;
 	background:black;
 	z-index:1200;
+	margin:0 auto;
 }
 </style>
 </head>
@@ -390,7 +391,11 @@ th{
 					</tr>
 				</tbody>
 			</table>
-			<div id="controler"></div>
+			<div id="controler">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
 		</div>
 		<div class="footer">
 		</div>
