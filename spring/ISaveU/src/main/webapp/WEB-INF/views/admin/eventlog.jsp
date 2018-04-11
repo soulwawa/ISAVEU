@@ -13,38 +13,27 @@
 <script language="javascript" type="text/javascript" src="/js/js1.js"></script>
 <script>
 var pagenum = 0;
-var ev = setInterval(function () {
+    
     $.ajax({
       type: "GET",
       url: "http://192.168.0.35:9999/admin/event.do",
       dataType: "json",
       success: function(data) {
-        ob = data.list;
+        obj = data;
 	        for(var i = 0; i < 20; i++){
-	        	var k = pagenum + i + "";
-	        	document.getElementById("t"+k+"0").innerHTML = ob[i].action_id;
-	        	document.getElementById("t"+k+"1").innerHTML = ob[i].time;
-	        	document.getElementById("t"+k+"2").innerHTML = ob[i].module_id;
-	        	document.getElementById("t"+k+"3").innerHTML = ob[i].dept_name;
-	        	if(ob[i].issue == 1){
-	        		document.getElementById("t"+k+"4").innerHTML = "화재";
-	        	}else if(ob[i].issue == 2){
-	        		document.getElementById("t"+k+"4").innerHTML = "지진";
-	        	}else if(ob[i].issue == 3){
-	        		document.getElementById("t"+k+"4").innerHTML = "화재, 지진";
-	        	}
-	        	document.getElementById("t"+k+"5").innerHTML = ob[i].url;
+	        	var k = (pagenum*19) + i;
+	        	var counter = obj.list[k];
+	        	console.log("t"+k+"0");
+	        	console.log("t"+k+"1");
+	        	console.log("t"+k+"2");
+	        	console.log("t"+k+"3");
+	        	console.log("t"+k+"4");
 	        }
       }
     });
-  }, 9900);
+    
 $(window).on("unload", function(){
-    alert("call");
-    console.log("this will be triggered");
-    clearInterval(interval1);
-    clearInterval(interval2);
     clearInterval(alwayscheck);
-    clearInterval(ev);
 }); 
 </script>
 <style>
