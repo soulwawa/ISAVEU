@@ -103,12 +103,12 @@ function nextpage() {
 		pagenum = pagenum + 1;
 		document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
 			for(var i = 0; i < 20; i++){
-				document.getElementById("t"+i+"0").innerHTML="";
-	         	document.getElementById("t"+i+"1").innerHTML="";
-	         	document.getElementById("t"+i+"2").innerHTML="";
-	         	document.getElementById("t"+i+"3").innerHTML="";
-	         	document.getElementById("t"+i+"4").innerHTML="";
-	         	document.getElementById("t"+i+"5").innerHTML="";
+				action = "null";
+				etime = "null";
+				module = "null";
+				dept = "null";
+				iss = "null";
+				img = "null";
 				
 				var k = ((pagenum-1)*20) + i;
 		     	var counter = obj.list[k];
@@ -177,12 +177,12 @@ function lastpage() {
 		document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
 			for(var i = 0; i < 20; i++){
 				
-				document.getElementById("t"+i+"0").innerHTML="";
-	         	document.getElementById("t"+i+"1").innerHTML="";
-	         	document.getElementById("t"+i+"2").innerHTML="";
-	         	document.getElementById("t"+i+"3").innerHTML="";
-	         	document.getElementById("t"+i+"4").innerHTML="";
-	         	document.getElementById("t"+i+"5").innerHTML="";
+				action = "null";
+				etime = "null";
+				module = "null";
+				dept = "null";
+				iss = "null";
+				img = "null";
 				
 				var k = ((pagenum-1)*20) + i;
 		     	var counter = obj.list[k];
