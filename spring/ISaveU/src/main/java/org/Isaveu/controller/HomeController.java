@@ -62,7 +62,7 @@ public class HomeController {
 		System.out.println("/admin/cal");
 		return "Calendar/schedule";
 	}
-	@RequestMapping("/admin/cal")
+	@RequestMapping("/admin/mchart1")
 	private String mchartTest() throws Exception{
 		System.out.println("/admin/cal");
 		return "mobile/mchart0";
