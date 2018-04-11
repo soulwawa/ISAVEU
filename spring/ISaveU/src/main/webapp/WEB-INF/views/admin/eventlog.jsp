@@ -107,7 +107,8 @@ function nextpage() {
 	         	document.getElementById("t"+i+"1").innerHTML="";
 	         	document.getElementById("t"+i+"2").innerHTML="";
 	         	document.getElementById("t"+i+"3").innerHTML="";
-	         	document.getElementById("t"+i+"3").innerHTML="";
+	         	document.getElementById("t"+i+"4").innerHTML="";
+	         	document.getElementById("t"+i+"5").innerHTML="";
 				
 				var k = ((pagenum-1)*19) + i + 1;
 		     	var counter = obj.list[k];
@@ -175,11 +176,13 @@ function lastpage() {
 		pagenum = pagenum - 1;
 		document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
 			for(var i = 0; i < 20; i++){
+				
 				document.getElementById("t"+i+"0").innerHTML="";
 	         	document.getElementById("t"+i+"1").innerHTML="";
 	         	document.getElementById("t"+i+"2").innerHTML="";
 	         	document.getElementById("t"+i+"3").innerHTML="";
-	         	document.getElementById("t"+i+"3").innerHTML="";
+	         	document.getElementById("t"+i+"4").innerHTML="";
+	         	document.getElementById("t"+i+"5").innerHTML="";
 				
 				var k = ((pagenum-1)*19) + i + 1;
 		     	var counter = obj.list[k];
