@@ -28,7 +28,7 @@ img {
 </style>
 </head>
 <body>
-<a href="/admin">
+<a href="/admin/admin">
 <img src ="/img/test.png" alt="lOGiN" >
 </a>
 </body>
