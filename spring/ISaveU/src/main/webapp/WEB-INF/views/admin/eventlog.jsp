@@ -103,7 +103,75 @@ function winload(){
 }
     
 function nextpage() {
-	if(pagenum < pagesize){
+	if(pagenum == pagesize-1){
+		pagenum = pagenum + 1;
+		document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
+		for(var i = 0; i < (obj.list.length - (pagenum-1)*20); i++){
+			var k = ((pagenum-1)*20) + i;
+	     	var counter = obj.list[k];
+         	
+	     	if(typeof counter.action_id === "undefined"){
+         		action = "null";
+         	}else{
+         		action = counter.action_id;
+         	}
+         	
+         	if(typeof counter.time === "undefined"){
+         		etime = "null";
+         	}else{
+         		etime = counter.time;
+         	}
+         	
+         	if(typeof counter.module_id === "undefined"){
+         		module = "null";
+         	}else{
+         		module = counter.module_id;
+         	}
+         	
+         	if(typeof counter.dept_name === "undefined"){
+         		dept = "null";
+         	}else{
+         		dept = counter.dept_name;
+         	}
+         	
+         	if(typeof counter.issue === "undefined"){
+         		iss = "null";
+         	}else{
+         		iss = counter.issue;
+         	}
+         	
+         	if(typeof counter.url === "undefined"){
+         		img = "null";
+         	}else{
+         		img = counter.url;
+         	}
+         	
+         	document.getElementById("t"+i+"0").innerHTML=action;
+         	document.getElementById("t"+i+"1").innerHTML=etime;
+         	document.getElementById("t"+i+"2").innerHTML=module;
+         	document.getElementById("t"+i+"3").innerHTML=dept;
+         	
+         	if(iss == 1){
+        		document.getElementById("t"+i+"4").innerHTML="화재";
+        	}else if(iss == 2){
+        		document.getElementById("t"+i+"4").innerHTML="지진";
+        	}else if(iss == 3){
+        		document.getElementById("t"+i+"4").innerHTML="화재, 지진";
+        	}else{
+        		document.getElementById("t"+i+"4").innerHTML=iss;
+        	}
+
+        	document.getElementById("t"+i+"5").innerHTML = img;
+      	}
+		for(var i = (obj.list.length - (pagenum-1)*20); i < 20; i++){
+			document.getElementById("t"+i+"0").innerHTML="";
+         	document.getElementById("t"+i+"1").innerHTML="";
+         	document.getElementById("t"+i+"2").innerHTML="";
+         	document.getElementById("t"+i+"3").innerHTML="";
+         	document.getElementById("t"+i+"4").innerHTML="";
+         	document.getElementById("t"+i+"5").innerHTML="";
+		}
+	}else if(pagenum < pagesize){
 		pagenum = pagenum + 1;
 		document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
 			for(var i = 0; i < 20; i++){
