@@ -32,7 +32,7 @@ function winload(){
       dataType: "json",
       success: function(data) {
         obj = data;
-        console.lig(obj.list.length);
+        console.log(obj.list.length);
         if(obj.list.length % 19 != 0){
         	pagesize = parseInt(obj.list.length/19 + 1);
         }else if(obj.list.length % 19 == 0){
