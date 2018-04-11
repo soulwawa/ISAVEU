@@ -169,7 +169,7 @@ function nextpage() {
 function lastpage() {
 	if(pagenum > 1){
 		pagenum = pagenum - 1;
-		document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize")";
+		document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
 			for(var i = 0; i < 20; i++){
 				
 				var k = (pagenum*19) + i;
