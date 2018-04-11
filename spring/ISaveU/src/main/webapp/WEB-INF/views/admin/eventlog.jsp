@@ -305,14 +305,18 @@ $(window).on("unload", function(){
 }); 
 
 function showphoto(img){
-	document.getElementById("phothz").style.display="block";
-	document.getElementById("phothz").style.background="url("+img+") no-repeat";
+	document.getElementById("photoz").style.display="block";
+	document.getElementById("photoz").style.background="url("+img+") no-repeat";
 }
 function closephoto(){
 	document.getElementById("phothz").style.display="none";
 }
 </script>
 <style>
+p{
+	margin:0 !important;
+	padding:0 !important;
+}
 #photoz{
 	width:800px;
 	height:480px;
