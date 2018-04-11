@@ -12,7 +12,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script language="javascript" type="text/javascript" src="/js/js1.js"></script>
 <script>
-var pagenum = 0;
+var pagenum = 1;
 var obj;
 var action;
 var etime;	
@@ -31,7 +31,7 @@ function winload(){
       url: "http://192.168.0.35:9999/admin/event.do",
       dataType: "json",
       success: function(data) {
-    	document.getElementById("page").innerHTML = "1";
+    	document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
         obj = data;
         if(obj.list.length % 19 != 0){
         	pagesize = parseInt(obj.list.length/19 + 1);
