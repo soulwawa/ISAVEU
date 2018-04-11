@@ -12,6 +12,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script language="javascript" type="text/javascript" src="/js/js1.js"></script>
 <script>
+var pagenum = 0;
 var ev = setInterval(function () {
     $.ajax({
       type: "GET",
@@ -19,19 +20,20 @@ var ev = setInterval(function () {
       dataType: "json",
       success: function(data) {
         ob = data.list;
-        var pagenum = 0;
 	        for(var i = 0; i < 20; i++){
-	        	document.getElementById("t"+i+"0").innerHTML = ob[i].action_id;
-	        	document.getElementById("t"+i+"1").innerHTML = ob[i].time;
-	        	document.getElementById("t"+i+"2").innerHTML = ob[i].module_id;
-	        	document.getElementById("t"+i+"3").innerHTML = ob[i].복도;
+	        	var k = pagenum + i + "";
+	        	document.getElementById("t"+k+"0").innerHTML = ob[i].action_id;
+	        	document.getElementById("t"+k+"1").innerHTML = ob[i].time;
+	        	document.getElementById("t"+k+"2").innerHTML = ob[i].module_id;
+	        	document.getElementById("t"+k+"3").innerHTML = ob[i].dept_name;
 	        	if(ob[i].issue == 1){
-	        		document.getElementById("t"+i+"4").innerHTML = "화재";
+	        		document.getElementById("t"+k+"4").innerHTML = "화재";
 	        	}else if(ob[i].issue == 2){
-	        		document.getElementById("t"+i+"4").innerHTML = "지진";
+	        		document.getElementById("t"+k+"4").innerHTML = "지진";
 	        	}else if(ob[i].issue == 3){
-	        		document.getElementById("t"+i+"4").innerHTML = "화재, 지진";
+	        		document.getElementById("t"+k+"4").innerHTML = "화재, 지진";
 	        	}
+	        	document.getElementById("t"+k+"5").innerHTML = ob[i].url;
 	        }
       }
     });
@@ -149,6 +151,7 @@ th{
 						<th scope="col">module_id</th>
 						<th scope="col">부서명</th>
 						<th scope="col">발생 상황</th>
+						<th scope="col">img</th>
 						
 					</tr>
 				</thead>
@@ -159,6 +162,7 @@ th{
 						<td id="t02"></td>
 						<td id="t03"></td>
 						<td id="t04"></td>
+						<td id="t05"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="t10"></th>
@@ -166,6 +170,7 @@ th{
 						<td id="t12"></td>
 						<td id="t13"></td>
 						<td id="t14"></td>
+						<td id="t15"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="t20"></th>
@@ -173,6 +178,7 @@ th{
 						<td id="t22"></td>
 						<td id="t23"></td>
 						<td id="t24"></td>
+						<td id="t25"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="t30"></th>
@@ -180,6 +186,7 @@ th{
 						<td id="t32"></td>
 						<td id="t33"></td>
 						<td id="t34"></td>
+						<td id="t35"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="t40"></th>
@@ -187,6 +194,7 @@ th{
 						<td id="t42"></td>
 						<td id="t43"></td>
 						<td id="t44"></td>
+						<td id="t45"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="50"></th>
@@ -194,6 +202,7 @@ th{
 						<td id="t52"></td>
 						<td id="t53"></td>
 						<td id="t54"></td>
+						<td id="t55"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="60"></th>
@@ -201,6 +210,7 @@ th{
 						<td id="t62"></td>
 						<td id="t63"></td>
 						<td id="t64"></td>
+						<td id="t65"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="70"></th>
@@ -208,6 +218,7 @@ th{
 						<td id="t72"></td>
 						<td id="t73"></td>
 						<td id="t74"></td>
+						<td id="t75"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="80"></th>
@@ -215,6 +226,7 @@ th{
 						<td id="t82"></td>
 						<td id="t83"></td>
 						<td id="t84"></td>
+						<td id="t85"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="90"></th>
@@ -222,6 +234,7 @@ th{
 						<td id="t92"></td>
 						<td id="t93"></td>
 						<td id="t94"></td>
+						<td id="t95"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="100"></th>
@@ -229,6 +242,7 @@ th{
 						<td id="t102"></td>
 						<td id="t103"></td>
 						<td id="t104"></td>
+						<td id="t105"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="110"></th>
@@ -236,6 +250,7 @@ th{
 						<td id="t112"></td>
 						<td id="t113"></td>
 						<td id="t114"></td>
+						<td id="t115"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="120"></th>
@@ -243,6 +258,7 @@ th{
 						<td id="t122"></td>
 						<td id="t123"></td>
 						<td id="t124"></td>
+						<td id="t125"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="130"></th>
@@ -250,6 +266,7 @@ th{
 						<td id="t132"></td>
 						<td id="t133"></td>
 						<td id="t134"></td>
+						<td id="t135"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="140"></th>
@@ -257,6 +274,7 @@ th{
 						<td id="t142"></td>
 						<td id="t143"></td>
 						<td id="t144"></td>
+						<td id="t145"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="150"></th>
@@ -264,6 +282,7 @@ th{
 						<td id="t152"></td>
 						<td id="t153"></td>
 						<td id="t154"></td>
+						<td id="t155"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="160"></th>
@@ -271,6 +290,7 @@ th{
 						<td id="t162"></td>
 						<td id="t163"></td>
 						<td id="t164"></td>
+						<td id="t165"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="170"></th>
@@ -278,6 +298,7 @@ th{
 						<td id="t172"></td>
 						<td id="t173"></td>
 						<td id="t174"></td>
+						<td id="t175"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="180"></th>
@@ -285,6 +306,7 @@ th{
 						<td id="t182"></td>
 						<td id="t183"></td>
 						<td id="t184"></td>
+						<td id="t185"></td>
 					</tr>
 					<tr>
 						<th scope="row" id="190"></th>
@@ -292,6 +314,7 @@ th{
 						<td id="t192"></td>
 						<td id="t193"></td>
 						<td id="t194"></td>
+						<td id="t195"></td>
 					</tr>
 				</tbody>
 			</table>
