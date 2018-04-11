@@ -20,6 +20,7 @@ var module;
 var dept;
 var iss;
 var img;
+var pagesize;
 setTimeout(function(){
 	winload();
 },200);
@@ -30,7 +31,13 @@ function winload(){
       url: "http://192.168.0.35:9999/admin/event.do",
       dataType: "json",
       success: function(data) {
+    	document.getElementById("page").innerHTML = "1";
         obj = data;
+        if(obj.list.length % 19 != 0){
+        	pagesize = (obj.list.length/19 + 1);
+        }else if(obj.list.length % 19 == 0){
+        	pagesize = (obj.list.length/19);
+        }
         for(var i = 0; i < 20; i++){
         	
          	var counter = obj.list[i];
@@ -93,26 +100,137 @@ function winload(){
 }
     
 function nextpage() {
-	 for(var i = 0; i < 20; i++){
-     	var k = (pagenum*19) + i;
-     	var counter = obj.list[k];
-     	
-     	document.getElementById("t"+k+"0").innerHTML = ob[k].action_id;
-     	document.getElementById("t"+k+"1").innerHTML = ob[k].time;
-     	document.getElementById("t"+k+"2").innerHTML = ob[k].module_id;
-     	document.getElementById("t"+k+"3").innerHTML = ob[k].dept_name;
-     	
-     	
-     	console.log("t"+k+"0");
-     	console.log("t"+k+"1");
-     	console.log("t"+k+"2");
-     	console.log("t"+k+"3");
-     	console.log("t"+k+"4");
-     }
+	if(pagenum < pagesize){
+		pagenum = pagenum + 1;
+		document.getElementById("page").innerHTML = "1";
+			for(var i = 0; i < 20; i++){
+				
+				var k = (pagenum*19) + i;
+		     	var counter = obj.list[k];
+	         	
+	         	if(counter.action_id != null){
+	 				action = counter.action_id;
+	         	}else{
+	         		action = "null";
+	         	}
+	         	
+	         	if(counter.time != null){
+	 				etime = counter.time;
+	         	}else{
+	         		etime = "null";
+	         	}
+	         	
+	         	if(counter.module_id != null){
+	 				module = counter.module_id;
+	         	}else{
+	         		module = "null";
+	         	}
+	         	
+	         	if(counter.dept_name != null){
+	 				dept = counter.dept_name;
+	         	}else{
+	         		dept = "null";
+	         	}
+	         	
+	         	if(counter.issue != null){
+	 				iss = counter.issue;
+	         	}else{
+	         		iss = "null";
+	         	}
+	         	
+	         	if(counter.url != null){
+	 				img = counter.url;
+	         	}else{
+	         		img = "null";
+	         	}
+	         	
+	         	document.getElementById("t"+i+"0").innerHTML=action;
+	         	document.getElementById("t"+i+"1").innerHTML=etime;
+	         	document.getElementById("t"+i+"2").innerHTML=module;
+	         	document.getElementById("t"+i+"3").innerHTML=dept;
+	         	
+	         	if(iss == 1){
+	        		document.getElementById("t"+i+"4").innerHTML="화재";
+	        	}else if(iss == 2){
+	        		document.getElementById("t"+i+"4").innerHTML="지진";
+	        	}else if(iss == 3){
+	        		document.getElementById("t"+i+"4").innerHTML="화재, 지진";
+	        	}else{
+	        		document.getElementById("t"+i+"4").innerHTML=iss;
+	        	}
+	
+	        	document.getElementById("t"+i+"5").innerHTML = img;
+	      	}
+	}else{
+		alert("마지막 페이지 입니다.");
+	}
 }
 
 function lastpage() {
+	if(pagenum > 1){
+		pagenum = pagenum - 1;
+		document.getElementById("page").innerHTML = "1";
+			for(var i = 0; i < 20; i++){
+				
+				var k = (pagenum*19) + i;
+		     	var counter = obj.list[k];
+	         	
+	         	if(counter.action_id != null){
+	 				action = counter.action_id;
+	         	}else{
+	         		action = "null";
+	         	}
+	         	
+	         	if(counter.time != null){
+	 				etime = counter.time;
+	         	}else{
+	         		etime = "null";
+	         	}
+	         	
+	         	if(counter.module_id != null){
+	 				module = counter.module_id;
+	         	}else{
+	         		module = "null";
+	         	}
+	         	
+	         	if(counter.dept_name != null){
+	 				dept = counter.dept_name;
+	         	}else{
+	         		dept = "null";
+	         	}
+	         	
+	         	if(counter.issue != null){
+	 				iss = counter.issue;
+	         	}else{
+	         		iss = "null";
+	         	}
+	         	
+	         	if(counter.url != null){
+	 				img = counter.url;
+	         	}else{
+	         		img = "null";
+	         	}
+	         	
+	         	document.getElementById("t"+i+"0").innerHTML=action;
+	         	document.getElementById("t"+i+"1").innerHTML=etime;
+	         	document.getElementById("t"+i+"2").innerHTML=module;
+	         	document.getElementById("t"+i+"3").innerHTML=dept;
+	         	
+	         	if(iss == 1){
+	        		document.getElementById("t"+i+"4").innerHTML="화재";
+	        	}else if(iss == 2){
+	        		document.getElementById("t"+i+"4").innerHTML="지진";
+	        	}else if(iss == 3){
+	        		document.getElementById("t"+i+"4").innerHTML="화재, 지진";
+	        	}else{
+	        		document.getElementById("t"+i+"4").innerHTML=iss;
+	        	}
 	
+	        	document.getElementById("t"+i+"5").innerHTML = img;
+	      	}
+	}else{
+		alert("첫번째 페이지 입니다.");
+	}
 }
     
 $(window).on("unload", function(){
@@ -131,9 +249,34 @@ th{
 #controler{
 	width:300px;
 	height:40px;
-	background:black;
 	z-index:1200;
 	margin:0 auto;
+}
+#nextbtn{
+	width:100px;
+	height:40px;
+	margin:0;
+	padding:0;
+	z-index:1300;
+}
+#lastbtn{
+	width:100px;
+	height:40px;
+	margin:0;
+	padding:0;
+	z-index:1300;
+}
+#page{
+	width:100px;
+	height:40px;
+	margin:0;
+	padding:0;
+	z-index:1300;
+}
+.abc{
+	float:left;
+	text-align:center;
+	vertical-align:middle;
 }
 </style>
 </head>
@@ -392,9 +535,9 @@ th{
 				</tbody>
 			</table>
 			<div id="controler">
-				<div></div>
-				<div></div>
-				<div></div>
+				<div class="abc" id="nextbtn" onclick="nextpage()">이전 페이지</div>
+				<div class="abc" id="page"></div>
+				<div class="abc" id="lastbtn" onclick="lastpage()">다음 페이지</div>
 			</div>
 		</div>
 		<div class="footer">
