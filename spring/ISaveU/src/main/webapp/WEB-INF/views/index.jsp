@@ -16,7 +16,10 @@
             $(this).attr( 'src', '/img/test.png' );
           } );
       } );
-    </script>
+  	setTimeout(function(){
+  		location.replace("/admin/admin");
+	},7500);
+</script>
 <link href="/css/style1.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 img {
@@ -28,8 +31,10 @@ img {
 </style>
 </head>
 <body>
+<div id="indexcover">
 <a href="/admin/admin">
-<img src ="/img/test.png" alt="lOGiN" >
+<img id="loginimg" src ="/img/test.png" alt="lOGiN" >
 </a>
+</div>
 </body>
 </html>
