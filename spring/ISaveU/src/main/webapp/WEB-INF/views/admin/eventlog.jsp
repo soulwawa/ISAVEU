@@ -305,11 +305,11 @@ $(window).on("unload", function(){
 }); 
 
 function showphoto(img){
-	document.geElementById("phothz").style.display="block";
-	document.geElementById("phothz").style.background="url("+img+") no-repeat";
+	document.getElementById("phothz").style.display="block";
+	document.getElementById("phothz").style.background="url("+img+") no-repeat";
 }
 function closephoto(){
-	document.geElementById("phothz").style.display="none";
+	document.getElementById("phothz").style.display="none";
 }
 </script>
 <style>
