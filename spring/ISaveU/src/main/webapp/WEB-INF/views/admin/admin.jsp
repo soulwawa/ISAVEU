@@ -172,12 +172,12 @@ function doalt(i,k,dis){
 			</div>
 			<div class="menuBtn" >
 				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/admin/event')">
-  					<span class="glyphicon glyphicon-alert" ></span> Envent Log
+  					<span class="glyphicon glyphicon-alert" ></span> Event Log
 				</button>
 			</div>
 			<div class="menuBtn" >
 				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/admin/stream')">
-  					<span class="glyphicon glyphicon-play-circle" ></span> Striming
+  					<span class="glyphicon glyphicon-play-circle" ></span> Streaming
 				</button>
 			</div>
 			<div class="menuBtn" >
