@@ -34,9 +34,9 @@ function winload(){
         obj = data;
         console.log(obj.list.length);
         if(obj.list.length % 19 != 0){
-        	pagesize = parseInt(obj.list.length/19 + 1);
+        	pagesize = parseInt(obj.list.length/19 + 1)+1;
         }else if(obj.list.length % 19 == 0){
-        	pagesize = parseInt(obj.list.length/19);
+        	pagesize = parseInt(obj.list.length/19)+1;
         }
         for(var i = 0; i < 20; i++){
         	document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
