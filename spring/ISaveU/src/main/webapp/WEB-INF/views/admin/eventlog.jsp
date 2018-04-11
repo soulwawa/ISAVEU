@@ -32,10 +32,6 @@ function winload(){
       dataType: "json",
       success: function(data) {
         obj = data;
-        var abcd = obj.list[70].time;
-        if(typeof abce === "undefined"){
-        	alert("abcd 는 undefined 입니다.");
-        }
         if(obj.list.length % 20 != 0){
         	pagesize = parseInt(obj.list.length/20)+1;
         }else if(obj.list.length % 20 == 0){
@@ -164,7 +160,7 @@ function nextpage() {
         	document.getElementById("t"+i+"5").innerHTML = img;
       	}
 		for(var i = (obj.list.length - (pagenum-1)*20); i < 20; i++){
-			document.getElementById("t"+i+"0").innerHTML="";
+			document.getElementById("t"+i+"0").innerHTML="-";
          	document.getElementById("t"+i+"1").innerHTML="";
          	document.getElementById("t"+i+"2").innerHTML="";
          	document.getElementById("t"+i+"3").innerHTML="";
