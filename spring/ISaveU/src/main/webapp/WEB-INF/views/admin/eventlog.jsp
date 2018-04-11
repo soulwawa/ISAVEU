@@ -20,10 +20,9 @@ var module;
 var dept;
 var iss;
 var img;
-
-$(window).on("load", function(){
+setTimeout(function(){
 	winload();
-}); 
+},1000);
 
 function winload(){
     $.ajax({
