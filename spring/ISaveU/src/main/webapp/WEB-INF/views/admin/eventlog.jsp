@@ -103,47 +103,41 @@ function nextpage() {
 		pagenum = pagenum + 1;
 		document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
 			for(var i = 0; i < 20; i++){
-				action = "null";
-				etime = "null";
-				module = "null";
-				dept = "null";
-				iss = "null";
-				img = "null";
 				
 				var k = ((pagenum-1)*20) + i;
 		     	var counter = obj.list[k];
 	         	
-	         	if(counter.action_id != null){
+		     	if(typeof counter.action_id != 'undefined'){
 	 				action = counter.action_id;
 	         	}else{
 	         		action = "null";
 	         	}
 	         	
-	         	if(counter.time != null){
+	         	if(typeof counter.time != 'undefined'){
 	 				etime = counter.time;
 	         	}else{
 	         		etime = "null";
 	         	}
 	         	
-	         	if(counter.module_id != null){
+	         	if(typeof counter.module_id != 'undefined')){
 	 				module = counter.module_id;
 	         	}else{
 	         		module = "null";
 	         	}
 	         	
-	         	if(counter.dept_name != null){
+	         	if(typeof counter.dept_name != 'undefined')){
 	 				dept = counter.dept_name;
 	         	}else{
 	         		dept = "null";
 	         	}
 	         	
-	         	if(counter.issue != null){
+	         	if(typeof counter.issue != 'undefined')){
 	 				iss = counter.issue;
 	         	}else{
 	         		iss = "null";
 	         	}
 	         	
-	         	if(counter.url != null){
+	         	if(typeof counter.url != 'undefined')){
 	 				img = counter.url;
 	         	}else{
 	         		img = "null";
@@ -176,48 +170,41 @@ function lastpage() {
 		pagenum = pagenum - 1;
 		document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
 			for(var i = 0; i < 20; i++){
-				
-				action = "null";
-				etime = "null";
-				module = "null";
-				dept = "null";
-				iss = "null";
-				img = "null";
-				
+
 				var k = ((pagenum-1)*20) + i;
 		     	var counter = obj.list[k];
 	         	
-	         	if(counter.action_id != null){
+	         	if(typeof counter.action_id != 'undefined'){
 	 				action = counter.action_id;
 	         	}else{
 	         		action = "null";
 	         	}
 	         	
-	         	if(counter.time != null){
+	         	if(typeof counter.time != 'undefined'){
 	 				etime = counter.time;
 	         	}else{
 	         		etime = "null";
 	         	}
 	         	
-	         	if(counter.module_id != null){
+	         	if(typeof counter.module_id != 'undefined')){
 	 				module = counter.module_id;
 	         	}else{
 	         		module = "null";
 	         	}
 	         	
-	         	if(counter.dept_name != null){
+	         	if(typeof counter.dept_name != 'undefined')){
 	 				dept = counter.dept_name;
 	         	}else{
 	         		dept = "null";
 	         	}
 	         	
-	         	if(counter.issue != null){
+	         	if(typeof counter.issue != 'undefined')){
 	 				iss = counter.issue;
 	         	}else{
 	         		iss = "null";
 	         	}
 	         	
-	         	if(counter.url != null){
+	         	if(typeof counter.url != 'undefined')){
 	 				img = counter.url;
 	         	}else{
 	         		img = "null";
