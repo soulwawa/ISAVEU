@@ -303,11 +303,16 @@ function lastpage() {
 $(window).on("unload", function(){
     clearInterval(alwayscheck);
 }); 
+
+function showphoto(img){
+	
+}
 </script>
 <style>
 #tb1{
 	text-align:center;
 	margin:0 !important;
+	height:824px;
 }
 th{
 	text-align:center;
