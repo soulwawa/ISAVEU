@@ -6,11 +6,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="org.Isaveu.mapper.LocationMapper">
 	<select id="locationByFireEx" parameterType="org.Isaveu.domain.LocationByFireExVO" resultType="org.Isaveu.domain.LocationByFireExVO" >
 	SELECT
- 		*
+		tb_location.location_id, tb_location.location, tb_location.dept_name, tb_location.manager,
+        tb_location.dept_name, tb_fire_ex.fire_ex_id, tb_fire_ex.location_id, tb_fire_ex.fire_ex_name, tb_fire_ex.fire_ex_make,
+        tb_fire_ex.next_chcek, tb_fire_ex.check_date, tb_fire_ex.fire_ex_status
 	FROM tb_location
-	INNER JOIN
- 	tb_fire_ex
-		ON tb_location.location_id = tb_fire_ex.location_id;
+	INNER JOIN tb_fire_ex
+	ON tb_location.location_id = tb_fire_ex.location_id;
 	</select>
 	
 	<select id="locationByFireExName" parameterType="String" resultType="org.Isaveu.domain.LocationByFireExVO" >
