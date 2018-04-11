@@ -34,9 +34,9 @@ function winload(){
     	document.getElementById("page").innerHTML = "1";
         obj = data;
         if(obj.list.length % 19 != 0){
-        	pagesize = (obj.list.length/19 + 1);
+        	pagesize = parseInt(obj.list.length/19 + 1);
         }else if(obj.list.length % 19 == 0){
-        	pagesize = (obj.list.length/19);
+        	pagesize = parseInt(obj.list.length/19);
         }
         for(var i = 0; i < 20; i++){
         	
