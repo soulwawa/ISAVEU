@@ -92,7 +92,7 @@ function winload(){
         		document.getElementById("t"+i+"4").innerHTML=iss;
         	}
 
-        	document.getElementById("t"+i+"5").innerHTML = img;
+        	document.getElementById("t"+i+"5").innerHTML = "<pb id=\"photo\" onclick=\"showphoto("+img+")\""+img+"</p>";
       	}
       }
     });
@@ -157,7 +157,7 @@ function nextpage() {
         		document.getElementById("t"+i+"4").innerHTML=iss;
         	}
 
-        	document.getElementById("t"+i+"5").innerHTML = img;
+        	document.getElementById("t"+i+"5").innerHTML = "<pb id=\"photo\" onclick=\"showphoto("+img+")\""+img+"</p>";
       	}
 		for(var i = (obj.list.length - (pagenum-1)*20); i < 20; i++){
 			document.getElementById("t"+i+"0").innerHTML="-";
@@ -226,7 +226,7 @@ function nextpage() {
 	        		document.getElementById("t"+i+"4").innerHTML=iss;
 	        	}
 	
-	        	document.getElementById("t"+i+"5").innerHTML = img;
+	        	document.getElementById("t"+i+"5").innerHTML = "<pb id=\"photo\" onclick=\"showphoto("+img+")\""+img+"</p>";
 	      	}
 	}else{
 		alert("마지막 페이지 입니다.");
@@ -293,7 +293,7 @@ function lastpage() {
 	        		document.getElementById("t"+i+"4").innerHTML=iss;
 	        	}
 	
-	        	document.getElementById("t"+i+"5").innerHTML = img;
+	        	document.getElementById("t"+i+"5").innerHTML = "<pb id=\"photo\" onclick=\"showphoto("+img+")\""+img+"</p>";
 	      	}
 	}else{
 		alert("첫번째 페이지 입니다.");
