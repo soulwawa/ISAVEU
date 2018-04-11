@@ -83,8 +83,9 @@ var img;
         	}
 
         	document.getElementById("t"+k+"5").innerHTML = img;
+      	}
       }
-    );
+    });
     
 function nextpage() {
 	 for(var i = 0; i < 20; i++){
