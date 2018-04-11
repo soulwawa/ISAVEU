@@ -46,14 +46,14 @@
 </script>
 <style>
 #streaming{
-	height:480px; 
-	width:640px; 
-	margin:10px;
+	height:482px; 
+	width:642px; 
 	padding:0px;
 	position:relative;
+	left:524px;
+	top:120px;
 	border: 1px solid #999;
 	z-index:1000;
-	top:
 }
 .streamBtn{
 	float:left;
@@ -74,8 +74,16 @@
 	margin-left:0 !important;
 	text-align:center !important;
 }
+#playbtn{
+	margin-left:0 !important;
+	text-align:center !important;
+}
 #btncase{
-	margin-top:10px;
+	position:relative;
+	top:100px;
+	height:27px;
+	width:54px;
+	margin:0 auto;
 }
 </style>
 <title>관리자 페이지</title>
@@ -170,9 +178,6 @@
 			</div>
 		</div>
 		<div class="contents">
-			<div id="cam">
-				
-			</div>
 			<div id="btncase">
 				<div class="streamBtn" id="btn1">
 					<button id="playbtn" onclick="play()">
@@ -183,6 +188,10 @@
 					</button>
 				</div>
 			</div>
+			<div id="cam">
+				
+			</div>
+			
 		</div>
 		<div class="footer">
 			<div style="padding: 7px;">Copyright © 2018 HSB Inc.</div>
