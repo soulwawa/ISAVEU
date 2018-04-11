@@ -535,9 +535,9 @@ th{
 				</tbody>
 			</table>
 			<div id="controler">
-				<div class="abc" id="nextbtn" onclick="nextpage()">이전 페이지</div>
+				<div class="abc" id="nextbtn" onclick="lastpage()">이전 페이지</div>
 				<div class="abc" id="page"></div>
-				<div class="abc" id="lastbtn" onclick="lastpage()">다음 페이지</div>
+				<div class="abc" id="lastbtn" onclick="nextpage()">다음 페이지</div>
 			</div>
 		</div>
 		<div class="footer">
