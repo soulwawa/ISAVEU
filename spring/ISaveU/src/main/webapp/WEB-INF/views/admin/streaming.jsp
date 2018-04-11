@@ -20,6 +20,7 @@
 	        	alert("play success");
 	        }
 	    });
+	  
 	  var delayInMilliseconds = 5000;
 	  
 	  setTimeout(function() {

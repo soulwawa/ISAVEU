@@ -10,7 +10,7 @@
 <link href="<%=root%>/css/style2.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script language="javascript" type="text/javascript" src="js/js1.js"></script>
+<script language="javascript" type="text/javascript" src="/js/js1.js"></script>
 <style>
 #exts1{
 	width:456px;
