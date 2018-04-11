@@ -347,7 +347,7 @@ tb{
 	z-index:1200;
 	margin:0 auto;
 	margin-bottom:-20px;
-	margin-top:20px;
+	margin-top:10px;
 }
 #nextbtn{
 	width:80px;

@@ -107,6 +107,13 @@ function doalt(i,k,dis){
 //  },1000);
 </script>
 <style>
+.labelcontainer{
+	float:left;
+	position:relative;
+	z-index:1250;
+	left:135px;
+	bottom:7px;
+}
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -233,45 +240,78 @@ function doalt(i,k,dis){
 				<div id="chartHolder10" class="chartHolder">
 					<div id="cover10" class="cover" onclick="ss0()">
 					</div>
+					<div class="labelcontainer">
+						<label>Sensor 0</label>
+					</div>
 				</div>
 				<div id="chartHolder11" class="chartHolder">
 					<div id="cover11" class="cover" onclick="ss1()">
+					</div>
+					<div class="labelcontainer">
+						<label>Sensor 1</label>
 					</div>
 				</div>
 				<div id="chartHolder12" class="chartHolder">
 					<div id="cover12" class="cover" onclick="ss2()">
 					</div>
+					<div class="labelcontainer">
+						<label>Sensor 2</label>
+					</div>
 				</div>
 				<div id="chartHolder13" class="chartHolder">
 					<div id="cover13" class="cover" onclick="ss3()">
+					</div>
+					<div class="labelcontainer">
+						<label>Sensor 3</label>
 					</div>
 				</div>
 				<div id="chartHolder14" class="chartHolder">
 					<div id="cover14" class="cover" onclick="ss4()">
 					</div>
+					<div class="labelcontainer">
+						<label>Sensor 4</label>
+					</div>
 				</div>
 				<div id="chartHolder15" class="chartHolder">
 					<div id="cover15" class="cover" onclick="ss5()">
+					</div>
+					<div class="labelcontainer">
+						<label>Sensor 5</label>
 					</div>
 				</div>
 				<div id="chartHolder16" class="chartHolder">
 					<div id="cover16" class="cover" onclick="ss6()">
 					</div>
+					<div class="labelcontainer">
+						<label>Sensor 6</label>
+					</div>
 				</div>
 				<div id="chartHolder17" class="chartHolder">
 					<div id="cover17" class="cover" onclick="ss7()">
+					</div>
+					<div class="labelcontainer">
+						<label>Sensor 7</label>
 					</div>
 				</div>
 				<div id="chartHolder18" class="chartHolder">
 					<div id="cover18" class="cover" onclick="ss8()">
 					</div>
+					<div class="labelcontainer">
+						<label>Sensor 8</label>
+					</div>
 				</div>
 				<div id="chartHolder19" class="chartHolder">
 					<div id="cover19" class="cover" onclick="ss9()">
 					</div>
+					<div class="labelcontainer">
+						<label>Sensor 9</label>
+					</div>
 				</div>
 				<div id="chartHolder20" class="chartHolder">
 					<div id="cover20" class="cover" onclick="ss10()">
+					</div>
+					<div class="labelcontainer">
+						<label>Sensor 10</label>
 					</div>
 				</div>
 			</div>
