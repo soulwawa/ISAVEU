@@ -82,7 +82,7 @@ var img;
         		document.getElementById("t"+i+"4").innerHTML=iss;
         	}
 
-        	document.getElementById("t"+k+"5").innerHTML = img;
+        	document.getElementById("t"+i+"5").innerHTML = img;
       	}
       }
     });

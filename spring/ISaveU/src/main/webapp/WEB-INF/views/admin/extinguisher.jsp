@@ -164,37 +164,37 @@ function checkex1(){
 			</div>
 			<div id="exts1">
 				<div class="shake-freeze" id="ex0">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex1">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex2">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex3">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex4">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex5">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex6">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex7">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex8">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex9">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 				<div class="shake-freeze" id="ex10">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg" name="etgs1"/>
 				</div>
 			</div>
 			</div>
@@ -236,37 +236,37 @@ function checkex1(){
 			</div>
 			<div id="exts1">
 				<div class="shake-freeze" id="ext0">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ext1">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ext2">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ext3">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ext4">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ext5">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ext6">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ext7">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ext8">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ext9">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 				<div class="shake-freeze" id="ext10">
-					<img src="./img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
+					<img src="/img/extinguisher.png" alt="extinguisher" class="imgEtg"/>
 				</div>
 			</div>
 		</div>
