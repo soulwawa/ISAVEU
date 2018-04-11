@@ -332,6 +332,7 @@ p{
 #tb1{
 	text-align:center;
 	margin:0 !important;
+	border-bottom:1px solid #999;
 }
 th{
 	text-align:center;
