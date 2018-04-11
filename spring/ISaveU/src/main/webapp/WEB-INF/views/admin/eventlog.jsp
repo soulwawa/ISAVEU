@@ -32,10 +32,10 @@ function winload(){
       dataType: "json",
       success: function(data) {
         obj = data;
-        if(obj.list.length % 19 != 0){
-        	pagesize = parseInt(obj.list.length/19 + 1)+1;
-        }else if(obj.list.length % 19 == 0){
-        	pagesize = parseInt(obj.list.length/19)+1;
+        if(obj.list.length % 20 != 0){
+        	pagesize = parseInt(obj.list.length/20)+1;
+        }else if(obj.list.length % 20 == 0){
+        	pagesize = parseInt(obj.list.length/20);
         }
         for(var i = 0; i < 20; i++){
         	document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
@@ -110,7 +110,7 @@ function nextpage() {
 	         	document.getElementById("t"+i+"4").innerHTML="";
 	         	document.getElementById("t"+i+"5").innerHTML="";
 				
-				var k = ((pagenum-1)*19) + i + 1;
+				var k = ((pagenum-1)*20) + i;
 		     	var counter = obj.list[k];
 	         	
 	         	if(counter.action_id != null){
@@ -184,7 +184,7 @@ function lastpage() {
 	         	document.getElementById("t"+i+"4").innerHTML="";
 	         	document.getElementById("t"+i+"5").innerHTML="";
 				
-				var k = ((pagenum-1)*19) + i + 1;
+				var k = ((pagenum-1)*20) + i;
 		     	var counter = obj.list[k];
 	         	
 	         	if(counter.action_id != null){
