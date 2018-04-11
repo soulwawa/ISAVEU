@@ -33,6 +33,7 @@ function winload(){
       success: function(data) {
         obj = data;
         console.log(obj.list.length);
+        console.log(obj.list[60].time);
         if(obj.list.length % 19 != 0){
         	pagesize = parseInt(obj.list.length/19 + 1)+1;
         }else if(obj.list.length % 19 == 0){
