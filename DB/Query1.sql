@@ -151,15 +151,13 @@ WHERE issue >= "1"
 select* from tb_action order by action_id DESC;
 
 SELECT
-	tb_location.location_id, tb_location.location, tb_location.dept_name, tb_location.manager,
-        tb_location.dept_name, tb_fire_ex.fire_ex_id, tb_fire_ex.location_id, tb_fire_ex.fire_ex_name, tb_fire_ex.fire_ex_make,
-        tb_fire_ex.next_chcek, tb_fire_ex.check_date, tb_fire_ex.fire_ex_status
+	*
 FROM tb_location
 INNER JOIN tb_fire_ex
 ON tb_location.location_id = tb_fire_ex.location_id;
 
 
 /*tb_location.location_id, tb_location.location, tb_location.dept_name, tb_location.manager,
-        tb_location.dept_name, tb_fire.fire_ex_id, tb_fire.location_id, tb_fire.fire_ex_name, tb_fire.fire_ex_make,
-        tb_fire.next_chcek, tb_fire.check_date, tb_fire.fire_ex_status
+        tb_location.dept_tel, tb_fire.fire_ex_id, tb_fire.location_id, tb_fire.fire_ex_name, tb_fire.fire_ex_mac,
+        tb_fire.fire_ex_make, tb_fire.next_chcek, tb_fire.check_date, tb_fire.fire_ex_status
         
