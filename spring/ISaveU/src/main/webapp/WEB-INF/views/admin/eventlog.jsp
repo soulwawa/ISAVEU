@@ -119,25 +119,25 @@ function nextpage() {
 	         		etime = "null";
 	         	}
 	         	
-	         	if(typeof counter.module_id != 'undefined')){
+	         	if(typeof counter.module_id != 'undefined'){
 	 				module = counter.module_id;
 	         	}else{
 	         		module = "null";
 	         	}
 	         	
-	         	if(typeof counter.dept_name != 'undefined')){
+	         	if(typeof counter.dept_name != 'undefined'){
 	 				dept = counter.dept_name;
 	         	}else{
 	         		dept = "null";
 	         	}
 	         	
-	         	if(typeof counter.issue != 'undefined')){
+	         	if(typeof counter.issue != 'undefined'){
 	 				iss = counter.issue;
 	         	}else{
 	         		iss = "null";
 	         	}
 	         	
-	         	if(typeof counter.url != 'undefined')){
+	         	if(typeof counter.url != 'undefined'){
 	 				img = counter.url;
 	         	}else{
 	         		img = "null";
@@ -186,25 +186,25 @@ function lastpage() {
 	         		etime = "null";
 	         	}
 	         	
-	         	if(typeof counter.module_id != 'undefined')){
+	         	if(typeof counter.module_id != 'undefined'){
 	 				module = counter.module_id;
 	         	}else{
 	         		module = "null";
 	         	}
 	         	
-	         	if(typeof counter.dept_name != 'undefined')){
+	         	if(typeof counter.dept_name != 'undefined'){
 	 				dept = counter.dept_name;
 	         	}else{
 	         		dept = "null";
 	         	}
 	         	
-	         	if(typeof counter.issue != 'undefined')){
+	         	if(typeof counter.issue != 'undefined'){
 	 				iss = counter.issue;
 	         	}else{
 	         		iss = "null";
 	         	}
 	         	
-	         	if(typeof counter.url != 'undefined')){
+	         	if(typeof counter.url != 'undefined'){
 	 				img = counter.url;
 	         	}else{
 	         		img = "null";
