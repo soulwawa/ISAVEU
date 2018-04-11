@@ -312,11 +312,14 @@ function showphoto(img){
 #tb1{
 	text-align:center;
 	margin:0 !important;
-	height:824px;
+	height:824px !important;
 }
 th{
 	text-align:center;
 	
+}
+tb{
+	height:
 }
 #controler{
 	width:300px;
