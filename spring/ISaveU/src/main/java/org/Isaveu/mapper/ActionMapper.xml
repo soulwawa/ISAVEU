@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			inner join tb_event event on action.time = event.time
 			inner join tb_module module on event.module_id = module.module_id
 			inner join tb_location location on module.location_id = location.location_id
-		WHERE issue >= "1"
+		WHERE issue >= "1" and action_id > 766
 			order by event.time DESC;
     </select>
 </mapper>
