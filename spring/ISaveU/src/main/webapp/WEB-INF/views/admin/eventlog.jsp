@@ -45,40 +45,40 @@ function winload(){
         	document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
          	var counter = obj.list[i];
          	
-         	if(counter.action_id != null){
- 				action = counter.action_id;
-         	}else{
+         	if(typeof counter.action_id === "undefined"){
          		action = "null";
+         	}else{
+         		action = counter.action_id;
          	}
          	
-         	if(counter.time != null){
- 				etime = counter.time;
-         	}else{
+         	if(typeof counter.time === "undefined"){
          		etime = "null";
+         	}else{
+         		etime = counter.time;
          	}
          	
-         	if(counter.module_id != null){
- 				module = counter.module_id;
-         	}else{
+         	if(typeof counter.module_id === "undefined"){
          		module = "null";
+         	}else{
+         		module = counter.module_id;
          	}
          	
-         	if(counter.dept_name != null){
- 				dept = counter.dept_name;
-         	}else{
+         	if(typeof counter.dept_name === "undefined"){
          		dept = "null";
+         	}else{
+         		dept = counter.dept_name;
          	}
          	
-         	if(counter.issue != null){
- 				iss = counter.issue;
-         	}else{
+         	if(typeof counter.issue === "undefined"){
          		iss = "null";
+         	}else{
+         		iss = counter.issue;
          	}
          	
-         	if(counter.url != null){
- 				img = counter.url;
-         	}else{
+         	if(typeof counter.url === "undefined"){
          		img = "null";
+         	}else{
+         		img = counter.url;
          	}
          	
          	document.getElementById("t"+i+"0").innerHTML=action;
@@ -111,40 +111,40 @@ function nextpage() {
 				var k = ((pagenum-1)*20) + i;
 		     	var counter = obj.list[k];
 	         	
-		     	if(typeof counter.action_id != 'undefined'){
-	 				action = counter.action_id;
-	         	}else{
+		     	if(typeof counter.action_id === "undefined"){
 	         		action = "null";
+	         	}else{
+	         		action = counter.action_id;
 	         	}
 	         	
-	         	if(typeof counter.time != 'undefined'){
-	 				etime = counter.time;
-	         	}else{
+	         	if(typeof counter.time === "undefined"){
 	         		etime = "null";
+	         	}else{
+	         		etime = counter.time;
 	         	}
 	         	
-	         	if(typeof counter.module_id != 'undefined'){
-	 				module = counter.module_id;
-	         	}else{
+	         	if(typeof counter.module_id === "undefined"){
 	         		module = "null";
+	         	}else{
+	         		module = counter.module_id;
 	         	}
 	         	
-	         	if(typeof counter.dept_name != 'undefined'){
-	 				dept = counter.dept_name;
-	         	}else{
+	         	if(typeof counter.dept_name === "undefined"){
 	         		dept = "null";
+	         	}else{
+	         		dept = counter.dept_name;
 	         	}
 	         	
-	         	if(typeof counter.issue != 'undefined'){
-	 				iss = counter.issue;
-	         	}else{
+	         	if(typeof counter.issue === "undefined"){
 	         		iss = "null";
+	         	}else{
+	         		iss = counter.issue;
 	         	}
 	         	
-	         	if(typeof counter.url != 'undefined'){
-	 				img = counter.url;
-	         	}else{
+	         	if(typeof counter.url === "undefined"){
 	         		img = "null";
+	         	}else{
+	         		img = counter.url;
 	         	}
 	         	
 	         	document.getElementById("t"+i+"0").innerHTML=action;
@@ -178,40 +178,40 @@ function lastpage() {
 				var k = ((pagenum-1)*20) + i;
 		     	var counter = obj.list[k];
 	         	
-	         	if(typeof counter.action_id != 'undefined'){
-	 				action = counter.action_id;
-	         	}else{
+		     	if(typeof counter.action_id === "undefined"){
 	         		action = "null";
+	         	}else{
+	         		action = counter.action_id;
 	         	}
 	         	
-	         	if(typeof counter.time != 'undefined'){
-	 				etime = counter.time;
-	         	}else{
+	         	if(typeof counter.time === "undefined"){
 	         		etime = "null";
+	         	}else{
+	         		etime = counter.time;
 	         	}
 	         	
-	         	if(typeof counter.module_id != 'undefined'){
-	 				module = counter.module_id;
-	         	}else{
+	         	if(typeof counter.module_id === "undefined"){
 	         		module = "null";
+	         	}else{
+	         		module = counter.module_id;
 	         	}
 	         	
-	         	if(typeof counter.dept_name != 'undefined'){
-	 				dept = counter.dept_name;
-	         	}else{
+	         	if(typeof counter.dept_name === "undefined"){
 	         		dept = "null";
+	         	}else{
+	         		dept = counter.dept_name;
 	         	}
 	         	
-	         	if(typeof counter.issue != 'undefined'){
-	 				iss = counter.issue;
-	         	}else{
+	         	if(typeof counter.issue === "undefined"){
 	         		iss = "null";
+	         	}else{
+	         		iss = counter.issue;
 	         	}
 	         	
-	         	if(typeof counter.url != 'undefined'){
-	 				img = counter.url;
-	         	}else{
+	         	if(typeof counter.url === "undefined"){
 	         		img = "null";
+	         	}else{
+	         		img = counter.url;
 	         	}
 	         	
 	         	document.getElementById("t"+i+"0").innerHTML=action;
