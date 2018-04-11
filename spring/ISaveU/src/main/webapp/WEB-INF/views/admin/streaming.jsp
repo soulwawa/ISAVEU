@@ -58,32 +58,44 @@
 .streamBtn{
 	float:left;
 }
-#playbtn{
+.playbtn{
 	width:27px;
 	height:27px;
 	background:url(/img/play.png);
 }
-#stopbtn{
+.stopbtn{
 	width:27px;
 	height:27px;
 	background:url(/img/stop.png);
 }
 #btn1{
 }
-#stopbtn{
+.stopbtn{
 	margin-left:0 !important;
 	text-align:center !important;
 }
-#playbtn{
+.playbtn{
 	margin-left:0 !important;
 	text-align:center !important;
 }
-#btncase{
+.btncase{
 	position:relative;
-	top:100px;
+	top:10px;
 	height:27px;
 	width:54px;
 	margin:0 auto;
+}
+.streamcontroler{
+	float:left;
+	width:120px;
+	height:70px;
+	margin:15px;
+	border:solid 1px #bbb;
+	border-radious:7px;
+}
+label{
+	position:relative;
+	left:26px;
 }
 </style>
 <title>관리자 페이지</title>
@@ -178,14 +190,147 @@
 			</div>
 		</div>
 		<div class="contents">
-			<div id="btncase">
-				<div class="streamBtn" id="btn1">
-					<button id="playbtn" onclick="play()">
-					</button>
+			<div class="streamcontroler">
+				<label>Sensor 0</label>
+				<div class="btncase" id="case0">
+					<div class="streamBtn">
+						<button class="playbtn" onclick="play()">
+						</button>
+					</div>
+					<div class="streamBtn">
+						<button class="stopbtn" onclick="stop()">
+						</button>
+					</div>
 				</div>
-				<div class="streamBtn" id="btn2">
-					<button id="stopbtn" onclick="stop()">
-					</button>
+			</div>
+			<div class="streamcontroler">
+				<label>Sensor 1</label>
+				<div class="btncase" id="case1">
+					<div class="streamBtn">
+						<button class="playbtn" onclick="play()">
+						</button>
+					</div>
+					<div class="streamBtn">
+						<button class="stopbtn" onclick="stop()">
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="streamcontroler">
+				<label>Sensor 2</label>
+				<div class="btncase" id="case2">
+					<div class="streamBtn">
+						<button class="playbtn" onclick="play()">
+						</button>
+					</div>
+					<div class="streamBtn">
+						<button class="stopbtn" onclick="stop()">
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="streamcontroler">
+				<label>Sensor 3</label>
+				<div class="btncase" id="case3">
+					<div class="streamBtn">
+						<button class="playbtn" onclick="play()">
+						</button>
+					</div>
+					<div class="streamBtn">
+						<button class="stopbtn" onclick="stop()">
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="streamcontroler">
+				<label>Sensor 4</label>
+				<div class="btncase" id="case4">
+					<div class="streamBtn">
+						<button class="playbtn" onclick="play()">
+						</button>
+					</div>
+					<div class="streamBtn">
+						<button class="stopbtn" onclick="stop()">
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="streamcontroler">
+				<label>Sensor 5</label>
+				<div class="btncase" id="case5">
+					<div class="streamBtn">
+						<button class="playbtn" onclick="play()">
+						</button>
+					</div>
+					<div class="streamBtn">
+						<button class="stopbtn" onclick="stop()">
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="streamcontroler">
+				<label>Sensor 6</label>
+				<div class="btncase" id="case6">
+					<div class="streamBtn">
+						<button class="playbtn" onclick="play()">
+						</button>
+					</div>
+					<div class="streamBtn">
+						<button class="stopbtn" onclick="stop()">
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="streamcontroler">
+				<label>Sensor 7</label>
+				<div class="btncase" id="case7">
+					<div class="streamBtn">
+						<button class="playbtn" onclick="play()">
+						</button>
+					</div>
+					<div class="streamBtn">
+						<button class="stopbtn" onclick="stop()">
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="streamcontroler">
+				<label>Sensor 8</label>
+				<div class="btncase" id="case8">
+					<div class="streamBtn">
+						<button class="playbtn" onclick="play()">
+						</button>
+					</div>
+					<div class="streamBtn">
+						<button class="stopbtn" onclick="stop()">
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="streamcontroler">
+				<label>Sensor 9</label>
+				<div class="btncase" id="case9">
+					<div class="streamBtn">
+						<button class="playbtn" onclick="play()">
+						</button>
+					</div>
+					<div class="streamBtn">
+						<button class="stopbtn" onclick="stop()">
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="streamcontroler">
+				<label>Sensor 10</label>
+				<div class="btncase" id="case10">
+					<div class="streamBtn">
+						<button class="playbtn" onclick="play()">
+						</button>
+					</div>
+					<div class="streamBtn">
+						<button class="stopbtn" onclick="stop()">
+						</button>
+					</div>
 				</div>
 			</div>
 			<div id="cam">
