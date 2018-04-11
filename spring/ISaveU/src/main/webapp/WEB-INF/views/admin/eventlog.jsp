@@ -332,7 +332,6 @@ p{
 #tb1{
 	text-align:center;
 	margin:0 !important;
-	height:824px !important;
 }
 th{
 	text-align:center;
