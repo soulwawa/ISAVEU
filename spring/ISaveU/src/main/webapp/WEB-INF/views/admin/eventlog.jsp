@@ -13,24 +13,101 @@
 <script language="javascript" type="text/javascript" src="/js/js1.js"></script>
 <script>
 var pagenum = 0;
-    
+var obj;
+var action;
+var etime;	
+var module;
+var dept;
+var iss;
+var img;
+
     $.ajax({
       type: "GET",
       url: "http://192.168.0.35:9999/admin/event.do",
       dataType: "json",
       success: function(data) {
         obj = data;
-	        for(var i = 0; i < 20; i++){
-	        	var k = (pagenum*19) + i;
-	        	var counter = obj.list[k];
-	        	console.log("t"+k+"0");
-	        	console.log("t"+k+"1");
-	        	console.log("t"+k+"2");
-	        	console.log("t"+k+"3");
-	        	console.log("t"+k+"4");
-	        }
+        for(var i = 0; i < 20; i++){
+        	
+         	var counter = obj.list[i];
+         	
+         	if(counter.action_id != null){
+ 				action = counter.action_id;
+         	}else{
+         		action = "null";
+         	}
+         	
+         	if(counter.time != null){
+ 				etime = counter.time;
+         	}else{
+         		etime = "null";
+         	}
+         	
+         	if(counter.module_id != null){
+ 				module = counter.module_id;
+         	}else{
+         		module = "null";
+         	}
+         	
+         	if(counter.dept_name != null){
+ 				dept = counter.dept_name;
+         	}else{
+         		dept = "null";
+         	}
+         	
+         	if(counter.issue != null){
+ 				iss = counter.issue;
+         	}else{
+         		iss = "null";
+         	}
+         	
+         	if(counter.url != null){
+ 				img = counter.url;
+         	}else{
+         		img = "null";
+         	}
+         	
+         	document.getElementById("t"+i+"0").innerHTML=action;
+         	document.getElementById("t"+i+"1").innerHTML=etime;
+         	document.getElementById("t"+i+"2").innerHTML=module;
+         	document.getElementById("t"+i+"3").innerHTML=dept;
+         	
+         	if(iss == 1){
+        		document.getElementById("t"+i+"4").innerHTML="화재";
+        	}else if(iss == 2){
+        		document.getElementById("t"+i+"4").innerHTML="지진";
+        	}else if(iss == 3){
+        		document.getElementById("t"+i+"4").innerHTML="화재, 지진";
+        	}else{
+        		document.getElementById("t"+i+"4").innerHTML=iss;
+        	}
+
+        	document.getElementById("t"+k+"5").innerHTML = img;
       }
     });
+    
+function nextpage() {
+	 for(var i = 0; i < 20; i++){
+     	var k = (pagenum*19) + i;
+     	var counter = obj.list[k];
+     	
+     	document.getElementById("t"+k+"0").innerHTML = ob[k].action_id;
+     	document.getElementById("t"+k+"1").innerHTML = ob[k].time;
+     	document.getElementById("t"+k+"2").innerHTML = ob[k].module_id;
+     	document.getElementById("t"+k+"3").innerHTML = ob[k].dept_name;
+     	
+     	
+     	console.log("t"+k+"0");
+     	console.log("t"+k+"1");
+     	console.log("t"+k+"2");
+     	console.log("t"+k+"3");
+     	console.log("t"+k+"4");
+     }
+}
+
+function lastpage() {
+	
+}
     
 $(window).on("unload", function(){
     clearInterval(alwayscheck);
