@@ -20,7 +20,7 @@
 <link href="/css/style1.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 img {
-	width : 33.3%;
+	width : 20.3%;
 	position : absolute;
 	top: 0; bottom:0; left:0; right:0;
 	margin: auto;
