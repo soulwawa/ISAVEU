@@ -55,11 +55,7 @@ public class HomeController {
 	@RequestMapping("/admin/index")
 	private String hrtest() throws Exception{
 		System.out.println("/admin/index");
-<<<<<<< HEAD
 		return "admin/registerhr";
-=======
-		return "admin/login";
->>>>>>> f102fcee82dc69e3021f0c31f972829dd971a79f
 	}
 	@RequestMapping("/admin/cal")
 	private String calTest() throws Exception{
