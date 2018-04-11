@@ -309,7 +309,7 @@ function showphoto(img){
 	document.getElementById("photoz").style.background="url("+img+") no-repeat";
 }
 function closephoto(){
-	document.getElementById("phothz").style.display="none";
+	document.getElementById("photoz").style.display="none";
 }
 </script>
 <style>
