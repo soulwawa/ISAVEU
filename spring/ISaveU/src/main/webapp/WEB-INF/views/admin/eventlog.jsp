@@ -21,6 +21,11 @@ var dept;
 var iss;
 var img;
 
+$(window).on("load", function(){
+	winload();
+}); 
+
+function winload(){
     $.ajax({
       type: "GET",
       url: "http://192.168.0.35:9999/admin/event.do",
@@ -86,6 +91,7 @@ var img;
       	}
       }
     });
+}
     
 function nextpage() {
 	 for(var i = 0; i < 20; i++){
