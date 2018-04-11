@@ -44,7 +44,7 @@ public class AndoroidContoller {
 		Map<String, String> map = new HashMap<String, String>();
 		
 		if("".equals(id) || "".equals(pw)){
-			System.out.println("WebLogin Fail");
+			System.out.println("Android Login: " + id + " : Fail");
 			map.put("access", "0");
 			map.put("name", "0");
 			map.put("profile", "0");
@@ -80,7 +80,7 @@ public class AndoroidContoller {
 						return map;
 					}
 				}else{
-					System.out.println(id + " : Login FAIL");
+					System.out.println("Android Login: " + id + " : SUCCESS");
 					map.put("access", "0");
 					map.put("name", "0");
 					map.put("profile", "0");
@@ -88,7 +88,7 @@ public class AndoroidContoller {
 					return map;
 				}	
 			}else {
-				System.out.println(id + " : Login FAIL");
+				System.out.println("Android Login: " + id + " : SUCCESS");
 				map.put("access", "0");
 				map.put("name", "0");
 				map.put("profile", "0");
