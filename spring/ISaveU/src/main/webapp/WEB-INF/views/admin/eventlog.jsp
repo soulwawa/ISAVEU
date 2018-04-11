@@ -33,8 +33,8 @@ function winload(){
       success: function(data) {
         obj = data;
         var abcd = obj.list[70].time;
-        if(abce == 'undefined'){
-        	alert("확인");
+        if(typeof abce === "undefined"){
+        	alert("abcd 는 undefined 입니다.");
         }
         if(obj.list.length % 20 != 0){
         	pagesize = parseInt(obj.list.length/20)+1;
