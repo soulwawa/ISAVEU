@@ -31,15 +31,15 @@ function winload(){
       url: "http://192.168.0.35:9999/admin/event.do",
       dataType: "json",
       success: function(data) {
-    	document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
         obj = data;
+        console.lig(obj.list.length);
         if(obj.list.length % 19 != 0){
         	pagesize = parseInt(obj.list.length/19 + 1);
         }else if(obj.list.length % 19 == 0){
         	pagesize = parseInt(obj.list.length/19);
         }
         for(var i = 0; i < 20; i++){
-        	
+        	document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
          	var counter = obj.list[i];
          	
          	if(counter.action_id != null){
@@ -105,7 +105,7 @@ function nextpage() {
 		document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
 			for(var i = 0; i < 20; i++){
 				
-				var k = (pagenum*19) + i;
+				var k = ((pagenum-1)*19) + i;
 		     	var counter = obj.list[k];
 	         	
 	         	if(counter.action_id != null){
@@ -172,7 +172,7 @@ function lastpage() {
 		document.getElementById("page").innerHTML = pagenum + "(총 페이지 수 :" + pagesize + ")";
 			for(var i = 0; i < 20; i++){
 				
-				var k = (pagenum*19) + i;
+				var k = ((pagenum-1)*19) + i;
 		     	var counter = obj.list[k];
 	         	
 	         	if(counter.action_id != null){
