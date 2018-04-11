@@ -42,6 +42,7 @@
 	  setTimeout(function() {
 		  location.reload();
 	  }, 3000);
+  }
 </script>
 <style>
 #streaming{
@@ -52,6 +53,7 @@
 	position:relative;
 	border: 1px solid #999;
 	z-index:1000;
+	top:
 }
 .streamBtn{
 	margin:10px;
