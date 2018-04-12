@@ -68,10 +68,20 @@
 	}
 	document.getElementById("t"+k+"5").innerHTML = ob[i].url;
  }
-	</script>
- </head>
+</script>
+<style>
+#test{
+	width:800px;
+	height:480px;
+	margin:0;
+	padding:0;
+	background:url("http://192.168.0.35:9999/eventImage/20180410_185513.png") no-repeat;
+}
+</style>
+</head>
 <body>
+<div id="test">
 
-
+</div>
 </body>
 </html>

@@ -92,7 +92,7 @@ function winload(){
         		document.getElementById("t"+i+"4").innerHTML=iss;
         	}
 
-        	document.getElementById("t"+i+"5").innerHTML = img;
+        	document.getElementById("t"+i+"5").innerHTML = "<p id=\"photo\" onclick=\"showphoto(\'"+img+"\')\">"+img+"</p>";
       	}
       }
     });
@@ -157,7 +157,7 @@ function nextpage() {
         		document.getElementById("t"+i+"4").innerHTML=iss;
         	}
 
-        	document.getElementById("t"+i+"5").innerHTML = img;
+        	document.getElementById("t"+i+"5").innerHTML = "<p id=\"photo\" onclick=\"showphoto(\'"+img+"\')\">"+img+"</p>";
       	}
 		for(var i = (obj.list.length - (pagenum-1)*20); i < 20; i++){
 			document.getElementById("t"+i+"0").innerHTML="-";
@@ -226,7 +226,7 @@ function nextpage() {
 	        		document.getElementById("t"+i+"4").innerHTML=iss;
 	        	}
 	
-	        	document.getElementById("t"+i+"5").innerHTML = img;
+	        	document.getElementById("t"+i+"5").innerHTML = "<p id=\"photo\" onclick=\"showphoto(\'"+img+"\')\">"+img+"</p>";
 	      	}
 	}else{
 		alert("마지막 페이지 입니다.");
@@ -293,7 +293,7 @@ function lastpage() {
 	        		document.getElementById("t"+i+"4").innerHTML=iss;
 	        	}
 	
-	        	document.getElementById("t"+i+"5").innerHTML = img;
+	        	document.getElementById("t"+i+"5").innerHTML = "<p id=\"photo\" onclick=\"showphoto(\'"+img+"\')\">"+img+"</p>";
 	      	}
 	}else{
 		alert("첫번째 페이지 입니다.");
@@ -303,21 +303,51 @@ function lastpage() {
 $(window).on("unload", function(){
     clearInterval(alwayscheck);
 }); 
+
+function showphoto(img){
+	document.getElementById("photoz").style.display="block";
+	document.getElementById("photoz").style.background="url("+img+") no-repeat";
+}
+function closephoto(){
+	document.getElementById("photoz").style.display="none";
+}
 </script>
 <style>
+p{
+	margin:0 !important;
+	padding:0 !important;
+}
+#photoz{
+	width:800px;
+	height:480px;
+	padding:0;
+	margin:0;
+	position:absolute;
+	background:none;
+	z-index:1150;
+	bottom:300px;
+	left:560px;
+	display:none;
+}
 #tb1{
 	text-align:center;
 	margin:0 !important;
+	border-bottom:1px solid #ddd;
 }
 th{
 	text-align:center;
 	
+}
+tb{
+	height:
 }
 #controler{
 	width:300px;
 	height:40px;
 	z-index:1200;
 	margin:0 auto;
+	margin-bottom:-20px;
+	margin-top:10px;
 }
 #nextbtn{
 	width:80px;
@@ -608,6 +638,8 @@ th{
 			</div>
 		</div>
 		<div class="footer">
+		</div>
+		<div id="photoz" onclick="closephoto()">
 		</div>
 	</div>
 </body>
