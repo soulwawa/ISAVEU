@@ -48,8 +48,8 @@ import kr.co.isaveyou.isaveyou.main.MainActivity;
 public class NewsFragment extends Fragment {
     private static final String TAG = "NewsFragment";
     HttpURLConnection conn;
-    String result, temperature_max, temperature_min, today, temperature_now, weather_status, rain_status, humidity_status, location, wdir, wspd;
-    TextView tv_weather_news, tv_temperature_max, tv_temperature_min, tv_today, tv_temperature_now, tv_temperature_sign,tv_weather_status, tv_rain_status, tv_humidity, tv_location, tv_wdir, tv_wspd;
+    String result, temperature_max, temperature_min, today, temperature_now, weather_status, rain_status, humidity_status, location, wspd;
+    TextView tv_weather_news, tv_temperature_max, tv_temperature_min, tv_today, tv_temperature_now, tv_temperature_sign,tv_weather_status, tv_rain_status, tv_humidity, tv_location, tv_wspd;
     private static final Interpolator INTERPOLATOR = new FastOutSlowInInterpolator();
     private int mDySinceDirectionChange;
     private boolean mIsShowing;
@@ -76,7 +76,6 @@ public class NewsFragment extends Fragment {
         tv_rain_status = (TextView)view.findViewById(R.id.tv_rain_status);
         tv_humidity = (TextView)view.findViewById(R.id.tv_humidity);
         tv_location = (TextView)view.findViewById(R.id.tv_location);
-        tv_wdir = (TextView)view.findViewById(R.id.tv_wdir);
         tv_wspd = (TextView)view.findViewById(R.id.tv_wspd);
         //비동기 thread 실행
         GetWeatherTask getWeatherTask = new GetWeatherTask();
@@ -155,14 +154,13 @@ public class NewsFragment extends Fragment {
                     JSONObject station_obj = jObject.getJSONObject("station");
                     location = station_obj.getString("name");
                     JSONObject wind_obj = jObject.getJSONObject("wind");
-                    wdir = wind_obj.getString("wdir");
                     wspd = wind_obj.getString("wspd");
                     Log.v(TAG, "tc :" + temperature_now + ", tmax : "+ temperature_max + ", tmin : " + temperature_min + ", status : " + weather_status);
                 }
                 String temperature_sign = getResources().getString(R.string.temperature);
                 String rain_sign = getResources().getString(R.string.rain_status);
                 String humidity_sign = getResources().getString(R.string.humidity_sign);
-                String wind_sign = "";
+                String wind_sign = getResources().getString(R.string.wind_sign);;
                 tv_today.setText(String.valueOf(today));
                 tv_temperature_max.setText("최고 : "+ String.valueOf(temperature_max) + " " + temperature_sign);
                 tv_temperature_min.setText("최저 : "+ String.valueOf(temperature_min) + " " + temperature_sign);
@@ -170,7 +168,6 @@ public class NewsFragment extends Fragment {
                 tv_rain_status.setText("강수량 : " + String.valueOf(rain_status) + " " + rain_sign);
                 tv_humidity.setText("습도 : " + String.valueOf(humidity_status) + " " + humidity_sign);
                 tv_location.setText("지역 : " + String.valueOf(location));
-                tv_wdir.setText("풍향 : " + String.valueOf(wdir));
                 tv_wspd.setText("풍속 : " + String.valueOf(wspd) + " " + wind_sign);
                 switch (weather_status){
                     case "맑음" :
