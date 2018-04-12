@@ -18,7 +18,7 @@ import java.util.HashMap;
 import kr.co.isaveyou.isaveyou.R;
 import kr.co.isaveyou.isaveyou.main.MainActivity;
 
-
+//NewsFragment를 카드뷰 형태로 작성하려했지만 시간이 없어 해당 Adapter는 사용하지 않음
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     private static final String TAG = "NewsAdapter";
     Context context;

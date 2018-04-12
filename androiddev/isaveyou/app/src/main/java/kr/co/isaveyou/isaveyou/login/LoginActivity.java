@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Log.v(TAG, "loginId :" +loginId + ",loginPw :" + loginPw + ",deviceKey :" +deviceKey );
         settings = getSharedPreferences("settings", Activity.MODE_PRIVATE);
-        // 자동 로그인을 설정했다면 앱이 시작된 경우에도 입력했던 값이 유지되도록 함
+        // 아이디 저장을 설정했다면 앱이 재시작된 경우에도 입력했던 값이 유지되도록 함
 
         loginChecked = settings.getBoolean("LoginChecked", false);
         if(loginChecked){
@@ -230,7 +230,6 @@ public class LoginActivity extends AppCompatActivity {
                 JSONObject jsonObject = new JSONObject(result);
                 if(jsonObject.equals(null)){
                     Toast.makeText(getApplicationContext(),"서버에 접속할 수 없습니다.\n 다시 접속해 주세요.",Toast.LENGTH_SHORT).show();
-//                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 }
                 code_access = jsonObject.getString("access");
                 code_name = jsonObject.getString("name");
@@ -257,14 +256,10 @@ public class LoginActivity extends AppCompatActivity {
                     finish();
                 }else if(code_access.equals(null)){
                     Toast.makeText(getApplicationContext(),"로그인에 실패하였습니다. 다시 접속하여 주세요.", Toast.LENGTH_SHORT).show();
-//                    Intent intent_re_go = new Intent(getApplicationContext(),LoginActivity.class);
                     Log.v(TAG, "로그인실패");
-//                    startActivity(intent_re_go);
                 }else{
                     Toast.makeText(getApplicationContext(),"잘못된 ID와 PW를 입력하셨습니다.",Toast.LENGTH_SHORT).show();
-//                    Intent intent_re_go = new Intent(getApplicationContext(),LoginActivity.class);
                     Log.v(TAG, "로그인실패");
-//                    startActivity(intent_re_go);
                 }
 
             }catch (JSONException e){

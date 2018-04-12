@@ -402,6 +402,7 @@ public class Fire_extFragment extends Fragment {
         switcher.setVisibility(View.INVISIBLE);
         Log.v(TAG, "소화기 체크 애니메이션 멈춤");
     }
+    // UI 변경을 위한 Thread
     class ImageThread extends Thread{
         int duration = 250;
         final int imageId[] = {R.drawable.pic_fire_ext, R.drawable.pic_fire_ext_red, R.drawable.pic_fire_ext_orange,R.drawable.pic_fire_ext_lime};
@@ -433,6 +434,7 @@ public class Fire_extFragment extends Fragment {
             }
         }
     }
+    //서버로부터 소화기 관련 정보 받아옴
     class Fire_ext_CheckTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... strings) {

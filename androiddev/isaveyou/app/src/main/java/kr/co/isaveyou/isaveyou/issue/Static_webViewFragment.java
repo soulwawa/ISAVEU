@@ -15,7 +15,7 @@ import java.net.HttpURLConnection;
 
 import kr.co.isaveyou.isaveyou.R;
 
-
+//기계 시리얼 통계를 볼 수 있는 webview Fragment
 public class Static_webViewFragment extends android.support.v4.app.Fragment {
     WebView wv_fire_ext_static;
     @Override

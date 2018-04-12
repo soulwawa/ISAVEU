@@ -31,7 +31,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -43,10 +42,9 @@ import android.widget.TextView;
 
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
-import android.widget.SearchView.OnQueryTextListener;
+
 
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
-import com.squareup.otto.Bus;
 
 
 import org.json.JSONException;
@@ -65,7 +63,6 @@ import java.net.URLConnection;
 
 import kr.co.isaveyou.isaveyou.R;
 import kr.co.isaveyou.isaveyou.issue.FloorMapActivity;
-import kr.co.isaveyou.isaveyou.issue.Static_webViewFragment;
 import kr.co.isaveyou.isaveyou.tab.InformationFragment;
 import kr.co.isaveyou.isaveyou.tab.myMapFragment;
 import kr.co.isaveyou.isaveyou.tab.NewsFragment;
@@ -112,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
-        Fragment NewsFragment = new NewsFragment();
+
 
 
         //floating action button 설정

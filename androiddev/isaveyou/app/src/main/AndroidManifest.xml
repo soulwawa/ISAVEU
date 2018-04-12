@@ -90,7 +90,8 @@
 
 
 
-        <activity android:name=".voice.VoiceActivity" />
+        <activity android:name=".voice.VoiceActivity"
+            android:launchMode="singleInstance"/>
 
         <receiver android:name=".widget.NewAppWidget">
             <intent-filter>

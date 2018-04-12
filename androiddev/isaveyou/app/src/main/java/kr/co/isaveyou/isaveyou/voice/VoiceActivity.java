@@ -1,5 +1,6 @@
 package kr.co.isaveyou.isaveyou.voice;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -14,6 +15,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,24 +29,25 @@ import kr.co.isaveyou.isaveyou.main.MainActivity;
 public class VoiceActivity extends AppCompatActivity {
     private static final String TAG = "VoiceActivity";
     private static final int SPEECH_REQUEST_CODE = 1; //REQUEST_CODE로 쓰임
+    private static final int CLOSE_REQUEST_CODE = 1; //CLOSE_REQUEST_CODE로 쓰임
     private Intent intent;
-    private TextView tv_voiceREcordResult;
-    SpeechRecognizer mRecognizer;
     private ArrayList<String> mResult;									//음성인식 결과 저장할 list
     private String mSelectedString;										//결과 list 중 사용자가 선택한 텍스트
-    private TextView mResultTextView;									//최종 결과 출력하는 텍스트 뷰
-
+    TextView tv_voice_notice;
+    AlertDialog ad;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voice);
-
-
-        Log.v(TAG, "VoiceACtivity 시작");
+        Log.v(TAG, "VoiceActivity 시작");
         sendRecognizeIntent();
+        tv_voice_notice = (TextView)findViewById(R.id.tv_voice_notice);
+
 
     }
+
     //음성 녹음 intent method
     private void sendRecognizeIntent() {
         intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -69,12 +72,32 @@ public class VoiceActivity extends AppCompatActivity {
                 String[] result = new String[mResult.size()];            //배열생성. 다이얼로그에서 출력하기 위해
                 mResult.toArray(result);                                    //    list 배열로 변환
                 //1개 선택하는 다이얼로그 생성
-                AlertDialog ad = new AlertDialog.Builder(this).setTitle("녹음하신 내용과 일치하는 것을 선택하세요.")
+                ad = new AlertDialog.Builder(this)
+                        .setTitle("녹음하신 내용과 일치하는 것을 선택하세요.")
+                        .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                            @Override
+                            public void onDismiss(DialogInterface dialog) {
+                                VoiceActivity.this.finish();
+                            }
+                        })
+                        //뒤로가기 키 눌렀을 때, 종료되게 설정
+                        .setOnKeyListener(new DialogInterface.OnKeyListener() {
+                            @Override
+                            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                                if(keyCode == KeyEvent.KEYCODE_BACK){
+                                    dialog.dismiss();
+                                    VoiceActivity.this.finish();
+                                    return true;
+                                }
+                                return false;
+                            }
+                        })
                         .setSingleChoiceItems(result, -1, new DialogInterface.OnClickListener() {
                             @Override public void onClick(DialogInterface dialog, int which) {
                                 mSelectedString = mResult.get(which);        //선택하면 해당 글자 저장
                             }
                         })
+                        //다이얼로그 확인 눌렀을 때, 관련 method 실행
                         .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             @Override public void onClick(DialogInterface dialog, int which) {
                                 if(mSelectedString.contains("비상")&&mSelectedString.contains("대피")){
@@ -103,11 +126,14 @@ public class VoiceActivity extends AppCompatActivity {
 
                             }
                         })
+                        //취소하면 기능 종료
                         .setNegativeButton("취소", new DialogInterface.OnClickListener() {
                             @Override public void onClick(DialogInterface dialog, int which) {
                                 mSelectedString = null;
+                                finish();
                             }
                         }).create();
+
                 ad.show();
             }else {
                 Log.v(TAG, "result NOT ok");
@@ -119,9 +145,6 @@ public class VoiceActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
-        Intent it_main = new Intent(getApplicationContext(),MainActivity.class);
-        startActivity(it_main);
-        finish();
+        VoiceActivity.this.finish();
     }
 }

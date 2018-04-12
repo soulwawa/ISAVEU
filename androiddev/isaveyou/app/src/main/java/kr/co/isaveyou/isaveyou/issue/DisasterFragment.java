@@ -35,7 +35,7 @@ import kr.co.isaveyou.isaveyou.R;
 
 public class DisasterFragment extends android.support.v4.app.Fragment {
     private static final String TAG = "DisasterFragment";
-    String place,result;
+    String result;
     ImageSwitcher is_601,is_602,is_603,is_604,is_606,is_607,is_608,is_609,is_610,is_600,is_605;
     ImageSwitcher switcher;
     ArrayList<ImageSwitcher> switcherList = new ArrayList();
@@ -64,8 +64,6 @@ public class DisasterFragment extends android.support.v4.app.Fragment {
         is_600 = (ImageSwitcher)view.findViewById(R.id.is_600);
         is_610 = (ImageSwitcher)view.findViewById(R.id.is_restRoom_610);
 
-
-
         CheckDisasterTask checkDisasterTask = new CheckDisasterTask();
         checkDisasterTask.execute();
 
@@ -74,6 +72,7 @@ public class DisasterFragment extends android.support.v4.app.Fragment {
 
         return view;
     }
+    //애니메이션 Thread 실행
     private void startCheckDisaster_Animation(){
         for(int i = 0; i<switcherList.size();i++){
             switcher = switcherList.get(i);
@@ -84,6 +83,7 @@ public class DisasterFragment extends android.support.v4.app.Fragment {
         }
         Log.v(TAG, "재난 애니메이션 시작");
     }
+    // UI 변경을 위한 Thread 작성
     class ImageThread extends Thread{
         int duration = 250;
         final int imageId[] = {R.drawable.ani_flame_1, R.drawable.ani_flame_2, R.drawable.ani_flame_3,R.drawable.ani_flame_4};
@@ -115,6 +115,7 @@ public class DisasterFragment extends android.support.v4.app.Fragment {
             }
         }
     }
+    //서버로부터 이벤트(재난)발생 장소 data를 받아옴
     class CheckDisasterTask extends AsyncTask<String,Void,String>{
         @Override
         protected String doInBackground(String... strings) {
@@ -153,7 +154,7 @@ public class DisasterFragment extends android.support.v4.app.Fragment {
             }
             return null;
         }
-
+        //서버로부터 받아온 json객체를 바탕으로 이벤트가 발생한 위치만 imageㄴwitcher를 등록(동적객체화)
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);

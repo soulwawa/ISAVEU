@@ -40,6 +40,8 @@
 
     <string name="title_activity_fullscreen_floor_map_1">FullscreenFloorMapActivity_1</string>
 
+    <string name="voice_close_dialog">뒤로 가기를 \n한번 더 눌러주세요. </string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="appwidget_text">EXAMPLE</string>
@@ -53,4 +55,5 @@
     <string name="sunny">맑음</string>
     <string name="rain_status">mm</string>
     <string name="humidity_sign">%</string>
+    <string name="wind_sign">m/s</string>
 </resources>

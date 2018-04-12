@@ -70,14 +70,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             sCpuWakeLock.release();
             sCpuWakeLock = null;
         }
+        //widget에 업데이트 액션 줌
         Intent it_widget = new Intent(getApplicationContext(), NewAppWidget.class);
         it_widget.setAction("ACTION_NOTIFICATION_UPDATE");
-
         getApplicationContext().sendBroadcast(it_widget);
         Log.d(TAG, "it_widget" + it_widget);
     }
 
-
+    //notification 발송
     private void sendNotification(String title, String messageBody,String messageBody1) {
 
         NotificationManager notificationManager =
@@ -87,12 +87,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         Log.v(TAG, "notification 생성");
 
-        //sharedPreferences 작성
+        //sharedPreferences 작성 - widget에 event값 전달
         SharedPreferences sharedPreferences = MyFirebaseMessagingService.this.getSharedPreferences("issue_type",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         SharedPreferences sharedPreferences1 = MyFirebaseMessagingService.this.getSharedPreferences("check_type",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor1 = sharedPreferences1.edit();
-        //issue 구분을 위한 switch문
+        //issue 구분을 위한 switch 문
         String issue = "";
         switch (messageBody1){
             case "1" :
@@ -130,14 +130,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 break;
 
         }
-        editor.commit();
-        editor1.commit();
+        editor.apply();
+        editor1.apply();
         Log.v(TAG,"sharedPreferences : "+ sharedPreferences);
-        Log.v(TAG,"sharedPreferences1 : "+ sharedPreferences1);
+//        Log.v(TAG,"sharedPreferences1 : "+ sharedPreferences1);
         String channelId = getString(R.string.default_notification_channel_id);
 
-
-        long [] pattern = {1000,1500,1000,1500, 1000,1500,1000,1500, 1000,1500,1000,1500}; //노티가 등록될 때 진동 패턴 (숫자 값 = 시간, 홀수 - 대기시간, 짝수 - 울림시간)
+        //노티가 등록될 때 진동 패턴 (숫자 값 = 시간, 홀수 - 대기시간, 짝수 - 울림시간)
+        long [] pattern = {1000,1500,1000,1500, 1000,1500,1000,1500, 1000,1500,1000,1500};
         Uri notificationSoundURI = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         //notificaiton 눌렀을 때의 액션 정의
@@ -165,11 +165,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 //        FLAG_ONE_SHOT : 이 flag 로 생성한 PendingIntent 는 일회용이다.
 //        FLAG_UPDATE_CURRENT : 이미 생성된 PendingIntent 가 존재하면 해당 Intent 의 내용을 변경한다.
 
-
+        //notification에서 작동하는 액션 설정을 위한 pendingintent 작성
         PendingIntent callPendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionCall,PendingIntent.FLAG_CANCEL_CURRENT);
         PendingIntent checkPlacePendingIntent = PendingIntent.getActivity(getApplicationContext(),0,actionCheckPlace,PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent checkFire_ext = PendingIntent.getActivity(getApplicationContext(),0,actionCheckFire_ext,PendingIntent.FLAG_UPDATE_CURRENT);
         int color = getResources().getColor(R.color.colorAccent);
+
+        //issue 별 notification 설정
         switch (issue){
             case "소화기":
                 NotificationCompat.Builder nNotificationBuilder = new NotificationCompat.Builder(this, channelId) //4.1 아래 버전과의 호환성을 위해 notificationCompat을 사용

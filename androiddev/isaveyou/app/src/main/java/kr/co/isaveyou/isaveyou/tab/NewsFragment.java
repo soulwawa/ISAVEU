@@ -44,20 +44,17 @@ import java.util.HashMap;
 import kr.co.isaveyou.isaveyou.R;
 import kr.co.isaveyou.isaveyou.main.MainActivity;
 
-
+//날씨 탭 관련 내용 작성
 public class NewsFragment extends Fragment {
     private static final String TAG = "NewsFragment";
     HttpURLConnection conn;
-    String result, temperature_max, temperature_min, today, temperature_now, weather_status, rain_status, humidity_status;
-    TextView tv_weather_news, tv_temperature_max, tv_temperature_min, tv_today, tv_temperature_now, tv_temperature_sign,tv_weather_status, tv_rain_status, tv_humidity;
+    String result, temperature_max, temperature_min, today, temperature_now, weather_status, rain_status, humidity_status, location, wdir, wspd;
+    TextView tv_weather_news, tv_temperature_max, tv_temperature_min, tv_today, tv_temperature_now, tv_temperature_sign,tv_weather_status, tv_rain_status, tv_humidity, tv_location, tv_wdir, tv_wspd;
     private static final Interpolator INTERPOLATOR = new FastOutSlowInInterpolator();
     private int mDySinceDirectionChange;
     private boolean mIsShowing;
     private boolean mIsHiding;
     ImageView iv_weather;
-
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -78,6 +75,9 @@ public class NewsFragment extends Fragment {
         tv_weather_status = (TextView)view.findViewById(R.id.tv_weather_status);
         tv_rain_status = (TextView)view.findViewById(R.id.tv_rain_status);
         tv_humidity = (TextView)view.findViewById(R.id.tv_humidity);
+        tv_location = (TextView)view.findViewById(R.id.tv_location);
+        tv_wdir = (TextView)view.findViewById(R.id.tv_wdir);
+        tv_wspd = (TextView)view.findViewById(R.id.tv_wspd);
         //비동기 thread 실행
         GetWeatherTask getWeatherTask = new GetWeatherTask();
         getWeatherTask.execute();
@@ -85,7 +85,7 @@ public class NewsFragment extends Fragment {
         return view;
     }
 
-    //날씨 정보 가져옴
+    //날씨 정보 가져옴 - sk developer api 사용
     class GetWeatherTask extends AsyncTask<String,Void,String> {
         @Override
         protected String doInBackground(String... strings) {
@@ -95,14 +95,15 @@ public class NewsFragment extends Fragment {
                 //서버 접속
                 URL url = new URL("https://api2.sktelecom.com/weather/current/minutely?" +param);
                 conn = (HttpURLConnection) url.openConnection();
+                //헤더 작성
                 conn.setRequestProperty("Content-type", "application/json;charset=UTF-8");
                 conn.setRequestProperty("Accept", "application/json");
                 conn.setRequestProperty("appKey", "98759e5d-e689-4da4-91d4-f6d0cedb89f9");
                 conn.setRequestMethod("GET");
-
+                //받아오는 데이터가 있으므로 true
                 conn.setDoInput(true);
                 conn.connect();
-
+                //responseCode로 판단
                 if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
                     tv_weather_news.setText("서버에 접속할 수 없습니다.");
                 } else {
@@ -128,7 +129,7 @@ public class NewsFragment extends Fragment {
             return null;
 
         }
-
+        //받아온 Json 객체 파싱
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
@@ -142,27 +143,35 @@ public class NewsFragment extends Fragment {
                     JSONObject jObject = jjObj.getJSONObject(i);
                     today = jObject.getString("timeObservation");
                     Log.v(TAG, "today : " + today);
-                    JSONObject jjjobj = jObject.getJSONObject("temperature");
-                    temperature_now = jjjobj.getString("tc");
-                    temperature_max = jjjobj.getString("tmax");
-                    temperature_min = jjjobj.getString("tmin");
-                    JSONObject jjjjobj = jObject.getJSONObject("sky");
-                    weather_status = jjjjobj.getString("name");
-                    JSONObject jjjjjobj= jObject.getJSONObject("rain");
-                    rain_status = jjjjjobj.getString("sinceOntime");
-
+                    JSONObject temp_obj = jObject.getJSONObject("temperature");
+                    temperature_now = temp_obj.getString("tc");
+                    temperature_max = temp_obj.getString("tmax");
+                    temperature_min = temp_obj.getString("tmin");
+                    JSONObject sky_obj = jObject.getJSONObject("sky");
+                    weather_status = sky_obj.getString("name");
+                    JSONObject rain_obj= jObject.getJSONObject("rain");
+                    rain_status = rain_obj.getString("sinceOntime");
                     humidity_status = jObject.getString("humidity");
+                    JSONObject station_obj = jObject.getJSONObject("station");
+                    location = station_obj.getString("name");
+                    JSONObject wind_obj = jObject.getJSONObject("wind");
+                    wdir = wind_obj.getString("wdir");
+                    wspd = wind_obj.getString("wspd");
                     Log.v(TAG, "tc :" + temperature_now + ", tmax : "+ temperature_max + ", tmin : " + temperature_min + ", status : " + weather_status);
                 }
                 String temperature_sign = getResources().getString(R.string.temperature);
                 String rain_sign = getResources().getString(R.string.rain_status);
                 String humidity_sign = getResources().getString(R.string.humidity_sign);
+                String wind_sign = "";
                 tv_today.setText(String.valueOf(today));
                 tv_temperature_max.setText("최고 : "+ String.valueOf(temperature_max) + " " + temperature_sign);
                 tv_temperature_min.setText("최저 : "+ String.valueOf(temperature_min) + " " + temperature_sign);
                 tv_temperature_now.setText(String.valueOf(temperature_now));
                 tv_rain_status.setText("강수량 : " + String.valueOf(rain_status) + " " + rain_sign);
                 tv_humidity.setText("습도 : " + String.valueOf(humidity_status) + " " + humidity_sign);
+                tv_location.setText("지역 : " + String.valueOf(location));
+                tv_wdir.setText("풍향 : " + String.valueOf(wdir));
+                tv_wspd.setText("풍속 : " + String.valueOf(wspd) + " " + wind_sign);
                 switch (weather_status){
                     case "맑음" :
                         iv_weather.setImageDrawable(getResources().getDrawable(R.drawable.pic_weather_sun));
@@ -228,7 +237,7 @@ public class NewsFragment extends Fragment {
         super.onDetach();
 //        mListener = null;
     }
-
+    //CoordinatorLayout 활용하여 애니메이션을 넣으려 했지만 시간이 부족하여 적용하지 못함
     public class QuickReturnFooterBehavior extends CoordinatorLayout.Behavior<View>{
 
         //스크롤에 반응

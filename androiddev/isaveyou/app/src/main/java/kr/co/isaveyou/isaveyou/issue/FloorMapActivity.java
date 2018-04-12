@@ -10,9 +10,7 @@ import kr.co.isaveyou.isaveyou.R;
 
 public class FloorMapActivity extends AppCompatActivity {
     private static final String TAG = "FloorMapActivity";
-    private static final String fragmentTag_fire_ext = "Fire_extFragment";
-    private static final String fragmentTag_disaster = "DisasterFragment";
-    String event,issue, eventCheck,place;
+    String event, eventCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,16 +21,12 @@ public class FloorMapActivity extends AppCompatActivity {
         String [] sArray = eventCheck.split("/");
 
         event = sArray[0];
-//        place = sArray[1];
 
         Log.v(TAG, "event : " + event);
-//        Log.v(TAG, "place : " + place);
-
+//      Notification에서 누른 메뉴 값을 바탕으로 해당 Fragment 실행
         if(event.equals("1")){
             FragmentManager fragmentManager = getSupportFragmentManager();
-            //
             fragmentManager.popBackStack();
-            //
             android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             android.support.v4.app.Fragment fragment_fire_ext = new Fire_extFragment();
             fragmentTransaction.replace(R.id.fire_ext_map_layout,fragment_fire_ext);
@@ -41,19 +35,13 @@ public class FloorMapActivity extends AppCompatActivity {
             Log.v(TAG, "event-1 : " + event);
         }else if(event.equals("0")){
             FragmentManager fragmentManager = getSupportFragmentManager();
-            //
             fragmentManager.popBackStack();
-            //
             android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//            Bundle bundle = new Bundle();
-//            bundle.putString("place",place);
             android.support.v4.app.Fragment fragment_disaster = new DisasterFragment();
-//            fragment_disaster.setArguments(bundle);
             fragmentTransaction.replace(R.id.fire_ext_map_layout,fragment_disaster);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
             Log.v(TAG, "event-0 : " +event);
-//            Log.v(TAG,"place0 : " + place);
         }
 
 

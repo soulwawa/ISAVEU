@@ -126,10 +126,35 @@
             android:id="@+id/tv_humidity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
             android:text="TextView"
             app:layout_constraintStart_toStartOf="@+id/tv_rain_status"
             app:layout_constraintTop_toBottomOf="@+id/tv_rain_status" />
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_today" />
+
+        <TextView
+            android:id="@+id/tv_wdir"
+            android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            android:layout_marginStart="180dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/tv_rain_status"
+            app:layout_constraintTop_toTopOf="@+id/tv_rain_status" />
+
+        <TextView
+            android:id="@+id/tv_wspd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/tv_wdir"
+            app:layout_constraintTop_toBottomOf="@+id/tv_wdir" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.design.widget.CoordinatorLayout>
