@@ -19,6 +19,9 @@
   	setTimeout(function(){
   		location.replace("/admin/admin");
 	},7500);
+  	$( window ).unload(function() {
+  	  return "Bye now!";
+  	});
 </script>
 <link href="/css/style1.css" rel="stylesheet" type="text/css">
 <style type="text/css">
