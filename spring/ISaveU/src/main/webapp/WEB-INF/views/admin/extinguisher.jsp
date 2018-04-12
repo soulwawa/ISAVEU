@@ -142,7 +142,6 @@ setTimeout(function(){
 var interval5 = setInterval(function () {
 	checkex1();
 }, 5000);
-  
 function checkex1(){
 	$.ajax({
 	      type: "GET",
@@ -165,7 +164,6 @@ function checkex1(){
 	        	document.getElementById(i+"4").innerHTML=counter.fire_ex_make;
 	        	document.getElementById(i+"5").innerHTML=counter.check_date;
 	        	document.getElementById(i+"6").innerHTML=counter.next_check;
-	        	checkex2();
 	        }
 	      }
 	    });
@@ -186,9 +184,11 @@ function reset(){
 	      url: "http://192.168.0.61:5002/feRestart/",
 	      dataType: "json",
 	      success: function(data) {
+	    	  checkex2();
 	        	alert("reset success");
 	        }
 	    });	 
+	  
 }
 $(window).on("unload", function(){
     alert("call");
