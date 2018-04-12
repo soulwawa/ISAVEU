@@ -26,7 +26,7 @@ setTimeout(function(){
 },600);
 var interval1 = setInterval(function () {
     live1();
-  }, 9900);
+  }, 2000);
 function live1() {
 	 $.ajax({
 	      type: "GET",
