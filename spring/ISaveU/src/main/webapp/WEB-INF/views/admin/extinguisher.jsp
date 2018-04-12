@@ -137,20 +137,11 @@ $(window).on("load", function(){
 
 setTimeout(function(){
 	checkex1();
-},50000);
-checkex1();
+},5000);
 
-//var interval = setInterval(function () {
-//    $.ajax({
-//      type: "GET",
-//      url: "http://192.168.0.35:9999/admin/Dispatcher",
-//     dataType: "json",
-//      success: function(data) {
-//        live = data;
-//        console.log("온도:"+live.temp+",진동 "+live.gyro+",CO "+live.smoke+",불꽃 "+live.fire+", "+live.date);
-//      }
-//    });
-//  }, 9900);
+var interval5 = setInterval(function () {
+	checkex1();
+}, 5000);
   
 function checkex1(){
 	$.ajax({
@@ -174,10 +165,21 @@ function checkex1(){
 	        	document.getElementById(i+"4").innerHTML=counter.fire_ex_make;
 	        	document.getElementById(i+"5").innerHTML=counter.check_date;
 	        	document.getElementById(i+"6").innerHTML=counter.next_check;
+	        	checkex2();
 	        }
 	      }
 	    });
-}  
+	
+}
+function checkex2(){
+	$.ajax({
+	      type: "GET",
+	      url: "http://192.168.0.35:9999/Android/feRestart.do?loc=600",
+	      dataType: "json",
+	      success: function(data3) {
+	        }
+	    });
+}
 function reset(){
 	  $.ajax({
 	      type: "GET",
@@ -188,6 +190,12 @@ function reset(){
 	        }
 	    });	 
 }
+$(window).on("unload", function(){
+    alert("call");
+    console.log("this will be triggered");
+    clearInterval(interval5);
+    clearInterval(alwayscheck);
+}); 
 </script>
 <title>관리자 페이지</title>
 
