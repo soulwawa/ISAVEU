@@ -184,7 +184,7 @@ function reset(){
 	      url: "http://192.168.0.61:5002/feRestart/",
 	      dataType: "json",
 	      success: function(data) {
-	    	  checkex2();
+	    	  	checkex2();
 	        	alert("reset success");
 	        }
 	    });	 
