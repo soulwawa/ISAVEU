@@ -21,6 +21,7 @@
 $(window).on("load", function(){
 	live1();
 });
+live1();
 var interval1 = setInterval(function () {
     live1();
   }, 9900);
