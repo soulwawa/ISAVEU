@@ -198,7 +198,7 @@ public class EventController {
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		System.out.println(module_id);
+//		System.out.println(module_id);
 		ModuleByLocationVO location = localList.get(0);
 		String title = location.getLocation() + "/" + location.getDept_name();
 
@@ -229,7 +229,7 @@ public class EventController {
 		fcmData.setRegistration_ids(reglist);
 
 		String params = gson.toJson(fcmData);
-		System.out.println(params);
+//		System.out.println(params);
 
 		HttpEntity request;
 		request = new HttpEntity(params, headers);
@@ -278,12 +278,12 @@ public class EventController {
 
 		data.setTitle(title);
 		data.setContent_1("module_id: " + module_id + " 장비 확인(센서값 오류 이상)");
-		 data.setContent_2("5"); // 장비 확인 임시지정
+		data.setContent_2("5"); // 장비 확인 임시지정
 		fcmData.setData(data);
 		fcmData.setRegistration_ids(reglist);
 
 		String params = gson.toJson(fcmData);
-		System.out.println(params);
+//		System.out.println(params);
 
 		HttpEntity request;
 		request = new HttpEntity(params, headers);
@@ -307,7 +307,7 @@ public class EventController {
 			String url = "http://192.168.0." + urlArray[i] + "/siren/" + issue;
 			RestTemplate restTemplate = new RestTemplate();
 			String result = restTemplate.getForObject(url, String.class);
-			System.out.println(result);
+//			System.out.println(result);
 		}
 
 	}
@@ -516,7 +516,7 @@ public class EventController {
 		
 		map.put("floor", loc);
 		map.put("list", list);
-		System.out.println(map);
+//		System.out.println(map);
 		return map;
 		
 	}
