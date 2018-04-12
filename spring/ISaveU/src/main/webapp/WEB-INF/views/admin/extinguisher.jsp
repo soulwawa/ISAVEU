@@ -175,6 +175,8 @@ function checkex2(){
 	      url: "http://192.168.0.35:9999/Android/feRestart.do?loc=600",
 	      dataType: "json",
 	      success: function(data3) {
+	    	  alert("reset success");
+	    	  console.log("소화기 테이블 재설정 완료");
 	        }
 	    });
 }
@@ -184,7 +186,7 @@ function reset(){
 	      url: "http://192.168.0.61:5002/feRestart/",
 	      dataType: "json",
 	      success: function(data) {
-	    	  checkex2();
+	    	  	checkex2();
 	        	alert("reset success");
 	        }
 	    });	 
