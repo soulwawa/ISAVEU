@@ -143,7 +143,7 @@ p{
 	margin-top:20px;
 	margin-bottom:20px;
 	position:relative;
-	left:737px;
+	left:743px;
 }
 </style>
 <title>관리자 페이지</title>
