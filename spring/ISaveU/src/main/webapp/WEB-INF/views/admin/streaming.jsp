@@ -43,6 +43,19 @@
 		  location.reload();
 	  }, 3000);
   }
+  function reset(){
+	  $.ajax({
+	      type: "GET",
+	      url: "http://192.168.0.35:9999/module/eventIn.do?&module_id=0&temp=0&smoke=1200&gyro=1040&fire=1040&issue=0&reset=1",
+	      dataType: "json",
+	      success: function(data) {
+	        	alert("reset success");
+	        }
+	    });	  
+  }
+  function changec(str){
+	  document.getElementById("sname").innerHTML=str;
+  }
 </script>
 <style>
 #streaming{
@@ -50,8 +63,8 @@
 	width:642px; 
 	padding:0px;
 	position:relative;
-	left:524px;
-	top:120px;
+	top:100px;
+	left:452px;
 	border: 1px solid #999;
 	z-index:1000;
 }
@@ -87,14 +100,50 @@
 }
 .streamcontroler{
 	width:120px;
-	height:70px;
-	margin:15px;
+	height:60px;
+	margin:7px auto;
 	border:solid 1px #bbb;
-	border-radious:7px;
+	border-radius:7px;
+	background-color:#eee !important;
+	text-align:center;
 }
 label{
 	position:relative;
 	left:26px;
+}
+#section1{
+	float:left;
+	height:100%;
+	width:144px;
+}
+#section2{
+	float:left;
+	height:100%;
+	width:1546px;
+}
+#section21{
+	width:100%;
+	height:700px;
+}
+#section22{
+	width:100%;
+	height:124px;
+}
+p{
+	padding:0 !important;
+	margin:0 auto; !important;
+	text-align:center;
+}
+#resetbtn{
+	position:relative;
+	left:705px;
+	margin-top:30px;
+}
+#sname{
+	margin-top:20px;
+	margin-bottom:20px;
+	position:relative;
+	left:737px;
 }
 </style>
 <title>관리자 페이지</title>
@@ -189,30 +238,59 @@ label{
 			</div>
 		</div>
 		<div class="contents">
-			<div class="streamcontroler">
-				<label>Sensor 0</label>
+			<div id="section1">
+				<button class="streamcontroler" value="Sensor 0" onclick="changec('Sensor 0')">
+					<p>Sensor 0</p>
+				</button>
+				<button class="streamcontroler" value="Sensor 1" onclick="changec('Sensor 1')">
+					<p>Sensor 1</p>
+				</button>
+				<button class="streamcontroler" value="Sensor 2" onclick="changec('Sensor 2')">
+					<p>Sensor 2</p>
+				</button>
+				<button class="streamcontroler" value="Sensor 3" onclick="changec('Sensor 3')">
+					<p>Sensor 3</p>
+				</button>
+				<button class="streamcontroler" value="Sensor 4" onclick="changec('Sensor 4')">
+					<p>Sensor 4</p>
+				</button>
+				<button class="streamcontroler" value="Sensor 5" onclick="changec('Sensor 5')">
+					<p>Sensor 5</p>
+				</button>
+				<button class="streamcontroler" value="Sensor 6" onclick="changec('Sensor 6')">
+					<p>Sensor 6</p>
+				</button>
+				<button class="streamcontroler" value="Sensor 7" onclick="changec('Sensor 7')">
+					<p>Sensor 7</p>
+				</button>
+				<button class="streamcontroler" value="Sensor 8" onclick="changec('Sensor 8')">
+					<p>Sensor 8</p>
+				</button>
+				<button class="streamcontroler" value="Sensor 9" onclick="changec('Sensor 9')">
+					<p>Sensor 9</p>
+				</button>
+				<button class="streamcontroler" value="Sensor 10" onclick="changec('Sensor 10')">
+					<p>Sensor 10</p>
+				</button>
 			</div>
-			<div class="streamcontroler">
-				<label>Sensor 0</label>
-			</div>
-			<div class="streamcontroler">
-				<label>Sensor 0</label>
-			</div>
-			<div class="streamcontroler">
-				<label>Sensor 0</label>
-			</div>
-			<div class="streamcontroler">
-				<label>Sensor 0</label>
-			</div>
-			<div id="cam">
-				
-			</div>
-			<div class="btncase" id="case0">
-				<div class="streamBtn">
-					<button class="playbtn" onclick="play()"></button>
+			<div id="section2">
+				<div id="section21">
+					<label id="sname">Sensor 0</label>
+					<div id="cam">
+					</div>
 				</div>
-				<div class="streamBtn">
-					<button class="stopbtn" onclick="stop()"></button>
+				<div id="section22">
+					<div class="btncase" id="case0">
+						<div class="streamBtn">
+							<button class="playbtn" onclick="play()"></button>
+						</div>
+						<div class="streamBtn">
+							<button class="stopbtn" onclick="stop()"></button>
+						</div>
+					</div>
+					<button class="streamcontroler" id="resetbtn" onclick="reset()">
+					<p>장비 재설정</p>
+					</button>
 				</div>
 			</div>
 		</div>
