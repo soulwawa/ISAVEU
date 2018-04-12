@@ -37,8 +37,8 @@ function showAlert(issuess){
 		  document.getElementById("art").style.background="rgba(255,255,0,0.8) !important";
 		  document.getElementById("art").style.background="rgba(255,255,0,0.8)";
 	  }else if(issuess == 3){
-		  document.getElementById("art").style.background="rgba(0,255,255,0.8) !important";
-		  document.getElementById("art").style.background="rgba(0,255,255,0.8)";
+		  document.getElementById("art").style.background="rgba(255,0,255,0.8) !important";
+		  document.getElementById("art").style.background="rgba(255,0,255,0.8)";
 	  }
 	  $.ajax({
 	      type: "GET",
