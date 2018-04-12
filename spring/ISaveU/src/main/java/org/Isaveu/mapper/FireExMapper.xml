@@ -17,9 +17,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="updatefireExStatus"
 	resultType="org.Isaveu.domain.TbFireExVO" parameterType="String">
 	UPDATE tb_fire_ex
-	Inner join tb_location
+		Inner join tb_location
 	ON tb_fire_ex.location_id = tb_location.location_id
-	set fire_ex_status = 1
+		set fire_ex_status = 1
 	WHERE location = #{value}
 	</select>
 	
@@ -29,7 +29,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	WHERE
 		fire_ex_name = #{fire_ex_name}
 	</update>
-	
-	
 	
 </mapper>

@@ -373,7 +373,7 @@ public class EventController {
 			}
 			result.add(map);
 		}
-//		Collections.reverse(result);
+		Collections.reverse(result);
 		return result;
 
 	}
