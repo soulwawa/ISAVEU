@@ -441,17 +441,17 @@ tb{
 			</div>
 			<div class="menuBtn" >
 				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/admin/stream')">
-  					<span class="glyphicon glyphicon-play-circle" ></span> Streaming
-				</button>
-			</div>
-			<div class="menuBtn" >
-				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/admin/index')">
-  					<span class="glyphicon glyphicon-user" ></span> H.R
+  					<span class="glyphicon glyphicon-play-circle" ></span> Status Check
 				</button>
 			</div>
 			<div class="menuBtn" >
 				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/admin/ex')">
-  					<span class="glyphicon glyphicon-map-marker"></span> Map
+  					<span class="glyphicon glyphicon-map-marker"></span> FE Maintenance
+				</button>
+			</div>
+			<div class="menuBtn" >
+				<button type="button" class="btn btn-default btn-lg btn-block" onclick="goReplace('/admin/index')">
+  					<span class="glyphicon glyphicon-user" ></span> Emp Info
 				</button>
 			</div>
 		</div>
