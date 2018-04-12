@@ -17,8 +17,11 @@
 ##### 4.6. Sensor module : smoke, fire, gyro, temp, laser, beacon, Bluetooth, wifi
 ##### 4.6. Version Control : GITHUB(GIT), Sourcetree
 
-### 5. 프로젝트 개념도
+### 5. Intro
+<p><img src="https://github.com/soulwawa/ISAVEU/blob/master/image/index.gif"></p>
+
+### 6. 프로젝트 개념도
 <p><img src="https://github.com/soulwawa/ISAVEU/blob/75b38aacc4de106bb06835449850f3ddb3fe837d/image/180306_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B0%9C%EB%85%90%EB%8F%84.PNG"></p>
 
-### 6. 하드웨어 설계
+### 7. 하드웨어 설계
 <p><img src="https://github.com/soulwawa/ISAVEU/blob/75b38aacc4de106bb06835449850f3ddb3fe837d/image/%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4%20%EC%84%A4%EA%B3%84%EB%8F%84.png"></p>
