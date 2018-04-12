@@ -56,6 +56,11 @@
   function changec(str){
 	  document.getElementById("sname").innerHTML=str;
   }
+  $(window).on("unload", function(){
+	    alert("call");
+	    console.log("this will be triggered");
+	    clearInterval(alwayscheck);
+	}); 
 </script>
 <style>
 #streaming{

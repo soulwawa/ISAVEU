@@ -16,7 +16,7 @@
 <script language="javascript" type="text/javascript" src="/js/sensorlog1.js"></script>
 
 <script>
-var interval = setInterval(function () {
+var interval1 = setInterval(function () {
     $.ajax({
       type: "GET",
       url: "http://192.168.0.35:9999/admin/DispatcherPart/temp",
@@ -28,7 +28,7 @@ var interval = setInterval(function () {
       }
     });
   }, 9900);
-var interval = setInterval(function () {
+var interval2 = setInterval(function () {
     $.ajax({
       type: "GET",
       url: "http://192.168.0.35:9999/admin/DispatcherPart/smoke",
@@ -40,7 +40,7 @@ var interval = setInterval(function () {
       }
     });
   }, 9900);
-var interval = setInterval(function () {
+var interval3 = setInterval(function () {
     $.ajax({
       type: "GET",
       url: "http://192.168.0.35:9999/admin/DispatcherPart/gyro",
@@ -52,7 +52,7 @@ var interval = setInterval(function () {
       }
     });
   }, 9900);
-var interval = setInterval(function () {
+var interval4 = setInterval(function () {
     $.ajax({
       type: "GET",
       url: "http://192.168.0.35:9999/admin/DispatcherPart/fire",
@@ -64,6 +64,16 @@ var interval = setInterval(function () {
       }
     });
   }, 9900);
+  
+$(window).on("unload", function(){
+    alert("call");
+    console.log("this will be triggered");
+    clearInterval(interval1);
+    clearInterval(interval2);
+    clearInterval(interval3);
+    clearInterval(interval4);
+    clearInterval(alwayscheck);
+}); 
 </script>
 <style>
 .contents{
