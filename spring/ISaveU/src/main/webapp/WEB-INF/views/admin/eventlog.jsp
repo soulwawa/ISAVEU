@@ -638,6 +638,7 @@ tb{
 			</div>
 		</div>
 		<div class="footer">
+			<div style="padding: 7px;">Copyright © 2018 HSB Inc.</div>
 		</div>
 		<div id="photoz" onclick="closephoto()">
 		</div>

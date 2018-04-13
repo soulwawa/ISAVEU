@@ -16,12 +16,23 @@
             $(this).attr( 'src', '/img/test.png' );
           } );
       } );
-  	setTimeout(function(){
-  		location.replace("/admin/admin");
-	},7500);
-  	$( window ).unload(function() {
-  	  return "Bye now!";
-  	});
+//  	setTimeout(function(){
+//  		location.replace("/admin/admin");
+//		},7500);
+  	
+  	var interval9 = setInterval(function () {
+  	    icon();
+  	  }, 1001);
+  	
+  function icon(){
+	  setTimeout(function(){
+		  document.getElementById("loginimg").src = "/img/test_end.png";
+		},500);
+	  setTimeout(function(){
+		  document.getElementById("loginimg").src = "/img/test.png";
+		},1000);
+  }
+  	
 </script>
 <link href="/css/style1.css" rel="stylesheet" type="text/css">
 <style type="text/css">

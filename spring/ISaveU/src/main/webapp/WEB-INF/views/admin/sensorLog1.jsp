@@ -24,7 +24,6 @@ var interval1 = setInterval(function () {
       success: function(data) {
         obtemp = data;
         document.getElementById("chart6").setData(obtemp);
-        console.log(obtemp);
       }
     });
   }, 9900);
@@ -36,7 +35,6 @@ var interval2 = setInterval(function () {
       success: function(data) {
         obsmoke = data;
         document.getElementById("chart7").setData(obsmoke);
-        console.log(obsmoke);
       }
     });
   }, 9900);
@@ -48,7 +46,6 @@ var interval3 = setInterval(function () {
       success: function(data) {
         obgyro = data;
         document.getElementById("chart8").setData(obgyro);
-        console.log(obgyro);
       }
     });
   }, 9900);
@@ -60,14 +57,12 @@ var interval4 = setInterval(function () {
       success: function(data) {
         obfire = data;
         document.getElementById("chart9").setData(obfire);
-        console.log(obfire);
       }
     });
   }, 9900);
   
 $(window).on("unload", function(){
     alert("call");
-    console.log("this will be triggered");
     clearInterval(interval1);
     clearInterval(interval2);
     clearInterval(interval3);

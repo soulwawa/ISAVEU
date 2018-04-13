@@ -2,6 +2,7 @@ html{
 	height: auto;
     min-height: 100%;
     display: block;
+    height:1080px !important;
 }
 
 body{
@@ -10,9 +11,11 @@ body{
     background: url(/img/indexback.gif) no-repeat;
     background-size:cover;
     z-index:900;
+    height:1080px !important;
 }
 #indexcover{
-	height:974px;
+	min-height:1080px !important;
+	height:1080px !important;
     background:rgba(0,0,0,0.85);
 }
 html, body{

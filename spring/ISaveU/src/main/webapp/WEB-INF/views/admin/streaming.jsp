@@ -58,7 +58,6 @@
   }
   $(window).on("unload", function(){
 	    alert("call");
-	    console.log("this will be triggered");
 	    clearInterval(alwayscheck);
 	}); 
 </script>

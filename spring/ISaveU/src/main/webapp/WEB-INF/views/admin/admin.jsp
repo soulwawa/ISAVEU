@@ -41,7 +41,6 @@ function live1() {
 	    		document.getElementById("chart"+j).setData(cv);
 	    		
 	    		var dis = counter.value[11].issue;
-	    		console.log(i+"번센서 상황번호"+dis);
 	    		var k = i + 10;
 	    		doalt(i,k,dis);
 	        }
@@ -49,10 +48,7 @@ function live1() {
 	    });
 }
   $(window).on("unload", function(){
-	    alert("call");
-	    console.log("this will be triggered");
 	    clearInterval(interval1);
-	    clearInterval(interval2);
 	    clearInterval(alwayscheck);
 	}); 
   
@@ -61,9 +57,7 @@ function doalt(i,k,dis){
 	var interval4;
 	var interval5;
 	if(dis == 0){
-		console.log(i+"번 센서 이상없음");
 	}else if(dis == 2){
-		console.log(i+"번 센서 지진감지");
 		interval3 = setInterval(function () {
 			setTimeout(function(){
 				document.getElementById("cover"+k).style.background = "rgba(255,255,0,0.75)";
@@ -74,7 +68,6 @@ function doalt(i,k,dis){
 		  }, 620);
 		
 	}else if(dis == 1){
-		console.log(i+"번 센서 화재감지");
 		interval5 = setInterval(function () {
 			setTimeout(function(){
 				document.getElementById("cover"+k).style.background = "rgba(255,0,0,0.75)";
@@ -84,7 +77,6 @@ function doalt(i,k,dis){
 			},600);
 		  }, 620);
 	}else{
-		console.log(i+"번 센서 화재 지진 동시 발생");
 		interval4 = setInterval(function () {
 			setTimeout(function(){
 				document.getElementById("cover"+k).style.background = "rgba(255,0,255,0.75)";

@@ -97,7 +97,7 @@ public class EventController {
 			System.out.println("화재경보 < " + datenow + " >" );
 			imageGet(issue);
 			eService.insertEvent(event);
-			System.out.println("DB : Insert Sensing Succes");
+			System.out.println("DB : Insert Sensing success");
 			issueTemp = issue;
 			RaspControl(issue);
 			break;
@@ -105,7 +105,7 @@ public class EventController {
 			System.out.println("지진경보 < " + datenow + " >" );
 			imageGet(issue);
 			eService.insertEvent(event);
-			System.out.println("DB : Insert Sensing Succes");
+			System.out.println("DB : Insert Sensing success");
 			issueTemp = issue;
 			RaspControl(issue);
 			break;
@@ -113,7 +113,7 @@ public class EventController {
 			System.out.println("지진 + 화재경보 < " + datenow + " >" );
 			imageGet(issue);
 			eService.insertEvent(event);
-			System.out.println("DB : Insert Sensing Succes");
+			System.out.println("DB : Insert Sensing success");
 			issueTemp = issue;
 			RaspControl(issue);
 			break;
@@ -138,7 +138,7 @@ public class EventController {
 						event.setIssue(issue);
 						eService.insertEvent(event);
 						System.out.println("Sensor Status Check : " + event.getModule_id() + " : " + datenow);
-						System.out.println("DB : Insert Sensing Succes");
+						System.out.println("DB : Insert Sensing success");
 					}
 				} else {
 					System.out.println("Sensor ERROR :" + module_id);

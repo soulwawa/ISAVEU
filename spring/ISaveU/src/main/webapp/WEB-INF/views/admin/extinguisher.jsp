@@ -182,7 +182,6 @@ function reset(){
 }
 $(window).on("unload", function(){
     alert("call");
-    console.log("this will be triggered");
     clearInterval(interval5);
     clearInterval(alwayscheck);
 }); 
@@ -429,6 +428,7 @@ $(window).on("unload", function(){
 			</div>
 		</div>
 		<div class="footer">
+			<div style="padding: 7px;">Copyright © 2018 HSB Inc.</div>
 		</div>
 	</div>
 </body>
