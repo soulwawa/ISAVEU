@@ -1,3 +1,0 @@
-#Tomcat publish data
-#Mon Mar 19 04:50:37 KST 2018
-org.eclipse.jst.jee.server\:SafeForYou=/Users/soulwawa/Desktop/GoogleDrive/SaveForYou_IoT/apache-tomcat-8.5.29/wtpwebapps/SafeForYou

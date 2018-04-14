@@ -1,5 +1,0 @@
-package kpc.iot.smb.controller;
-
-public interface Action {
-
-}
