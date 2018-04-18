@@ -21,7 +21,7 @@
 <p><img src="https://github.com/soulwawa/ISAVEU/blob/master/image/index.gif"></p>
 
 ### 6. 시연동영상
-<a href="http://www.youtube.com/watch?v=tMLnRnyyZHg"><img src="http://img.youtube.com/vi/tMLnRnyyZHg/0.jp" width="888" ></a>
+<a href="http://www.youtube.com/watch?v=tMLnRnyyZHg"><img src="http://img.youtube.com/vi/tMLnRnyyZHg/0.jpg" width="888" ></a>
 
 
 ### 7. 프로젝트 개념도
