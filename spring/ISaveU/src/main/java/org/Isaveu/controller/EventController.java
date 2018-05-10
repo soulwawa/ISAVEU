@@ -56,7 +56,7 @@ public class EventController {
 	String module_id;
 	String typeArduino = "arduino";
 	DecimalFormat form = new DecimalFormat("#.##");
-	
+
 	@Resource(name = "org.Isaveu.service.EventService")
 	EventService eService;
 
@@ -82,19 +82,19 @@ public class EventController {
 		gyro = event.getGyro();
 		fire = event.getFire();
 		module_id = event.getModule_id();
-
-		// if 모듈이 여러개일때 가정
+		
+		// 모듈이 여러개일때 가정, ex 모듈이 한개지만 보여주기식 가상 데이타 설정을 위함.
 		List<TbModuleVO> moduleList = mService.getModuleList(typeArduino);
 
-		// reset value "1" 이면 issueTemp 를 초기화
+		// reset value "1" 이면 issueTemp 를 초기화 (사용자가 모듈초기화)
 		issueTemp = reset.equals("1") ? "0" : issueTemp;
 		Date date = new Date();
 		SimpleDateFormat transFomat = new SimpleDateFormat("yyyyMMdd_HHmmss");
 		String datenow = transFomat.format(date);
-		
+
 		switch (issue) {
 		case "1":
-			System.out.println("화재경보 < " + datenow + " >" );
+			System.out.println("화재경보 < " + datenow + " >");
 			imageGet(issue);
 			eService.insertEvent(event);
 			System.out.println("DB : Insert Sensing success");
@@ -102,7 +102,7 @@ public class EventController {
 			RaspControl(issue);
 			break;
 		case "2":
-			System.out.println("지진경보 < " + datenow + " >" );
+			System.out.println("지진경보 < " + datenow + " >");
 			imageGet(issue);
 			eService.insertEvent(event);
 			System.out.println("DB : Insert Sensing success");
@@ -110,7 +110,7 @@ public class EventController {
 			RaspControl(issue);
 			break;
 		case "3":
-			System.out.println("지진 + 화재경보 < " + datenow + " >" );
+			System.out.println("지진 + 화재경보 < " + datenow + " >");
 			imageGet(issue);
 			eService.insertEvent(event);
 			System.out.println("DB : Insert Sensing success");
@@ -120,14 +120,12 @@ public class EventController {
 		default:
 			RaspControl(issue);
 			if (issueTemp == "4") {
-				System.out.println("module : " + module_id + " 번 문제 발생 < " + datenow + " >" );
+				System.out.println("module : " + module_id + " 번 문제 발생 < " + datenow + " >");
 				fCMSendToAdmin(module_id);
 				break;
 			} else {
 				if (issue.equals(issueTemp)) {
 					issueTemp = issue;
-//					System.out.println("module_id: " + module_id);
-//					System.out.println("issue: " + issue + " / issueTemp: " + issueTemp);
 					for (int i = 0; i < moduleList.size(); i++) {
 						float ramdom = (float) Math.random();
 						event.setModule_id(String.valueOf(i));
@@ -146,7 +144,6 @@ public class EventController {
 					issueTemp = "4";
 					break;
 				}
-
 			}
 		}
 		return "200".toString();
@@ -197,7 +194,7 @@ public class EventController {
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-//		System.out.println(module_id);
+		// System.out.println(module_id);
 		ModuleByLocationVO location = localList.get(0);
 		String title = location.getLocation() + "/" + location.getDept_name();
 
@@ -228,7 +225,7 @@ public class EventController {
 		fcmData.setRegistration_ids(reglist);
 
 		String params = gson.toJson(fcmData);
-//		System.out.println(params);
+		// System.out.println(params);
 
 		HttpEntity request;
 		request = new HttpEntity(params, headers);
@@ -282,7 +279,7 @@ public class EventController {
 		fcmData.setRegistration_ids(reglist);
 
 		String params = gson.toJson(fcmData);
-//		System.out.println(params);
+		// System.out.println(params);
 
 		HttpEntity request;
 		request = new HttpEntity(params, headers);
@@ -306,13 +303,13 @@ public class EventController {
 			String url = "http://192.168.0." + urlArray[i] + "/siren/" + issue;
 			RestTemplate restTemplate = new RestTemplate();
 			String result = restTemplate.getForObject(url, String.class);
-//			System.out.println(result);
+			// System.out.println(result);
 		}
 
 	}
 
 	@RequestMapping("/admin/Dispatcher")
-	private Map<String, Object> dispatcher(@ModelAttribute TbEventVO event) throws Exception {	
+	private Map<String, Object> dispatcher(@ModelAttribute TbEventVO event) throws Exception {
 		System.out.println("Request /admin/Dispatcher");
 		Date date = new Date();
 		SimpleDateFormat transFomat = new SimpleDateFormat("yyyyMMdd_HHmmss");
@@ -485,39 +482,39 @@ public class EventController {
 
 			listAll.add(map);
 		}
-//		Collections.reverse(listAll);
+		// Collections.reverse(listAll);
 		return listAll;
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/admin/DisasterCheck.do")
-	public Map<String, Object> AndroiDisasterCheck(@RequestParam("loc") String loc){
+	public Map<String, Object> AndroiDisasterCheck(@RequestParam("loc") String loc) {
 		System.out.println("Request /admin/DisasterCheck.do");
 		Map<String, Object> map = new HashMap<String, Object>();
 		String count = "";
 		try {
 			count = lService.locationCount(loc);
-//			System.out.println(count);
+			// System.out.println(count);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		ArrayList<LocationByIssueVO> list = new ArrayList<LocationByIssueVO>();
-		
+
 		int countInt = Integer.parseInt(count);
 		try {
 			list = new ArrayList<LocationByIssueVO>();
 			for (int i = 0; i < countInt; i++) {
 				list.addAll(lService.AndroidDisasterCheck(String.valueOf(i)));
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		map.put("floor", loc);
 		map.put("list", list);
-//		System.out.println(map);
+		// System.out.println(map);
 		return map;
-		
+
 	}
 
 }
