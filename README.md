@@ -20,14 +20,14 @@
 ##### 5.6. Version Control : GITHUB(GIT), Sourcetree
 
 ### 6. Intro
-<p><img src="https://github.com/soulwawa/ISAVEU/blob/master/image/index.gif"></p>
+<p><img src="image/index.gif"></p>
 
 ### 7. 시연동영상
 <a href="http://www.youtube.com/watch?v=tMLnRnyyZHg"><img src="http://img.youtube.com/vi/tMLnRnyyZHg/0.jpg" width="888" ></a>
 
 
 ### 8. 프로젝트 개념도
-<p><img src="https://github.com/soulwawa/ISAVEU/blob/75b38aacc4de106bb06835449850f3ddb3fe837d/image/180306_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B0%9C%EB%85%90%EB%8F%84.PNG"></p>
+<p><img src="image/180306_프로젝트_개념도.PNG"></p>
 
 ### 9. 하드웨어 설계
-<p><img src="https://github.com/soulwawa/ISAVEU/blob/75b38aacc4de106bb06835449850f3ddb3fe837d/image/%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4%20%EC%84%A4%EA%B3%84%EB%8F%84.png"></p>
+<p><img src="image/하드웨어 설계도.png"></p>
