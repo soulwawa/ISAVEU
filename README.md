@@ -27,7 +27,7 @@
 
 
 ### 8. 프로젝트 개념도
-<p><img src="image/project.png"></p>
+<p><img src="image/project.PNG"></p>
 
 ### 9. 하드웨어 설계
 <p><img src="image/hardware.png"></p>
